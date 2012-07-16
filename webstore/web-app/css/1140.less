@@ -1,0 +1,727 @@
+/*
+* Constants
+*/
+@column-width: 75;
+@gutter-width: 15;
+@columns: 12;
+
+// Utility variable — you should never need to modify this
+@gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+// Set @total-width to 100% for a fluid layout
+@total-width: @gridsystem-width;
+
+// Uncomment these two lines and the star-hack width/margin lines below to enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// @min-width: 960;
+// @correction: 0.5 / @min-width * 100 * 1%;
+
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix() {
+	*zoom:1;
+	
+	&:before,
+	&:after {
+	    content:"";
+	    display:table;
+	}
+	&:after {
+	    clear:both;
+	}
+}
+
+/**
+*   Rounded Division Borders
+**/
+.border-radius (@radius: 5px) {
+   border-radius: @radius;
+}
+
+/**
+*   Linear Gradient
+**/
+.linear-gradient (@start: #fff, @end: #ddd, @percent: 100%) {
+	   background: @start; /* Old */
+	   background: -moz-linear-gradient(top,  @start 0%, @end @percent); /* FF3.6+ */
+	   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(@percent,@end)); /* Chrome, Safari 4+ */
+	   background: -webkit-linear-gradient(top,  @start 0%,@end @percent); /* Chrome 10+, Safari 5.1+ */
+	   background: -o-linear-gradient(top,  @start 0%,@end @percent); /* Opera 11.10+ */
+	   background: -ms-linear-gradient(top,  @start 0%,@end @percent); /* IE 10+ */
+	   background: linear-gradient(top,  @start 0%,@end @percent); /* W3C */
+}
+
+.boxshadow {
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+}
+
+
+.row(@columns:@columns) {
+	display: block;
+	width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
+	/* margin: 20px @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1); */
+	// *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
+	// *margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1)-@correction;
+	.clearfix;
+}
+.column(@x,@columns:@columns) {
+	display: inline;
+	float: left;
+	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width);
+	// *width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width)-@correction;
+	// *margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width)-@correction;
+}
+
+.div_shadow {
+	-webkit-box-shadow: 2px 2px  #CCC,  -1px 0 1px #666;   
+	-moz-box-shadow: 2px 2px  #CCC,  -2px 0 2px #666; 
+	box-shadow:2px 2px  #CCC,  -2px 0 2px #666; 
+}
+/**/
+
+/* CSS Resets */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ol,ul,li,legend,table,caption,tbody,tfoot,thead,tr,th,td
+	{
+	border: 0;
+	margin: 0;
+	padding: 0
+}
+
+article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object
+	{
+	display: block
+}
+
+a img {
+	border: 0
+}
+
+figure {
+	position: relative
+}
+
+figure img {
+	width: 100%
+}
+
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+.container {
+	padding-top: 40px;
+}
+
+.row {
+	width: inherit;
+	/* max-width: 1140px; */
+	min-width: 755px;
+	margin-left: 1.0em;
+	margin-top: 1.5%;
+	margin-bottom: 0.8em;
+}
+
+.onecol,.twocol,.threecol,.fourcol,.fivecol,.sixcol,.sevencol,.eightcol,.ninecol,.tencol,.elevencol,.twelvecol
+	{
+	margin-right: 3.8%;
+	margin-left: 1.0em;
+	float: left;
+	min-height: 1px;
+	margin-top: 20px;
+	padding-bottom: 1em;
+}
+
+.row .onecol {
+	width: 4.85%;
+}
+
+.row .twocol {
+	width: 13.45%;
+}
+
+.row .threecol {
+	width: 22.05%;
+}
+
+.row .fourcol {
+	.column(4);
+}
+
+.row .fivecol {
+	width: 39.45%;
+}
+
+.row .sixcol {
+	.column(6);
+}
+
+.row .sevencol {
+	width: 56.75%;
+}
+
+.row .eightcol {
+	.column(8);
+}
+
+.row .ninecol {
+	width: 74.05%;
+}
+
+.row .tencol {
+	width: 82.7%;
+}
+
+.row .elevencol {
+	width: 91.35%;
+}
+
+.row .twelvecol {
+	width: 100%;
+	float: left;
+}
+
+.last {
+	margin-right: 0px;
+	border-right: 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+/* Smaller screens */
+@media only screen and (max-width: 1023px) {
+	body {
+		font-size: 0.8em;
+		line-height: 1.5em;
+	}
+}
+
+/* Mobile */
+@media handheld , only screen and (max-width: 767px) {
+	body {
+		font-size: 16px;
+		-webkit-text-size-adjust: none;
+	}
+	.row,body,.container {
+		width: 100%;
+		min-width: 0;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.row .onecol,.row .twocol,.row .threecol,.row .fourcol,.row .fivecol,.row .sixcol,.row .sevencol,.row .eightcol,.row .ninecol,.row .tencol,.row .elevencol,.row .twelvecol
+		{
+		width: auto;
+		float: none;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+article {
+	.column(12);
+	margin-top: 20px;
+	margin-bottom: 20px;
+	.linear-gradient(#F2F3ED,#FFF,80%);
+	.border-radius(5px); 
+	min-height: 100px;
+	border: 1px;
+	border-style: dotted;
+}
+
+section #section {
+	min-height: 100px;
+	.linear-gradient(#F2F3ED,#FFF,80%);
+	.border-radius(5px);
+	border: 1px;
+	border-style: dotted;
+}
+
+section #search {
+	min-height: 100px;
+	.column(12);
+}
+
+.title {
+    display: inline;
+    padding-top: 8px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+#top-bar {
+	height: 40px;
+	line-height: 1.1em;
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 16px;
+	padding-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	display: inline-block;
+}
+
+#top-bar-content {
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.box-small {
+    border-right: 1px solid #D9DCDC;
+    margin-left: 2em;
+    width: 23%;
+    margin-right: 3.8%;
+	margin-left: 1.0em;
+	margin-bottom: 20px;
+	
+	max-height: 300px;
+	height: 300px;
+
+	float: left;
+	margin-top: 20px;
+	padding-bottom: 1em;
+	padding-right: 20px;
+	border-right: 1px dotted #D9DCDC;
+	/* height: 200px; */
+	/* margin: 5px 5px 0 0; */
+	/* .linear-gradient(#FAFAFA,#FFFFFF,100%); */
+	/* .border-radius(5px); */}
+
+div.box-small:last-child {
+   border-right-style: none;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+ul > li > a.read_more {
+	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
+	font-size:9px;
+	color:#336699;
+}
+
+ul > li.recent_article {
+	padding: 5px;
+	margin-right: 5px;
+ 	border-bottom: 1px solid #D9DCDC;
+ 	border-bottom-style: dashed; 	
+}
+
+ul > li.testimonial {
+	padding: 5px;
+	margin-right: 5px;
+}
+
+.categoryThumbImages {
+	width: 180px;
+	height: 120px;
+	padding: 2px;
+	display: block;
+	vertical-align: bottom;
+}
+
+/**
+	FORMS INPUTS
+**/
+input,select,textarea {
+	padding: 0.25em;
+	font: Tahoma;
+	font-size: 12px;
+}
+
+option {
+	font-size: 12px;
+}
+
+.content {
+	
+}
+
+.content h1 {
+	border-bottom: 1px solid #D9DCDC;
+	margin: 1.0em 1em 0.3em;
+	padding: 0 0.25em;
+	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
+	font-size: 15px;
+}
+
+.scaffold-list {
+	border: 1px;
+}
+
+.scaffold-list table {
+	border: 1px;
+	font-size: 12px;
+	width: auto;
+}
+
+.scaffold-list td {
+	font-size: 12px;
+}
+
+.scaffold-list th {
+	font-size: 12px;
+}
+
+/* CREATE/EDIT FORMS AND SHOW PAGES */
+fieldset.form {
+	margin: 0.6em 1.25em 0 1.25em;
+	padding: 0.3em 1.8em 1.25em;
+	position: relative;
+	zoom: 1;
+	border: none;
+	font-size: 13px;
+	border: 1px solid #D9DCDC;
+	 
+	.border-radius(4px);
+	.linear-gradient(#FAFAFA,#FFF,100%);
+}
+
+fieldset.buttons {
+	margin-top: 10px;
+	/* border-top: 1px dashed #D9DCDC; */
+}
+
+fieldset,.property-list {
+	margin: 0.6em 1.25em 0 1.25em;
+	padding: 0.3em 1.8em 1.25em;
+	position: relative;
+	zoom: 1;
+	border: none;
+	font-size: 13px;
+}
+
+.property-list .fieldcontain {
+	list-style: none;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.fieldcontain {
+	font-family: Tahoma;
+	font-size: 12px;
+	margin-top: 1em;
+}
+
+.fieldcontain label,.fieldcontain .property-label {
+	color: #666666;
+	text-align: left;
+	width: 18%;
+	font-size: 0.95em;
+}
+
+.fieldcontain .property-label {
+	float: left;
+}
+
+.fieldcontain .property-value {
+	font-size: 12px;
+	display: block;
+	font-family: Tahoma;
+}
+
+label {
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 0.25em 0 0;
+	font-size: 13px;
+}
+
+input,select,textarea {
+	background-color: #fcfcfc;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+}
+
+select {
+	font-size: 0.90em;
+	padding: 0.2em 0.2em 0.2em 0;
+}
+
+select[multiple] {
+	vertical-align: top;
+}
+
+textarea {
+	width: 250px;
+	height: 150px;
+	overflow: auto; /* IE always renders vertical scrollbar without this */
+	vertical-align: top;
+}
+
+input[type=checkbox],input[type=radio] {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+}
+
+input:focus,select:focus,textarea:focus {
+	background-color: #ffffff;
+	border: 1px solid #eeeeee;
+	outline: 0;
+	-moz-box-shadow: 0 0 0.5em #ffffff;
+	-webkit-box-shadow: 0 0 0.5em #ffffff;
+	box-shadow: 0 0 0.5em #ffffff;
+}
+
+.required-indicator {
+	color: #336699;
+	display: inline-block;
+	font-weight: bold;
+	margin-left: 0.3em;
+	position: relative;
+	top: 0.1em;
+}
+
+ul.one-to-many {
+	display: inline-block;
+	list-style-position: inside;
+	vertical-align: top;
+}
+
+.ie6 ul.one-to-many,.ie7 ul.one-to-many {
+	display: inline;
+	zoom: 1;
+}
+
+ul.one-to-many li.add {
+	list-style-type: none;
+}
+
+/* EMBEDDED PROPERTIES */
+fieldset.embedded {
+	background-color: transparent;
+	border: 1px solid #CCCCCC;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+fieldset.embedded legend {
+	margin: 0 1em;
+}
+
+/* MESSAGES AND ERRORS */
+.errors,.message {
+	font-size: 0.8em;
+	line-height: 2;
+	/* margin: 1em 2em; */
+	padding: 0.25em;
+}
+
+.message {
+	font: Tahoma;
+	font-size: 12px;
+	float:left;
+	background: #f3f3ff;
+	border: 1px solid #b2d1ff;
+	color: #006dba;
+	-moz-box-shadow: 0 0 0.25em #b2d1ff;
+	-webkit-box-shadow: 0 0 0.25em #b2d1ff;
+	box-shadow: 0 0 0.25em #b2d1ff;
+	width:100%;
+}
+
+.errors {
+	background: #fff3f3;
+	border: 1px solid #ffaaaa;
+	color: #cc0000;
+	-moz-box-shadow: 0 0 0.25em #ff8888;
+	-webkit-box-shadow: 0 0 0.25em #ff8888;
+	box-shadow: 0 0 0.25em #ff8888;
+}
+
+.errors ul,.message {
+	padding: 0;
+}
+
+.errors li {
+	list-style: none;
+	background: transparent url(../images/skin/exclamation.png) 0.5em 50%
+		no-repeat;
+	text-indent: 2.2em;
+}
+
+.message {
+	background: transparent url(../images/skin/information.png) 0.5em no-repeat;
+	text-indent: 2.2em;
+}
+
+/* form fields with errors */
+.error input,.error select,.error textarea {
+	background: #fff3f3;
+	border-color: #ffaaaa;
+	color: #cc0000;
+}
+
+.error input:focus,.error select:focus,.error textarea:focus {
+	-moz-box-shadow: 0 0 0.5em #ffaaaa;
+	-webkit-box-shadow: 0 0 0.5em #ffaaaa;
+	box-shadow: 0 0 0.5em #ffaaaa;
+}
+
+/* same effects for browsers that support HTML5 client-side validation (these have to be specified separately or IE will ignore the entire rule) */
+input:invalid,select:invalid,textarea:invalid {
+	background: #fff3f3;
+	border-color: #ffaaaa;
+	color: #cc0000;
+}
+
+input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
+	-moz-box-shadow: 0 0 0.5em #ffaaaa;
+	-webkit-box-shadow: 0 0 0.5em #ffaaaa;
+	box-shadow: 0 0 0.5em #ffaaaa;
+}
+
+/**
+	product
+**/
+.product-list {
+	margin: 10px;
+}
+
+.product-list-row {
+	/* border-bottom: 1px solid #D9DCDC; */	
+}
+
+.product-filter {
+	width:18%;
+	border-right: 1px solid #D9DCDC;
+}
+
+.product-list-wrapper {
+	width: 800px;
+	display: inline;
+	float: left;
+}
+
+.product-box {
+	width: 22.00%;
+	border-right: 1px dotted #D9DCDC;
+}
+
+a.product-box-link {
+	color : #838383;
+	font-size: 13px;
+}
+
+.product_category {
+
+}
+
+.promo-area  {
+	margin-left: 10px;
+    margin-top: 1.8em;
+}
+
+img.product-img {
+	width: 180px;
+	height: 120px;
+	display: block;
+	padding: 5px;
+}
+
+.product-name {
+	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
+	font-size: 13px;
+	padding: 10px;
+}
+
+.product-tag {
+	font-size: 14px;
+	height:2em;
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	text-transform: uppercase;
+	background-color: #D3E397;
+	border: 1px solid #eee;
+	.border-radius(4px);
+	color:#666;
+	text-align: right;
+	max-width: 4em;
+}
+
+.product-tag .new{
+	text-transform: uppercase;
+}
+
+h1.filter-heading {
+	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
+	font-size: 14px;
+	display: inline-block;
+	margin-left: 2.7em;
+}
+
+
+/**
+  View Details
+**/
+.productDetImageBox {
+	min-height: 250px;
+	max-height: 320px;
+	
+	margin-top: 2.5em;
+	border: 1px solid #D9DCDC;
+}
+
+img.product-img-det {
+	width: 360px;
+	height: 240px;
+	display: block;
+	padding: 5px;
+	float: left;
+	margin-left: 40px;
+	margin-left: 20px;
+}
+
+.product_name_header {
+	font-size: 14px;
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	text-transform: uppercase;
+}
+
+.product_price {
+	font-size: 13px;
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	text-transform: uppercase;
+}
+
+.product_offers_tags {
+	
+}
+
+button.add_to_cart {
+	font-size: 14px;
+	height:2em;
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	text-transform: uppercase;
+	background-color: #5E9DC8;
+	border: 1px solid #5E9DC8;
+	.border-radius(4px);
+	color:#EEE;
+	font-weight: bold;	
+}
+
+img.product-img-thumb {
+	width:40px;
+	height:30px;
+}
