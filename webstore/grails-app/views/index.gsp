@@ -50,28 +50,21 @@
 		
 		<div style="padding-top: 5px;">
 			<div id="top-banner-slider">
-				<div class="top-banner-slider-content">
-					<h1>Orbit does content now.</h1>
-					<h3>Highlight me...I'm text.</h3>
-				</div>
 				<img
-					src="${resource(dir: 'images/site/home/banner', file: 'overflow.jpg')}" />
+					src="${resource(dir: 'images/site/home/banner', file: '_1.jpg')}" />
 				<img
-					src="${resource(dir: 'images/site/home/banner', file: 'captions.jpg')}"
-					data-caption="#htmlCaption" /> <img
-					src="${resource(dir: 'images/site/home/banner', file: 'features.jpg')}" />
+					src="${resource(dir: 'images/site/home/banner', file: '_2.jpg')}"
+					data-caption="#htmlCaption" /> 
+				<img
+					src="${resource(dir: 'images/site/home/banner', file: '_3.jpg')}" />
 			</div>
-			<!-- Captions for Orbit -->
-			<span class="orbit-caption" id="htmlCaption"><strong>I'm
-					A Badass Caption:</strong> I can haz <a href="#">links</a>, <em>style</em>
-				or anything that is valid markup :) </span> <br /> <br /> <br />
 		</div>
 
 		<div class="clearfix shadow"
 			style="padding-top: 5px; margin-top: 10px;">
 
 			<div class="row">
-					<div class="fourcol box-small">
+					<div class="fourcol box-small" style="width: 320px;height: 200px;">
 						<!-- title -->
 						<h2 class="title">
 							Gemstone
@@ -94,7 +87,7 @@
 						</div>
 					</div>
 
-					<div class="fourcol box-small" style="padding-right: 0.1em;padding-bottom: 0.2em;margin-bottom: 0.1em;height:260px;">
+					<div class="fourcol box-small" style="width: 320px;height: 200px;">
 						<!-- title -->
 						<h2 class="title">
 							Jewelry
@@ -118,7 +111,7 @@
 						</div>
 					</div>
 
-					<div class="fourcol last box-small">
+					<div class="fourcol last box-small" style="width: 320px;height: 200px;">
 						<!-- title -->
 						<h2 class="title">
 							Diamonds

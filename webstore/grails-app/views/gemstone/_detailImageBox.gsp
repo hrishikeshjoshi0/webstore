@@ -5,9 +5,9 @@
 	
 	ul#thumblist{display:block;}
 	ul#thumblist li{float:left;margin-right:2px;list-style:none;}
-	ul#thumblist li a{display:block;border-right:1px dashed #CCC;}
+	ul#thumblist li a{display:block;border-right:1px solid #D9DCDC;}
 	ul#thumblist li a.zoomThumbActive{
-	    border-right:1px solid #ccc;
+	    border:2px solid #eee;
 	}
 	
 	.jqzoom{
@@ -41,7 +41,7 @@
 	<br />
 	<div class="clearfix">
 		<ul id="thumblist" class="clearfix">
-			<li><a class="zoomThumbActive product-img-thumb-link" href='javascript:void(0);'
+			<li><a class="product-img-thumb-link" href='javascript:void(0);'
 				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/imgProd', file: 'triumph_small1.jpg')}',largeimage: '${resource(dir: '/images/imgProd', file: 'triumph_big1.jpg')}'}">
 				<img class="product-img-thumb"
 					src='${resource(dir: '/images/imgProd/thumbs', file: 'triumph_thumb1.jpg')}'></a></li>
