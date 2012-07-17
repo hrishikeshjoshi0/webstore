@@ -32,25 +32,30 @@
 <div class="clearfix" id="content" style="height: 500px; width: auto;">
 	<div class="clearfix">
 		<a
-			href="${resource(dir: '/images/imgProd', file: 'triumph_big1.jpg')}"
-			class="jqzoom" rel='gal1' title="triumph"> 
-			<img class="product-img-det" src="${resource(dir: '/images/imgProd', file: 'triumph_small1.jpg')}"
-					title="triumph">
+			href="${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.mediumImage?.imageUrl)}"
+			class="jqzoom" rel='gal1' title="${prodGemstoneInstance.pdProductName}">
+			
+			<img class="product-img-det"
+					alt="${prodGemstoneInstance.pdProductName}"
+					title="${prodGemstoneInstance.pdProductName}"
+					src="${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.largeImage?.imageUrl)}" />
 		</a>
 	</div>
 	<br />
 	<div class="clearfix">
 		<ul id="thumblist" class="clearfix">
 			<li><a class="product-img-thumb-link" href='javascript:void(0);'
-				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/imgProd', file: 'triumph_small1.jpg')}',largeimage: '${resource(dir: '/images/imgProd', file: 'triumph_big1.jpg')}'}">
+				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.smallImage?.imageUrl)}',largeimage: '${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.largeImage?.imageUrl)}'}">
 				<img class="product-img-thumb"
-					src='${resource(dir: '/images/imgProd/thumbs', file: 'triumph_thumb1.jpg')}'></a></li>
+					src='${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.smallImage?.imageUrl)}'></a></li>
 			<li><a class="product-img-thumb-link" href='javascript:void(0);'
-				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/imgProd', file: 'triumph_small2.jpg')}',largeimage: '${resource(dir: '/images/imgProd', file: 'triumph_big2.jpg')}'}">
-				<img class="product-img-thumb" src='${resource(dir: '/images/imgProd/thumbs', file: 'triumph_thumb2.jpg')}'></a></li>
+				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.smallImage?.imageUrl)}',largeimage: '${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.largeImage?.imageUrl)}'}">
+				<img class="product-img-thumb"
+					src='${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.smallImage?.imageUrl)}'></a></li>
 			<li><a class="product-img-thumb-link" href='javascript:void(0);'
-				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/imgProd', file: 'triumph_small3.jpg')}',largeimage: '${resource(dir: '/images/imgProd', file: 'triumph_big3.jpg')}'}">
-				<img class="product-img-thumb" src='${resource(dir: '/images/imgProd/thumbs', file: 'triumph_thumb3.jpg')}'></a></li>
+				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.smallImage?.imageUrl)}',largeimage: '${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.largeImage?.imageUrl)}'}">
+				<img class="product-img-thumb"
+					src='${resource(dir: '/images/uploads/product', file: prodGemstoneInstance?.smallImage?.imageUrl)}'></a></li>
 		</ul>
 	</div>
 </div>

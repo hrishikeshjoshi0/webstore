@@ -69,6 +69,7 @@
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.button.js')}"></script>
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.observable.js')}"></script>
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.slider.js')}"></script>
+<script src="${resource(dir: 'js/ui', file: 'jquery.ui.tabs.js')}"></script>
 
         <style type="text/css">
 			span.reference{
@@ -360,15 +361,14 @@
 		
 		<!-- Main Content -->
 		<div id="page-content">
+			<div id="spinner" class="spinner" style="display: none;">
+				<g:message code="spinner.alt" default="Loading&hellip;" />
+			</div>
 			<div id="page" class="clearfix shadow">
 				<g:layoutBody />	
 			</div>
 		</div>
 
-		<div id="spinner" class="spinner" style="display: none;">
-			<g:message code="spinner.alt" default="Loading&hellip;" />
-		</div>
-		
 		<script type="text/javascript">
             $(function() {
 				var $oe_menu		= $('#oe_menu ');

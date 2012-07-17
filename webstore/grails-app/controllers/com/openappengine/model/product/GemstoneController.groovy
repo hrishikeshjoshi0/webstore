@@ -26,6 +26,24 @@ class GemstoneController {
 		}
         
     }
+	
+	def viewFeatures = {
+		def prodGemstoneInstance = Gemstone.get(params.id)
+		if (!prodGemstoneInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), params.id])
+			redirect(action: "list")
+			return
+		}
+
+		def model = [prodGemstoneInstance: prodGemstoneInstance]
+		
+		if (request.xhr) {
+			// ajax request
+			render(template: "features", model: model)
+		} else {
+			model
+		}
+	}
 
     def create() {
         [prodGemstoneInstance: new Gemstone(params)]

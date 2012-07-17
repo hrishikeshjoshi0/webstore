@@ -6,6 +6,56 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'prodGemstone.label', default: 'ProdGemstone')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		
+		<script>
+			$(function() {
+				$("#tabs").tabs({
+					ajaxOptions: {
+						error: function( xhr, status, index, anchor ) {
+							$( anchor.hash ).html(
+								"Couldn't load this tab. We'll try to fix this as soon as possible.");
+						}
+					},
+					load: function(event, ui) {
+				        $('a', ui.panel).click(function() {
+				             $(ui.panel).load(this.href);
+				    		 return false;
+				        });
+				    }
+									
+				});
+			});
+		</script>
+		
+		<style type="text/css">
+			.ui-tabs-nav {
+				background-color: #fafafa;
+				border:0px;
+				border-bottom: 1px solid #D9DCDC;
+				font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+				font-size: 12px;
+				text-transform:uppercase; 
+			}
+			
+			.ui-tabs {
+				font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+				font-size: 12px;
+				border-radius: 1px;
+			}
+			
+			.ui-tabs-panel {
+				border-top: 0px;
+				border-bottom: 1px solid #D9DCDC;
+				border-left: 1px solid #D9DCDC;
+				border-right: 1px solid #D9DCDC;
+				font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+				font-size: 13px;
+			}
+			
+			.ui-tabs-panel > * {
+				font-size: 12px;
+			}			
+		</style>
 	</head>
 	<body>
 		<div id="details" class="row">
@@ -66,6 +116,20 @@
 		
 		<!-- Tabs -->
 		<div id="detailsInfo" class="row">
+			<div class="elevencol">
+				<div id="tabs">
+					<ul>
+						<li>
+							<g:link controller="gemstone" action="viewFeatures" id="${prodGemstoneInstance?.pdProductId}">
+								Details
+							</g:link>
+						</li>
+						<li><a href="http://www.google.com">Certificate</a></li>
+						<li><a href="ajax/content2.html">Shipping & Packaging</a></li>
+						<li><a href="ajax/content2.html">Services</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
