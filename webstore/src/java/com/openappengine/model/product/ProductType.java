@@ -62,6 +62,9 @@ public class ProductType implements Serializable {
     
     @OneToMany(mappedBy="productType",cascade=CascadeType.ALL)
     private List<Product> products;
+    
+    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL)
+    private List<ProductTypeAttribute> productTypeAttributes;
 
     public ProductType() {
     }
@@ -128,6 +131,14 @@ public class ProductType implements Serializable {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+	public List<ProductTypeAttribute> getProductTypeAttributes() {
+		return productTypeAttributes;
+	}
+
+	public void setProductTypeAttributes(List<ProductTypeAttribute> productTypeAttributes) {
+		this.productTypeAttributes = productTypeAttributes;
 	}
 	
 }

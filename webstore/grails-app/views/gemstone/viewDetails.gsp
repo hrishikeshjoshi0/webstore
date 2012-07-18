@@ -109,12 +109,18 @@
 
 					<div id="links">
 						<ul class="productDetQuickLinks">
-							<li>
-								<a href="#">Add to WishList</a>
+							<li class="add_to_wishList">
+								<a href="#">
+									<img src="${resource(dir: '/images/site', file:'icon_wishlist.gif')}" style="width:16px;height:16px;"/>
+									Add to WishList
+								</a>
 							</li>
 							
-							<li>
-								<a href="#">Email a Friend</a>
+							<li class="email_a_friend">
+								<a href="#">
+									<img src="${resource(dir: '/images/site', file:'icon_mail.gif')}" style="width:16px;height:16px;"/>
+									Email a Friend
+								</a>
 							</li>
 						</ul>
 					</div>

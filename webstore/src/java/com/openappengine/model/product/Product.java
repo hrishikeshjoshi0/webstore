@@ -134,6 +134,10 @@ public class Product implements Serializable {
     @JoinColumn(name="PD_PRODUCT_CATEGORY_ID")
     private ProductCategory productCategory;
 	
+	//bi-directional many-to-one association to ProdProductPrice
+	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
+	private List<ProductAttribute> productAttributes;
+	
     public Product() {
     }
 
@@ -379,5 +383,13 @@ public class Product implements Serializable {
 
 	public void setProductType(ProductType productType) {
 		this.productType = productType;
+	}
+
+	public List<ProductAttribute> getProductAttributes() {
+		return productAttributes;
+	}
+
+	public void setProductAttributes(List<ProductAttribute> productAttributes) {
+		this.productAttributes = productAttributes;
 	}
 }

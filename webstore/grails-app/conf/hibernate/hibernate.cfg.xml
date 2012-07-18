@@ -9,8 +9,10 @@
 		<!-- Product Schema -->
 		<mapping class='com.openappengine.model.product.Product' />
 		<mapping class='com.openappengine.model.product.ProductType' />
+		<mapping class='com.openappengine.model.product.ProductTypeAttribute'/>
 		<mapping class='com.openappengine.model.product.ProdProductPrice'/>
 		<mapping class='com.openappengine.model.product.ProductCategory'/>
+		<mapping class='com.openappengine.model.product.ProductAttribute'/>
 		<mapping class='com.openappengine.model.product.Gemstone'/>
 		
 		<!-- Common Schema -->
