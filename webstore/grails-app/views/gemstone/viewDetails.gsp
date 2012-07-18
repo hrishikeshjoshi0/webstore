@@ -74,42 +74,52 @@
 			<!-- DETAIL IMAGE -->
 			
 			<!-- INFO-->
-			<div class="fourcol details" style="margin-left:2.5em;margin-top: 2.5em;">
+			<div class="fourcol details"
+				style="margin-left: 2.5em; margin-top: 4.5em;">
 				<div id="content">
-					<h3 class="product_name_header">
+					<h1 class="product_name_header">
 						${prodGemstoneInstance?.pdProductName}
-					</h3>
-					
+					</h1>
+	
 					<div class="product_price" style="margin-top: 15px;">
-						Price : 
-						<strong>
-							<g:formatNumber number="${prodGemstoneInstance?.getProductPrice(new Date())}" maxFractionDigits="2" />
+						Price : <strong> <g:formatNumber
+								number="${prodGemstoneInstance?.getProductPrice(new Date())}"
+								maxFractionDigits="2" />
 						</strong>
 					</div>
-					
-					<div class="product_reviews" style="margin-top: 15px;">
-					</div>
-					
-					<hr />
-					
+	
+					<div class="product_reviews" style="margin-top: 15px;"></div>
+	
 					<div class="add_to_cart" style="margin-top: 15px;">
-						<button class="add_to_cart">
-							ADD TO CART
-						</button>
-						
-						<span id="in_stock" style="margin-left: 10px;">
-							IN STOCK
-						</span>
+						<button class="add_to_cart">ADD TO CART</button>
+	
+						<span id="in_stock" style="margin-left: 10px;"> IN STOCK </span>
 					</div>
-
-				<div class="product_offers_tags" style="margin-top: 15px;">
-					<%--<div class="product-tag">
-						<!-- Create CSS classes for each tag -->
-						<span class="new"> NEW </span>
+					
+					<div class="product_offers_tags" style="margin-top: 15px;">
+						<%--<div class="product-tag">
+								<!-- Create CSS classes for each tag -->
+								<span class="new"> NEW </span>
+							</div>
+						--%>
 					</div>
-				--%></div>
+					
+					<br/>
+					<hr style="margin:5px;"/>
 
-			</div>
+					<div id="links">
+						<ul class="productDetQuickLinks">
+							<li>
+								<a href="#">Add to WishList</a>
+							</li>
+							
+							<li>
+								<a href="#">Email a Friend</a>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
 			</div>
 		</div>
 		<!-- INFO-->

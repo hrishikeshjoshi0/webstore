@@ -64,14 +64,17 @@
 	top:40px;
 	background:#FFF;
 	z-index:6000;
+	width:500px;
 	height:auto;
-  z-index:10000;
-  z-index:110;
+	  z-index:10000;
+	  z-index:110;
+	  
 }
 .zoomWrapper{
 	position:relative;
 	border:1px solid #999;
   z-index:110;
+  width: 500px;
 }
 .zoomWrapperTitle{
 	display:block;
@@ -79,7 +82,7 @@
 	color:#FFF;
 	height:18px;
 	line-height:18px;
-	width:100%;
+	width:500px;
   overflow:hidden;
 	text-align:center;
 	font-size:10px;
@@ -96,7 +99,7 @@
   position:relative;
   overflow:hidden;
   z-index:110;
-
+  width: 500px;
 }
 .zoomWrapperImage img{
   border:0px;

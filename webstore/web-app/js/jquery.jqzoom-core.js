@@ -561,12 +561,12 @@
                       borderWidth: thickness + 'px'
                   });
                   $('.zoomWrapperImage', this.node).css({
-                      width: '100%',
+                      width: '500px',
                       height: Math.round(settings.zoomHeight) + 'px'
                   });
                   //zoom title
                  $('.zoomWrapperTitle', this.node).css({
-                        width: '100%',
+                        width: '500px',
                         position: 'absolute'
                   });  
               
