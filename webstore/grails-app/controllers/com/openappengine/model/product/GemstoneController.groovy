@@ -101,13 +101,13 @@ class GemstoneController {
 		//userDir = new File("c:\\temp")
 		
 		//handle uploaded file
-		def uploadedFileThumbnail = request.getFile('payloadThumbnailImg')
-		if(!uploadedFileThumbnail.empty){
-			println "Class: ${uploadedFileThumbnail.class}"
-			println "Name: ${uploadedFileThumbnail.name}"
-			println "OriginalFileName: ${uploadedFileThumbnail.originalFilename}"
-			println "Size: ${uploadedFileThumbnail.size}"
-			println "ContentType: ${uploadedFileThumbnail.contentType}"
+		def uploadedFileSmall = request.getFile('payloadSmallImg')
+		if(!uploadedFileSmall.empty){
+			println "Class: ${uploadedFileSmall.class}"
+			println "Name: ${uploadedFileSmall.name}"
+			println "OriginalFileName: ${uploadedFileSmall.originalFilename}"
+			println "Size: ${uploadedFileSmall.size}"
+			println "ContentType: ${uploadedFileSmall.contentType}"
 			
 			
 			if(params.productId) {
@@ -119,9 +119,9 @@ class GemstoneController {
 
 					def image = new Image(params)
 					image.fromDate = new Date()
-					image.imageUrl = prefix + "_" + p.pdProductId + "_" + uploadedFileThumbnail.originalFilename
+					image.imageUrl = prefix + "_" + p.pdProductId + "_" + uploadedFileSmall.originalFilename
 					
-					uploadedFileThumbnail.transferTo( new File( userDir, image.imageUrl))
+					uploadedFileSmall.transferTo( new File( userDir, image.imageUrl))
 					
 					image.save(flush:true)
 
@@ -129,14 +129,42 @@ class GemstoneController {
 				}
 			}
 		}
+		
+		def uploadedFileMedium = request.getFile('payloadMediumImg')
+		if(!uploadedFileMedium.empty){
+			println "Class: ${uploadedFileMedium.class}"
+			println "Name: ${uploadedFileMedium.name}"
+			println "OriginalFileName: ${uploadedFileMedium.originalFilename}"
+			println "Size: ${uploadedFileMedium.size}"
+			println "ContentType: ${uploadedFileMedium.contentType}"
 
-		def uploadedFileDetail = request.getFile('payloadDetailImg')
-		if(!uploadedFileDetail.empty){
-			println "Class: ${uploadedFileDetail.class}"
-			println "Name: ${uploadedFileDetail.name}"
-			println "OriginalFileName: ${uploadedFileDetail.originalFilename}"
-			println "Size: ${uploadedFileDetail.size}"
-			println "ContentType: ${uploadedFileDetail.contentType}"
+			if(params.productId) {
+				Product p = Product.get(params.productId)
+
+				if(p) {
+					def prefix = ""
+					prefix = "MEDIUM"
+
+					def image = new Image(params)
+					image.fromDate = new Date()
+					image.imageUrl = prefix + p.pdProductId + "_" + uploadedFileMedium.originalFilename
+					
+					uploadedFileMedium.transferTo( new File( userDir, image.imageUrl))
+					
+					image.save(flush:true)
+
+					p.mediumImage = image
+				}
+			}
+		}
+
+		def uploadedFileLarge = request.getFile('payloadLargeImg')
+		if(!uploadedFileLarge.empty){
+			println "Class: ${uploadedFileLarge.class}"
+			println "Name: ${uploadedFileLarge.name}"
+			println "OriginalFileName: ${uploadedFileLarge.originalFilename}"
+			println "Size: ${uploadedFileLarge.size}"
+			println "ContentType: ${uploadedFileLarge.contentType}"
 
 			if(params.productId) {
 				Product p = Product.get(params.productId)
@@ -147,13 +175,14 @@ class GemstoneController {
 
 					def image = new Image(params)
 					image.fromDate = new Date()
-					image.imageUrl = prefix + p.pdProductId + "_" + uploadedFileDetail.originalFilename
+					image.imageUrl = prefix + p.pdProductId + "_" + uploadedFileLarge.originalFilename
 					
-					uploadedFileDetail.transferTo( new File( userDir, image.imageUrl))
+					uploadedFileLarge.transferTo( new File( userDir, image.imageUrl))
 					
 					image.save(flush:true)
 
 					p.detailImage = image
+					p.largeImage = image
 				}
 			}
 		}

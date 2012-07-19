@@ -44,6 +44,9 @@
 <!-- jqzoom -->
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.jqzoom.css')}" type="text/css">
 
+<!-- rating -->
+<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.ratings.css')}" type="text/css">
+
 <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - 
 	Enables media queries in some unsupported browsers-->
 <script type="text/javascript"
@@ -70,6 +73,8 @@
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.observable.js')}"></script>
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.slider.js')}"></script>
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.tabs.js')}"></script>
+
+<script src="${resource(dir: 'js', file: 'jquery.ratings.js')}"></script>
 
         <style type="text/css">
 			span.reference{

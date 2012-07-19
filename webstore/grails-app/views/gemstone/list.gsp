@@ -54,7 +54,7 @@ function setupGridAjax() {
 			<hr />
 
 			<div id="grid">
-	           <g:render template="grid" model="model" />
+	            <g:render template="grid" model="model" />
 	        </div>
 	        
 		</div>

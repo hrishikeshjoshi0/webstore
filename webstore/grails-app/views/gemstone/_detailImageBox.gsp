@@ -5,7 +5,7 @@
 	
 	ul#thumblist{display:block;}
 	ul#thumblist li{float:left;margin-right:2px;list-style:none;}
-	ul#thumblist li a{display:block;border-right:1px solid #D9DCDC;}
+	ul#thumblist li a{display:block;border:1px solid #D9DCDC;}
 	ul#thumblist li a.zoomThumbActive{
 	    border:2px solid #eee;
 	}

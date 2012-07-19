@@ -4,8 +4,9 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'prodGemstone.label', default: 'ProdGemstone')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		<title>
+			${prodGemstoneInstance?.pdProductName}
+		</title>
 		
 		<script>
 			$(function() {
@@ -145,6 +146,15 @@
 						<li><a href="ajax/content2.html">Services</a></li>
 					</ul>
 				</div>
+			</div>
+		</div>
+		
+		<div id="reviewsInfo" class="row">
+			<div class="elevencol">
+				<!--  Reviews  -->
+				<g:link controller="productReview" action="create" params="[productId:prodGemstoneInstance?.pdProductId]">
+					Write a review
+				</g:link>
 			</div>
 		</div>
 	</body>

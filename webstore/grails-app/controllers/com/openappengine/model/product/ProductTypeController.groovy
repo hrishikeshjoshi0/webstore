@@ -14,6 +14,11 @@ class ProductTypeController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [productTypeInstanceList: ProductType.list(params), productTypeInstanceTotal: ProductType.count()]
     }
+	
+	def listAttributes() {
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		[productTypeAttributeInstanceList: ProductTypeAttribute.list(params), productTypeAttributeInstanceTotal: ProductTypeAttribute.count()]
+	}
 
     def create() {
 		

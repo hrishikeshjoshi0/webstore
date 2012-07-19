@@ -413,46 +413,6 @@ li.oe_heading{
 	        box-shadow: 0 0 0.5em #ffaaaa;
 }
 
-/* PAGINATION */
-
-.pagination {
-	border-top: 0;
-	margin: 0;
-	padding: 0.3em 0.2em;
-	text-align: center;
-	   -moz-box-shadow: 0 0 3px 1px #AAAAAA;
-	-webkit-box-shadow: 0 0 3px 1px #AAAAAA;
-	        box-shadow: 0 0 3px 1px #AAAAAA;
-	background-color: #FAFAFA;
-}
-
-.pagination a,
-.pagination .currentStep {
-	color: #666666;
-	display: inline-block;
-	margin: 0 0.1em;
-	padding: 0.25em 0.7em;
-	text-decoration: none;
-	   -moz-border-radius: 0.3em;
-	-webkit-border-radius: 0.3em;
-	        border-radius: 0.3em;
-}
-
-.pagination a:hover, .pagination a:focus,
-.pagination .currentStep {
-	background-color: #ffffff;
-	color: #666666;
-	outline: none;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
-}
-
-.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
-.no-borderradius .pagination .currentStep {
-	background-color: transparent;
-	color: #444444;
-	text-decoration: underline;
-}
-
 table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;

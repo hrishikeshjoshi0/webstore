@@ -163,7 +163,7 @@
 			style="padding-top: 5px; margin-top: 10px;">
 
 			<div class="row">
-					<div class="fourcol box-small">
+					<div class="fourcol box-small" style="width: 320px;">
 						<!-- title -->
 						<h2 class="title">
 							Recent Articles
@@ -188,7 +188,7 @@
 						</div>
 					</div>
 
-					<div class="fourcol box-small">
+					<div class="fourcol box-small" style="width: 320px;">
 						<!-- title -->
 						<h2 class="title">
 							Testimonials
@@ -208,7 +208,7 @@
 						</div>
 					</div>
 
-					<div class="fourcol last box-small">
+					<div class="fourcol last box-small" style="width: 320px;">
 						<!-- title -->
 						<h3 class="title">
 							Trends

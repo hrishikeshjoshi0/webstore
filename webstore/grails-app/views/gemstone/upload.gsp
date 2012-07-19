@@ -20,27 +20,28 @@
 			<table>
 				<tr class="prop">
 					<td valign="top" class="name">
-						<label for="payload">File:</label>
+						<label for="payload">Small Image :</label>
 					</td>
 					<td valign="top">
-						<input type="file" id="payloadThumbnailImg" name="payloadThumbnailImg" />
-					</td>
-					<td valign="top">
-						<label for="payload">Used As :</label>
-						<input type="text" id="imageType" name="imageType" value="THUMBNAIL" readonly="readonly" />
+						<input type="file" id="payloadSmallImg" name="payloadSmallImg" />
 					</td>
 				</tr>
 				
 				<tr class="prop">
 					<td valign="top" class="name">
-						<label for="payload">File:</label>
+						<label for="payload">Medium Image:</label>
 					</td>
 					<td valign="top">
-						<input type="file" id="payloadDetailImg" name="payloadDetailImg" />
+						<input type="file" id="payloadMediumImg" name="payloadMediumImg" />
+					</td>
+				</tr>
+				
+				<tr class="prop">
+					<td valign="top" class="name">
+						<label for="payload">Large Image:</label>
 					</td>
 					<td valign="top">
-						<label for="payload">Used As :</label>
-						<input type="text" id="imageType" name="imageType" value="DETAIL" readonly="readonly" />
+						<input type="file" id="payloadLargeImg" name="payloadLargeImg" />
 					</td>
 				</tr>
 				

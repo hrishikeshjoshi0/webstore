@@ -1,4 +1,18 @@
+
+<%@page import="com.openappengine.enums.SortOrder"%>
 <div id="product-list" class="ajax" style="width: 100%;">
+	<div class="pager result-box" style="width:100%;color: #FAFAFA;">
+			<span class="result">
+				${prodGemstoneInstanceTotal} Results
+			</span>
+			
+			Sort By :
+			<g:select name="sortBy" from="${SortOrder.values()}" value="${params.sortBy}" 
+				optionKey="key" style="margin-right: 40px;"/>
+				
+			<g:paginate total="${prodGemstoneInstanceTotal}" /> 
+	</div>
+	
 	<g:each in="${prodGemstoneInstanceList}" status="i" var="productGemStoneInstance">
 			<%
 				if(i%3==0) {
@@ -34,6 +48,12 @@
 							id="${productGemStoneInstance.pdProductId}"
 							class="product-box-link">
 							${fieldValue(bean: productGemStoneInstance, field: "pdProductName")}
+						</g:link>
+						
+						<g:link action="viewDetails"
+							id="${productGemStoneInstance.pdProductId}"
+							class="product-box-link">
+							${fieldValue(bean: productGemStoneInstance, field: "pdDescription")}
 						</g:link>
 					</div>
 

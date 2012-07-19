@@ -13,6 +13,7 @@
 		<h1>
 			Product Type - ${productTypeInstance?.productTypeName}
 		</h1>
+		
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
 				${flash.message}
@@ -20,9 +21,9 @@
 		</g:if>
 		
 		<div id="quickLinks" style="margin-left: 20px;">
-			<g:link id="addAttribute" controller="productTypeAttribute" action="create" 
+			<g:link id="viewAttribute" controller="productType" action="listAttributes" 
 					params="[productTypeId:productTypeInstance.productTypeId]">
-				Add Attribute
+				View Attributes
 			</g:link> 
 		</div>
 

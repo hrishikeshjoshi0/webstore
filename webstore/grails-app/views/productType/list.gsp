@@ -8,6 +8,15 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
+		
+		<div style="text-align: left;">
+			<g:link action="create" controller="productType">
+				Add New Product Type
+			</g:link>	
+		</div>
+		
+		<br/>
+		
 		<div id="list-productType" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">

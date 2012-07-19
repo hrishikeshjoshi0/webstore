@@ -138,6 +138,10 @@ public class Product implements Serializable {
 	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
 	private List<ProductAttribute> productAttributes;
 	
+	//bi-directional many-to-one association to ProdProductPrice
+	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
+	private List<ProductReview> productReviews;
+	
     public Product() {
     }
 
@@ -391,5 +395,13 @@ public class Product implements Serializable {
 
 	public void setProductAttributes(List<ProductAttribute> productAttributes) {
 		this.productAttributes = productAttributes;
+	}
+
+	public List<ProductReview> getProductReviews() {
+		return productReviews;
+	}
+
+	public void setProductReviews(List<ProductReview> productReviews) {
+		this.productReviews = productReviews;
 	}
 }
