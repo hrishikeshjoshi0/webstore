@@ -58,7 +58,7 @@ function setupGridAjax() {
 					var="productReviewInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-						<td><g:link action="show" id="${productReviewInstance.id}">
+						<td><g:link action="show" id="${productReviewInstance.productReviewId}">
 								${fieldValue(bean: productReviewInstance, field: "productReviewId")}
 							</g:link></td>
 
