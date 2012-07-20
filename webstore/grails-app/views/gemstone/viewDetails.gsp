@@ -81,6 +81,10 @@
 					<h1 class="product_name_header">
 						${prodGemstoneInstance?.pdProductName}
 					</h1>
+					
+					<p>
+						${prodGemstoneInstance?.pdDescription}
+					</p>
 	
 					<div class="product_price" style="margin-top: 15px;">
 						Price : <strong> <g:formatNumber
@@ -141,6 +145,11 @@
 								Details
 							</g:link>
 						</li>
+						<li>
+							<g:link controller="productReview" action="productReviews" id="${prodGemstoneInstance?.pdProductId}">
+								Reviews
+							</g:link>
+						</li>
 						<li><a href="http://www.google.com">Certificate</a></li>
 						<li><a href="ajax/content2.html">Shipping & Packaging</a></li>
 						<li><a href="ajax/content2.html">Services</a></li>
@@ -149,8 +158,11 @@
 			</div>
 		</div>
 		
-		<div id="reviewsInfo" class="row">
+		<div id="productReviews" class="row">
 			<div class="elevencol">
+				<h3 class="sub-heading">
+					Product Reviews
+				</h3>
 				<!--  Reviews  -->
 				<g:link controller="productReview" action="create" params="[productId:prodGemstoneInstance?.pdProductId]">
 					Write a review

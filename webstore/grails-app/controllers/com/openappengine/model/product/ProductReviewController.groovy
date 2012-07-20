@@ -14,6 +14,20 @@ class ProductReviewController {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [productReviewInstanceList: ProductReview.list(params), productReviewInstanceTotal: ProductReview.count()]
     }
+	
+	def productReviews() {
+		if(!params.id) {
+			//TODO
+		}
+		def product = Product.get(params.id)
+		def c = ProductReview.createCriteria()
+		def results = c.list {
+			like("product", product)
+			order("postedDate", "desc")
+		}
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		[productReviewInstanceList: results, productReviewInstanceTotal: results.size()]
+	}
 
     def create() {
 		def productReview = new ProductReview(params);
