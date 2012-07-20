@@ -65,6 +65,14 @@
 		
 		<br/><br/>
 		
+		<label for="title"> 
+			<g:message code="productReview.title.label" default="Title" />
+		</label>
+		<br/>
+		<g:textField name="title" value="${productReviewInstance?.title}"/>
+		
+		<br/><br/>
+		
 		<label for="review"> 
 			<g:message code="productReview.review.label" default="Review" />
 		</label>

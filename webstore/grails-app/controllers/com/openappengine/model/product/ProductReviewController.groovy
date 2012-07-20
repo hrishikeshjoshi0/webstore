@@ -40,6 +40,9 @@ class ProductReviewController {
 
     def save() {
         def productReviewInstance = new ProductReview(params)
+		productReviewInstance.postedDate = new Date()
+		productReviewInstance.postedAnonymous = Boolean.FALSE
+		
         if (!productReviewInstance.save(flush: true)) {
             render(view: "create", model: [productReviewInstance: productReviewInstance])
             return

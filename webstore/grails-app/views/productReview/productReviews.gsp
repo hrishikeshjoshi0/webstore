@@ -26,63 +26,84 @@ function setupGridAjax() {
     });
 }
 </script>
+
 </head>
 <body>
 	<div id="list-productReview" class="content scaffold-list" role="main">
-		<table>
-			<thead>
-				<tr>
-
-					<g:sortableColumn property="productReviewId"
-						title="${message(code: 'productReview.productReviewId.label', default: 'Product Review Id')}" />
-
-					<g:sortableColumn property="postedAnonymous"
-						title="${message(code: 'productReview.postedAnonymous.label', default: 'Posted Anonymous')}" />
-
-					<g:sortableColumn property="postedDate"
-						title="${message(code: 'productReview.postedDate.label', default: 'Posted Date')}" />
-
-					<th><g:message code="productReview.product.label"
-							default="Product" /></th>
-
-					<g:sortableColumn property="review"
-						title="${message(code: 'productReview.review.label', default: 'Review')}" />
-
-					<g:sortableColumn property="status"
-						title="${message(code: 'productReview.status.label', default: 'Status')}" />
-
-				</tr>
-			</thead>
-			<tbody>
-				<g:each in="${productReviewInstanceList}" status="i"
-					var="productReviewInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-
-						<td><g:link action="show" id="${productReviewInstance.productReviewId}">
-								${fieldValue(bean: productReviewInstance, field: "productReviewId")}
-							</g:link></td>
-
-						<td><g:formatBoolean
-								boolean="${productReviewInstance.postedAnonymous}" /></td>
-
-						<td><g:formatDate date="${productReviewInstance.postedDate}" /></td>
-
-						<td>
-							${fieldValue(bean: productReviewInstance, field: "product")}
-						</td>
-
-						<td>
-							${fieldValue(bean: productReviewInstance, field: "review")}
-						</td>
-
-						<td>
-							${fieldValue(bean: productReviewInstance, field: "status")}
-						</td>
-
-					</tr>
-				</g:each>
-			</tbody>
-		</table>
+		<g:each in="${productReviewInstanceList}" status="i"
+			var="productReviewInstance">
+			<div id="review_${i}" class="review">
+				<g:hiddenField name="overallRating_${i}" value="${productReviewInstance.overallRating}"/>
+				<g:hiddenField name="qualityAndWorkmanshipRating_${i}" value="${productReviewInstance.qualityAndWorkmanshipRating}"/>
+				<g:hiddenField name="productSatisfactionRating_${i}" value="${productReviewInstance.productSatisfactionRating}"/>
+				<g:hiddenField name="wowFactorRating_${i}" value="${productReviewInstance.wowFactorRating}"/>
+				
+				<p>
+					<g:if test="${productReviewInstance.title != null}">
+						<p style="font-size: 13px;margin-left: 20px;margin-top: 25px;">
+							<strong>${productReviewInstance.title}</strong> ,
+							<g:formatDate date="${productReviewInstance.postedDate}" format="dd.MM.yyyy" />
+							
+							<br />
+							By ${productReviewInstance.nickname}
+						</p>
+					</g:if>
+				</p>
+				<p style="margin-left: 20px;margin-top: 25px;">
+					<table>
+						<tr>
+							<td>
+								Overall Rating
+							</td>
+							<td>
+								<span id="overall_${i}"> </span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Quality & Workmanship:
+							</td>
+							<td>
+								<span id="quality_n_workmanship_${i}"></span>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								Product Satisfaction: 
+							</td>
+							<td>
+								<span id="product_satisfaction_${i}"></span>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								Wow Factor:
+							</td>
+							<td>
+								<span id="wow_factor_${i}"></span>
+							</td>
+						</tr>
+					</table>
+				</p>
+				
+				<p style="margin-left: 20px;margin-top: 25px;">
+					" ${productReviewInstance.review} " 
+				</p>
+				<script>
+					$(function() {
+						$('#quality_n_workmanship_${i}').ratings(5,$('#qualityAndWorkmanshipRating_${i}').val(),true);
+				
+						$('#product_satisfaction_${i}').ratings(5,$('#productSatisfactionRating_${i}').val(),true);
+				
+						$('#wow_factor_${i}').ratings(5,$('#wowFactorRating_${i}').val(),true);
+				
+						$('#overall_${i}').ratings(5,$('#overallRating_${i}').val(),true);
+					});
+				</script>
+			</div>
+		</g:each>
 		<div class="pager">
 			<g:paginate total="${productReviewInstanceTotal}" />
 		</div>

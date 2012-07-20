@@ -52,6 +52,9 @@ public class ProductReview implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date postedDate;
 	
+	@Column(name="PR_TITLE", length=255)
+	private String title;
+	
 	@Column(name="PR_PRODUCT_REVIEW")
 	@Lob
 	private String review;
@@ -171,5 +174,13 @@ public class ProductReview implements Serializable {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

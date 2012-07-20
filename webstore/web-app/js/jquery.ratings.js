@@ -1,4 +1,4 @@
-jQuery.fn.ratings = function(stars, initialRating) {
+jQuery.fn.ratings = function(stars, initialRating, readOnly) {
 
   //Save  the jQuery object for later use.
   var elements = this;
@@ -9,7 +9,11 @@ jQuery.fn.ratings = function(stars, initialRating) {
     //Make sure intialRating is set.
     if(!initialRating)
       initialRating = 0;
-      
+    
+    //Make sure readOnly is set.
+    if(!readOnly)
+    	readOnly = false;
+    
     //Save the current element for later use.
     var containerElement = this;
     
@@ -50,34 +54,36 @@ jQuery.fn.ratings = function(stars, initialRating) {
       container.append(star);
       starsCollection.push(star);
       
-      //hook up the click event
-      star.click(function() {
-        //When clicked, fire the 'ratingchanged' event handler.  Pass the rating through as the data argument.
-        elements.triggerHandler("ratingchanged", {rating: this.rating});
-        containerElement.rating = this.rating;
-      });
-      
-      star.mouseenter(function() {
-        //Highlight selected stars.
-        for(var index = 0; index < this.rating; index++) {
-          starsCollection[index].addClass('jquery-ratings-full');
-        }
-        //Unhighlight unselected stars.
-        for(var index = this.rating; index < stars; index++) {
-          starsCollection[index].removeClass('jquery-ratings-full');
-        }
-      });
-      
-      container.mouseleave(function() {
-        //Highlight selected stars.
-        for(var index = 0; index < containerElement.rating; index++) {
-          starsCollection[index].addClass('jquery-ratings-full');
-        }
-        //Unhighlight unselected stars.
-        for(var index = containerElement.rating; index < stars ; index++) {
-          starsCollection[index].removeClass('jquery-ratings-full');
-        }
-      });
+      if(!readOnly) {
+    	  //hook up the click event
+          star.click(function() {
+            //When clicked, fire the 'ratingchanged' event handler.  Pass the rating through as the data argument.
+            elements.triggerHandler("ratingchanged", {rating: this.rating});
+            containerElement.rating = this.rating;
+          });
+          
+          star.mouseenter(function() {
+            //Highlight selected stars.
+            for(var index = 0; index < this.rating; index++) {
+              starsCollection[index].addClass('jquery-ratings-full');
+            }
+            //Unhighlight unselected stars.
+            for(var index = this.rating; index < stars; index++) {
+              starsCollection[index].removeClass('jquery-ratings-full');
+            }
+          });
+          
+          container.mouseleave(function() {
+            //Highlight selected stars.
+            for(var index = 0; index < containerElement.rating; index++) {
+              starsCollection[index].addClass('jquery-ratings-full');
+            }
+            //Unhighlight unselected stars.
+            for(var index = containerElement.rating; index < stars ; index++) {
+              starsCollection[index].removeClass('jquery-ratings-full');
+            }
+          });  
+      }
     }
   });
 };
