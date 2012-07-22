@@ -154,7 +154,7 @@
 				 -->
 				<ul id="oe_menu" class="oe_menu">
 					<!-- Gemstones -->
-					<li><a href="">Gemstones</a>
+					<li><a href="<g:createLink controller="gemstone" action="list" />">Gemstones</a>
 						<div class="oe_menu_content">
 							<ul>
 								<li class="oe_heading">Summer 2011</li>

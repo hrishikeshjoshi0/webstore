@@ -14,6 +14,7 @@
 		<mapping class='com.openappengine.model.product.ProductCategory'/>
 		<mapping class='com.openappengine.model.product.ProductAttribute'/>
 		<mapping class='com.openappengine.model.product.ProductReview'/>
+		<mapping class='com.openappengine.model.product.ProductCalculatedInfo'/>
 		<mapping class='com.openappengine.model.product.Gemstone'/>
 		
 		<!-- Common Schema -->

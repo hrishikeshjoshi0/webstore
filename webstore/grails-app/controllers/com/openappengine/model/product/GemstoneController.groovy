@@ -28,6 +28,7 @@ class GemstoneController {
     }
 	
 	def viewFeatures = {
+		println(params.id)
 		def prodGemstoneInstance = Gemstone.get(params.id)
 		if (!prodGemstoneInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), params.id])
@@ -68,6 +69,7 @@ class GemstoneController {
 		
         def prodGemstoneInstance = new Gemstone(params)
 		prodGemstoneInstance.productCategory = parent
+		prodGemstoneInstance.pdProductCategory = "gemstone"
 		
         if (!prodGemstoneInstance.save(flush: true)) {
             render(view: "create", model: [prodGemstoneInstance: prodGemstoneInstance])

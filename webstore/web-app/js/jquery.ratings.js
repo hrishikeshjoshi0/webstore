@@ -45,8 +45,11 @@ jQuery.fn.ratings = function(stars, initialRating, readOnly) {
       //Add the style.
       star.addClass('jquery-ratings-star');
       
+      var roundedVal = Math.round(initialRating);
+      //alert(val);
+      
       //Add the full css class if the star is beneath the initial rating.
-      if(starIdx < initialRating) {
+      if(starIdx < roundedVal) {
         star.addClass('jquery-ratings-full');
       }
       

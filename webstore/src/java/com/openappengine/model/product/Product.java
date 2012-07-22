@@ -142,6 +142,13 @@ public class Product implements Serializable {
 	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
 	private List<ProductReview> productReviews;
 	
+	@ManyToOne
+    @JoinColumn(name="PD_CALCULATED_INFO_ID")
+    private ProductCalculatedInfo calculatedInfo;
+	
+	@Column(name="PD_PRODUCT_CATEGORY",nullable=false)
+	private String pdProductCategory;
+	
     public Product() {
     }
 
@@ -404,4 +411,21 @@ public class Product implements Serializable {
 	public void setProductReviews(List<ProductReview> productReviews) {
 		this.productReviews = productReviews;
 	}
+
+	public ProductCalculatedInfo getCalculatedInfo() {
+		return calculatedInfo;
+	}
+
+	public void setCalculatedInfo(ProductCalculatedInfo calculatedInfo) {
+		this.calculatedInfo = calculatedInfo;
+	}
+
+	public String getPdProductCategory() {
+		return pdProductCategory;
+	}
+
+	public void setPdProductCategory(String pdProductCategory) {
+		this.pdProductCategory = pdProductCategory;
+	}
+	
 }

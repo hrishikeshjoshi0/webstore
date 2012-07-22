@@ -18,16 +18,12 @@
 						}
 					},
 					load: function(event, ui) {
-				        $('a', ui.panel).click(function() {
-				             $(ui.panel).load(this.href);
-				    		 return false;
-				        });
-				    }
-									
+						
+				    }		
 				});
 			});
 		</script>
-		
+
 		<style type="text/css">
 			.ui-tabs-nav {
 				background-color: #fafafa;
@@ -51,11 +47,13 @@
 				border-right: 1px solid #D9DCDC;
 				font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 				font-size: 13px;
+				height: 580px;
+			    overflow: auto;
 			}
 			
 			.ui-tabs-panel > * {
 				font-size: 12px;
-			}			
+			}
 		</style>
 	</head>
 	<body>
@@ -85,13 +83,31 @@
 					<p>
 						${prodGemstoneInstance?.pdDescription}
 					</p>
-	
-					<div class="product_price" style="margin-top: 15px;">
+					
+					<div class="product_price" style="margin-top: 5px;">
 						Price : <strong> <g:formatNumber
 								number="${prodGemstoneInstance?.getProductPrice(new Date())}"
 								maxFractionDigits="2" />
 						</strong>
 					</div>
+					
+					<p>
+						<table style="margin-left: -15px;">
+							<tr>
+								<td>Overall Rating</td>
+								<td><span id="overall_Det"> </span></td>
+								<td>
+									(${prodGemstoneInstance?.calculatedInfo.averageCustomerRating} OUT OF 5)
+								</td>
+							</tr>
+						</table>		
+						<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo.averageCustomerRating}" />
+						<script>
+							$(function() {
+								$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
+							});
+						</script>	
+					</p>
 	
 					<div class="product_reviews" style="margin-top: 15px;"></div>
 	
@@ -112,7 +128,7 @@
 					<br/>
 					<hr style="margin:5px;"/>
 
-					<div id="links">
+					<div id="links" style="margin-left: -15px;">
 						<ul class="productDetQuickLinks">
 							<li class="add_to_wishList">
 								<a href="#">
@@ -146,7 +162,7 @@
 							</g:link>
 						</li>
 						<li>
-							<g:link controller="productReview" action="productReviews" id="${prodGemstoneInstance?.pdProductId}">
+							<g:link controller="productReview" action="_productReviews" params="[productId:prodGemstoneInstance?.pdProductId]">
 								Reviews
 							</g:link>
 						</li>
@@ -155,18 +171,6 @@
 						<li><a href="ajax/content2.html">Services</a></li>
 					</ul>
 				</div>
-			</div>
-		</div>
-		
-		<div id="productReviews" class="row">
-			<div class="elevencol">
-				<h3 class="sub-heading">
-					Product Reviews
-				</h3>
-				<!--  Reviews  -->
-				<g:link controller="productReview" action="create" params="[productId:prodGemstoneInstance?.pdProductId]">
-					Write a review
-				</g:link>
 			</div>
 		</div>
 	</body>

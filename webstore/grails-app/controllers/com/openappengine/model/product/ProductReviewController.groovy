@@ -11,22 +11,40 @@ class ProductReviewController {
     }
 
     def list() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = 3
         [productReviewInstanceList: ProductReview.list(params), productReviewInstanceTotal: ProductReview.count()]
     }
 	
-	def productReviews() {
-		if(!params.id) {
+	def _productReviews() {
+		if(!params.productId) {
 			//TODO
 		}
-		def product = Product.get(params.id)
+		params.max = 3
+		params.offset = params.offset?params.offset:0
+		 
+		Product product = Product.get(params.productId)
 		def c = ProductReview.createCriteria()
 		def results = c.list {
 			like("product", product)
 			order("postedDate", "desc")
+			firstResult(params.offset.toInteger())
+			maxResults(params.max.toInteger())
 		}
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		[productReviewInstanceList: results, productReviewInstanceTotal: results.size()]
+		
+		int reviews = ProductReview.countByProduct(product)
+		
+		def model = [productReviewInstanceList: results, productReviewInstanceTotal: reviews]
+
+		//model =  [productReviewInstanceList: ProductReview.list(params), productReviewInstanceTotal: ProductReview.count()]
+		
+		params.productId = product?.pdProductId
+		
+		if (request.xhr) {
+			// ajax request
+			render(template: "productReviews", model: model)
+		} else {
+			model
+		}
 	}
 
     def create() {
@@ -48,12 +66,66 @@ class ProductReviewController {
             return
         }
 
-		if(params.productId) {
-			def product = Product.get(params.productId)
-			productReview.product = product
+		Product product
+		if(productReviewInstance.product) {
+			product = productReviewInstance.product
+			
+			int reviewsCount = product?.productReviews?.size()
+			
+			def calculatedInfo = product.calculatedInfo
+			if(!calculatedInfo) {
+				calculatedInfo = new ProductCalculatedInfo()
+				calculatedInfo.averageCustomerRating = productReviewInstance.overallRating
+				calculatedInfo.averageQualityAndWorkmanshipRating = productReviewInstance.qualityAndWorkmanshipRating
+				calculatedInfo.averageProductSatisfactionRating = productReviewInstance.productSatisfactionRating
+				calculatedInfo.averageWowFactorRating = productReviewInstance.wowFactorRating
+				
+				calculatedInfo.save(flush:true)
+			} else {
+				int reviews = ProductReview.countByProduct(product)
+				
+				def c = ProductReview.createCriteria()
+				BigDecimal overallRatingSum = c.get {
+					projections {
+						sum("overallRating")
+					}
+					like("product", product)
+				};
+				
+				BigDecimal qualityAndWorkmanshipRatingSum = ProductReview.createCriteria().get {
+					projections {
+						sum("qualityAndWorkmanshipRating")
+					}
+					like("product", product)
+				};
+				
+				BigDecimal productSatisfactionRatingSum = ProductReview.createCriteria().get {
+					projections {
+						sum("productSatisfactionRating")
+					}
+					like("product", product)
+				};
+				
+				BigDecimal wowFactorRatingSum = ProductReview.createCriteria().get {
+					projections {
+						sum("wowFactorRating")
+					}
+					like("product", product)
+				};
+				
+				calculatedInfo.averageCustomerRating = overallRatingSum/reviews
+				calculatedInfo.averageQualityAndWorkmanshipRating = qualityAndWorkmanshipRatingSum/reviews
+				calculatedInfo.averageProductSatisfactionRating = productSatisfactionRatingSum/reviews
+				calculatedInfo.averageWowFactorRating = wowFactorRatingSum/reviews
+				
+				calculatedInfo.save(flush:true)
+			}
+			
+			product.calculatedInfo = calculatedInfo
+			product.save(flush:true)
 		}
-		params.id =  params.productId
-        redirect(action: "viewDetails", controller: "gemstone",id: params.productId)
+		
+		redirect(controller:product.pdProductCategory,action: "viewDetails", id: product.pdProductId)
     }
 
     def show() {
