@@ -126,23 +126,45 @@
 					</sec:ifNotLoggedIn> <sec:ifLoggedIn>
 						   Welcome : <sec:username />
 					</sec:ifLoggedIn>
-				</span> <span class="sep">|</span> <span class="division"> <a
-					href="#"> <span>Wish List</span>
-				</a>
-				</span> <span class="sep">|</span> <span class="division"> <a
-					class="basket" href="#"> <i
-						class="icon-shopping-cart icon-large"></i> <span>Basket</span>
-				</a>
-				</span> <span class="sep">|</span> <span class="division">Ship to:</span> <span
-					id="locselector" class="division"> <a
-					class="dropdown lang en-us" data-loadurl="/header/locale.html"
-					data-target="#localeWindow" href="#"> <span id="curFlag"></span>
-						<span>English, USD</span> <span></a>
-				</span> <span class="sep">|</span> <span id="logout" class="division">
+				</span> 
+				<span class="sep">|</span> 
+				
+				<span class="division"> 
+					<a href="#"> <span>Wish List</span></a>
+				</span> 
+				
+				<span class="sep">|</span> 
+				
+				<span class="division"> 
+					<a class="basket" href="#"> 
+						<i class="icon-shopping-cart icon-large"></i> <span>Basket</span>
+					</a>
+				</span> 
+				
+				<span class="sep">|</span> 
+				
+				<span class="division">Ship to:</span> <span
+					id="locselector" class="division"> 
+					<a class="dropdown lang en-us" data-loadurl="/header/locale.html"
+								data-target="#localeWindow" href="#"> 
+						<span id="curFlag"></span>
+						<span>English, USD</span> 
+					</a>
+				</span> 
+				
+				<span class="sep">|</span> 
+				
+				<span id="logout" class="division">
 					<span class="logout_icon"></span> <sec:ifLoggedIn>
 						<g:link controller="logout" class="user">Log out</g:link>
 					</sec:ifLoggedIn>
 				</span>
+				
+				<span class="division"> 
+					<a href="#"> 
+						<span>Admin</span> 
+					</a>
+				</span> 
 			</div>
 		</div>
 

@@ -100,6 +100,14 @@
 									(${prodGemstoneInstance?.calculatedInfo.averageCustomerRating} OUT OF 5)
 								</td>
 							</tr>
+							<tr>
+								<td>
+									<a href="#tabs" onclick="$('#tabs').tabs('select', 1);">
+										Ratings & Reviews 
+										(${prodGemstoneInstance?.productReviews?.size()})
+									</a>
+								</td>
+							</tr>
 						</table>		
 						<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo.averageCustomerRating}" />
 						<script>
@@ -163,7 +171,7 @@
 						</li>
 						<li>
 							<g:link controller="productReview" action="_productReviews" params="[productId:prodGemstoneInstance?.pdProductId]">
-								Reviews
+								Reviews (${prodGemstoneInstance?.productReviews?.size()})
 							</g:link>
 						</li>
 						<li><a href="http://www.google.com">Certificate</a></li>
