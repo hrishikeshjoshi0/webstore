@@ -19,6 +19,11 @@
 		
 		<!-- Common Schema -->
 		<mapping class='com.openappengine.model.common.Image'/>
+		
+		<!-- Shopping Cart -->
+		<mapping class='com.openappengine.model.cart.ShoppingCart'/>
+		<mapping class='com.openappengine.model.cart.ShoppingCartItem'/>
+		
 	</session-factory>
 
 </hibernate-configuration>

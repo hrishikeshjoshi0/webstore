@@ -97,7 +97,7 @@
 								<td>Overall Rating</td>
 								<td><span id="overall_Det"> </span></td>
 								<td>
-									(${prodGemstoneInstance?.calculatedInfo.averageCustomerRating} OUT OF 5)
+									(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
 								</td>
 							</tr>
 							<tr>
@@ -109,7 +109,7 @@
 								</td>
 							</tr>
 						</table>		
-						<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo.averageCustomerRating}" />
+						<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}" />
 						<script>
 							$(function() {
 								$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
@@ -120,7 +120,11 @@
 					<div class="product_reviews" style="margin-top: 15px;"></div>
 	
 					<div class="add_to_cart" style="margin-top: 15px;">
-						<button class="add_to_cart">ADD TO CART</button>
+						<g:formRemote name="add_to_cart_form" url="[controller:shoppingCart,action:addToShoppingCart]">
+							<g:hiddenField name="quantity" value="1"/>
+							<g:hiddenField name="productId" value="${prodGemstoneInstance?.pdProductId}"/>
+							<g:submitButton name="addToCart" value="Add To Cart"/>
+						</g:formRemote>
 	
 						<span id="in_stock" style="margin-left: 10px;"> IN STOCK </span>
 					</div>

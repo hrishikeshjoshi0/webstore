@@ -63,14 +63,14 @@
 				<td>Overall Rating</td>
 				<td><span id="overall"> </span></td>
 				<td>
-					(${prodGemstoneInstance?.calculatedInfo.averageCustomerRating} OUT OF 5)
+					(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
 				</td>
 			</tr>
 			<tr>
 				<td>Quality & Workmanship</td>
 				<td><span id="quality_n_workmanship"></span></td>
 				<td>
-					(${prodGemstoneInstance?.calculatedInfo.averageQualityAndWorkmanshipRating} OUT OF 5)
+					(${prodGemstoneInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating} OUT OF 5)
 				</td>
 			</tr>
 		
@@ -78,7 +78,7 @@
 				<td>Product Satisfaction</td>
 				<td><span id="product_satisfaction"></span></td>
 				<td>
-					(${prodGemstoneInstance?.calculatedInfo.averageProductSatisfactionRating} OUT OF 5)
+					(${prodGemstoneInstance?.calculatedInfo?.averageProductSatisfactionRating} OUT OF 5)
 				</td>
 			</tr>
 		
@@ -86,7 +86,7 @@
 				<td>Wow Factor</td>
 				<td><span id="wow_factor"></span></td>
 				<td>
-					(${prodGemstoneInstance?.calculatedInfo.averageWowFactorRating} OUT OF 5)
+					(${prodGemstoneInstance?.calculatedInfo?.averageWowFactorRating} OUT OF 5)
 				</td>
 			</tr>
 		</table>
@@ -101,10 +101,10 @@
 				Read Reviews
 			</a>
 		</p>
-		<g:hiddenField name="overallRating" value="${prodGemstoneInstance?.calculatedInfo.averageCustomerRating}" />
-		<g:hiddenField name="qualityAndWorkmanshipRating" value="${prodGemstoneInstance?.calculatedInfo.averageQualityAndWorkmanshipRating}" />
-		<g:hiddenField name="productSatisfactionRating" value="${prodGemstoneInstance?.calculatedInfo.averageProductSatisfactionRating}" />
-		<g:hiddenField name="wowFactorRating" value="${prodGemstoneInstance?.calculatedInfo.averageWowFactorRating}" />
+		<g:hiddenField name="overallRating" value="${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}" />
+		<g:hiddenField name="qualityAndWorkmanshipRating" value="${prodGemstoneInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating}" />
+		<g:hiddenField name="productSatisfactionRating" value="${prodGemstoneInstance?.calculatedInfo?.averageProductSatisfactionRating}" />
+		<g:hiddenField name="wowFactorRating" value="${prodGemstoneInstance?.calculatedInfo?.averageWowFactorRating}" />
 		<script>
 			$(function() {
 				$('#quality_n_workmanship').ratings(5,
