@@ -453,6 +453,7 @@ th {
 
 thead th {
 	white-space: nowrap;
+	text-align: center;
 }
 
 th a {
@@ -490,7 +491,7 @@ th.desc a {
 	background: #ffffff;
 }
 
-th:hover, tr:hover {
+.hover th:hover, tr:hover {
 	/* background: #E1F2B6; */
 	background: #EEE;
 }

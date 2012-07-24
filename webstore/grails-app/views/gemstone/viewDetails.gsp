@@ -120,11 +120,11 @@
 					<div class="product_reviews" style="margin-top: 15px;"></div>
 	
 					<div style="margin-top: 15px;">
-						<g:formRemote name="add_to_cart_form" url="[controller:shoppingCart,action:addToShoppingCart]">
-							<g:hiddenField name="quantity" value="1"/>
+						<g:form name="add_to_cart_form" action="addToShoppingCart" controller="shoppingCart" >
+							<g:hiddenField name="quantityOrdered" value="1"/>
 							<g:hiddenField name="productId" value="${prodGemstoneInstance?.pdProductId}"/>
 							<g:submitButton class="add_to_cart" name="addToCart" value="Add To Cart"/>
-						</g:formRemote>
+						</g:form>
 	
 						<span id="in_stock" style="margin-left: 10px;"> IN STOCK </span>
 					</div>

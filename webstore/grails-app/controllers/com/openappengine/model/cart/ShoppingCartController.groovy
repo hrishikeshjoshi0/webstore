@@ -1,6 +1,7 @@
 package com.openappengine.model.cart
 
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.web.context.request.RequestContextHolder
 
 import com.openappengine.utils.SessionUtils;
 
@@ -22,7 +23,7 @@ class ShoppingCartController {
     }
 	
 	def createShoppingCart() {
-		def sessionID = SessionUtils.getSessionId()
+		def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
 		
 		def sc = ShoppingCart.findBySessionID(sessionID)
 		if(!sc) {
@@ -32,21 +33,39 @@ class ShoppingCartController {
 	}
 	
 	def addToShoppingCart() {
-		def sessionID = SessionUtils.getSessionId()
+		def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
 		
 		def sc = ShoppingCart.findBySessionID(sessionID)
 		if(!sc) {
 			sc = new ShoppingCart(sessionID:sessionID)
+			sc.save(flush:true)
 		}
 		
-		def sci = new ShoppingCartItem()
-		sci.shoppingCart = sc
+		def sci= ShoppingCartItem.findByShoppingCartAndProductId(sc,params.productId)
+		if(!sci) {
+			sci = new ShoppingCartItem()
+			sci.shoppingCart = sc
+			
+			sci.productId = params.productId
+			sci.quantity = 1
+		} else {
+			sci.quantity = sci.quantity + 1;
+		}
 		
-		sci.productId = params.productId
-		sci.quantity = params.quantity
-		sc.save(flush:true)
+		sci.save(flush:true)
 		
-		render "Added" 
+		
+		redirect(action: "showCart",id:sc.shoppingCartId)
+	}
+	
+	def showCart() {
+		def shoppingCartInstance = ShoppingCart.get(params.id)
+		if (!shoppingCartInstance) {
+			//TODO
+			return
+		}
+
+		[shoppingCartInstance: shoppingCartInstance]
 	}
 	
     def save() {

@@ -102,4 +102,17 @@ class ProductController {
             redirect(action: "show", id: params.id)
         }
     }
+	
+	def getProductPrice() {
+		def qty = params.quantity
+		def product = Product.get(params.productId)
+		if(product) {
+			def price = product.getProductPrice(new Date())
+			if(price) {
+				render price
+			} else {
+				render "0"
+			}
+		}
+	}
 }
