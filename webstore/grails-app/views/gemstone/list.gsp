@@ -31,9 +31,7 @@ function setupGridAjax() {
 <body>
 	<div class="row">
 		<div class="left threecol product-filter">
-			<div class="row clearfix">
-				<h1 class="filter-heading">Narrow Results</h1>
-			</div>
+			<h1 class="filter-heading">Narrow Results</h1>
 
 			<hr />
 
@@ -46,17 +44,14 @@ function setupGridAjax() {
 		<!--
 			margin-left: -2.5em; : Provides more space in the list area 
 		 -->
-		<div class="right product-list-wrapper" style="margin-left: -2.5em;">
-			<div class="row clearfix">
-				<h1 class="promo-area">Featured Gemstones</h1>
-			</div>
-
-			<hr />
-
+		<div class="right eightcol product-list-wrapper" style="margin-left: -2.5em;">
+			<h1 class="page-title">
+				Featured Gemstones
+			</h1>
+			
 			<div id="grid">
 	            <g:render template="grid" model="model" />
 	        </div>
-	        
 		</div>
 	</div>
 </body>

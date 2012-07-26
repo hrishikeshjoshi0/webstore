@@ -105,11 +105,16 @@ class ProductController {
 	
 	def getProductPrice() {
 		def qty = params.quantity
+		if(!qty) {
+			render "Nan"
+			return;
+		}
+		
 		def product = Product.get(params.productId)
 		if(product) {
 			def price = product.getProductPrice(new Date())
 			if(price) {
-				render price
+				render price.multiply(qty.toBigDecimal());
 			} else {
 				render "0"
 			}

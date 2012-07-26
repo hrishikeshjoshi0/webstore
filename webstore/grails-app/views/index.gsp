@@ -42,7 +42,7 @@
 <body>
 		<div id="top-bar">
 			<div id="top-bar-content">
-				<h2>Free Shipping with every order.</h2>
+				Free Shipping with every order.
 			</div>
 		</div>
 		
@@ -66,9 +66,9 @@
 			<div class="row">
 					<div class="fourcol box-small" style="width: 320px;height: 200px;">
 						<!-- title -->
-						<h2 class="title">
+						<span class="title">
 							Gemstone
-						</h2>
+						</span>
 						<div id="content">
 							<div class="left" style="max-width: 200px;">
 								<ul class="ullist">
@@ -89,9 +89,9 @@
 
 					<div class="fourcol box-small" style="width: 320px;height: 200px;">
 						<!-- title -->
-						<h2 class="title">
+						<span class="title">
 							Jewelry
-						</h2>
+						</span>
 						<div id="content">
 							<div class="left" style="max-width: 200px;">
 								<ul class="ullist">
@@ -113,9 +113,9 @@
 
 					<div class="fourcol last box-small" style="width: 320px;height: 200px;">
 						<!-- title -->
-						<h2 class="title">
+						<span class="title">
 							Diamonds
-						</h2>
+						</span>
 						<div id="content">
 							<div class="left" style="max-width: 200px;">
 								<ul class="ullist">
@@ -141,7 +141,7 @@
 
 			<div class="row">
 			<div class="fourcol">
-				<h2 class="title">Stock List</h2>
+				<span class="title">Diamond Stock List</span>
 				<div id="contents">
 					<ul class="ullist" style="z-index: 1000;">
 						<li><a href="#">List 1</a></li>
@@ -150,7 +150,7 @@
 				</div>
 			</div>
 			<div class="eightcol last">
-					<h3>Diamond Search</h3>
+					<span class="title">Diamond Search</span>
 					<div id="contents">
 						<br /> <br />
 					</div>
@@ -165,9 +165,10 @@
 			<div class="row">
 					<div class="fourcol box-small" style="width: 320px;">
 						<!-- title -->
-						<h2 class="title">
+						<span class="title">
 							Recent Articles
-						</h2>
+						</span>
+							
 						<div id="content">
 							<div style="max-width: 300px;">
 								<ul class="ullist">
@@ -190,9 +191,10 @@
 
 					<div class="fourcol box-small" style="width: 320px;">
 						<!-- title -->
-						<h2 class="title">
+						<span class="title">
 							Testimonials
-						</h2>
+						</span>
+						
 						<div id="content">
 							<div style="max-width: 300px;">
 								<ul class="ullist">
@@ -210,9 +212,10 @@
 
 					<div class="fourcol last box-small" style="width: 320px;">
 						<!-- title -->
-						<h3 class="title">
+						<span class="title">
 							Trends
-						</h3>
+						</span>
+						
 						<div id="content">
 							<div style="max-width: 300px;">
 								<ul class="ullist">
@@ -226,9 +229,10 @@
 						
 						<hr/>
 						
-						<h3 class="title">
+						<span class="title">
 							New Additions
-						</h3>
+						</span>
+						
 						<div id="content">
 							<div style="max-width: 300px;">
 								<ul class="ullist">

@@ -15,7 +15,7 @@
 	
 	<g:each in="${prodGemstoneInstanceList}" status="i" var="productGemStoneInstance">
 			<%
-				if(i%3==0) {
+				if(i%4==0) {
 					out << "<div class=\"row\" style=\"width: 100%\">" 
 				}
 			 %>
@@ -33,15 +33,6 @@
 							src="${resource(dir: '/images/uploads/product', file: productGemStoneInstance?.smallImage?.imageUrl)}" />
 					</g:link>
 
-					<!-- Create CSS classes for each tag -->
-					<!-- 
-					Product Tags (GIFs for individual tags to be displayed)
-					For e.g. NEW,FEATURED,SALE etc. 
-					-->
-					<div class="product-tag">
-						<span class="new"> NEW </span>
-					</div>
-
 					<!-- Product Name and Description -->
 					<div class='product-name'>
 						<g:link action="viewDetails"
@@ -49,31 +40,35 @@
 							class="product-box-link">
 							${fieldValue(bean: productGemStoneInstance, field: "pdProductName")}
 						</g:link>
-						
-						<g:link action="viewDetails"
-							id="${productGemStoneInstance.pdProductId}"
-							class="product-box-link">
-							${fieldValue(bean: productGemStoneInstance, field: "pdDescription")}
-						</g:link>
-					</div>
-
-					<div class='product-name'>
-						<g:link action="viewDetails"
-							id="${productGemStoneInstance.pdProductId}"
-							class="product-box-link">
-							${fieldValue(bean: productGemStoneInstance, field: "pdDescription")}
-						</g:link>
 					</div>
 
 					<!-- Product Name and Description -->
 					<div class='product-price'>
 						${productGemStoneInstance.getProductPrice(new Date())}
 					</div>
+					
+					<div>
+						<table style="margin-left: -15px;">
+							<tr>
+								<td>Overall Rating</td>
+								<td><span id="overall_Det"> </span></td>
+								<td>
+									(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
+								</td>
+							</tr>
+						</table>	
+					</div>
+					
+					<script>
+						$(function() {
+							$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
+						});
+					</script>	
 				</div>
 			</div>
 			<!--  -->
 		<%
-			if(i%3==2) {
+			if(i%4==3) {
 				out << "</div>" 
 			}
 		 %>

@@ -11,33 +11,38 @@
 
 </head>
 <body>
-	<div style="margin-left: 4em;">
+	<h2 style="margin-left: 1em;">Shopping Cart</h2>
+	<hr/>
+	
+	<div style="">
 		<div id="shoppingCart" class="row">
-			<div class="tencol">
-				<h2 style="border-bottom: 1px solid #B5B5B5;margin: 5px;">SHOPPING CART</h2>
-			</div>
-			<div class="tencol">
-				<g:form name="add_to_cart_form" action="addToShoppingCart"
+			<div class="tencol" style="border-bottom: 1px dotted #B5B5B5;">
+				<p style="float: right;">
+					<g:form name="add_to_cart_form" action="addToShoppingCart"
 					controller="shoppingCart">
-					<g:hiddenField name="shoppingCartId"
-						value="${shoppingCartInstance?.shoppingCartId}" />
-					<g:submitButton class="continue_checkout" name="checkout"
-						value="CONTINUE CHECKOUT" />
-				</g:form>
+						<g:hiddenField name="shoppingCartId"
+							value="${shoppingCartInstance?.shoppingCartId}" />
+						<g:submitButton class="continue_checkout" name="checkout"
+							value="CONTINUE CHECKOUT" />
+					</g:form>
+				</p>
 			</div>
 		</div>
 
 		<div class="row">
 			<!-- Cart Items -->
-			<div class="elevencol">
+			<div class="ninecol">
+				<p style="float: right;font-weight: bold;">
+					Call us! We're here to answer any questions 1-800-539-3580
+				</p>
 				<table class="cartItems" id="cartItems"
-					style="width: 70%; border: 1px solid #B5B5B5;">
+					style="width: 100%; border: 1px solid #B5B5B5;">
 					<thead>
-						<tr style="border: 1px dotted #B5B5B5;">
-							<th style="text-transform: uppercase;" align="center">Item</th>
-							<th style="text-transform: uppercase;" align="center">Description</th>
-							<th style="text-transform: uppercase;" align="center">Quantity</th>
-							<th style="text-transform: uppercase;" align="center">Price</th>
+						<tr>
+							<th class="cartItemsHeader" align="center">Item</th>
+							<th class="cartItemsHeader" align="center">Description</th>
+							<th class="cartItemsHeader" align="center">Quantity</th>
+							<th class="cartItemsHeader" align="center">Price</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -48,7 +53,7 @@
 								<g:hiddenField id="productId_${i}" name="productId" value="${product?.pdProductId}"/>
 								
 								<td align="center" valign="top" style="width: 120px;"><img
-									class="product-img-det" style="width: 90px; height: 60px;"
+									class="product-img-det" style="width: 100px; height: 80px;"
 									alt="${product?.pdProductName}"
 									title="${product?.pdProductName}"
 									src="${resource(dir: '/images/uploads/product', file: product?.smallImage?.imageUrl)}" />
@@ -84,10 +89,10 @@
 											}
 
 											$.ajax({
-												  url: ${g.createLink(controller:"product",action:"getProductPrice")},
+												  url: '${g.createLink(controller:"product",action:"getProductPrice")}',
 												  data: {productId:$('#productId_${i}').val(),quantity:$('#quantity_${i}').val()},
 												  success: function(data) {
-													  alert(data); 
+													  $("#price_${i}").val(data);
 												  }
 											});											
 										});

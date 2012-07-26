@@ -143,17 +143,6 @@
 				
 				<span class="sep">|</span> 
 				
-				<span class="division">Ship to:</span> <span
-					id="locselector" class="division"> 
-					<a class="dropdown lang en-us" data-loadurl="/header/locale.html"
-								data-target="#localeWindow" href="#"> 
-						<span id="curFlag"></span>
-						<span>English, USD</span> 
-					</a>
-				</span> 
-				
-				<span class="sep">|</span> 
-				
 				<span id="logout" class="division">
 					<span class="logout_icon"></span> <sec:ifLoggedIn>
 						<g:link controller="logout" class="user">Log out</g:link>
@@ -179,208 +168,74 @@
 					<li><a href="<g:createLink controller="gemstone" action="list" />">Gemstones</a>
 						<div class="oe_menu_content">
 							<ul>
-								<li class="oe_heading">Summer 2011</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Special Events</a></li>
-								<li><a href="#">Runway Show</a></li>
-								<li><a href="#">Overview</a></li>
+								<!-- 
+								 <li class="oe_heading">Summer 2011</li>
+								 -->
+								<li><a href="#">Star Rubies</a></li>
+								<li><a href="#">Faceted Rubies</a></li>
+								<li><a href="#">Ruby Cabochons</a></li>
+								<li><a href="#">Trapiche Rubies </a></li>
+								<li><a href="#">Star Sapphires</a></li>
+								<li><a href="#">Sapphires</a></li>
+								<li><a href="#">Trapiche Sapphires</a></li> 
+								<li><a href="#">Padparadscha </a></li>
 							</ul>
 							<ul>
-								<li class="oe_heading">Winter 2010</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">Behind the scenes</a></li>
-								<li><a href="#">Interview</a></li>
-								<li><a href="#">Photos</a></li>
-								<li><a href="#">Download</a></li>
+								<li><a href="#">Emeralds</a></li>
+								<li><a href="#">Trapiche Emeralds</a></li>
+								<li><a href="#">Spinel </a></li>
+								<li><a href="#">Star Spinel</a></li>
+								<li><a href="#">Cat's Eye</a></li>
+								<li><a href="#">Alexandrite</a></li>
+								<li><a href="#">Diamonds</a></li>
+								<li><a href="#">Pearls</a></li>
 							</ul>
 							<ul>
-								<li class="oe_heading">Categories</li>
-								<li><a href="#">Casual</a></li>
-								<li><a href="#">Business</a></li>
-								<li><a href="#">Underwear</a></li>
-								<li><a href="#">Nature Pure</a></li>
-								<li><a href="#">Swimwear</a></li>
-								<li><a href="#">Evening</a></li>
+								<li><a href="#">Green Garnet</a></li>
+								<li><a href="#">Opal </a></li>
+								<li><a href="#">Paraiba</a></li>
+								<li><a href="#">Coral</a></li>
+								<li><a href="#">Clinohumite</a></li>
+								<li><a href="#">Fire Agate</a></li>
+								<li><a href="#">Chrysoberyl</a></li>
+								<li><a href="#">Hessonite</a></li>
+							</ul>
+							<ul>
+								<li><a href="#">Rubellite </a></li>
+								<li><a href="#">Gem Sculptures</a></li>
+								<li><a href="#">Pairs</a></li>
+								<li><a href="#">Lots</a></li>
+								<li><a href="#">Rare Gems</a></li>
 							</ul>
 						</div></li>
 					
 					<!-- Jewelry -->	
 					<li><a href="">Jewelry</a>
+						<!-- -112px -->
+						<!--  Add -111px for every next div. 
 						<div class="oe_menu_content" style="left: -111px;">
-							<!-- -112px -->
-							<ul>
-								<li class="oe_heading">Fashion Shows</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Berlin</a></li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">London</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Events</li>
-								<li><a href="#">Fashion Party 2011</a></li>
-								<li><a href="#">Evening specials</a></li>
-								<li><a href="#">Fashion Day Milano</a></li>
-								<li><a href="#">Model Workshops</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Media</li>
-								<li><a href="#">Wallpapers</a></li>
-								<li><a href="#">Downloads</a></li>
-								<li><a href="#">Images</a></li>
-								<li><a href="#">Contest 2011</a></li>
-								<li><a href="#">Fashion Mania</a></li>
-								<li><a href="#">Green Earth Day</a></li>
-							</ul>
-						</div></li>
+						</div>
+						 -->
+					</li>
 					
 					<!-- Diamonds -->		
 					<li><a href="">Diamonds</a>
-						<div class="oe_menu_content" style="left: -223px;">
-							<ul class="oe_full">
-								<li class="oe_heading">Fashion Fragrances</li>
-								<li><a href="#">Deálure</a></li>
-								<li><a href="#">Violet Woman</a></li>
-								<li><a href="#">Deep Blue for Men</a></li>
-								<li><a href="#">New York, New York</a></li>
-								<li><a href="#">Illusion</a></li>
-							</ul>
-						</div></li>
-					<li><a href="">Events</a>
-						<div class="oe_menu_content" style="left: -335px;">
-							<ul>
-								<li class="oe_heading">Shows 2010</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Berlin</a></li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">London</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Shows 2011</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Berlin</a></li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">London</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Special Events</li>
-								<li><a href="#">Fashion Party 2011</a></li>
-								<li><a href="#">Fashion Countdown Party 2010</a></li>
-								<li><a href="#">Fashion Day Milano</a></li>
-								<li><a href="#">Model Workshops</a></li>
-							</ul>
-						</div></li>
+					</li>
 					
 					<!-- Build Your Own Jewelry -->	
 					<li><a href="">Build Your Own Jewelry</a>
-						<div class="oe_menu_content" style="left: -447px;">
-							<ul>
-								<li class="oe_heading">Europe</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Berlin</a></li>
-								<li><a href="#">London</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Asia</li>
-								<li><a href="#">Hong Kong</a></li>
-								<li><a href="#">Tokio</a></li>
-								<li><a href="#">New Delhi</a></li>
-								<li><a href="#">Beijing</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">United States</li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">Los Angeles</a></li>
-								<li><a href="#">Seattle</a></li>
-								<li><a href="#">Miami</a></li>
-							</ul>
-						</div>
 					</li>
 					
 					<!-- Gifts -->	
 					<li><a href="">Gifts</a>
-						<div class="oe_menu_content" style="left: -559px;">
-							<ul>
-								<li class="oe_heading">Europe</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Berlin</a></li>
-								<li><a href="#">London</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Asia</li>
-								<li><a href="#">Hong Kong</a></li>
-								<li><a href="#">Tokio</a></li>
-								<li><a href="#">New Delhi</a></li>
-								<li><a href="#">Beijing</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">United States</li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">Los Angeles</a></li>
-								<li><a href="#">Seattle</a></li>
-								<li><a href="#">Miami</a></li>
-							</ul>
-						</div>
 					</li>
 					
 					<!-- Education -->	
 					<li><a href="">Education</a>
-						<div class="oe_menu_content" style="left: -671px;">
-							<ul>
-								<li class="oe_heading">Europe</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Berlin</a></li>
-								<li><a href="#">London</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Asia</li>
-								<li><a href="#">Hong Kong</a></li>
-								<li><a href="#">Tokio</a></li>
-								<li><a href="#">New Delhi</a></li>
-								<li><a href="#">Beijing</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">United States</li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">Los Angeles</a></li>
-								<li><a href="#">Seattle</a></li>
-								<li><a href="#">Miami</a></li>
-							</ul>
-						</div>
 					</li>
 					
 					<!-- Sale -->
 					<li><a href="">Sale</a>
-						<div  class="oe_menu_content" style="left: -783px;">
-							<ul>
-								<li class="oe_heading">Europe</li>
-								<li><a href="#">Milano</a></li>
-								<li><a href="#">Paris</a></li>
-								<li><a href="#">Berlin</a></li>
-								<li><a href="#">London</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">Asia</li>
-								<li><a href="#">Hong Kong</a></li>
-								<li><a href="#">Tokio</a></li>
-								<li><a href="#">New Delhi</a></li>
-								<li><a href="#">Beijing</a></li>
-							</ul>
-							<ul>
-								<li class="oe_heading">United States</li>
-								<li><a href="#">New York</a></li>
-								<li><a href="#">Los Angeles</a></li>
-								<li><a href="#">Seattle</a></li>
-								<li><a href="#">Miami</a></li>
-							</ul>
-						</div>
 					</li>
 				</ul>
 			</div>

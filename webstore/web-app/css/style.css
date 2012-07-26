@@ -5,8 +5,9 @@ HTML {
 body {
 	font-size: 11px;
 	color:#666;
-	background: url("../images/site/bg_gradient_gray.png") repeat-x scroll 0 0
-		#4C7094;
+	 /* background: url("../images/site/bg_gradient_gray.png") repeat-x scroll 0 0 #4C7094; */
+	 background: url("../images/site/bg1.png") repeat scroll 0 0 #4C7094; 
+	/* background: url("../images/site/body-bg.jpg") repeat-x scroll 0 0 #4C7094; */
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 	font-size:13px;
 	line-height:1.6em;
@@ -23,11 +24,11 @@ h1,h2,h3,h4,.heading,#topnav>UL>LI>A {
 	color: #5c5a5a;
 	font-weight: 400;
 	margin: 0.7em 0;
-	font-family: 'Yanone Kaffeesatz'; 
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 }
 
 h1{font-size:2.6em;padding: 6px;}
-h2{font-size:2.4em;padding: 6px;}
+h2{font-size:22px;padding: 6px;}
 h3{font-size:1.3em;padding: 6px;}
 
 ul.ullist {
@@ -199,7 +200,7 @@ hr {
 
 #top-banner-slider {
 	float:left;
-	margin-top : 2.2em;
+	margin-top : 0.5em;
 	margin-left: 4.4em;
 	height: 300px;
 	max-height: 300px;
@@ -240,7 +241,7 @@ hr {
 }
 ul.oe_menu{
 	list-style:none;
-	height:50px;
+	height:30px;
 	position:relative;
 	margin:10px 0 0 20px;
 	width:inherit;
@@ -249,7 +250,7 @@ ul.oe_menu{
 }
 ul.oe_menu > li{
 	width:112px;
-	height:40px;
+	height:20px;
 	padding-bottom:2px;
 	float:left;
 	position:relative;
@@ -276,7 +277,7 @@ ul.oe_menu > li > a{
 ul.oe_menu > li > a:hover,
 ul.oe_menu > li.selected > a{
 	background:#fff;
-	color:#AA0114;
+	color:#336699;
 	opacity:1.0;
 }
 .oe_wrapper ul.hovered > li > a{
@@ -289,7 +290,7 @@ ul.oe_menu div{
 	left:0px;
 	background:#fff;
 	width:800px;
-	height:180px;
+	height:200px;
 	padding:30px;
 	display:none;
 	
@@ -310,7 +311,9 @@ ul.oe_menu div ul.oe_full{
 	width:100%;
 }
 ul.oe_menu div ul li a:hover{
-	background:#AA0114;
+	/* background:#AA0114;
+	color:#eee; */
+	background:#336699;
 	color:#eee;
 }
 ul.oe_menu li ul{
