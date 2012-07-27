@@ -41,7 +41,7 @@
 </head>
 <body>
 		<div id="top-bar">
-			<div id="top-bar-content">
+			<div id="top-bar-content" class="title">
 				Free Shipping with every order.
 			</div>
 		</div>
