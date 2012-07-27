@@ -276,8 +276,8 @@ ul.oe_menu > li > a{
 }
 ul.oe_menu > li > a:hover,
 ul.oe_menu > li.selected > a{
-	background:#fff;
-	color:#336699;
+	background:#336699;
+	color:#fff;
 	opacity:1.0;
 }
 .oe_wrapper ul.hovered > li > a{
@@ -294,9 +294,9 @@ ul.oe_menu div{
 	padding:30px;
 	display:none;
 	
-	-webkit-box-shadow: 1px 1px  #666,  -2px 0 2px #eee;   
-	-moz-box-shadow: 1px 1px  #666,  -2px 0 2px #eee; 
-	box-shadow: 1px 1px  #666,  -2px 0 2px #eee;
+	-webkit-box-shadow: 1px 1px  #fafafa,  -2px 0 2px #336699;   
+	-moz-box-shadow: 1px 1px  #fafafa,  -2px 0 2px #336699; 
+	box-shadow: 1px 1px  #fafafa,  -2px 0 2px #336699;
 }
 
 ul.oe_menu div ul li a{
