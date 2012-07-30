@@ -1,9 +1,11 @@
 package com.openappengine.model.cart
 
+import org.grails.paypal.Payment
+import org.grails.paypal.PaymentItem
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.web.context.request.RequestContextHolder
 
-import com.openappengine.utils.SessionUtils;
+import com.openappengine.model.product.Product
 
 class ShoppingCartController {
 
@@ -48,8 +50,13 @@ class ShoppingCartController {
 			
 			sci.productId = params.productId
 			sci.quantity = 1
+			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
+			sci.lineTotalPrice = price?.multiply(sci.quantity)
 		} else {
 			sci.quantity = sci.quantity + 1;
+			
+			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
+			sci.lineTotalPrice = price?.multiply(sci.quantity)
 		}
 		
 		sci.save(flush:true)
@@ -66,6 +73,34 @@ class ShoppingCartController {
 		}
 
 		[shoppingCartInstance: shoppingCartInstance]
+	}
+	
+	def checkoutPaypal() {
+		if(!params.shoppingCartId) {
+			//TODO
+			return
+		}
+		
+		def sc = ShoppingCart.get(params.shoppingCartId)
+		Payment paypalPayment = null
+		if(sc.cartItems) {
+			paypalPayment = new Payment()
+			paypalPayment.buyerId = 0;
+			paypalPayment.discountCartAmount = new BigDecimal("0.0")
+			paypalPayment.tax = new BigDecimal("0.0")
+			
+			sc.cartItems.eachWithIndex { cartItem, i ->
+				def ppi = new PaymentItem()
+				ppi.amount = cartItem.lineTotalPrice
+				ppi.itemName = Product.get(cartItem.productId)?.pdProductName
+				ppi.itemNumber = cartItem.productId
+				ppi.quantity = cartItem.quantity
+				
+				paypalPayment.addToPaymentItems(ppi)
+			}
+		}
+		paypalPayment.save(flush:true)
+		redirect(controller:"paypal",action:"uploadCart",params:[transactionId:paypalPayment.transactionId])
 	}
 	
     def save() {

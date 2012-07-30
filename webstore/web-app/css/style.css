@@ -276,7 +276,7 @@ ul.oe_menu > li > a{
 }
 ul.oe_menu > li > a:hover,
 ul.oe_menu > li.selected > a{
-	background:#336699;
+	background:#0F3B5F;
 	color:#fff;
 	opacity:1.0;
 }
@@ -313,7 +313,7 @@ ul.oe_menu div ul.oe_full{
 ul.oe_menu div ul li a:hover{
 	/* background:#AA0114;
 	color:#eee; */
-	background:#336699;
+	background:#0F3B5F;
 	color:#eee;
 }
 ul.oe_menu li ul{

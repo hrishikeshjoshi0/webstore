@@ -180,7 +180,6 @@
 						</li>
 						<li><a href="http://www.google.com">Certificate</a></li>
 						<li><a href="ajax/content2.html">Shipping & Packaging</a></li>
-						<li><a href="ajax/content2.html">Services</a></li>
 					</ul>
 				</div>
 			</div>

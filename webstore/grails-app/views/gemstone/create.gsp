@@ -8,9 +8,9 @@
 	</head>
 	<body>
 		<div id="create-prodGemstone" class="content scaffold-create" role="main">
-			<h1>
+			<span class="title">
 				Add New Gemstone
-			</h1>
+			</span>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

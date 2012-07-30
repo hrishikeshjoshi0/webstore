@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,17 +54,17 @@ public class ProductType implements Serializable {
 	@Column(name="PT_TO_DATE")
 	private Date toDate;
 
-    @ManyToOne(cascade={CascadeType.ALL})
+    @ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
     @JoinColumn(name="PT_PRODUCT_PARENT_TYPE_ID")
     private ProductType parentType;
  
-    @OneToMany(mappedBy="parentType")
+    @OneToMany(mappedBy="parentType",fetch=FetchType.EAGER)
     private Set<ProductType> childTypes = new HashSet<ProductType>();
     
-    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private List<Product> products;
     
-    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private List<ProductTypeAttribute> productTypeAttributes;
 
     public ProductType() {

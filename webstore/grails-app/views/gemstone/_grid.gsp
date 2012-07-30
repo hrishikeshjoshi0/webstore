@@ -1,5 +1,5 @@
-
 <%@page import="com.openappengine.enums.SortOrder"%>
+
 <div id="product-list" class="ajax" style="width: 100%;">
 	<div class="pager result-box" style="width:100%;color: #FAFAFA;">
 			<span class="result">
@@ -24,14 +24,18 @@
 			-->
 			<div class="box-small">
 				<div id="content">
-					<g:link action="viewDetails"
-						id="${productGemStoneInstance.pdProductId}"
-						class="product-box-link">
-						<img class="product-img"
-							alt="${productGemStoneInstance.pdProductName}"
-							title="${productGemStoneInstance.pdProductName}"
-							src="${resource(dir: '/images/uploads/product', file: productGemStoneInstance?.smallImage?.imageUrl)}" />
-					</g:link>
+					
+					<!-- Product Name and Description -->
+					<div class='product-image-thumb'>
+						<g:link action="viewDetails"
+							id="${productGemStoneInstance.pdProductId}"
+							class="product-box-link">
+							<img class="product-img"
+								alt="${productGemStoneInstance.pdProductName}"
+								title="${productGemStoneInstance.pdProductName}"
+								src="${resource(dir: '/images/uploads/product', file: productGemStoneInstance?.smallImage?.imageUrl)}" />
+						</g:link>
+					</div>
 
 					<!-- Product Name and Description -->
 					<div class='product-name'>
@@ -46,22 +50,33 @@
 					<div class='product-price'>
 						${productGemStoneInstance.getProductPrice(new Date())}
 					</div>
-					
-					<div>
+	
+					<div class='product-rating'>
+						<g:hiddenField name="overall_Det_Rating_${i}"
+							value="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}" />
+	
 						<table style="margin-left: -15px;">
 							<tr>
-								<td>Overall Rating</td>
-								<td><span id="overall_Det"> </span></td>
-								<td>
-									(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
-								</td>
+								<td><span id="overall_Det_${i}"> </span></td>
 							</tr>
-						</table>	
+							<tr>
+								<g:if test="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating == null}">
+									<td>
+										No Ratings Yet.
+									</td>
+								</g:if>
+								<g:else>
+									<td>(${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}
+										OUT OF 5)
+									</td>
+								</g:else>
+							</tr>
+						</table>
 					</div>
-					
+	
 					<script>
 						$(function() {
-							$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
+							$('#overall_Det_${i}').ratings(5, $('#overall_Det_Rating_${i}').val(), true);
 						});
 					</script>	
 				</div>

@@ -18,7 +18,7 @@
 		<div id="shoppingCart" class="row">
 			<div class="tencol" style="border-bottom: 1px dotted #B5B5B5;">
 				<p style="float: right;">
-					<g:form name="add_to_cart_form" action="addToShoppingCart"
+					<g:form name="add_to_cart_form" action="checkoutPaypal"
 					controller="shoppingCart">
 						<g:hiddenField name="shoppingCartId"
 							value="${shoppingCartInstance?.shoppingCartId}" />

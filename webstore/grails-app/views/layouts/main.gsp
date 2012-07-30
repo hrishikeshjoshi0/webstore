@@ -124,7 +124,7 @@
 							<span>Sign In</span>
 						</g:link>
 					</sec:ifNotLoggedIn> <sec:ifLoggedIn>
-						   Welcome : <sec:username />
+						   Welcome <sec:username />
 					</sec:ifLoggedIn>
 				</span> 
 				<span class="sep">|</span> 
@@ -144,16 +144,20 @@
 				<span class="sep">|</span> 
 				
 				<span id="logout" class="division">
-					<span class="logout_icon"></span> <sec:ifLoggedIn>
+					<span class="logout_icon"></span> 
+					<sec:ifLoggedIn>
 						<g:link controller="logout" class="user">Log out</g:link>
 					</sec:ifLoggedIn>
 				</span>
 				
-				<span class="division"> 
-					<a href="#"> 
-						<span>Admin</span> 
-					</a>
-				</span> 
+				<sec:ifAnyGranted roles="ROLE_ADMIN">
+					<span class="sep">|</span> 
+					<span class="division"> 
+						<a href="#"> 
+							<span>Site Administration</span> 
+						</a>
+					</span> 
+				</sec:ifAnyGranted>
 			</div>
 		</div>
 

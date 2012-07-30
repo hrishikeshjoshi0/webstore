@@ -4,14 +4,9 @@
 package com.openappengine.model.product;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**

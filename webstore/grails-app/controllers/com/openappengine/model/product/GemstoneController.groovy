@@ -3,6 +3,7 @@ package com.openappengine.model.product
 import org.apache.commons.lang.StringUtils
 import org.springframework.dao.DataIntegrityViolationException
 
+import com.openappengine.enums.SortOrder
 import com.openappengine.model.common.Image
 
 class GemstoneController {
@@ -15,8 +16,57 @@ class GemstoneController {
 
     def list() {
         params.max = 9
+		def c = Gemstone.createCriteria()
+		def sortBy = params.sortBy
+		if(!sortBy) {
+			sortBy = "NEW_ARRIVALS"
+		}
+        params.sortBy = sortBy
 		
-		def model = [prodGemstoneInstanceList: Gemstone.list(params), prodGemstoneInstanceTotal: Gemstone.count()]
+		if(!params.offset) {
+			params.offset = 0
+		}
+		
+		if(!params.minPrice) {
+			params.minPrice = 0
+		}
+		
+		if(!params.maxPrice) {
+			params.maxPrice = 10000
+		}
+		
+		def gemstones = new ArrayList<Product>();
+		
+		gemstones = c.list {
+			createAlias('prodProductPrices', 'price')
+			
+			between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
+			
+			//Order
+			if(sortBy.equals("HIGHEST_PRICE")) {
+				order("price.ppPrice", "desc")
+			} else if(StringUtils.equals(sortBy, "NEW_ARRIVALS")) {
+				order("pdIntroductionDate", "desc")
+			} else if(StringUtils.equals(sortBy, "LOWEST_PRICE")) {
+				order("price.ppPrice", "asc")
+			} else if(StringUtils.equals(sortBy, "MOST_REVIEWS")) {
+				/*createAlias('calculatedInfo', 'calculatedInfo')
+				projections {
+					countDistinct 'calculatedInfo', 'myCount'
+					groupProperty 'calculatedInfo'
+				}
+				order("myCount", "desc")*/
+				//TODO
+			} else if(StringUtils.equals(sortBy, "BEST_RATINGS")) {
+				createAlias('calculatedInfo', 'calculatedInfo')
+				order("calculatedInfo.averageCustomerRating", "desc")
+			}
+			firstResult(params.offset)
+			maxResults(params.max)
+		}
+		
+		
+		def model = [prodGemstoneInstanceList: gemstones, prodGemstoneInstanceTotal: gemstones.size()]
 		
 		if (request.xhr) {
 			// ajax request
@@ -70,6 +120,10 @@ class GemstoneController {
         def prodGemstoneInstance = new Gemstone(params)
 		prodGemstoneInstance.productCategory = parent
 		prodGemstoneInstance.pdProductCategory = "gemstone"
+		
+		//Init calculated info
+		prodGemstoneInstance.calculatedInfo = new ProductCalculatedInfo()
+		
 		
         if (!prodGemstoneInstance.save(flush: true)) {
             render(view: "create", model: [prodGemstoneInstance: prodGemstoneInstance])

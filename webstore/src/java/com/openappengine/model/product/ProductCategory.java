@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,15 +55,15 @@ public class ProductCategory implements Serializable {
 	@Column(name="PC_TO_DATE")
 	private Date toDate;
     
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PC_CATEGORY_IMAGE_ID")
     private Image categoryImage; 
 
-    @ManyToOne(cascade={CascadeType.ALL})
+    @ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.LAZY)
     @JoinColumn(name="PC_PRODUCT_PARENT_CATEGORY_ID")
     private ProductCategory parentCategory;
  
-    @OneToMany(mappedBy="parentCategory")
+    @OneToMany(mappedBy="parentCategory",fetch=FetchType.LAZY)
     private Set<ProductCategory> childCategories = new HashSet<ProductCategory>();
 
     public ProductCategory() {

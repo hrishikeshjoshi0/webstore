@@ -31,16 +31,16 @@ public class ProductCalculatedInfo implements Serializable {
 	private int productCalculatedInfoId;
 	
 	@Column(name="PC_AVERAGE_CUSTOMER_RATING")
-	private BigDecimal averageCustomerRating;
+	private BigDecimal averageCustomerRating= new BigDecimal("0.0");
 	
 	@Column(name="PC_AVERAGE_QUALITY_RATING")
-	private BigDecimal averageQualityAndWorkmanshipRating;
+	private BigDecimal averageQualityAndWorkmanshipRating = new BigDecimal("0.0");
 	
 	@Column(name="PC_AVERAGE_PRODUCT_SATISFACTION_RATING")
-	private BigDecimal averageProductSatisfactionRating;
+	private BigDecimal averageProductSatisfactionRating = new BigDecimal("0.0");
 	
 	@Column(name="PC_AVERAGE_WOW_FACTOR_RATING")
-	private BigDecimal averageWowFactorRating;
+	private BigDecimal averageWowFactorRating = new BigDecimal("0.0");
 
 	@Column(name="PC_TIMES_VIEWED")
 	private Integer timesViewed = new Integer(0);

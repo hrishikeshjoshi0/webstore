@@ -9,8 +9,12 @@ package com.openappengine.enums
  */
 enum SortOrder {
 	
-	MOST_POPULAR("Most Popular"),HIGHEST_PRICE("Highest Price"),LOWEST_PRICE("Lowest Price"),
-		NEW_ARRIVALS("New Arrivals"),MOST_REVIEWS("Most Reviews"),BEST_RATINGS("Best Ratings")
+	/*MOST_POPULAR("Most Popular"),*/
+	NEW_ARRIVALS("New Arrivals"),
+	HIGHEST_PRICE("Highest Price"),
+	LOWEST_PRICE("Lowest Price"),
+	MOST_REVIEWS("Most Reviews"),
+	BEST_RATINGS("Best Ratings")
 	
 	final String value
 	

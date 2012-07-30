@@ -22,8 +22,9 @@ hibernate {
 environments {
     development {
 		grails.paypal.server = "https://www.sandbox.paypal.com/cgi-bin/webscr"
-		grails.paypal.email = "testpp_1211202427_biz@g2one.com"
+		grails.paypal.email = "nachi1_1337118253_biz@gmail.com"
 		grails.serverURL = "http://localhost:8080/webstore"
+		
 		
 		dataSource {
 			dbCreate = "update" // one of 'create', 'create-drop','update'

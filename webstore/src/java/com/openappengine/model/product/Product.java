@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -107,42 +108,42 @@ public class Product implements Serializable {
 	private String pdWeightUomId;
 
 	//bi-directional many-to-one association to ProdProductPrice
-	@OneToMany(mappedBy="prodProduct",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="prodProduct",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<ProdProductPrice> prodProductPrices;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PD_SMALL_IMAGE_ID")
     private Image smallImage;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PD_MEDIUM_IMAGE_ID")
     private Image mediumImage;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PD_LARGE_IMAGE_ID")
     private Image largeImage;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PD_DETAIL_IMAGE_ID")
     private Image detailImage;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PD_PRODUCT_TYPE_ID")
     private ProductType productType;
 	
-	@ManyToOne(cascade={CascadeType.ALL})
+	@ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.LAZY)
     @JoinColumn(name="PD_PRODUCT_CATEGORY_ID")
     private ProductCategory productCategory;
 	
 	//bi-directional many-to-one association to ProdProductPrice
-	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="product",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<ProductAttribute> productAttributes;
 	
 	//bi-directional many-to-one association to ProdProductPrice
-	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="product",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<ProductReview> productReviews;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PD_CALCULATED_INFO_ID")
     private ProductCalculatedInfo calculatedInfo;
 	

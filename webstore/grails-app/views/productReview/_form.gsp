@@ -68,14 +68,14 @@
 						<tr>
 							<td>Overall Rating</td>
 							<td><span id="overall_avg"> </span></td>
-							<td>(${productReviewInstance?.product?.calculatedInfo.averageCustomerRating}
+							<td>(${productReviewInstance?.product?.calculatedInfo?.averageCustomerRating}
 								OUT OF 5)
 							</td>
 						</tr>
 						<tr>
 							<td>Quality & Workmanship</td>
 							<td><span id="quality_n_workmanship_avg"></span></td>
-							<td>(${productReviewInstance?.product?.calculatedInfo.averageQualityAndWorkmanshipRating}
+							<td>(${productReviewInstance?.product?.calculatedInfo?.averageQualityAndWorkmanshipRating}
 								OUT OF 5)
 							</td>
 						</tr>
@@ -83,7 +83,7 @@
 						<tr>
 							<td>Product Satisfaction</td>
 							<td><span id="product_satisfaction_avg"></span></td>
-							<td>(${productReviewInstance?.product?.calculatedInfo.averageProductSatisfactionRating}
+							<td>(${productReviewInstance?.product?.calculatedInfo?.averageProductSatisfactionRating}
 								OUT OF 5)
 							</td>
 						</tr>
@@ -91,15 +91,15 @@
 						<tr>
 							<td>Wow Factor</td>
 							<td><span id="wow_factor_avg"></span></td>
-							<td>(${productReviewInstance?.product?.calculatedInfo.averageWowFactorRating}
+							<td>(${productReviewInstance?.product?.calculatedInfo?.averageWowFactorRating}
 								OUT OF 5)
 							</td>
 						</tr>
 					</table>
-					<g:hiddenField name="overallRating_avg" value="${productReviewInstance?.product?.calculatedInfo.averageCustomerRating}" />
-					<g:hiddenField name="qualityAndWorkmanshipRating_avg" value="${productReviewInstance?.product?.calculatedInfo.averageQualityAndWorkmanshipRating}" />
-					<g:hiddenField name="productSatisfactionRating_avg" value="${productReviewInstance?.product?.calculatedInfo.averageProductSatisfactionRating}" />
-					<g:hiddenField name="wowFactorRating_avg" value="${productReviewInstance?.product?.calculatedInfo.averageWowFactorRating}" />
+					<g:hiddenField name="overallRating_avg" value="${productReviewInstance?.product?.calculatedInfo?.averageCustomerRating}" />
+					<g:hiddenField name="qualityAndWorkmanshipRating_avg" value="${productReviewInstance?.product?.calculatedInfo?.averageQualityAndWorkmanshipRating}" />
+					<g:hiddenField name="productSatisfactionRating_avg" value="${productReviewInstance?.product?.calculatedInfo?.averageProductSatisfactionRating}" />
+					<g:hiddenField name="wowFactorRating_avg" value="${productReviewInstance?.product?.calculatedInfo?.averageWowFactorRating}" />
 					<script>
 						$(function() {
 							$('#quality_n_workmanship_avg').ratings(5,
