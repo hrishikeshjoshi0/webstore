@@ -54,18 +54,21 @@ public class ProductType implements Serializable {
 	@Column(name="PT_TO_DATE")
 	private Date toDate;
 
-    @ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+    @ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.LAZY)
     @JoinColumn(name="PT_PRODUCT_PARENT_TYPE_ID")
     private ProductType parentType;
  
     @OneToMany(mappedBy="parentType",fetch=FetchType.EAGER)
     private Set<ProductType> childTypes = new HashSet<ProductType>();
     
-    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Product> products;
     
-    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="productType",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<ProductTypeAttribute> productTypeAttributes;
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.type", cascade=CascadeType.ALL)
+    private List<ProductCategoryType> categoryTypes;
 
     public ProductType() {
     }
@@ -140,6 +143,14 @@ public class ProductType implements Serializable {
 
 	public void setProductTypeAttributes(List<ProductTypeAttribute> productTypeAttributes) {
 		this.productTypeAttributes = productTypeAttributes;
+	}
+
+	public List<ProductCategoryType> getCategoryTypes() {
+		return categoryTypes;
+	}
+
+	public void setCategoryTypes(List<ProductCategoryType> categoryTypes) {
+		this.categoryTypes = categoryTypes;
 	}
 	
 }

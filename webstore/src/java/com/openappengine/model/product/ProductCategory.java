@@ -3,6 +3,7 @@ package com.openappengine.model.product;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -63,8 +64,11 @@ public class ProductCategory implements Serializable {
     @JoinColumn(name="PC_PRODUCT_PARENT_CATEGORY_ID")
     private ProductCategory parentCategory;
  
-    @OneToMany(mappedBy="parentCategory",fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="parentCategory",fetch=FetchType.EAGER)
     private Set<ProductCategory> childCategories = new HashSet<ProductCategory>();
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.category", cascade=CascadeType.ALL)
+    private List<ProductCategoryType> categoryTypes;
 
     public ProductCategory() {
     }
@@ -131,6 +135,14 @@ public class ProductCategory implements Serializable {
 
 	public void setCategoryImage(Image categoryImage) {
 		this.categoryImage = categoryImage;
+	}
+
+	public List<ProductCategoryType> getCategoryTypes() {
+		return categoryTypes;
+	}
+
+	public void setCategoryTypes(List<ProductCategoryType> categoryTypes) {
+		this.categoryTypes = categoryTypes;
 	}
 	
 }
