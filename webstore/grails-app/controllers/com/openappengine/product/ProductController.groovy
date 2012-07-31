@@ -3,6 +3,8 @@ package com.openappengine.product
 import org.springframework.dao.DataIntegrityViolationException
 
 import com.openappengine.model.product.Product
+import com.openappengine.model.product.ProductCategory
+import com.openappengine.model.product.ProductType
 
 class ProductController {
 
@@ -118,6 +120,31 @@ class ProductController {
 			} else {
 				render "0"
 			}
+		}
+	}
+	
+	def ajaxGetCategoryTypes() {
+		if(!params.productCategoryId) {
+			//TODO
+			return
+		}
+		
+		def productCategory = ProductCategory.get(params.productCategoryId)
+		
+		def productTypes = new ArrayList<ProductType>()
+		
+		if(!productCategory?.categoryTypes?.isEmpty()) {
+			productCategory?.categoryTypes.eachWithIndex {productCategoryType,i -> 
+				productTypes.add(productCategoryType.pk.type)
+			}
+		}
+		
+		def model = [productTypes: productTypes]
+		if (request.xhr) {
+				// ajax request
+			render(template: "/gemstone/productTypes", model: model)
+		} else {
+			model
 		}
 	}
 }

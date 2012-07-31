@@ -5,24 +5,32 @@
 <title>Gemstone</title>
 <script type="text/javascript">
 $(document).ready(function() {
-    setupGridAjax();
+   		setupGridAjax();
 
-    $("#productPriceFilter").slider({
-		range: true,
-		min: 0,
-		max: 500,
-		values: [ 75, 300 ],
-		slide: function(event, ui) {
-			$("#minPrice").val(ui.values[0]);
-			$("#maxPrice").val(ui.values[1]);
-		},
-		stop: function(event, ui) {
-			ajaxList(); 
-		}
-	});
+	    $("#productPriceFilter").slider({
+			range: true,
+			min: 0,
+			max: 500,
+			values: [ 75, 300 ],
+			slide: function(event, ui) {
+				$("#minPrice").val(ui.values[0]);
+				$("#maxPrice").val(ui.values[1]);
+			},
+			stop: function(event, ui) {
+				ajaxList(); 
+			}
+		});
 
 	    $("#minPrice").val($("#productPriceFilter").slider( "values", 0 ));
 	    $("#maxPrice").val($("#productPriceFilter").slider( "values", 1 ));
+
+	    $.ajax({
+	        type: 'GET',
+	        url: "<g:createLink controller='product' action='ajaxGetCategoryTypes' />",
+	        success: function(data) {
+	            //$(grid).html(data);
+	        }
+	    });
 	});
 
 	$("#sortBy").live("change", function(e) { 
@@ -91,6 +99,11 @@ $(document).ready(function() {
 			<div class="label-product-filter">
 				Gemstone Type :
 			</div>			
+			
+			
+			<div id="productTypes">
+				
+			</div>
 			<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 			
 		</div>
