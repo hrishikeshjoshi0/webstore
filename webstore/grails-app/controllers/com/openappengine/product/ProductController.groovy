@@ -4,6 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 import com.openappengine.model.product.Product
 import com.openappengine.model.product.ProductCategory
+import com.openappengine.model.product.ProductCategoryType;
 import com.openappengine.model.product.ProductType
 
 class ProductController {
@@ -124,19 +125,16 @@ class ProductController {
 	}
 	
 	def ajaxGetCategoryTypes() {
-		if(!params.productCategoryId) {
+		if(!params.productCategory) {
 			//TODO
 			return
 		}
 		
-		def productCategory = ProductCategory.get(params.productCategoryId)
+		def productCategory = ProductCategory.findByProductCategoryName(params.productCategory)
 		
 		def productTypes = new ArrayList<ProductType>()
-		
-		if(!productCategory?.categoryTypes?.isEmpty()) {
-			productCategory?.categoryTypes.eachWithIndex {productCategoryType,i -> 
-				productTypes.add(productCategoryType.pk.type)
-			}
+		if(productCategory) {
+			productTypes.addAll(productCategory?.productTypes)
 		}
 		
 		def model = [productTypes: productTypes]

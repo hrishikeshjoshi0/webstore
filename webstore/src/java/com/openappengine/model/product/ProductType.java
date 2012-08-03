@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -67,8 +68,8 @@ public class ProductType implements Serializable {
     @OneToMany(mappedBy="productType",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<ProductTypeAttribute> productTypeAttributes;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.type", cascade=CascadeType.ALL)
-    private List<ProductCategoryType> categoryTypes;
+    @ManyToMany(mappedBy="productTypes")
+    private List<ProductCategory> productCategories;
 
     public ProductType() {
     }
@@ -145,12 +146,11 @@ public class ProductType implements Serializable {
 		this.productTypeAttributes = productTypeAttributes;
 	}
 
-	public List<ProductCategoryType> getCategoryTypes() {
-		return categoryTypes;
+	public List<ProductCategory> getProductCategories() {
+		return productCategories;
 	}
 
-	public void setCategoryTypes(List<ProductCategoryType> categoryTypes) {
-		this.categoryTypes = categoryTypes;
+	public void setProductCategories(List<ProductCategory> productCategories) {
+		this.productCategories = productCategories;
 	}
-	
 }

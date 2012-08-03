@@ -14,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -67,8 +69,11 @@ public class ProductCategory implements Serializable {
     @OneToMany(mappedBy="parentCategory",fetch=FetchType.EAGER)
     private Set<ProductCategory> childCategories = new HashSet<ProductCategory>();
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.category", cascade=CascadeType.ALL)
-    private List<ProductCategoryType> categoryTypes;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="prod_category_type",
+                joinColumns={@JoinColumn(name="pct_product_category_id")},
+                inverseJoinColumns={@JoinColumn(name="pct_product_type_id")})
+    private List<ProductType> productTypes;
 
     public ProductCategory() {
     }
@@ -137,12 +142,11 @@ public class ProductCategory implements Serializable {
 		this.categoryImage = categoryImage;
 	}
 
-	public List<ProductCategoryType> getCategoryTypes() {
-		return categoryTypes;
+	public List<ProductType> getProductTypes() {
+		return productTypes;
 	}
 
-	public void setCategoryTypes(List<ProductCategoryType> categoryTypes) {
-		this.categoryTypes = categoryTypes;
+	public void setProductTypes(List<ProductType> productTypes) {
+		this.productTypes = productTypes;
 	}
-	
 }

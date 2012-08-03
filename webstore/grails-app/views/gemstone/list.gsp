@@ -26,9 +26,9 @@ $(document).ready(function() {
 
 	    $.ajax({
 	        type: 'GET',
-	        url: "<g:createLink controller='product' action='ajaxGetCategoryTypes' />",
+	        url: "<g:createLink controller='product' action='ajaxGetCategoryTypes' />" + "?productCategory=" + "gemstone",
 	        success: function(data) {
-	            //$(grid).html(data);
+	            $('#productTypes').html(data);
 	        }
 	    });
 	});
