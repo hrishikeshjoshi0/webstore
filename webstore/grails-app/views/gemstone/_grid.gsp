@@ -1,10 +1,17 @@
 <%@page import="com.openappengine.enums.SortOrder"%>
 
 <div id="product-list" class="ajax" style="width: 100%;">
+	<h1 class="page-title">
+		${params.pageHeader}
+	</h1>
+	
 	<div class="pager result-box" style="width:100%;color: #FAFAFA;">
 			<span class="result">
 				${prodGemstoneInstanceTotal} Results
 			</span>
+			
+			<g:hiddenField name="filterMinPrice" value="${params.minPrice}"/>
+			<g:hiddenField name="filterMaxPrice" value="${params.maxPrice}"/>
 			
 			Sort By :
 			<g:select name="sortBy" from="${SortOrder.values()}" value="${params.sortBy}" 

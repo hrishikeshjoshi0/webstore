@@ -11,10 +11,12 @@
 
 </head>
 <body>
-	<h2 style="margin-left: 1em;">Shopping Cart</h2>
-	<hr/>
+	<h1 class="page-title">
+		Shopping Cart
+	</h1>
 	
 	<div style="">
+		<g:if test="${!shoppingCartInstance.cartItems.isEmpty()}">
 		<div id="shoppingCart" class="row">
 			<div class="tencol" style="border-bottom: 1px dotted #B5B5B5;">
 				<p style="float: right;">
@@ -28,13 +30,23 @@
 				</p>
 			</div>
 		</div>
-
+		</g:if>
+		
 		<div class="row">
 			<!-- Cart Items -->
 			<div class="ninecol">
 				<p style="float: right;font-weight: bold;">
-					Call us! We're here to answer any questions 1-800-539-3580
+					<!-- Display any instructions -->
 				</p>
+				
+				<g:if test="${shoppingCartInstance.cartItems.isEmpty()}">
+					<p style="float: left;font-weight: bold;">
+						<!-- Display any instructions -->
+						We're sorry, there are no items in your shopping bag. Please  Continue Shopping.
+					</p>
+				</g:if>
+				
+				<g:if test="${!shoppingCartInstance.cartItems.isEmpty()}">
 				<table class="cartItems" id="cartItems"
 					style="width: 100%; border: 1px solid #B5B5B5;">
 					<thead>
@@ -69,9 +81,9 @@
 											maxlength="3"  
 											value="${c.quantity}" size="3" />
 									<br />
-									<g:remoteLink controller="shoppingCart" action="removeFromShoppingCart" params="[productId:product.pdProductId]">
+									<g:link controller="shoppingCart" action="removeFromShoppingCart" params="[productId:product.pdProductId]">
 										Remove
-									</g:remoteLink>
+									</g:link>
 								</td>
 
 								<td class="cartItem" align="center" valign="center" style="width: 50px;">
@@ -102,6 +114,7 @@
 						</g:each>
 					</tbody>
 				</table>
+				</g:if>
 			</div>
 		</div>
 	</div>

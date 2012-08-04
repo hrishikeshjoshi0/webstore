@@ -136,9 +136,9 @@
 				<span class="sep">|</span> 
 				
 				<span class="division"> 
-					<a class="basket" href="#"> 
+					<g:link class="user" controller="shoppingCart" action="showCart">
 						<i class="icon-shopping-cart icon-large"></i> <span>Basket</span>
-					</a>
+					</g:link>
 				</span> 
 				
 				<span class="sep">|</span> 
@@ -161,89 +161,8 @@
 			</div>
 		</div>
 
-
-		<div id="nav" class="clearfix">
-			<div class="oe_wrapper">
-				<!-- 
-				<div id="oe_overlay" class="oe_overlay"></div>
-				 -->
-				<ul id="oe_menu" class="oe_menu">
-					<!-- Gemstones -->
-					<li><a href="<g:createLink controller="gemstone" action="list" />">Gemstones</a>
-						<div class="oe_menu_content">
-							<ul>
-								<!-- 
-								 <li class="oe_heading">Summer 2011</li>
-								 -->
-								<li><a href="#">Star Rubies</a></li>
-								<li><a href="#">Faceted Rubies</a></li>
-								<li><a href="#">Ruby Cabochons</a></li>
-								<li><a href="#">Trapiche Rubies </a></li>
-								<li><a href="#">Star Sapphires</a></li>
-								<li><a href="#">Sapphires</a></li>
-								<li><a href="#">Trapiche Sapphires</a></li> 
-								<li><a href="#">Padparadscha </a></li>
-							</ul>
-							<ul>
-								<li><a href="#">Emeralds</a></li>
-								<li><a href="#">Trapiche Emeralds</a></li>
-								<li><a href="#">Spinel </a></li>
-								<li><a href="#">Star Spinel</a></li>
-								<li><a href="#">Cat's Eye</a></li>
-								<li><a href="#">Alexandrite</a></li>
-								<li><a href="#">Diamonds</a></li>
-								<li><a href="#">Pearls</a></li>
-							</ul>
-							<ul>
-								<li><a href="#">Green Garnet</a></li>
-								<li><a href="#">Opal </a></li>
-								<li><a href="#">Paraiba</a></li>
-								<li><a href="#">Coral</a></li>
-								<li><a href="#">Clinohumite</a></li>
-								<li><a href="#">Fire Agate</a></li>
-								<li><a href="#">Chrysoberyl</a></li>
-								<li><a href="#">Hessonite</a></li>
-							</ul>
-							<ul>
-								<li><a href="#">Rubellite </a></li>
-								<li><a href="#">Gem Sculptures</a></li>
-								<li><a href="#">Pairs</a></li>
-								<li><a href="#">Lots</a></li>
-								<li><a href="#">Rare Gems</a></li>
-							</ul>
-						</div></li>
-					
-					<!-- Jewelry -->	
-					<li><a href="">Jewelry</a>
-						<!-- -112px -->
-						<!--  Add -111px for every next div. 
-						<div class="oe_menu_content" style="left: -111px;">
-						</div>
-						 -->
-					</li>
-					
-					<!-- Diamonds -->		
-					<li><a href="">Diamonds</a>
-					</li>
-					
-					<!-- Build Your Own Jewelry -->	
-					<li><a href="">Build Your Own Jewelry</a>
-					</li>
-					
-					<!-- Gifts -->	
-					<li><a href="">Gifts</a>
-					</li>
-					
-					<!-- Education -->	
-					<li><a href="">Education</a>
-					</li>
-					
-					<!-- Sale -->
-					<li><a href="">Sale</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<!-- Menu Bar -->
+		<g:render template="/common/menu"></g:render>
 		
 		<!-- Main Content -->
 		<div id="page-content">

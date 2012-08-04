@@ -13,7 +13,7 @@ enum SortOrder {
 	NEW_ARRIVALS("New Arrivals"),
 	HIGHEST_PRICE("Highest Price"),
 	LOWEST_PRICE("Lowest Price"),
-	MOST_REVIEWS("Most Reviews"),
+	MOST_POPULAR("Most Popular"),
 	BEST_RATINGS("Best Ratings")
 	
 	final String value

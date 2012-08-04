@@ -34,6 +34,23 @@ class ShoppingCartController {
 		}
 	}
 	
+	def removeFromShoppingCart() {
+		def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
+		
+		def sc = ShoppingCart.findBySessionID(sessionID)
+		if(!sc) {
+			return;
+		}
+		
+		def sci= ShoppingCartItem.findByShoppingCartAndProductId(sc,params.productId)
+		if(sci) {
+			sci.delete(flush:true)
+		}
+		
+		redirect(action: "showCart",id:sc.shoppingCartId)
+		
+	}
+	
 	def addToShoppingCart() {
 		def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
 		
@@ -66,13 +83,23 @@ class ShoppingCartController {
 	}
 	
 	def showCart() {
-		def shoppingCartInstance = ShoppingCart.get(params.id)
-		if (!shoppingCartInstance) {
-			//TODO
-			return
-		}
-
-		[shoppingCartInstance: shoppingCartInstance]
+		def sc
+		if(params.id) {
+			sc = ShoppingCart.get(params.id)
+			if (!sc) {
+				//TODO
+				return
+			}
+		 } else {
+			 def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
+			 
+			 sc = ShoppingCart.findBySessionID(sessionID)
+			 if(!sc) {
+				 sc = new ShoppingCart(sessionID:sessionID)
+				 sc.save(flush:true)
+			 }
+		 }
+		[shoppingCartInstance: sc]
 	}
 	
 	def checkoutPaypal() {

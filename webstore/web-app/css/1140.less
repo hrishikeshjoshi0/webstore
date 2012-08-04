@@ -703,6 +703,7 @@ h1.filter-heading {
 	font-size: 14px;
 	display: inline-block;
 	margin-left: 2.7em;
+	text-transform: uppercase;
 }
 
 
@@ -923,6 +924,7 @@ input.continue_checkout {
 	padding:5px;
 	/* border-bottom: 1px dotted #B5B5B5; */
 	margin-top:10px;
+	margin-left:10px;
 	margin-bottom:2px;
 	background-color: #FAFAFA;
 	color:#666;
@@ -936,6 +938,7 @@ input.continue_checkout {
 }
 
 .productPriceFilter {
+	margin-left: 10px;
 	width: 180px;
 }
 
@@ -949,4 +952,35 @@ input.continue_checkout {
 
 .ui-slider-handle {
 	background-color: #0F3B5F; 
+}
+
+li.productTypeFilter {
+	list-style-type: none;
+	margin-left: 5px;
+	border-bottom: 1px dotted #B5B5B5;
+}
+
+li.selectedProductType {
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	background-color: #336699;
+	border: 1px solid #336699;
+	.border-radius(2px);
+}
+
+li.selectedProductType > a {
+	color:#EEE;
+}
+
+li.productTypeMenuLink {
+	list-style-type: none;
+}
+
+ul.productTypeMenuLinkList {
+	border-right: 1px dotted #B5B5B5;	
+}
+
+.clearAll {
+	font-size:10px;
+	color: #336699;
+	border: 1px solid #336699;
 }

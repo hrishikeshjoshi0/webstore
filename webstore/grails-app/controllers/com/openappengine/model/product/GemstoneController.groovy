@@ -18,10 +18,13 @@ class GemstoneController {
         params.max = 9
 		def c = Gemstone.createCriteria()
 		def sortBy = params.sortBy
+		def productTypeId = params.productTypeId
+		
+		params.pageHeader = "Featured Gemstones"
+		
 		if(!sortBy) {
 			sortBy = "NEW_ARRIVALS"
 		}
-        params.sortBy = sortBy
 		
 		if(!params.offset) {
 			params.offset = 0
@@ -35,12 +38,21 @@ class GemstoneController {
 			params.maxPrice = 10000
 		}
 		
+		params.sortBy = sortBy
+		params.productTypeId = productTypeId
+		
 		def gemstones = new ArrayList<Product>();
 		
 		gemstones = c.list {
 			createAlias('prodProductPrices', 'price')
 			
 			between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
+			
+			//Filter
+			if(productTypeId) {
+				def productType = ProductType.get(params.productTypeId)
+				eq("productType",productType)
+			}
 			
 			//Order
 			if(sortBy.equals("HIGHEST_PRICE")) {
@@ -49,14 +61,9 @@ class GemstoneController {
 				order("pdIntroductionDate", "desc")
 			} else if(StringUtils.equals(sortBy, "LOWEST_PRICE")) {
 				order("price.ppPrice", "asc")
-			} else if(StringUtils.equals(sortBy, "MOST_REVIEWS")) {
-				/*createAlias('calculatedInfo', 'calculatedInfo')
-				projections {
-					countDistinct 'calculatedInfo', 'myCount'
-					groupProperty 'calculatedInfo'
-				}
-				order("myCount", "desc")*/
-				//TODO
+			} else if(StringUtils.equals(sortBy, "MOST_POPULAR")) {
+				createAlias('calculatedInfo', 'calculatedInfo')
+				order("calculatedInfo.timesViewed", "desc")
 			} else if(StringUtils.equals(sortBy, "BEST_RATINGS")) {
 				createAlias('calculatedInfo', 'calculatedInfo')
 				order("calculatedInfo.averageCustomerRating", "desc")
@@ -65,6 +72,40 @@ class GemstoneController {
 			maxResults(params.max)
 		}
 		
+		def minPrice = Gemstone.createCriteria().get {
+			createAlias('prodProductPrices', 'price')
+			
+			//Filter
+			if(productTypeId) {
+				def productType = ProductType.get(params.productTypeId)
+				eq("productType",productType)
+			}
+			
+			projections {
+				min("price.ppPrice")
+			}
+		}
+		
+		def maxPrice = Gemstone.createCriteria().get {
+			createAlias('prodProductPrices', 'price')
+			
+			//Filter
+			if(productTypeId) {
+				def productType = ProductType.get(params.productTypeId)
+				eq("productType",productType)
+			}
+			
+			projections {
+				max("price.ppPrice")
+			}
+		}
+		
+		if(productTypeId) {
+			params.pageHeader = ProductType.get(params.productTypeId)?.productTypeName
+		}
+		
+		params.minPrice = minPrice
+		params.maxPrice = maxPrice
 		
 		def model = [prodGemstoneInstanceList: gemstones, prodGemstoneInstanceTotal: gemstones.size()]
 		
@@ -145,7 +186,13 @@ class GemstoneController {
 			redirect(action: "list")
 			return
 		}
-
+		
+		if(prodGemstoneInstance?.calculatedInfo) {
+			def timesViewed = prodGemstoneInstance?.calculatedInfo.timesViewed
+			prodGemstoneInstance?.calculatedInfo.timesViewed = timesViewed + 1
+			prodGemstoneInstance?.calculatedInfo.save(flush:true)
+		}
+		
 		[prodGemstoneInstance: prodGemstoneInstance]
 	}
 	

@@ -140,7 +140,11 @@ class ProductController {
 		def model = [productTypes: productTypes]
 		if (request.xhr) {
 				// ajax request
-			render(template: "/gemstone/productTypes", model: model)
+			if(params.template) {
+				render(template:params.template, model: model)
+			} else {
+				render(template: "/gemstone/productTypes", model: model)
+			}
 		} else {
 			model
 		}
