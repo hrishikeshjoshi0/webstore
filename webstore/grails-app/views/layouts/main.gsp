@@ -75,6 +75,41 @@
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.tabs.js')}"></script>
 
 <script src="${resource(dir: 'js', file: 'jquery.ratings.js')}"></script>
+<script src="${resource(dir: 'js', file: 'jquery.tipsy.js')}"></script>
+
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".signin").click(function(e) {          
+				e.preventDefault();
+				$.ajax({
+			        type: 'GET',
+			        url: "<g:createLink controller='login' action='authAjax' />" , 
+			        success: function(data) {
+			            $('#signin_menu').html(data);
+			            $("fieldset#signin_menu").toggle();
+						$(".signin").toggleClass("menu-open");
+			        }
+			    });
+            });
+			
+			$("fieldset#signin_menu").mouseup(function() {
+				return false
+			});
+			
+			$(document).mouseup(function(e) {
+				if($(e.target).parent("a.signin").length==0) {
+					$(".signin").removeClass("menu-open");
+					$("fieldset#signin_menu").hide();
+				}
+			});			
+			
+        });
+</script>
+<script type='text/javascript'>
+    $(function() {
+	  $('#forgot_username_link').tipsy({gravity: 'w'});   
+    });
+</script>
 
         <style type="text/css">
 			span.reference{
@@ -108,7 +143,7 @@
 </head>
 <body>
 	<div id="wrap">
-
+	
 		<!-- Header -->
 		<div id="header">
 			<div id="logo" class="logo">
@@ -119,10 +154,14 @@
 
 			<div id="user">
 				<span class="division"> <sec:ifNotLoggedIn>
-						<g:link class="user" controller="login" action="auth">
 							<i class="icon-user icon-large"></i>
-							<span>Sign In</span>
-						</g:link>
+	   					    <span id="topnav" class="topnav" style="margin:0px;"> 
+	   					    	<g:link class="signin user" controller="login" action="auth">
+							  		<span>Sign in</span>
+							  	</g:link>
+							  	<fieldset id="signin_menu">
+								</fieldset> 
+							</span>
 					</sec:ifNotLoggedIn> <sec:ifLoggedIn>
 						   Welcome <sec:username />
 					</sec:ifLoggedIn>

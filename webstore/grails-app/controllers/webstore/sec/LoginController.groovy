@@ -60,8 +60,11 @@ class LoginController {
 	 * The redirect action for Ajax requests.
 	 */
 	def authAjax = {
-		response.setHeader 'Location', SpringSecurityUtils.securityConfig.auth.ajaxLoginFormUrl
-		response.sendError HttpServletResponse.SC_UNAUTHORIZED
+		def config = SpringSecurityUtils.securityConfig
+		String view = 'auth'
+		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+		render(template:'/common/auth', model: [postUrl: postUrl,
+								   rememberMeParameter: config.rememberMe.parameter])
 	}
 
 	/**

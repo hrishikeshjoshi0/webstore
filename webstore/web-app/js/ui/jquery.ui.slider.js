@@ -353,7 +353,6 @@ $.widget( "ui.slider", $.ui.mouse, {
 
 		valueTotal = this._valueMax() - this._valueMin();
 		valueMouse = this._valueMin() + percentMouse * valueTotal;
-
 		return this._trimAlignValue( valueMouse );
 	},
 
