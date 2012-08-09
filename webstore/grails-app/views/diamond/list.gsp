@@ -1,84 +1,118 @@
-
-<%@ page import="webstore.product.ProductDiamond" %>
 <!doctype html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'product_Diamond.label', default: 'Diamond')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<div id="list-product_Diamond" class="content scaffold-list" role="main">
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
-				<thead>
-					<tr>
-						<g:sortableColumn property="shape" title="${message(code: 'product_Diamond.shape.label', default: 'Shape')}" />
-						
-						<g:sortableColumn property="carat" title="${message(code: 'product_Diamond.carat.label', default: 'Carat')}" />
-						
-						<g:sortableColumn property="cut" title="${message(code: 'product_Diamond.cut.label', default: 'Cut')}" />
-						
-						<g:sortableColumn property="color" title="${message(code: 'product_Diamond.color.label', default: 'Color')}" />
-					
-						<g:sortableColumn property="clarity" title="${message(code: 'product_Diamond.clarity.label', default: 'Clarity')}" />
-					
-						<g:sortableColumn property="polish" title="${message(code: 'product_Diamond.polish.label', default: 'Polish')}" />
-						
-						<g:sortableColumn property="polish" title="${message(code: 'product_Diamond.syymetry.label', default: 'Symmetry')}" />
-						
-						<g:sortableColumn property="depth" title="${message(code: 'product_Diamond.depth.label', default: 'Depth')}" />
-						
-						<g:sortableColumn property="table" title="${message(code: 'product_Diamond.depth.label', default: 'Table')}" />
-						
-						<g:sortableColumn property="fluoroscence" title="${message(code: 'product_Diamond.fluoroscence.label', default: 'Flur')}" />
-					
-						<g:sortableColumn property="pricePerCarat" title="${message(code: 'product_Diamond.pricePerCarat.label', default: 'Price Per Carat')}" />
-						
-						<th/>
-					</tr>
-				</thead>
-				<tbody>
-				<g:each in="${product_DiamondInstanceList}" status="i" var="product_DiamondInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td>${fieldValue(bean: product_DiamondInstance, field: "shape")}</td>
-						
-						<td>${fieldValue(bean: product_DiamondInstance, field: "carat")}</td>
-						
-						<td>${fieldValue(bean: product_DiamondInstance, field: "cut")}</td>
-						
-						<td>${fieldValue(bean: product_DiamondInstance, field: "color")}</td>
-					
-						<td>${fieldValue(bean: product_DiamondInstance, field: "clarity")}</td>
-						
-						<td>${fieldValue(bean: product_DiamondInstance, field: "polish")}</td>
-						
-						<td>${fieldValue(bean: product_DiamondInstance, field: "symmetry")}</td>
-					
-						<td>${fieldValue(bean: product_DiamondInstance, field: "depth")}</td>
-					
-						<td>${fieldValue(bean: product_DiamondInstance, field: "table")}</td>
-						
-						<td>${fieldValue(bean: product_DiamondInstance, field: "fluoroscence")}</td>
-						
-						<td>${fieldValue(bean: product_DiamondInstance, field: "pricePerCarat")}</td>
-						
-						<td>
-							<g:link action="show" id="${product_DiamondInstance.id}">
-								View
-							</g:link>
-						</td>
-						
-					</tr>
-				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${product_DiamondInstanceTotal}" />
+<head>
+<meta name="layout" content="main">
+<title>Diamond</title>
+	<script type="text/javascript">
+	$(document).ready(function() {
+   		setupGridAjax();
+   		setupPriceSlider();
+	});
+
+	$("#sortBy").live("change", function(e) { 
+		ajaxList();
+	});
+
+	function setupPriceSlider() {
+		$("#productPriceFilter").slider({
+			range: true,
+			min: $("#filterMinPrice").val()-1,
+			max: $("#filterMaxPrice").val()+1,
+			values: [ $("#filterMinPrice").val(), $("#filterMaxPrice").val()],
+			step:5,
+			slide: function(event, ui) {
+				$("#minPrice").val(ui.values[0]);
+				$("#maxPrice").val(ui.values[1]);
+			},
+			stop: function(event, ui) {
+				ajaxList(); 
+			}
+		});
+
+
+	    $("#minPrice").val($("#filterMinPrice").val());
+	    $("#maxPrice").val($("#filterMaxPrice").val());
+	}
+ 
+	// Turn all sorting and paging links into ajax requests for the grid
+	function setupGridAjax() {
+	    $("#grid").find(".pager a, th.sortable a").live('click', function(event) {
+	        event.preventDefault();
+	        var url = $(this).attr('href');
+	 
+	        var grid = $(".ajax");
+	        $(grid).html($("#spinner").html());
+	 
+	        $.ajax({
+	            type: 'GET',
+	            url: url,
+	            success: function(data) {
+	                $(grid).html(data);
+	            }
+	        })
+	    });
+
+	 function ajaxList() {
+		var url = '<g:createLink controller="gemstone" action="list" />';
+		url = url + "?" + "sortBy=" + $("#sortBy").val();
+		url = url + "&" + "minPrice=" + $("#productPriceFilter").slider( "values", 0 );
+		url = url + "&" + "maxPrice=" + $("#productPriceFilter").slider( "values", 1 );
+		url = url + "&" + "productTypeId=" + $("#productType").val();
+		
+	    var grid = $(".ajax");
+	    $(grid).html($("#spinner").html());
+	
+	    $.ajax({
+	        type: 'GET',
+	        url: url,
+	        success: function(data) {
+	            $(grid).html(data);
+	        }
+	    });
+	}
+</script>
+
+</head>
+<body>
+	<div class="row">
+		<div class="left product-filter">
+			<h1 class="filter-heading">Narrow Results</h1>
+			<hr />
+			
+			<div id="clearFilterDiv" style="display: none;">
+				<a href="<g:createLink controller="gemstone" action="list" class="productTypeFilterLink clearAll"/>">Clear All Filters</a>
 			</div>
+
+			<!-- Price Range Filter -->
+			<span class="label-product-filter">
+				Price :
+			</span>
+			
+			<input type="hidden" name="productType" id="productType" value="${params.productTypeId}"/>
+			
+			<div id="productPriceFilter" class="productPriceFilter"></div>
+			<div class="productPriceFilter" style="font-size: 11px;margin-top: 5px;">
+				<input type="text" name="minPrice" id="minPrice" readonly="readonly"
+						value="${params.minPrice}" 
+						size="5" style="float:left;font-size: 11px;"/>
+				<input type="text" name="maxPrice" id="maxPrice" readonly="readonly" size="5" 
+						value="${params.maxPrice}" 
+						style="float:right;font-size: 11px;"/>
+			</div>
+			<br/><br/>
+
+			<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+			
 		</div>
-	</body>
+
+		<!--
+			margin-left: -2.5em; : Provides more space in the list area 
+		 -->
+		<div class="right product-list-wrapper" style="margin-left: -2.5em;">
+			<div id="grid">
+	            <g:render template="grid" model="model" />
+	        </div>
+		</div>
+	</div>
+</body>
 </html>

@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<title>
-			${prodGemstoneInstance?.pdProductName}
+			${prodDiamondInstance?.pdProductName}
 		</title>
 		
 		<script>
@@ -61,7 +61,8 @@
 			<!-- DETAIL IMAGE -->
 			<div class="fivecol">
 				<div class="productDetImageBox">
-					<g:render template="/common/product/detailImageBox" model="[productInstance:prodGemstoneInstance]"></g:render>
+					<g:render template="/common/product/detailImageBox"
+						model="[productInstance:prodDiamondInstance]"></g:render>
 				</div>
 			</div>
 			<!-- DETAIL IMAGE -->
@@ -71,16 +72,16 @@
 				style="margin-left: 2.5em; margin-top: 4.5em;">
 				<div id="content">
 					<h1 class="product_name_header">
-						${prodGemstoneInstance?.pdProductName}
+						${prodDiamondInstance?.pdProductName}
 					</h1>
 					
 					<p>
-						${prodGemstoneInstance?.pdDescription}
+						${prodDiamondInstance?.pdDescription}
 					</p>
 					
 					<div class="product_price" style="margin-top: 5px;">
 						Price : <strong> <g:formatNumber
-								number="${prodGemstoneInstance?.getProductPrice(new Date())}"
+								number="${prodDiamondInstance?.getProductPrice(new Date())}"
 								maxFractionDigits="2" />
 						</strong>
 					</div>
@@ -91,19 +92,19 @@
 								<td>Overall Rating</td>
 								<td><span id="overall_Det"> </span></td>
 								<td>
-									(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
+									(${prodDiamondInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<a href="#tabs" onclick="$('#tabs').tabs('select', 1);">
 										Ratings & Reviews 
-										(${prodGemstoneInstance?.productReviews?.size()})
+										(${prodDiamondInstance?.productReviews?.size()})
 									</a>
 								</td>
 							</tr>
 						</table>		
-						<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}" />
+						<g:hiddenField name="overall_Det_Rating" value="${prodDiamondInstance?.calculatedInfo?.averageCustomerRating}" />
 						<script>
 							$(function() {
 								$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
@@ -116,9 +117,17 @@
 					<div style="margin-top: 15px;">
 						<g:form name="add_to_cart_form" action="addToShoppingCart" controller="shoppingCart" >
 							<g:hiddenField name="quantityOrdered" value="1"/>
-							<g:hiddenField name="productId" value="${prodGemstoneInstance?.pdProductId}"/>
+							<g:hiddenField name="productId" value="${prodDiamondInstance?.pdProductId}"/>
 							<g:submitButton class="add_to_cart" name="addToCart" value="Add To Cart"/>
 						</g:form>
+					</div>
+					
+					<div class="product_offers_tags" style="margin-top: 15px;">
+						<%--<div class="product-tag">
+								<!-- Create CSS classes for each tag -->
+								<span class="new"> NEW </span>
+							</div>
+						--%>
 					</div>
 					
 					<br/>
@@ -153,13 +162,13 @@
 				<div id="tabs">
 					<ul>
 						<li>
-							<g:link controller="gemstone" action="viewFeatures" id="${prodGemstoneInstance?.pdProductId}">
+							<g:link controller="diamond" action="viewFeatures" id="${prodDiamondInstance?.pdProductId}">
 								Details
 							</g:link>
 						</li>
 						<li>
-							<g:link controller="productReview" action="_productReviews" params="[productId:prodGemstoneInstance?.pdProductId]">
-								Reviews (${prodGemstoneInstance?.productReviews?.size()})
+							<g:link controller="productReview" action="_productReviews" params="[productId:prodDiamondInstance?.pdProductId]">
+								Reviews (${prodDiamondInstance?.productReviews?.size()})
 							</g:link>
 						</li>
 						<li><a href="#">Certificate</a></li>

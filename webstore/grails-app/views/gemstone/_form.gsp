@@ -1,44 +1,55 @@
 <%@ page import="com.openappengine.model.product.Gemstone" %>
+<table>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Name" />
+		</td>
+		<td>
+			<g:textField name="pdProductName" value="${prodGemstoneInstance?.pdProductName}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Name" />
+		</td>
+		<td>
+			<g:textField name="pdInternalName" value="${prodGemstoneInstance?.pdInternalName}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdDescription.label" default="Description" />
+		</td>
+		<td>
+			<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdProductName}" rows="5" cols="20" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdDescription.label" default="Description" />
+		</td>
+		<td>
+			<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdProductName}" rows="5" cols="20" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.carat.label" default="Carat" />
+		</td>
+		<td>
+			<g:field type="number" name="carat" value="${fieldValue(bean: prodGemstoneInstance, field: 'carat')}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.clarity.label" default="Clarity" />
+		</td>
+		<td>
+			<g:textField name="clarity" value="${prodGemstoneInstance?.clarity}" />		
+		</td>
+	</tr>
+</table>
 
-<div class="fieldcontain ${hasErrors(bean: prodGemstoneInstance, field: 'pdProductName', 'error')} ">
-	<label for="pdProductName">
-		<g:message code="prodGemstone.pdProductName.label" default="Name" />
-		
-	</label>
-	<g:textField name="pdProductName" value="${prodGemstoneInstance?.pdProductName}" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: prodGemstoneInstance, field: 'pdInternalName', 'error')} ">
-	<label for="pdInternalName">
-		<g:message code="prodGemstone.pdInternalName.label" default="Internal Name" />
-		
-	</label>
-	<g:textField name="pdInternalName" value="${prodGemstoneInstance?.pdInternalName}" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: prodGemstoneInstance, field: 'pdDescription', 'error')} ">
-	<label for="pdDescription">
-		<g:message code="prodGemstone.pdDescription.label" default="Description" />
-		
-	</label>
-	<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdProductName}" rows="5" cols="20" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: prodGemstoneInstance, field: 'stoneId', 'error')} ">
-	<label for="stoneId">
-		<g:message code="prodGemstone.stoneId.label" default="Stone Id" />
-		
-	</label>
-	<g:textField name="stoneId" value="${prodGemstoneInstance?.stoneId}" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: prodGemstoneInstance, field: 'carat', 'error')} ">
-	<label for="carat">
-		<g:message code="prodGemstone.carat.label" default="Carat" />
-		
-	</label>
-	<g:field type="number" name="carat" value="${fieldValue(bean: prodGemstoneInstance, field: 'carat')}" />
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: prodGemstoneInstance, field: 'clarity', 'error')} ">
 	<label for="clarity">

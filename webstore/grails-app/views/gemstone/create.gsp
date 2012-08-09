@@ -8,9 +8,9 @@
 	</head>
 	<body>
 		<div id="create-prodGemstone" class="content scaffold-create" role="main">
-			<span class="title">
-				Add New Gemstone
-			</span>
+			<h1 class="page-title">
+				New Gemstone
+			</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -22,12 +22,11 @@
 			</ul>
 			</g:hasErrors>
 			<g:form action="save" >
-				<fieldset class="form">
+				<div>
 					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
+					<g:submitButton name="create" class="save" 
+						value="Save" />
+				</div>
 			</g:form>
 		</div>
 	</body>

@@ -16,14 +16,18 @@
 		<mapping class='com.openappengine.model.product.ProductReview'/>
 		<mapping class='com.openappengine.model.product.ProductCalculatedInfo'/>
 		<mapping class='com.openappengine.model.product.Gemstone'/>
-		<!-- <mapping class='com.openappengine.model.product.ProductCategoryType'/> -->
+		<mapping class='com.openappengine.model.product.Diamond'/>
+		
 		<!-- Common Schema -->
 		<mapping class='com.openappengine.model.common.Image'/>
 		
-		<!-- Shopping Cart -->
+		<!-- E-Commerce -->
 		<mapping class='com.openappengine.model.cart.ShoppingCart'/>
 		<mapping class='com.openappengine.model.cart.ShoppingCartItem'/>
+		<mapping class='com.openappengine.model.wishlist.WishList'/>
+		<mapping class='com.openappengine.model.wishlist.WishListItem'/>
 		
 	</session-factory>
 
 </hibernate-configuration>
+
