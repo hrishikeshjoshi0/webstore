@@ -46,7 +46,9 @@
 
 <!-- rating -->
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.ratings.css')}" type="text/css">
+<link rel="stylesheet" href="${resource(dir: 'css', file: 'xbreadcrumbs.css')}" type="text/less" media="screen" />
 
+<script type="text/javascript" src="${resource(dir: 'js', file: 'xbreadcrumbs.js')}"></script>
 <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - 
 	Enables media queries in some unsupported browsers-->
 <script type="text/javascript"

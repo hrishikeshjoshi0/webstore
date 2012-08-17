@@ -156,6 +156,9 @@ $(document).ready(function() {
 			margin-left: -2.5em; : Provides more space in the list area 
 		 -->
 		<div class="right product-list-wrapper" style="margin-left: -2.5em;">
+			<div id="bread-crumbs">
+				<g:render template="/common/breadCrumb" />
+			</div>
 			<div id="grid">
 	            <g:render template="grid" model="model" />
 	        </div>
