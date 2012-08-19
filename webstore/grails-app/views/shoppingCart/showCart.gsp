@@ -4,13 +4,27 @@
 <!doctype html>
 <html>
 <head>
-<meta name="layout" content="main">
-<g:set var="entityName"
-	value="${message(code: 'shoppingCart.label', default: 'ShoppingCart')}" />
-<title>Shopping Cart</title>
-
+	<meta name="layout" content="main">
+	<g:set var="entityName"
+		value="${message(code: 'shoppingCart.label', default: 'ShoppingCart')}" />
+	<title>Shopping Cart</title>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var shoppingCartId =$('#shoppingCartId').val();
+		    $.ajax({
+		        type: 'GET',
+		        url: "<g:createLink controller='shoppingCart' action='getOrderSummary' />"
+			        	+ "?id=" + shoppingCartId
+			        	+ "&displayCartItems=false", 
+		        success: function(data) {
+		            $('#orderSummary').html(data);
+		        }
+		    });
+		});
+	</script>
 </head>
 <body>
+	<input type="hidden" name="shoppingCartId" value="${shoppingCartInstance.shoppingCartId}"/>
 	<h1 class="page-title">
 		Shopping Cart
 	</h1>
@@ -20,7 +34,7 @@
 		<div id="shoppingCart" class="row">
 			<div class="tencol" style="border-bottom: 1px dotted #B5B5B5;">
 				<p style="float: right;">
-					<g:form name="add_to_cart_form" action="checkoutPaypal"
+					<g:form name="add_to_cart_form" action="checkout_login" method="GET"
 					controller="shoppingCart">
 						<g:hiddenField name="shoppingCartId"
 							value="${shoppingCartInstance?.shoppingCartId}" />
@@ -35,10 +49,6 @@
 		<div class="row">
 			<!-- Cart Items -->
 			<div class="ninecol">
-				<p style="float: right;font-weight: bold;">
-					<!-- Display any instructions -->
-				</p>
-				
 				<g:if test="${shoppingCartInstance.cartItems.isEmpty()}">
 					<p style="float: left;font-weight: bold;">
 						<!-- Display any instructions -->
@@ -65,7 +75,7 @@
 								<g:hiddenField id="productId_${i}" name="productId" value="${product?.pdProductId}"/>
 								
 								<td align="center" valign="top" style="width: 120px;"><img
-									class="product-img-det" style="width: 100px; height: 80px;"
+									class="product-img-det" style="width: 100px; height: 100px;"
 									alt="${product?.pdProductName}"
 									title="${product?.pdProductName}"
 									src="${resource(dir: '/images/uploads/product', file: product?.smallImage?.imageUrl)}" />
@@ -114,6 +124,17 @@
 						</g:each>
 					</tbody>
 				</table>
+				</g:if>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="fivecol">
+			</div>
+			<div class="fourcol">
+				<g:if test="${!shoppingCartInstance.cartItems.isEmpty()}">
+					<div id="orderSummary">
+					</div>
 				</g:if>
 			</div>
 		</div>

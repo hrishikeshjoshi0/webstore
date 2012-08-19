@@ -403,6 +403,10 @@ li.oe_heading{
 }
 
 /* form fields with errors */
+input, select, textarea, label {
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	font-size:12px;
+}
 
 .error input, .error select, .error textarea {
 	background: #fff3f3;
@@ -432,7 +436,7 @@ tr>td:first-child, tr>th:first-child {
 }
 
 tr>td:last-child, tr>th:last-child {
-	padding-right: 1.25em;
+	padding: 4px;
 }
 
 td, th {
@@ -496,7 +500,7 @@ th.desc a {
 
 .hover th:hover, tr:hover {
 	/* background: #E1F2B6; */
-	background: #EEE;
+	/* background: #EEE; */
 }
 
 .spinner {
@@ -538,9 +542,7 @@ a.signin {
 	margin-left:3px;
 }
 a.signin span {
-	background-image:url("../images/toggle_down_light.png");
-	background-repeat:no-repeat;
-	background-position:100% 50%;
+	
 }
 
 #topnav a.menu-open {
@@ -668,4 +670,16 @@ a.signin.menu-open span {
 .tipsy-west {
 	background-image:url(../images/tipsy-west.gif);
 	background-position:left center;
+}
+
+table.form {
+	
+}
+
+tr {
+	border: 0;
+}
+
+.form > td {
+	padding: 2px;
 }

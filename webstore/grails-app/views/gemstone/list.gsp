@@ -19,7 +19,9 @@ $(document).ready(function() {
 	        }
 	    });
 
-	    
+
+        //  Initialize xBreadcrumbs
+        //$('#breadcrumbs-1').xBreadcrumbs();
 	});
 
 	$("#sortBy").live("change", function(e) { 

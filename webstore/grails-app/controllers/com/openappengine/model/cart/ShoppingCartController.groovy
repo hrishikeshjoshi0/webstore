@@ -1,15 +1,21 @@
 package com.openappengine.model.cart
 
+import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.grails.paypal.Payment
 import org.grails.paypal.PaymentItem
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.web.context.request.RequestContextHolder
 
 import com.openappengine.model.product.Product
+import com.openappengine.model.shipping.Address
 
 class ShoppingCartController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def springSecurityService
+	
+	
 
     def index() {
         redirect(action: "list", params: params)
@@ -100,6 +106,90 @@ class ShoppingCartController {
 			 }
 		 }
 		[shoppingCartInstance: sc]
+	}
+	
+	def checkout_login() {
+		def config = SpringSecurityUtils.securityConfig
+		def sc = ShoppingCart.get(params.shoppingCartId)
+		
+		String view = 'auth'
+		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+		
+		if(springSecurityService.isLoggedIn()) {
+			def model = [shoppingCartInstance:sc,sameShippingAddress:true]
+			redirect(redirect(action: "checkout_address",model : model))
+			return
+		} 
+		
+		[shoppingCartInstance:sc,postUrl:postUrl,checkoutType:"NEW_CUSTOMER"]
+	}
+	
+	def checkout_login_process() {
+		def sc = ShoppingCart.get(params.shoppingCartId)
+		def model = [shoppingCartInstance:sc,checkoutType:"NEW_CUSTOMER"]
+		params.shoppingCartId =sc?.shoppingCartId
+		redirect(action: "checkout_address",model : model, params:params)
+	}
+	
+	def checkout_address() {
+		if(!params.shoppingCartId) {
+			//TODO
+			return
+		}
+		
+		def sc = ShoppingCart.get(params.shoppingCartId)
+		def billingAddress = new Address()
+		def shippingAddress = new Address()
+		[shoppingCartInstance:sc,billingAddress:billingAddress,shippingAddress:shippingAddress]
+	}
+	
+	def checkout_address_process() {
+		if(!params.shoppingCartId) {
+			//TODO
+			return
+		}
+		
+		def sc = ShoppingCart.get(params.shoppingCartId)
+		
+		def billingAddress = new Address()
+		bindData(billingAddress,params,"billing")
+		sc.billingAddress = billingAddress
+		billingAddress.save(flush:true)
+		
+		sc.billingAddress = billingAddress
+		
+		def sameShippingAddress = true
+		println(params.sameShippingAddress)
+		if(params.sameShippingAddress == 'on') {
+			sameShippingAddress = true 
+		} else {
+			sameShippingAddress = false
+		}
+		
+		if(!sameShippingAddress) {
+			def shippingAddress = new Address()
+			bindData(shippingAddress,params,"billing")
+			sc.billingAddress = billingAddress
+			shippingAddress.save(flush:true)
+			sc.shippingAddress = shippingAddress
+		} else {
+			sc.shippingAddress = billingAddress
+		}
+		sc.save(flush:true)
+		
+		def model = [shoppingCartInstance:sc]
+		params.shoppingCartId = sc.shoppingCartId
+		redirect(action: "checkout_payment",model : model,params:params)
+	}
+	
+	def checkout_payment() {
+		if(!params.shoppingCartId) {
+			//TODO
+			return
+		}
+		
+		def sc = ShoppingCart.get(params.shoppingCartId)
+		[shoppingCartInstance:sc]
 	}
 	
 	def checkoutPaypal() {
@@ -211,4 +301,72 @@ class ShoppingCartController {
             redirect(action: "show", id: params.id)
         }
     }
+	
+	def getOrderSummary() {
+		def sc = ShoppingCart.get(params.id)
+		
+		def subtotal = new BigDecimal("0.0")
+		def shipping = new BigDecimal("0.0")
+		//TODO
+		def tax = new BigDecimal("0.0")
+		def total = new BigDecimal("0.0")
+		def discount = new BigDecimal("0.0")
+		def orderSummary = new OrderSummaryCommand()
+		
+		if(sc && !sc?.cartItems?.isEmpty()) {
+			sc.cartItems.eachWithIndex { cartItem, i ->
+				def product = Product.get(cartItem.productId)
+				def productPrice = product.getProductPrice(new Date())
+				if(productPrice) {
+					subtotal += productPrice
+				}
+			}
+		}
+		
+		def displayCartItems = params.displayCartItems
+		if(!displayCartItems) {
+			displayCartItems = false
+		} else {
+			displayCartItems = params.displayCartItems.toBoolean()
+		}
+		
+		orderSummary.discount = discount
+		orderSummary.subtotal = subtotal
+		orderSummary.shipping = shipping
+		orderSummary.tax = tax
+		orderSummary.total = subtotal + shipping + tax
+		def model = [orderSummary : orderSummary,shoppingCartInstance:sc,displayCartItems:displayCartItems]
+		if (request.xhr) {
+			// ajax request
+			render(template: "orderSummary", model: model)
+		} else {
+			model
+		}
+	}
+}
+
+class OrderSummaryCommand {
+	private BigDecimal subtotal;
+	private BigDecimal discount;
+	private BigDecimal shipping;
+	private BigDecimal tax;
+	private BigDecimal total;
+}
+
+class UserCommand {
+	private String firstName;
+	private String lastName;
+	private String company;
+	private String addressLine1;
+	private String addressLine2;
+	private String landmark;
+	private String city;
+	private String state;
+	private String country;
+	private String zip;
+	private String primaryPhone;
+	private String email;
+	private String shippingAddress;
+	private String shoppingCartId;
+	private boolean sameShippingAddress  = true;
 }

@@ -26,6 +26,7 @@
 		<mapping class='com.openappengine.model.cart.ShoppingCartItem'/>
 		<mapping class='com.openappengine.model.wishlist.WishList'/>
 		<mapping class='com.openappengine.model.wishlist.WishListItem'/>
+		<mapping class='com.openappengine.model.shipping.Address'/>
 		
 	</session-factory>
 

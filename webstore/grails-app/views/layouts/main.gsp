@@ -25,9 +25,6 @@
 <link rel="stylesheet" href="${resource(dir: 'css', file: '1140.less')}"
 	type="text/less" media="screen" />
 <!-- font -->
-<link
-	href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Droid+Sans'
-	rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>	
 
 <!-- jquery -->
@@ -48,7 +45,6 @@
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.ratings.css')}" type="text/css">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'xbreadcrumbs.css')}" type="text/less" media="screen" />
 
-<script type="text/javascript" src="${resource(dir: 'js', file: 'xbreadcrumbs.js')}"></script>
 <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - 
 	Enables media queries in some unsupported browsers-->
 <script type="text/javascript"
@@ -78,6 +74,7 @@
 
 <script src="${resource(dir: 'js', file: 'jquery.ratings.js')}"></script>
 <script src="${resource(dir: 'js', file: 'jquery.tipsy.js')}"></script>
+<script type="text/javascript" src="${resource(dir: 'js', file: 'xbreadcrumbs.js')}"></script>
 
 <script type="text/javascript">
         $(document).ready(function() {

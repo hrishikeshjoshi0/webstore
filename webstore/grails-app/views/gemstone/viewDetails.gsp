@@ -63,6 +63,9 @@
 				<div class="productDetImageBox">
 					<g:render template="/common/product/detailImageBox" model="[productInstance:prodGemstoneInstance]"></g:render>
 				</div>
+				<p style="text-align: right;">
+					Rollover to zoom
+				</p>
 			</div>
 			<!-- DETAIL IMAGE -->
 			

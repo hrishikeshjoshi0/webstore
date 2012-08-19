@@ -11,13 +11,19 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.openappengine.model.shipping.Address;
 
 /**
  * @author hrishikesh.joshi
@@ -52,6 +58,14 @@ public class ShoppingCart implements Serializable {
 	
 	@OneToMany(mappedBy="shoppingCart",cascade=CascadeType.ALL)
 	private List<ShoppingCartItem> cartItems = new ArrayList<ShoppingCartItem>();
+	
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY,optional=true)
+	@JoinColumn(name="SC_SHIPPING_ADDRESS_ID")
+	private Address shippingAddress;
+	
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY,optional=true)
+	@JoinColumn(name="SC_BILLING_ADDRESS_ID")
+	private Address billingAddress;
 
 	public Integer getShoppingCartId() {
 		return shoppingCartId;
@@ -106,6 +120,22 @@ public class ShoppingCart implements Serializable {
 			return;
 		}
 		this.cartItems.add(item);
+	}
+
+	public Address getShippingAddress() {
+		return shippingAddress;
+	}
+
+	public void setShippingAddress(Address shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+
+	public Address getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
 	}
 	
 }
