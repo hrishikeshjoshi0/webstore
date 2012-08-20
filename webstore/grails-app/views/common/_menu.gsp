@@ -10,6 +10,17 @@
 		            $('#gemstoneSubLinks').html(data);
 		        }
 		    });
+
+		    $.ajax({
+		        type: 'GET',
+		        url: "<g:createLink controller='product' action='ajaxGetCategoryTypes' />" 
+			        	+ "?productCategory=" + "diamond"
+			        	+ "&template=" + "/common/productTypeMenus",
+		        success: function(data) {
+		            $('#diamondSubLinks').html(data);
+		        }
+		    });
+		    
 	});
 </script>
 <div id="nav" class="clearfix">
@@ -32,7 +43,11 @@
 						 --></li>
 
 			<!-- Diamonds -->
-			<li><a href="">Diamonds</a></li>
+			<li>
+				<a href="<g:createLink controller="diamond" action="list" />">Diamonds</a>
+				<div id="diamondSubLinks" class="oe_menu_content">
+				</div>
+			</li>
 
 			<!-- Build Your Own Jewelry -->
 			<li><a href="">Build Your Own Jewelry</a></li>

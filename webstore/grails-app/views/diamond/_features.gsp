@@ -36,7 +36,7 @@
 	
 	<tr>
 		<td>Depth</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="deptj" /></td>
+		<td><g:fieldValue bean="${prodDiamondInstance}" field="depth" /></td>
 	</tr>
 	
 	<tr>

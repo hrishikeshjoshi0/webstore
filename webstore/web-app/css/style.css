@@ -103,6 +103,7 @@ hr {
     text-align: left;
     font-size: 12px;
     padding: 5px 5px;
+    min-height: 100%;
 }
 
 #page {

@@ -60,7 +60,7 @@
 					<g:hiddenField name="postUrl" value="${postUrl}" />
 					<g:form name="add_to_cart_form" action="checkout_login_process" method="POST" controller="shoppingCart">
 						<g:hiddenField name="shoppingCartId" value="${shoppingCartInstance?.shoppingCartId}" />
-						<g:hiddenField name="checkout" value="true" />
+						<g:hiddenField name="checkout_flow" value="true" />
 						
 						<table id="billingAddress" style="width:100%;">
 							<thead>

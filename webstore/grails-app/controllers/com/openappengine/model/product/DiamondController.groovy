@@ -2,6 +2,8 @@ package com.openappengine.model.product
 
 import org.springframework.dao.DataIntegrityViolationException
 
+import com.openappengine.model.common.Image
+
 class DiamondController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -12,7 +14,9 @@ class DiamondController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [diamondInstanceList: Diamond.list(params), diamondInstanceTotal: Diamond.count()]
+		def count = Diamond.count()
+		def results = Diamond.list(params)
+        [diamondInstanceList: results, diamondInstanceTotal: count]
     }
 	
 	def viewDetails = {
@@ -56,15 +60,140 @@ class DiamondController {
     }
 
     def save() {
-        def diamondInstance = new Diamond(params)
-        if (!diamondInstance.save(flush: true)) {
-            render(view: "create", model: [diamondInstance: diamondInstance])
-            return
-        }
+        def parent
+		if(!params.parentProductId) {
+			parent = ProductCategory.findByProductCategoryName("Diamond")
+			if(!parent) {
+				parent = new ProductCategory()
+				parent.productCategoryName = "Diamond"
+				parent.productCategoryDescription = "Diamond"
+				parent.fromDate = new Date()
+				
+				parent.save(flush:true)
+			}
+			params.parentCategoryId = parent?.productCategoryId
+		} else {
+			parent = ProductCategory.get(params.parentCategoryId)
+		}
+		
+		def diamondInstance = new Diamond(params)
+		diamondInstance.productCategory = parent
+		diamondInstance.pdProductCategory = "diamond"
+		
+		//Init calculated info
+		diamondInstance.calculatedInfo = new ProductCalculatedInfo()
+		
+		diamondInstance.calculatedInfo.save(flush:true)
+		
+		if (!diamondInstance.save(flush: true)) {
+			render(view: "create", model: [diamondInstance: diamondInstance])
+			return
+		}
 
-		flash.message = message(code: 'default.created.message', args: [message(code: 'diamond.label', default: 'Diamond'), diamondInstance.id])
-        redirect(action: "show", id: diamondInstance.id)
+		flash.message = message(code: 'default.created.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), diamondInstance.pdProductId])
+		redirect(action:"upload",id: diamondInstance.pdProductId)
     }
+	
+	def upload = {
+	
+	}
+	
+	def uploadImage = {
+		def webRootDir = servletContext.getRealPath("/")
+		def userDir = new File(webRootDir, "/images/uploads/product")
+			
+		//TODO
+		//userDir = new File("c:\\temp")
+		
+		//handle uploaded file
+		def uploadedFileSmall = request.getFile('payloadSmallImg')
+		if(!uploadedFileSmall.empty){
+			println "Class: ${uploadedFileSmall.class}"
+			println "Name: ${uploadedFileSmall.name}"
+			println "OriginalFileName: ${uploadedFileSmall.originalFilename}"
+			println "Size: ${uploadedFileSmall.size}"
+			println "ContentType: ${uploadedFileSmall.contentType}"
+			
+			
+			if(params.productId) {
+				Product p = Product.get(params.productId)
+
+				if(p) {
+					def prefix = ""
+					prefix = "THUMB"
+
+					def image = new Image(params)
+					image.fromDate = new Date()
+					image.imageUrl = prefix + "_" + p.pdProductId + "_" + uploadedFileSmall.originalFilename
+					
+					uploadedFileSmall.transferTo( new File( userDir, image.imageUrl))
+					
+					image.save(flush:true)
+
+					p.smallImage = image
+				}
+			}
+		}
+		
+		def uploadedFileMedium = request.getFile('payloadMediumImg')
+		if(!uploadedFileMedium.empty){
+			println "Class: ${uploadedFileMedium.class}"
+			println "Name: ${uploadedFileMedium.name}"
+			println "OriginalFileName: ${uploadedFileMedium.originalFilename}"
+			println "Size: ${uploadedFileMedium.size}"
+			println "ContentType: ${uploadedFileMedium.contentType}"
+
+			if(params.productId) {
+				Product p = Product.get(params.productId)
+
+				if(p) {
+					def prefix = ""
+					prefix = "MEDIUM"
+
+					def image = new Image(params)
+					image.fromDate = new Date()
+					image.imageUrl = prefix + p.pdProductId + "_" + uploadedFileMedium.originalFilename
+					
+					uploadedFileMedium.transferTo( new File( userDir, image.imageUrl))
+					
+					image.save(flush:true)
+
+					p.mediumImage = image
+				}
+			}
+		}
+
+		def uploadedFileLarge = request.getFile('payloadLargeImg')
+		if(!uploadedFileLarge.empty){
+			println "Class: ${uploadedFileLarge.class}"
+			println "Name: ${uploadedFileLarge.name}"
+			println "OriginalFileName: ${uploadedFileLarge.originalFilename}"
+			println "Size: ${uploadedFileLarge.size}"
+			println "ContentType: ${uploadedFileLarge.contentType}"
+
+			if(params.productId) {
+				Product p = Product.get(params.productId)
+
+				if(p) {
+					def prefix = ""
+					prefix = "DET"
+
+					def image = new Image(params)
+					image.fromDate = new Date()
+					image.imageUrl = prefix + p.pdProductId + "_" + uploadedFileLarge.originalFilename
+					
+					uploadedFileLarge.transferTo( new File( userDir, image.imageUrl))
+					
+					image.save(flush:true)
+
+					p.detailImage = image
+					p.largeImage = image
+				}
+			}
+		}
+		
+		redirect(action: "list")
+	}
 
     def show() {
         def diamondInstance = Diamond.get(params.id)

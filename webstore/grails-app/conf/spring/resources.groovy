@@ -2,7 +2,7 @@ import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 // Place your Spring DSL code here
 beans = {
-	authenticationSuccessHandler(com.openappengine.utils.security.CheckoutSuccessHandler) {
+	authenticationSuccessHandler(com.openappengine.security.WebstoreLoginSuccessHandler) {
 		def conf = SpringSecurityUtils.securityConfig
 		requestCache = ref('requestCache')
 		defaultTargetUrl = conf.successHandler.defaultTargetUrl

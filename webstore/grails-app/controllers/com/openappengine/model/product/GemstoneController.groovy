@@ -164,7 +164,7 @@ class GemstoneController {
 		
 		//Init calculated info
 		prodGemstoneInstance.calculatedInfo = new ProductCalculatedInfo()
-		
+		prodGemstoneInstance.calculatedInfo.save(flush:true)
 		
         if (!prodGemstoneInstance.save(flush: true)) {
             render(view: "create", model: [prodGemstoneInstance: prodGemstoneInstance])

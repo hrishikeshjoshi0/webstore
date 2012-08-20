@@ -7,7 +7,7 @@
 	
 	<div class="pager result-box" style="width:100%;color: #FAFAFA;">
 			<span class="result">
-				${prodDiamondInstanceTotal} Results
+				${diamondInstanceTotal} Results
 			</span>
 			
 			<g:hiddenField name="filterMinPrice" value="${params.minPrice}"/>
@@ -17,13 +17,13 @@
 			<g:select name="sortBy" from="${SortOrder.values()}" value="${params.sortBy}" 
 				optionKey="key" style="margin-right: 40px;"/>
 				
-			<g:paginate total="${prodDiamondInstanceTotal}" /> 
+			<g:paginate total="${diamondInstanceTotal}" /> 
 	</div>
 	
-	<g:each in="${prodDiamondInstanceList}" status="i" var="productDiamondInstance">
+	<g:each in="${diamondInstanceList}" status="i" var="diamondInstance">
 			<%
-				if(i%4==0) {
-					out << "<div class=\"row\" style=\"width: 100%\">" 
+				if(i%3==0) {
+					out << "<div class='row' style='width: 100%;'>" 
 				}
 			 %>
 			<!--
@@ -35,45 +35,45 @@
 					<!-- Product Name and Description -->
 					<div class='product-image-thumb'>
 						<g:link action="viewDetails"
-							id="${productDiamondInstance.pdProductId}"
+							id="${diamondInstance.pdProductId}"
 							class="product-box-link">
 							<img class="product-img"
-								alt="${productDiamondInstance.pdProductName}"
-								title="${productDiamondInstance.pdProductName}"
-								src="${resource(dir: '/images/uploads/product', file: productDiamondInstance?.smallImage?.imageUrl)}" />
+								alt="${diamondInstance.pdProductName}"
+								title="${diamondInstance.pdProductName}"
+								src="${resource(dir: '/images/uploads/product', file: diamondInstance?.smallImage?.imageUrl)}" />
 						</g:link>
 					</div>
 
 					<!-- Product Name and Description -->
 					<div class='product-name'>
 						<g:link action="viewDetails"
-							id="${productDiamondInstance.pdProductId}"
+							id="${diamondInstance.pdProductId}"
 							class="product-box-link">
-							${fieldValue(bean: productDiamondInstance, field: "pdProductName")}
+							${fieldValue(bean: diamondInstance, field: "pdProductName")}
 						</g:link>
 					</div>
 
 					<!-- Product Name and Description -->
 					<div class='product-price'>
-						${productDiamondInstance.getProductPrice(new Date())}
+						${diamondInstance.getProductPrice(new Date())}
 					</div>
 	
 					<div class='product-rating'>
 						<g:hiddenField name="overall_Det_Rating_${i}"
-							value="${productDiamondInstance?.calculatedInfo?.averageCustomerRating}" />
+							value="${diamondInstance?.calculatedInfo?.averageCustomerRating}" />
 	
 						<table style="margin-left: -15px;">
 							<tr>
 								<td><span id="overall_Det_${i}"> </span></td>
 							</tr>
 							<tr>
-								<g:if test="${productDiamondInstance?.calculatedInfo?.averageCustomerRating == null}">
+								<g:if test="${diamondInstance?.calculatedInfo?.averageCustomerRating == null}">
 									<td>
 										No Ratings Yet.
 									</td>
 								</g:if>
 								<g:else>
-									<td>(${productDiamondInstance?.calculatedInfo?.averageCustomerRating}
+									<td>(${diamondInstance?.calculatedInfo?.averageCustomerRating}
 										OUT OF 5)
 									</td>
 								</g:else>
@@ -90,7 +90,7 @@
 			</div>
 			<!--  -->
 		<%
-			if(i%4==3) {
+			if(i%3==2) {
 				out << "</div>" 
 			}
 		 %>
@@ -99,7 +99,7 @@
 
 	<!-- 
 	<div class="pager">
-		<g:paginate total="${prodDiamondInstanceTotal}" />
+		<g:paginate total="${diamondInstanceTotal}" />
 	</div>
 	 -->
 </div>
