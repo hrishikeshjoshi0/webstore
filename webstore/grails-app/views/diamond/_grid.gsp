@@ -67,6 +67,7 @@
 							${d.clarity}	
 						</td>
 						<td class="cartItem" align="center" valign="center" style="width: 20px;">
+							${d.getProductPrice(new Date())}
 						</td>
 						<td class="cartItem" align="center" valign="center" style="width: 20px;">
 						</td>

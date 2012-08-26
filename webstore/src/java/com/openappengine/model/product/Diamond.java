@@ -25,14 +25,14 @@ public class Diamond extends Product {
 	@Column(name="PD_CARAT",precision=10, scale=6)
 	private BigDecimal carat;
 	
-	@Column(name="PD_COLOR")	
-	private String color;
+	@Column(name="PD_COLOR",precision=10, scale=6)	
+	private BigDecimal color;
 	
-	@Column(name="PD_CUT")
-	private String cut;
+	@Column(name="PD_CUT",precision=10, scale=6)
+	private BigDecimal cut;
 	
-	@Column(name="PD_CLARITY")
-	private String clarity;
+	@Column(name="PD_CLARITY",precision=10, scale=6)
+	private BigDecimal clarity;
 	
 	@Column(name="PD_REPORT")
 	private String report;
@@ -72,30 +72,6 @@ public class Diamond extends Product {
 
 	public void setCarat(BigDecimal carat) {
 		this.carat = carat;
-	}
-
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public String getCut() {
-		return cut;
-	}
-
-	public void setCut(String cut) {
-		this.cut = cut;
-	}
-
-	public String getClarity() {
-		return clarity;
-	}
-
-	public void setClarity(String clarity) {
-		this.clarity = clarity;
 	}
 
 	public String getImageUrl() {
@@ -160,5 +136,29 @@ public class Diamond extends Product {
 
 	public void setPolish(String polish) {
 		this.polish = polish;
+	}
+
+	public BigDecimal getColor() {
+		return color;
+	}
+
+	public void setColor(BigDecimal color) {
+		this.color = color;
+	}
+
+	public BigDecimal getCut() {
+		return cut;
+	}
+
+	public void setCut(BigDecimal cut) {
+		this.cut = cut;
+	}
+
+	public BigDecimal getClarity() {
+		return clarity;
+	}
+
+	public void setClarity(BigDecimal clarity) {
+		this.clarity = clarity;
 	}
 }

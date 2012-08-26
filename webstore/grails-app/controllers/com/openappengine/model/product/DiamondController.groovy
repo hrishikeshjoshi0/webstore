@@ -15,17 +15,6 @@ class DiamondController {
 	
 	def list() {
 		params.max = 9
-		params.caratFilterMin = 0
-		params.caratFilterMax = 15
-		
-		params.colorFilterMin = 1
-		params.colorFilterMax = 7
-		
-		params.cutFilterMin = 1
-		params.cutFilterMax = 5
-		
-		params.clarityFilterMin = 1
-		params.clarityFilterMax = 9
 		
 		def c = Diamond.createCriteria()
 		def sortBy = params.sortBy
@@ -49,13 +38,13 @@ class DiamondController {
 			params.maxPrice = 10000
 		}
 		
-		if(!params.minCarat) {
+		/*if(!params.minCarat) {
 			params.minCarat = 1
 		}
 		
 		if(!params.maxCarat) {
 			params.maxCarat = 15
-		}
+		}*/
 		
 		params.sortBy = sortBy
 		params.productTypeId = productTypeId
@@ -65,30 +54,31 @@ class DiamondController {
 		diamonds = c.list {
 			createAlias('prodProductPrices', 'price')
 			
-			between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
-			
-			between("carat",params.minCarat.toBigDecimal(),params.maxCarat.toBigDecimal())
-			
-			//Filter
-			/*if(productTypeId) {
-				def productType = ProductType.get(params.productTypeId.toInteger())
-				eq("productType",productType)
-			}*/
-			
-			//Order
-			if(sortBy.equals("HIGHEST_PRICE")) {
-				order("price.ppPrice", "desc")
-			} else if(StringUtils.equals(sortBy, "NEW_ARRIVALS")) {
-				order("pdIntroductionDate", "desc")
-			} else if(StringUtils.equals(sortBy, "LOWEST_PRICE")) {
-				order("price.ppPrice", "asc")
-			} else if(StringUtils.equals(sortBy, "MOST_POPULAR")) {
-				createAlias('calculatedInfo', 'calculatedInfo')
-				order("calculatedInfo.timesViewed", "desc")
-			} else if(StringUtils.equals(sortBy, "BEST_RATINGS")) {
-				createAlias('calculatedInfo', 'calculatedInfo')
-				order("calculatedInfo.averageCustomerRating", "desc")
+			//Carat
+			if(params.minPrice && params.maxPrice) {
+				between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
 			}
+			
+			//Carat
+			if(params.minCarat && params.maxCarat) {
+				between("carat",params.minCarat.toBigDecimal(),params.maxCarat.toBigDecimal())
+			}
+			
+			//Color
+			if(params.minColor && params.maxColor) {
+				between("color",params.minColor.toBigDecimal(),params.maxColor.toBigDecimal())
+			}
+			
+			//Cut
+			if(params.minCut && params.maxCut) {
+				between("cut",params.minCut.toBigDecimal(),params.maxCut.toBigDecimal())
+			}
+			
+			//Clarity
+			if(params.minClarity && params.maxClarity) {
+				between("clarity",params.minClarity.toBigDecimal(),params.maxClarity.toBigDecimal())
+			}
+			
 			firstResult(params.offset)
 			maxResults(params.max)
 		}
@@ -109,15 +99,45 @@ class DiamondController {
 			}
 		}
 		
-		if(productTypeId) {
-			params.pageHeader = ProductType.get(params.productTypeId)?.productTypeName
-		}
-		
 		params.minPrice = minPrice
 		params.maxPrice = maxPrice
 		
-		params.priceMin = 1
-		params.priceMin = 1000
+		
+		//Carat
+		if(!params.caratFilterMin) {
+			params.caratFilterMin = 0
+		}
+		
+		if(!params.caratFilterMax) {
+			params.caratFilterMax = 15
+		}
+		
+		//Color
+		if(!params.colorFilterMin) {
+			params.colorFilterMin = 1
+		}
+		
+		if(!params.colorFilterMax) {
+			params.colorFilterMax = 7
+		}
+		
+		//Cut
+		if(!params.cutFilterMin) {
+			params.cutFilterMin = 1
+		}
+		
+		if(!params.cutFilterMax) {
+			params.cutFilterMax = 5
+		}
+		
+		//Clarity
+		if(!params.clarityFilterMin) {
+			params.clarityFilterMin = 1
+		}
+		
+		if(!params.clarityFilterMax) {
+			params.clarityFilterMax = 9
+		}
 		
 		def model = [diamondList: diamonds, diamondListTotal: diamonds.size()]
 		

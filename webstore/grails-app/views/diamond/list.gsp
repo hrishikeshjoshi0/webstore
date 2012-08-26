@@ -16,11 +16,22 @@
 	function ajaxList() {
 		var url = '<g:createLink controller="diamond" action="list" />';
 		url = url + "?" + "sortBy=" + $("#sortBy").val();
+		//url = url + "&" + "productTypeId=" + $("#productType").val();
+		//Price
 		url = url + "&" + "minPrice=" + $("#priceFilter").slider( "values", 0 );
 		url = url + "&" + "maxPrice=" + $("#priceFilter").slider( "values", 1 );
-		url = url + "&" + "productTypeId=" + $("#productType").val();
+		//Carat
 		url = url + "&" + "minCarat=" + $("#caratFilter").slider( "values", 0 );
 		url = url + "&" + "maxCarat=" + $("#caratFilter").slider( "values", 1 );
+		//Color
+		url = url + "&" + "minColor=" + $("#colorFilter").slider( "values", 0 );
+		url = url + "&" + "maxColor=" + $("#colorFilter").slider( "values", 1 );
+		//Cut
+		url = url + "&" + "minCut=" + $("#cutFilter").slider( "values", 0 );
+		url = url + "&" + "maxCut=" + $("#cutFilter").slider( "values", 1 );
+		//Clarity
+		url = url + "&" + "minClarity=" + $("#clarityFilter").slider( "values", 0 );
+		url = url + "&" + "maxClarity=" + $("#clarityFilter").slider( "values", 1 );
 		
 	    var grid = $(".ajax");
 	    $(grid).html($("#spinner").html());
@@ -29,8 +40,12 @@
 	        type: 'GET',
 	        url: url,
 	        success: function(data) {
+	        	$('#loading').hide();
 	            $(grid).html(data);
-	        }
+	        },
+        	beforeSend : function() {
+            	$('#loading').show();
+            }
 	    });
 	}
 
@@ -77,9 +92,9 @@
 	function setupPriceSlider() {
 		$("#priceFilter").slider({
 			range: true,
-			min: $("#priceFilterMin").val(),
-			max: $("#priceFilterMax").val(),
-			values: [ $("#priceFilterMin").val(), $("#priceFilterMax").val()],
+			min: $("#filterMinPrice").val()-1,
+			max: $("#filterMaxPrice").val()+1,
+			values: [ $("#filterMinPrice").val(), $("#filterMaxPrice").val()],
 			step:10,
 			slide: function(event, ui) {
 				$("#minPrice").val(ui.values[0]);
@@ -201,19 +216,19 @@
 		</div>
 		
 		<div class="row">
-			<div class="fourcol">
+			<div class="threecol" style="margin-right: 50px;margin-left: 60px;">
 				<h2 class="filter-criteria-label">Price</h2>
 				<div id="priceFilter" class="priceFilter"></div>
 				
-				<input type="hidden" id="priceFilterMin" name="priceFilterMin" value="${params.priceFilterMin}"/>
-				<input type="hidden" id="priceFilterMax" name="priceFilterMax" value="${params.priceFilterMax}"/>
+				<input type="hidden" id="filterMinPrice" name="filterMinPrice" value="${params.minPrice}"/>
+				<input type="hidden" id="filterMaxPrice" name="filterMaxPrice" value="${params.maxPrice}"/>
 				
 				<div style="font-size: 11px;margin-top: 5px;">
 					<input type="text" name="minPrice" id="minPrice" readonly="readonly"
-							value="${params.priceFilterMin}" 
+							value="${params.minPrice}" 
 							size="5" style="float:left;font-size: 11px;"/>
 					<input type="text" name="maxPrice" id="maxPrice" readonly="readonly" size="5" 
-							value="${params.priceFilterMax}" 
+							value="${params.maxPrice}" 
 							style="float:right;font-size: 11px;"/>
 				</div>
 			</div>
@@ -250,7 +265,16 @@
 		</div>
 		
 		<div class="row">
-			<div class="tencol">
+			<div id="results" class="tencol">
+				<div id="loading" style="display:none;">
+					<center>
+						Loading Results... <br/>
+						<img
+						alt="Loading"
+						title="Loading Results.."
+						src="${resource(dir: '/images', file: 'ajax-loader.gif')}" />
+					</center>
+				</div>
 				<div id="grid">
 		            <g:render template="grid" model="model" />
 		        </div>
