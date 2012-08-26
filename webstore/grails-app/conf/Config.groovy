@@ -102,4 +102,4 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.openappen
 grails.plugins.springsecurity.authority.className = 'com.openappengine.sec.SecRole'
 
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/auth'
-grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'
+//grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'

@@ -83,7 +83,10 @@
 
 								<td class="cartItem" align="center" valign="center"
 									style="width: 200px;">
-									${product?.pdProductName} <br /> ${product?.pdDescription}
+									<h1 class="product_name_header">
+										${product?.pdProductName} 
+									</h1>
+									<br /> ${product?.pdDescription}
 								</td>
 
 								<td class="cartItem" align="center" valign="center" style="width: 50px;">

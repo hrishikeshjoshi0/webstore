@@ -130,10 +130,12 @@
 					<div id="links" style="margin-left: -15px;">
 						<ul class="productDetQuickLinks">
 							<li class="add_to_wishList">
-								<a href="#">
+								<g:remoteLink controller="wishList" action="addToWishList" 
+										params="[productId : prodGemstoneInstance?.pdProductId]"
+										onSuccess="loadWishListLink();">
 									<img src="${resource(dir: '/images/site', file:'icon_wishlist.gif')}" style="width:16px;height:16px;"/>
 									Add to WishList
-								</a>
+								</g:remoteLink>
 							</li>
 							
 							<li class="email_a_friend">
@@ -171,5 +173,19 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			$("#wishListLink").live('click', function(e) {
+				  alert('jo');
+				  $.ajax({
+				        type: 'POST',
+				        async : true,
+				        url: this.href + "?productId=" + this.attr('rel') , 
+				        success: function(data) {
+				        	$('#wishListItems').html("(" + data + ")");
+				        }
+				  });
+				  e.preventDefault();	
+			});
+		</script>
 	</body>
 </html>

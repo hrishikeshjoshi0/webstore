@@ -23,7 +23,7 @@ class WishListControllerTests {
 
     void testList() {
 
-        def model = controller.list()
+        def model = controller.showWishList()
 
         assert model.wishListInstanceList.size() == 0
         assert model.wishListInstanceTotal == 0

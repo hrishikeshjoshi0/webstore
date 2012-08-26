@@ -1,40 +1,85 @@
 package com.openappengine.model.wishlist
 
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.web.context.request.RequestContextHolder
 
 class WishListController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        redirect(action: "list", params: params)
+        redirect(action: "showWishList", params: params)
     }
 
-    def list() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [wishListInstanceList: WishList.list(params), wishListInstanceTotal: WishList.count()]
-    }
+    def ajaxGetWishListItemCount() {
+		def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
+		def wishList = WishList.findBySessionID(sessionID)
+		
+		if(!wishList) {
+			render 0;
+			return
+		}
+		
+		render wishList.wishListItems?.size()
+	}
 
     def create() {
         [wishListInstance: new WishList(params)]
     }
 
-    def save() {
-        def wishListInstance = new WishList(params)
-        if (!wishListInstance.save(flush: true)) {
-            render(view: "create", model: [wishListInstance: wishListInstance])
-            return
-        }
-
-		flash.message = message(code: 'default.created.message', args: [message(code: 'wishList.label', default: 'WishList'), wishListInstance.id])
-        redirect(action: "show", id: wishListInstance.id)
+    def addToWishList() {
+		def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
+		def wishListInstance = WishList.findBySessionID(sessionID)
+		
+		if(!wishListInstance) {
+			wishListInstance = new WishList()
+			wishListInstance.sessionID = sessionID
+			wishListInstance.save(flush: true)
+		}
+		
+		def productId = params.productId;
+		if(!productId) {
+			render ""
+			return
+		}
+		
+		def item = WishListItem.findByWishListAndProductId(wishListInstance,productId)
+		if(item) {
+			render ""
+			return
+		}
+		
+		item = new WishListItem()
+		item.wishList = wishListInstance
+		item.productId = productId
+		item.save(flush:true)
+		render ""
     }
+	
+	def showWishList() {
+		def wishlist
+		if(params.id) {
+			wishlist = WishList.get(params.id)
+			if (!wishlist) {
+				//TODO
+				return
+			}
+		 } else {
+			 def sessionID = RequestContextHolder.getRequestAttributes()?.getSessionId()
+			 wishlist = WishList.findBySessionID(sessionID)
+			 if(!wishlist) {
+				 wishlist = new WishList(sessionID:sessionID)
+				 wishlist.save(flush:true)
+			 }
+		 }
+		 [wishList: wishlist]
+	}
 
     def show() {
         def wishListInstance = WishList.get(params.id)
         if (!wishListInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'wishList.label', default: 'WishList'), params.id])
-            redirect(action: "list")
+            redirect(action: "showWishList")
             return
         }
 
@@ -45,7 +90,7 @@ class WishListController {
         def wishListInstance = WishList.get(params.id)
         if (!wishListInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'wishList.label', default: 'WishList'), params.id])
-            redirect(action: "list")
+            redirect(action: "showWishList")
             return
         }
 
@@ -56,7 +101,7 @@ class WishListController {
         def wishListInstance = WishList.get(params.id)
         if (!wishListInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'wishList.label', default: 'WishList'), params.id])
-            redirect(action: "list")
+            redirect(action: "showWishList")
             return
         }
 
@@ -86,14 +131,14 @@ class WishListController {
         def wishListInstance = WishList.get(params.id)
         if (!wishListInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'wishList.label', default: 'WishList'), params.id])
-            redirect(action: "list")
+            redirect(action: "showWishList")
             return
         }
 
         try {
             wishListInstance.delete(flush: true)
 			flash.message = message(code: 'default.deleted.message', args: [message(code: 'wishList.label', default: 'WishList'), params.id])
-            redirect(action: "list")
+            redirect(action: "showWishList")
         }
         catch (DataIntegrityViolationException e) {
 			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'wishList.label', default: 'WishList'), params.id])

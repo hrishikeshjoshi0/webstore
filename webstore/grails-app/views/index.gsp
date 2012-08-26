@@ -40,11 +40,9 @@
 </script>
 </head>
 <body>
-		<div id="top-bar">
-			<div id="top-bar-content" class="title">
+			<h1 class="page-title">
 				Free Shipping with every order.
-			</div>
-		</div>
+			</h1>
 		
 		<hr/>
 		

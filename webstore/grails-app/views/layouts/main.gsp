@@ -75,41 +75,6 @@
 <script src="${resource(dir: 'js', file: 'jquery.ratings.js')}"></script>
 <script src="${resource(dir: 'js', file: 'jquery.tipsy.js')}"></script>
 <script type="text/javascript" src="${resource(dir: 'js', file: 'xbreadcrumbs.js')}"></script>
-
-<script type="text/javascript">
-        $(document).ready(function() {
-            $(".signin").click(function(e) {          
-				e.preventDefault();
-				$.ajax({
-			        type: 'GET',
-			        url: "<g:createLink controller='login' action='authAjax' />" , 
-			        success: function(data) {
-			            $('#signin_menu').html(data);
-			            $("fieldset#signin_menu").toggle();
-						$(".signin").toggleClass("menu-open");
-			        }
-			    });
-            });
-			
-			$("fieldset#signin_menu").mouseup(function() {
-				return false
-			});
-			
-			$(document).mouseup(function(e) {
-				if($(e.target).parent("a.signin").length==0) {
-					$(".signin").removeClass("menu-open");
-					$("fieldset#signin_menu").hide();
-				}
-			});			
-			
-        });
-</script>
-<script type='text/javascript'>
-    $(function() {
-	  $('#forgot_username_link').tipsy({gravity: 'w'});   
-    });
-</script>
-
         <style type="text/css">
 			span.reference{
 				position:fixed;
@@ -168,7 +133,10 @@
 				<span class="sep">|</span> 
 				
 				<span class="division"> 
-					<a href="#"> <span>Wish List</span></a>
+					<g:link controller="wishList" action="showWishList">
+						<span>Wish List</span>
+						<span id="wishListItems"></span>
+					</g:link>
 				</span> 
 				
 				<span class="sep">|</span> 
@@ -244,6 +212,54 @@
         </script>
         
 		<g:javascript library="application" />
+		<script>
+			function loadWishListLink() {
+				$.ajax({
+			        type: 'GET',
+			        async : true,
+			        url: "<g:createLink controller='wishList' action='ajaxGetWishListItemCount' />" , 
+			        success: function(data) {
+			        	$('#wishListItems').html("(" + data + ")");
+			        }
+			    });	
+			}
+		</script>
+		
+		<script type="text/javascript">
+				$(document).ready(function() {
+		        	loadWishListLink();
+		
+		        	$(".signin").click(function(e) {          
+						e.preventDefault();
+						$.ajax({
+					        type: 'GET',
+					        url: "<g:createLink controller='login' action='authAjax' />" , 
+					        success: function(data) {
+					            $('#signin_menu').html(data);
+					            $("fieldset#signin_menu").toggle();
+								$(".signin").toggleClass("menu-open");
+					        }
+					    });
+		            });
+					
+					$("fieldset#signin_menu").mouseup(function() {
+						return false
+					});
+					
+					$(document).mouseup(function(e) {
+						if($(e.target).parent("a.signin").length==0) {
+							$(".signin").removeClass("menu-open");
+							$("fieldset#signin_menu").hide();
+						}
+					});			
+					
+		        });
+		</script>
+		<script type='text/javascript'>
+		    $(function() {
+			  $('#forgot_username_link').tipsy({gravity: 'w'});   
+		    });
+		</script>
 		<r:layoutResources />
 	</div>
 	

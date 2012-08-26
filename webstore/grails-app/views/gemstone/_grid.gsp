@@ -5,7 +5,7 @@
 		${params.pageHeader}
 	</h1>
 	
-	<div class="pager result-box" style="width:100%;color: #FAFAFA;">
+	<div class="pager result-box">
 			<span class="result">
 				${prodGemstoneInstanceTotal} Results
 			</span>

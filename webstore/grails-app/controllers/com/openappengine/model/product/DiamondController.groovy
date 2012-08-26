@@ -1,5 +1,6 @@
 package com.openappengine.model.product
 
+import org.apache.commons.lang.StringUtils
 import org.springframework.dao.DataIntegrityViolationException
 
 import com.openappengine.model.common.Image
@@ -11,12 +12,145 @@ class DiamondController {
     def index() {
         redirect(action: "list", params: params)
     }
-
-    def list() {
+	
+	def list() {
+		params.max = 9
+		params.caratFilterMin = 0
+		params.caratFilterMax = 15
+		
+		params.colorFilterMin = 1
+		params.colorFilterMax = 7
+		
+		params.cutFilterMin = 1
+		params.cutFilterMax = 5
+		
+		params.clarityFilterMin = 1
+		params.clarityFilterMax = 9
+		
+		def c = Diamond.createCriteria()
+		def sortBy = params.sortBy
+		def productTypeId = params.productTypeId
+		
+		params.pageHeader = "Featured Diamonds"
+		
+		if(!sortBy) {
+			sortBy = "NEW_ARRIVALS"
+		}
+		
+		if(!params.offset) {
+			params.offset = 0
+		}
+		
+		if(!params.minPrice) {
+			params.minPrice = 0
+		}
+		
+		if(!params.maxPrice) {
+			params.maxPrice = 10000
+		}
+		
+		if(!params.minCarat) {
+			params.minCarat = 1
+		}
+		
+		if(!params.maxCarat) {
+			params.maxCarat = 15
+		}
+		
+		params.sortBy = sortBy
+		params.productTypeId = productTypeId
+		
+		def diamonds = new ArrayList<Product>();
+		
+		diamonds = c.list {
+			createAlias('prodProductPrices', 'price')
+			
+			between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
+			
+			between("carat",params.minCarat.toBigDecimal(),params.maxCarat.toBigDecimal())
+			
+			//Filter
+			/*if(productTypeId) {
+				def productType = ProductType.get(params.productTypeId.toInteger())
+				eq("productType",productType)
+			}*/
+			
+			//Order
+			if(sortBy.equals("HIGHEST_PRICE")) {
+				order("price.ppPrice", "desc")
+			} else if(StringUtils.equals(sortBy, "NEW_ARRIVALS")) {
+				order("pdIntroductionDate", "desc")
+			} else if(StringUtils.equals(sortBy, "LOWEST_PRICE")) {
+				order("price.ppPrice", "asc")
+			} else if(StringUtils.equals(sortBy, "MOST_POPULAR")) {
+				createAlias('calculatedInfo', 'calculatedInfo')
+				order("calculatedInfo.timesViewed", "desc")
+			} else if(StringUtils.equals(sortBy, "BEST_RATINGS")) {
+				createAlias('calculatedInfo', 'calculatedInfo')
+				order("calculatedInfo.averageCustomerRating", "desc")
+			}
+			firstResult(params.offset)
+			maxResults(params.max)
+		}
+		
+		def minPrice = Diamond.createCriteria().get {
+			createAlias('prodProductPrices', 'price')
+			
+			projections {
+				min("price.ppPrice")
+			}
+		}
+		
+		def maxPrice = Diamond.createCriteria().get {
+			createAlias('prodProductPrices', 'price')
+			
+			projections {
+				max("price.ppPrice")
+			}
+		}
+		
+		if(productTypeId) {
+			params.pageHeader = ProductType.get(params.productTypeId)?.productTypeName
+		}
+		
+		params.minPrice = minPrice
+		params.maxPrice = maxPrice
+		
+		params.priceMin = 1
+		params.priceMin = 1000
+		
+		def model = [diamondList: diamonds, diamondListTotal: diamonds.size()]
+		
+		if (request.xhr) {
+			// ajax request
+			render(template: "grid", model: model)
+		} else {
+			model
+		}
+	}
+	
+    def list1() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		
+		params.caratFilterMin = 0
+		params.caratFilterMax = 15
+		
+		params.colorFilterMin = 1
+		params.colorFilterMax = 7
+		
+		params.priceFilterMin = 1
+		params.priceFilterMax = 1000
+		
+		params.cutFilterMin = 1
+		params.cutFilterMax = 5
+		
+		params.clarityFilterMin = 1
+		params.clarityFilterMax = 9
+		
 		def count = Diamond.count()
 		def results = Diamond.list(params)
-        [diamondInstanceList: results, diamondInstanceTotal: count]
+		params.pageHeader = "Featured Diamonds"
+        [diamondList: results, diamondListTotal: count]
     }
 	
 	def viewDetails = {

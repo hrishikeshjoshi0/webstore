@@ -52,6 +52,9 @@ public class Diamond extends Product {
 	@Column(name="PD_FLUORESCENCE")
 	private String fluorescence;
 	
+	@Column(name="PD_POLISH")
+	private String polish;
+	
 	@Column(name="PD_IMAGE_URL")
 	private String imageUrl;
 	
@@ -149,5 +152,13 @@ public class Diamond extends Product {
 
 	public void setFluorescence(String fluorescence) {
 		this.fluorescence = fluorescence;
+	}
+
+	public String getPolish() {
+		return polish;
+	}
+
+	public void setPolish(String polish) {
+		this.polish = polish;
 	}
 }
