@@ -10,17 +10,6 @@
 		            $('#gemstoneSubLinks').html(data);
 		        }
 		    });
-
-		    $.ajax({
-		        type: 'GET',
-		        url: "<g:createLink controller='product' action='ajaxGetCategoryTypes' />" 
-			        	+ "?productCategory=" + "diamond"
-			        	+ "&template=" + "/common/productTypeMenus",
-		        success: function(data) {
-		            $('#diamondSubLinks').html(data);
-		        }
-		    });
-		    
 	});
 </script>
 <div id="nav" class="clearfix">
@@ -45,7 +34,14 @@
 			<!-- Diamonds -->
 			<li>
 				<a href="<g:createLink controller="diamond" action="list" />">Diamonds</a>
-				<div id="diamondSubLinks" class="oe_menu_content">
+				<div id="diamondSubLinks" class="oe_menu_content" style="width:200px;height: 30px;">
+					<ul class="productTypeMenuLinkList">
+						<li class="productTypeMenuLink">
+							<g:link action="list" controller="diamond">
+								Diamond Search
+							</g:link>
+						</li>
+					</ul>
 				</div>
 			</li>
 

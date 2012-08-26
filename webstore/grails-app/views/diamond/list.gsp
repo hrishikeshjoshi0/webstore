@@ -265,7 +265,7 @@
 		</div>
 		
 		<div class="row">
-			<div id="results" class="tencol">
+			<div id="results" class="tencol" style="border-top: 1px dotted #B5B5B5;">
 				<div id="loading" style="display:none;">
 					<center>
 						Loading Results... <br/>
