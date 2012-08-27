@@ -1,4 +1,4 @@
-<%@ page import="com.openappengine.product.Product" %>
+<%@ page import="com.openappengine.model.product.Product" %>
 
 
 

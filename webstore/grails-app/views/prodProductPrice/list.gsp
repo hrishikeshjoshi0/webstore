@@ -1,5 +1,4 @@
-
-<%@ page import="com.openappengine.product.ProdProductPrice" %>
+<%@ page import="com.openappengine.model.product.ProdProductPrice" %>
 <!doctype html>
 <html>
 	<head>
