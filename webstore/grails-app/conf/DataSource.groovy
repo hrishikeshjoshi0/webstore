@@ -75,24 +75,30 @@ environments {
 		}
 	}
     production {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE"
-            pooled = true
-            properties {
-               maxActive = -1
-               minEvictableIdleTimeMillis=1800000
-               timeBetweenEvictionRunsMillis=1800000
-               numTestsPerEvictionRun=3
-               testOnBorrow=true
-               testWhileIdle=true
-               testOnReturn=true
-               validationQuery="SELECT 1"
-            }
-        }
+		grails.paypal.server = "https://www.sandbox.paypal.com/cgi-bin/webscr"
+		grails.paypal.email = "nachi1_1337118253_biz@gmail.com"
+		grails.serverURL = "http://localhost:9090/webstore"
 		
-		grails.paypal.server = "https://www.paypal.com/cgi-bin/webscr"
-		grails.paypal.email = "example@business.com"
-		grails.serverURL = "http://www.grails.org"
-    }
+		
+		dataSource {
+			dbCreate = "update" // one of 'create', 'create-drop','update'
+			url = "jdbc:mysql://moryasolutions.com:3306/hrishi23_webstore_test?useUnicode=yes&characterEncoding=UTF-8"
+			username = "hrishi23_webstor"
+			password = "Eclipse@123"
+			pooled=true
+			properties {
+				maxActive = -1
+				minEvictableIdleTimeMillis=1800000
+				timeBetweenEvictionRunsMillis=1800000
+				numTestsPerEvictionRun=3
+				testOnBorrow=true
+				testWhileIdle=true
+				testOnReturn=true
+				validationQuery="SELECT 1"
+			 }
+		}
+		hibernate {
+			show_sql = true
+		}
+	}
 }
