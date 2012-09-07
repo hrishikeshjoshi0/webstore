@@ -110,4 +110,4 @@ grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'
  */
 grails.resources.debug = true
 
-grails.app.context = "/webstore-0.1"
+/*grails.app.context = "/"*/

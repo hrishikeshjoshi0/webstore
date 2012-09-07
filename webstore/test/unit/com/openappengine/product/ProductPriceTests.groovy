@@ -11,7 +11,7 @@ import com.openappengine.model.product.ProdProductPrice
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestFor(ProdProductPrice)
-class ProdProductPriceTests {
+class ProductPriceTests {
 
     void testSomething() {
        fail "Implement me"

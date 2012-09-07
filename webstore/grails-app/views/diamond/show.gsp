@@ -343,7 +343,7 @@
 					<span id="prodProductPrices-label" class="property-label"><g:message code="diamond.prodProductPrices.label" default="Prod Product Prices" /></span>
 					
 						<g:each in="${diamondInstance.prodProductPrices}" var="p">
-						<span class="property-value" aria-labelledby="prodProductPrices-label"><g:link controller="prodProductPrice" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="prodProductPrices-label"><g:link controller="productPrice" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

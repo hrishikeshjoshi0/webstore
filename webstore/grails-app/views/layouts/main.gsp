@@ -43,7 +43,9 @@
 
 <!-- rating -->
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.ratings.css')}" type="text/css">
+<!-- 
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'xbreadcrumbs.css')}" type="text/less" media="screen" />
+ -->
 
 <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - 
 	Enables media queries in some unsupported browsers-->
@@ -179,6 +181,10 @@
 				<g:layoutBody />	
 			</div>
 		</div>
+		
+		<div id="footer" class="shadow">
+			<g:render template="/common/footer"></g:render>
+		</div>
 
 		<script type="text/javascript">
             $(function() {
@@ -263,48 +269,6 @@
 		<r:layoutResources />
 	</div>
 	
-	<div id="footer" class="shadow">
-		<div class="row" style="margin-top: -10px;">
-			<div class="twocol">
-				<ul>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-				</ul>
-			</div>
-			
-			<div class="twocol">
-				<ul>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-				</ul>
-			</div>
-			
-			<div class="twocol">
-				<ul>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-				</ul>
-			</div>
-			
-			<div class="twocol">
-				<ul>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-					<li>ABC</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	
 </body>
 </html>

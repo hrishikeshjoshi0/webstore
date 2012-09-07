@@ -8,9 +8,9 @@ import com.openappengine.model.product.ProdProductPrice
 
 import grails.test.mixin.*
 
-@TestFor(ProdProductPriceController)
+@TestFor(ProductPriceController)
 @Mock(ProdProductPrice)
-class ProdProductPriceControllerTests {
+class ProductPriceControllerTests {
 
 
     def populateValidParams(params) {

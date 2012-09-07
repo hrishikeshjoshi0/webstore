@@ -82,14 +82,6 @@
 	<g:textField name="pdProductName" value="${productInstance?.pdProductName}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'pdProductType', 'error')} ">
-	<label for="pdProductType">
-		<g:message code="product.pdProductType.label" default="Pd Product Type" />
-		
-	</label>
-	<g:textField name="pdProductType" value="${productInstance?.pdProductType}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: productInstance, field: 'pdQuantityIncluded', 'error')} required">
 	<label for="pdQuantityIncluded">
 		<g:message code="product.pdQuantityIncluded.label" default="Pd Quantity Included" />
@@ -176,13 +168,5 @@
 		
 	</label>
 	<g:textField name="pdWeightUomId" value="${productInstance?.pdWeightUomId}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'prodProductPrices', 'error')} ">
-	<label for="prodProductPrices">
-		<g:message code="product.prodProductPrices.label" default="Prod Product Prices" />
-		
-	</label>
-	<g:select name="prodProductPrices" from="${com.openappengine.product.ProdProductPrice.list()}" multiple="multiple" optionKey="id" size="5" value="${productInstance?.prodProductPrices*.id}" class="many-to-many"/>
 </div>
 

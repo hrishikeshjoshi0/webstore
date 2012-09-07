@@ -334,12 +334,13 @@ li.oe_heading{
 /* Footer */
 #footer {
 	clear: both;
-	background-color: #fafafa;
+	background-color: #336699;
+	color:#CCCCCC;
 	padding:10px;
-	height : 100px;
+	height : 240px;
 	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
-	font-size:10px;
-	color:#222;
+	font-size:11px;
+	margin-top : 5px;
 }
 
 #footer ul {
@@ -347,16 +348,42 @@ li.oe_heading{
 
 #footer ul > li {
 	list-style-type: none;
-	border-bottom: 1px solid #D9DCDC;
- 	border-bottom-style: dotted;
+	/*border-bottom: 1px solid #D9DCDC;
+ 	border-bottom-style: dotted;*/
 }
 
 #footer ul > li > a {
+	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
 	text-align: center;
 	padding: 5px;
 	margin-right: 5px;
+	color:#CCCCCC;
 }
 
+#footer ul > li > a:hover {
+	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
+	text-align: center;
+	padding: 5px;
+	margin-right: 5px;
+	color:#CCCCCC;
+}
+
+#footer a:VISITED{
+	text-align: center;
+	padding: 5px;
+	margin-right: 5px;
+	color:#FAFAFA;
+	text-decoration: none;
+}
+
+#footer h4.footer_group_title {
+	font-size: 13px;
+	text-transform:uppercase;
+	color:#D6E4E1;
+	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
+	border-bottom: 1px solid #FAFAFA;
+ 	border-bottom-style: dotted;
+}
 
 #footer p {
 	color: #777;
@@ -364,14 +391,6 @@ li.oe_heading{
 	margin: 0;
 	padding: 10px;
 	
-}
-
-#footer a {
-	color: #777;
-}
-
-#footer a:hover {
-	color: #333;
 }
 
 /* MESSAGES AND ERRORS */
@@ -691,8 +710,8 @@ a.signin.menu-open span {
 	background-position:left center;
 }
 
-table.form {
-	
+.form {
+	padding : 10px;	
 }
 
 tr {

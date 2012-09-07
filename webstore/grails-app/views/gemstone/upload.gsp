@@ -10,9 +10,8 @@
 </head>
 <body>
 	<div id="upload-image" class="content scaffold-create" role="main">
-		<h1>
-			<g:message code="default.upload.label" args="[entityName]"
-				default="Upload Image" />
+		<h1 class="page-title">
+			Upload Images
 		</h1>
 		<g:uploadForm action="uploadImage" method="post">
 			<input type="hidden" id="productId" name="productId" value="${params.id}" />

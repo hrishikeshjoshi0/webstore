@@ -3,8 +3,9 @@ package com.openappengine.product
 import org.springframework.dao.DataIntegrityViolationException
 
 import com.openappengine.model.product.ProdProductPrice
+import com.openappengine.model.product.Product;
 
-class ProdProductPriceController {
+class ProductPriceController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -14,7 +15,20 @@ class ProdProductPriceController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [prodProductPriceInstanceList: ProdProductPrice.list(params), prodProductPriceInstanceTotal: ProdProductPrice.count()]
+		def priceList
+		if(params.productId) {
+			Product product = Product.get(params.productId.toInteger())
+			priceList = product?.prodProductPrices
+		}
+		
+        int total
+		if(!priceList) {
+			total = 0
+		} else {
+			total = priceList?.size()
+		}
+		
+        [prodProductPriceInstanceList: priceList, prodProductPriceInstanceTotal: total]
     }
 
     def create() {
@@ -23,13 +37,28 @@ class ProdProductPriceController {
 
     def save() {
         def prodProductPriceInstance = new ProdProductPrice(params)
+		prodProductPriceInstance.prodProduct = Product.get(params.productId)
+		
+		def c = ProdProductPrice.createCriteria()
+		def productPrices = c.list {
+			eq("prodProduct",prodProductPriceInstance.prodProduct)
+			ge("ppFromDate",prodProductPriceInstance.ppFromDate)
+			le("ppToDate",prodProductPriceInstance.ppToDate)
+		}
+		
+		if(productPrices) {
+			flash.message = message(code: 'default.not.found.message', 
+						args: [message(code: 'prodProductPrice.label', default: 'Prices overlap found.')])
+			return
+		}
+		
         if (!prodProductPriceInstance.save(flush: true)) {
             render(view: "create", model: [prodProductPriceInstance: prodProductPriceInstance])
             return
         }
 
-		flash.message = message(code: 'default.created.message', args: [message(code: 'prodProductPrice.label', default: 'ProdProductPrice'), prodProductPriceInstance.id])
-        redirect(action: "show", id: prodProductPriceInstance.id)
+		def productId = params.productId
+		redirect(action: "list", params :[productId : productId])
     }
 
     def show() {

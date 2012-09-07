@@ -9,6 +9,11 @@
 	}
 </style>
 <script>
+	//demo 2
+	$(function() {
+		$('select#valueA, select#valueB').selectToUISlider();
+	});
+	
 	$(function() {
 		$( "#format" ).buttonset();
 	});
@@ -212,6 +217,54 @@
 					<input type="text" name="colorMax" id="colorMax" readonly="readonly" size="5" 
 							value="" style="float:right;font-size: 11px;"/>
 				</div>
+				
+				<fieldset>
+					<label for="valueA">From:</label>
+					<select name="valueA" id="valueA">
+						<option value="6am">6:00</option>
+						<option value="7am">7:00</option>
+						<option value="8am">8:00</option>
+						<option value="9am" selected="selected">9:00</option>
+						<option value="10am">10:00</option>
+						<option value="11am">11:00</option>
+						<option value="Noon">Noon</option>
+						<option value="1pm">1:00</option>
+						<option value="2pm">2:00</option>
+						<option value="3pm">3:00</option>
+						<option value="4pm">4:00</option>
+						<option value="5pm">5:00</option>
+						<option value="6pm">6:00</option>
+						<option value="7pm">7:00</option>
+						<option value="8pm">8:00</option>
+						<option value="9pm">9:00</option>
+						<option value="10pm">10:00</option>
+						<option value="11pm">11:00</option>
+						<option value="12pm">12:00</option>
+					</select>
+			
+					<label for="valueB">To:</label>
+					<select name="valueB" id="valueB">
+						<option value="6am">6:00</option>
+						<option value="7am">7:00</option>
+						<option value="8am">8:00</option>
+						<option value="9am">9:00</option>
+						<option value="10am">10:00</option>
+						<option value="11am">11:00</option>
+						<option value="Noon">Noon</option>
+						<option value="1pm">1:00</option>
+						<option value="2pm">2:00</option>
+						<option value="3pm">3:00</option>
+						<option value="4pm">4:00</option>
+						<option value="5pm">5:00</option>
+						<option value="6pm">6:00</option>
+						<option value="7pm">7:00</option>
+						<option value="8pm">8:00</option>
+						<option value="9pm" selected="selected">9:00</option>
+						<option value="10pm">10:00</option>
+						<option value="11pm">11:00</option>
+						<option value="12pm">12:00</option>
+					</select>
+				</fieldset>
 			</div>
 		</div>
 		
