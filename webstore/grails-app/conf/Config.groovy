@@ -102,4 +102,12 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.openappen
 grails.plugins.springsecurity.authority.className = 'com.openappengine.sec.SecRole'
 
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/auth'
-//grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'
+grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'
+
+/**
+ *  Workaround for finding css resources from linux environment.
+ *  Grails App wasnt able to find the css resources w/o this property set.  
+ */
+grails.resources.debug = true
+
+grails.app.context = "/webstore-0.1"

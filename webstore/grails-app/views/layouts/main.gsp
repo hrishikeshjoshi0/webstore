@@ -264,7 +264,47 @@
 	</div>
 	
 	<div id="footer" class="shadow">
-			<p>&copy; 2012 Your Name
+		<div class="row" style="margin-top: -10px;">
+			<div class="twocol">
+				<ul>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+				</ul>
+			</div>
+			
+			<div class="twocol">
+				<ul>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+				</ul>
+			</div>
+			
+			<div class="twocol">
+				<ul>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+				</ul>
+			</div>
+			
+			<div class="twocol">
+				<ul>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+					<li>ABC</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
