@@ -15,6 +15,7 @@
 		text-decoration:none;
 		float:left;
 	}
+	
 </style>
 
 <script type="text/javascript">
@@ -25,13 +26,12 @@
 	            preloadImages: false,
 	            alwaysOn:false
 	        });
-		
 	});
 </script>
 
 <div class="clearfix" id="content" style="height: 500px; width: auto;">
 	<div class="clearfix">
-		<a
+		<a id="imgLink"
 			href="${resource(dir: '/images/uploads/product', file: productInstance?.mediumImage?.imageUrl)}"
 			class="jqzoom" rel='gal1' title="${productInstance.pdProductName}">
 			
@@ -40,6 +40,40 @@
 					title="${productInstance.pdProductName}"
 					src="${resource(dir: '/images/uploads/product', file: productInstance?.largeImage?.imageUrl)}" />
 		</a>
+		
+		<div class="overlay" id="overlay" style="display:none;"></div>
+		<div class="box" id="box" style="display:none;">
+            <a class="boxclose" id="boxclose"></a>
+           	<div id="modal-contents">
+           	</div>
+        </div>
+		<script>
+			$('#imgLink').click(function (e) {
+				//alert('hi');
+				//$("#overlay")
+				
+				$('#overlay').fadeIn('fast',function(){
+					$.ajax({
+						type : 'GET',
+						async : true,
+						url : '<g:createLink controller="product" action="showModalGallery" />',
+						success : function(data) {
+							$('#modal-contents').html(data);
+						}
+					});
+                });
+
+				$('#box').fadeIn('fast');
+                
+				e.preventDefault();
+			});
+
+			$('#boxclose').click(function(){
+                $('#box').animate({'top':'-200px'},500,function(){
+                    $('#overlay').fadeOut('fast');
+                });
+            });
+		</script>
 	</div>
 	<br />
 	<div class="clearfix">

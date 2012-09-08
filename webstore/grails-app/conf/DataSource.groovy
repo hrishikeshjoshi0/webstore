@@ -30,7 +30,7 @@ environments {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost:3306/webstore?useUnicode=yes&characterEncoding=UTF-8"
 			username = "root"
-			password = ""
+			password = "admin"
 			pooled=true
 			properties {
 				maxActive = -1

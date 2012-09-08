@@ -23,7 +23,7 @@
 				});
 			});
 		</script>
-
+		
 		<style type="text/css">
 			.ui-tabs-nav {
 				background-color: #fafafa;
@@ -57,12 +57,32 @@
 		</style>
 	</head>
 	<body>
+		<div id="dialog-modal">
+			
+		</div>
+		
 		<div id="details" class="row">
 			<!-- DETAIL IMAGE -->
 			<div class="fivecol">
 				<div class="productDetImageBox">
 					<g:render template="/common/product/detailImageBox" model="[productInstance:prodGemstoneInstance]"></g:render>
 				</div>
+				<script>
+					$(document).ready(function() {
+						$(function() {
+							// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+							$( "#dialog:ui-dialog" ).dialog( "destroy" );
+						
+							$( "#dialog-modal" ).dialog({
+								height: 500,
+								height: 800,
+								modal: true
+							});
+		
+							$("#dialog-modal").dialog( "close" );
+						});
+					});
+				</script>
 				<p style="text-align: right;">
 					Rollover to zoom
 				</p>

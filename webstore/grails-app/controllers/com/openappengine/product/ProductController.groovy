@@ -149,4 +149,8 @@ class ProductController {
 			model
 		}
 	}
+	
+	def showModalGallery() {
+		render(view: "/common/gallery")
+	}
 }
