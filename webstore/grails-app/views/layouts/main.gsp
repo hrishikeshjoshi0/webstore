@@ -1,4 +1,4 @@
-a<!doctype html>
+<!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
@@ -138,15 +138,28 @@ span.reference a:hover {
 							</g:link>
 							<fieldset id="signin_menu"></fieldset>
 						</span>
-					</sec:ifNotLoggedIn> <sec:ifLoggedIn>
+						
+						<span style="color:#ABC;">/</span>
+						
+						<span id="topnav" class="topnav" style="margin: 0px;"> 
+							<g:link controller="register" action="index">
+								<span>Register</span>
+							</g:link>
+							<fieldset id="signin_menu"></fieldset>
+						</span>
+						
+					</sec:ifNotLoggedIn>
+					<sec:ifLoggedIn>
 						   Welcome <sec:username />
 					</sec:ifLoggedIn>
-				</span> <span class="sep">|</span> <span class="division"> <g:link
+				</span> 
+				<span class="sep">|</span> <span class="division"> <g:link
 						controller="wishList" action="showWishList">
 						<span>Wish List</span>
 						<span id="wishListItems"></span>
 					</g:link>
-				</span> <span class="sep">|</span> <span class="division"> <g:link
+				</span> 
+				<span class="sep">|</span> <span class="division"> <g:link
 						class="user" controller="shoppingCart" action="showCart">
 						<i class="icon-shopping-cart icon-large"></i>
 						<span>Basket</span>
@@ -182,48 +195,68 @@ span.reference a:hover {
 
 		<div id="footer" class="shadow">
 			<div class="row">
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><a href="#">Why Buy From Us?</a></li>
+						<li><a href="#">Gem Certification</a></li>
+						<li><a href="#">Gem Care </a></li>
+						<li><a href="#">Discount Coupons</a></li>
+						<li><a href="#">Product Images</a></li>
+						<li><a href="#">Warranty Guarantee</a></li>
+						<li><a href="#">Jewellery Guide </a></li>
+						<li><a href="#">Shopping Guide </a></li>
+						<li><a href="#">Education</a></li>
+						<li><a href="#">Newsletters </a></li>
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Payment & Shipping </a></li>
+						<li><a href="#">Discount Coupons</a></li>
+						<li><a href="#">Return & Exchanges</a></li>
+						<li><a href="#">Privacy Notice</a></li>
+						<li><a href="#">Legal Notice </a></li>
+						<li><a href="#">Site Map</a></li>
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><a href="#">Free Shipping Worldwide</a></li>
+						<li><a href="#">No Risk Return Policy </a></li>
+						<li><a href="#">Expert Guidance </a></li>
+						<li><a href="#">After Sales Service </a></li>
+						<li><a href="#">Miscellaneous</a></li>
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><a href="#">Security</a></li>
+						<li><a href="#">Payment & Shipping</a></li>
+						<li><a href="#">Returns & Exchanges</a></li>
+						<li><a href="#">Miscellaneous</a></li>
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><a href="#">Rubies</a></li>
+						<li><a href="#">Emeralds</a></li>
+						<li><a href="#">Sapphires</a></li>
+						<li><a href="#">Diamonds</a></li>
+						<li><a href="#">Jewelry</a></li>
+					</ul>
+				</div>
+				
+				<div class="twocol" style="margin:10px;">
+					<ul>
+						<li>Email : <a href="mailto:ricchroyall@yahoo.com">ricchroyall@yahoo.com</a></li>
+						<li>Phone : <a href="#">+91-9833821291 </a></li>
+						<li><a href="#">Live Chat</a></li>
 					</ul>
 				</div>
 			</div>

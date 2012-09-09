@@ -117,7 +117,7 @@
 								<tr>
 									<td colspan="2">
 										<input type="submit" id="checkout_payment"
-												class="continue_checkout" value="COMPLETE ORDER" />
+												class="button" value="COMPLETE ORDER" />
 									</td>
 								</tr>
 							</tbody>

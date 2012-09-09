@@ -5,10 +5,7 @@ HTML {
 body {
 	font-size: 11px;
 	color:#666;
-	 /* background: url("../images/site/bg_gradient_gray.png") repeat-x scroll 0 0 #4C7094; */
-	/* background: url("../images/site/bg1.png") repeat scroll 0 0 #4C7094; */
-	background: url("../images/dark_blue_bg.jpg") repeat scroll 0 0 #336699; 
-	/* background: url("../images/site/body-bg.jpg") repeat-x scroll 0 0 #4C7094; */
+	background: url("../images/site/body-bg.jpg") repeat-x scroll 0 0 #4C7094;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 	line-height:1.6em;
 	margin: 0;
@@ -65,13 +62,12 @@ ul.ullist li>a {
 	-moz-border-top-colors: none;
 	background-attachment: scroll;
 	background-clip: border-box;
-	background-color: #0F3B5F;
+	background-color: #0F3B5F; 
 	/*background-image: url("http://pics.bluenile.com/assets/chrome/head/header_bg.jpg");*/
 	background-origin: padding-box;
 	background-position: left top;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
-	border-color: -moz-use-text-color #014080;
 	border-left: 1px solid #014080;
 	border-right: 1px solid #014080;
 	border-style: none solid;
@@ -79,7 +75,7 @@ ul.ullist li>a {
 	color: #FFFFFF;
 	/* width: 1002px; */
 	width:auto;
-	height: 100px;
+	height: 65px;
 	z-index: 100;
 }
 
@@ -224,7 +220,7 @@ hr {
 .right{float:right;}
 
 /* Main navigation menu */
-#nav{font-family:'Droid Sans',Verdana,Tahoma,sans-serif;text-align:center;margin-bottom: 0.7em;}
+#nav{font-family:'Droid Sans',Verdana,Tahoma,sans-serif;text-align:center;margin-bottom: 2px;}
 /* #nav ul{list-style:none;margin:5px 5px;}
 #nav ul li{background:none!important;display:inline-block;text-align:right;height:auto;line-height:25px;margin-bottom:0;margin-left:25px;position:relative;}
 #nav ul li a{color:#797777;display:block;font-size:12px;padding-top:0;text-transform:uppercase;}
@@ -245,22 +241,26 @@ hr {
 
 .box{
             position:fixed;
-            top:-200px;
-            left:30%;
-            right:30%;
-            background-color:#fff;
-            color:#7F7F7F;
-            padding:20px;
-            border:2px solid #ccc;
-            -moz-border-radius: 20px;
-            -webkit-border-radius:20px;
-            -khtml-border-radius:20px;
-            -moz-box-shadow: 0 1px 5px #333;
-            -webkit-box-shadow: 0 1px 5px #333;
+            top : 40px;
+            left : 12%;
+            background-color:#222;
+            color:#FFF;
+            border:1px solid #ccc;
             z-index:101;
-            width : 700px;
+            width : 1000px;
             height : 700px;
         }
+
+
+.button {
+    background: url("../images/bg-btn-blue.png") repeat-x scroll 0 0 #3399DD;
+    border: 1px solid #3399DD;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: 0 5px 0 0;
+    padding: 4px 10px 5px;
+    text-shadow: 0 -1px 0 #3399DD;
+}
 
 .oe_overlay{
 	background:#eee;
@@ -365,7 +365,7 @@ li.oe_heading{
 /* Footer */
 #footer {
 	clear: both;
-	background-color: #336699;
+	background-color: #0F3B5F; 
 	color:#CCCCCC;
 	padding:10px;
 	height : 240px;
@@ -425,6 +425,20 @@ li.oe_heading{
 }
 
 /* MESSAGES AND ERRORS */
+.error_messages {
+	display: inline;
+	margin: 5px;
+	background: #f3f3ff;
+}
+
+.error_messages ul {
+}
+
+.error_messages li {
+	list-style: none;
+	background: transparent url(../images/skin/exclamation.png) 0.5em 50% no-repeat;
+	text-indent: 2.2em;
+}
 
 .errors,
 .message {
@@ -448,11 +462,7 @@ li.oe_heading{
 
 .errors {
 	background: #fff3f3;
-	border: 1px solid #ffaaaa;
 	color: #cc0000;
-	   -moz-box-shadow: 0 0 0.25em #ff8888;
-	-webkit-box-shadow: 0 0 0.25em #ff8888;
-	        box-shadow: 0 0 0.25em #ff8888;
 }
 
 .errors ul,

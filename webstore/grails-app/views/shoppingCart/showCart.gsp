@@ -38,7 +38,7 @@
 					controller="shoppingCart">
 						<g:hiddenField name="shoppingCartId"
 							value="${shoppingCartInstance?.shoppingCartId}" />
-						<g:submitButton class="continue_checkout" name="checkout"
+						<g:submitButton class="button" name="checkout"
 							value="CONTINUE CHECKOUT" />
 					</g:form>
 				</p>

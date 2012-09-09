@@ -262,7 +262,7 @@
 						<table>
 							<tr>
 								<td colspan="2"><input type="submit" id="checkout_payment"
-									class="continue_checkout" value="CONTINUE CHECKOUT" /></td>
+									class="button" value="CONTINUE CHECKOUT" /></td>
 							</tr>
 						</table>
 

@@ -57,32 +57,12 @@
 		</style>
 	</head>
 	<body>
-		<div id="dialog-modal">
-			
-		</div>
-		
 		<div id="details" class="row">
 			<!-- DETAIL IMAGE -->
 			<div class="fivecol">
 				<div class="productDetImageBox">
 					<g:render template="/common/product/detailImageBox" model="[productInstance:prodGemstoneInstance]"></g:render>
 				</div>
-				<script>
-					$(document).ready(function() {
-						$(function() {
-							// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
-							$( "#dialog:ui-dialog" ).dialog( "destroy" );
-						
-							$( "#dialog-modal" ).dialog({
-								height: 500,
-								height: 800,
-								modal: true
-							});
-		
-							$("#dialog-modal").dialog( "close" );
-						});
-					});
-				</script>
 				<p style="text-align: right;">
 					Rollover to zoom
 				</p>
@@ -106,41 +86,37 @@
 								number="${prodGemstoneInstance?.getProductPrice(new Date())}"
 								maxFractionDigits="2" />
 						</strong>
-					</div>
+						</div>
+	
+					<table style="margin-left: -15px;margin-top:5px;">
+						<tr>
+							<td>Overall Rating</td>
+							<td><span id="overall_Det"> </span></td>
+							<td>(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}
+								OUT OF 5)
+							</td>
+						</tr>
+						<tr>
+							<td><a href="#tabs" onclick="$('#tabs').tabs('select', 1);">
+									Ratings & Reviews
+									(${prodGemstoneInstance?.productReviews?.size()}) </a></td>
+						</tr>
+					</table>
 					
-					<p>
-						<table style="margin-left: -15px;">
-							<tr>
-								<td>Overall Rating</td>
-								<td><span id="overall_Det"> </span></td>
-								<td>
-									(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href="#tabs" onclick="$('#tabs').tabs('select', 1);">
-										Ratings & Reviews 
-										(${prodGemstoneInstance?.productReviews?.size()})
-									</a>
-								</td>
-							</tr>
-						</table>		
-						<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}" />
+					<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}" />
 						<script>
 							$(function() {
 								$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
 							});
 						</script>	
-					</p>
 	
-					<div class="product_reviews" style="margin-top: 15px;"></div>
+					<div class="product_reviews" style="margin-top: 15px; margin-left:-10px;"></div>
 	
 					<div style="margin-top: 15px;">
 						<g:form name="add_to_cart_form" action="addToShoppingCart" controller="shoppingCart" >
 							<g:hiddenField name="quantityOrdered" value="1"/>
 							<g:hiddenField name="productId" value="${prodGemstoneInstance?.pdProductId}"/>
-							<g:submitButton class="add_to_cart" name="addToCart" value="Add To Cart"/>
+							<g:submitButton class="button" name="addToCart" value="Add To Cart"/>
 						</g:form>
 					</div>
 					

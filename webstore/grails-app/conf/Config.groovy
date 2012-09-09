@@ -111,3 +111,16 @@ grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'
 grails.resources.debug = true
 
 /*grails.app.context = "/"*/
+
+grails {
+	mail {
+	  host = "smtp.gmail.com"
+	  port = 465
+	  username = "hrishi2323@gmail.com"
+	  password = "tortoise"
+	  props = ["mail.smtp.auth":"true",
+			   "mail.smtp.socketFactory.port":"465",
+			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+			   "mail.smtp.socketFactory.fallback":"false"]
+ 
+ } }

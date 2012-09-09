@@ -43,7 +43,7 @@
 		
 		<div class="overlay" id="overlay" style="display:none;"></div>
 		<div class="box" id="box" style="display:none;">
-            <a class="boxclose" id="boxclose"></a>
+            <a class="boxclose" id="boxclose">Close</a>
            	<div id="modal-contents">
            	</div>
         </div>
@@ -69,10 +69,11 @@
 			});
 
 			$('#boxclose').click(function(){
-                $('#box').animate({'top':'-200px'},500,function(){
-                    $('#overlay').fadeOut('fast');
-                });
+                $('#box').fadeOut('fast');
+                $('#modal-contents').html("");
+                $('#overlay').fadeOut('fast');
             });
+            
 		</script>
 	</div>
 	<br />
