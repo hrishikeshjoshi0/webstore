@@ -2,24 +2,13 @@
 <html>
 <head>
 <meta name="layout" content="main" />
-<title>Web Store</title>
-<link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'orbit-1.2.3.css')}" type="text/css">
-<script src="${resource(dir: 'js', file: 'jquery.orbit-1.2.3.min.js')}"></script>
+<title>Gem Certification</title>
 </head>
-
 <body>
-
-
-
-	<div class="clearfix shadow"
-		style="padding-top: 5px; margin-top: 10px;">
-
-		<div class="row">
-
-			<div class="onecol last box-big" style="width: 900px; height: 1000px">
-				<span class="title"> Lab Certification (Gem Certification) </span>
-			</div>
+	<h1 class="page-title">Lab Certification (Gem Certification)</h1>
+	<div class="row">
+		<div class="tencol">
+			This page is under construction..
 		</div>
 	</div>
 </html>
