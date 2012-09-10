@@ -124,3 +124,5 @@ grails {
 			   "mail.smtp.socketFactory.fallback":"false"]
  
  } }
+
+ckeditor.connectors.prefix = "/ck/"
