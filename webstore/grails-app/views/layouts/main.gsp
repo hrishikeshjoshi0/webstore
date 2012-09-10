@@ -1,4 +1,4 @@
-a<!doctype html>
+<!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
@@ -124,7 +124,7 @@ span.reference a:hover {
 		<!-- Header -->
 		<div id="header">
 			<div id="logo" class="logo">
-				<a href="index.html"><img
+				<a href="/webstore"><img
 					src="${resource(dir: 'images/site', file: 'logo.gif')}" alt=""
 					title="" border="0" /></a>
 			</div>
@@ -138,15 +138,28 @@ span.reference a:hover {
 							</g:link>
 							<fieldset id="signin_menu"></fieldset>
 						</span>
-					</sec:ifNotLoggedIn> <sec:ifLoggedIn>
+						
+						<span style="color:#ABC;">/</span>
+						
+						<span id="topnav" class="topnav" style="margin: 0px;"> 
+							<g:link controller="register" action="index">
+								<span>Register</span>
+							</g:link>
+							<fieldset id="signin_menu"></fieldset>
+						</span>
+						
+					</sec:ifNotLoggedIn>
+					<sec:ifLoggedIn>
 						   Welcome <sec:username />
 					</sec:ifLoggedIn>
-				</span> <span class="sep">|</span> <span class="division"> <g:link
+				</span> 
+				<span class="sep">|</span> <span class="division"> <g:link
 						controller="wishList" action="showWishList">
 						<span>Wish List</span>
 						<span id="wishListItems"></span>
 					</g:link>
-				</span> <span class="sep">|</span> <span class="division"> <g:link
+				</span> 
+				<span class="sep">|</span> <span class="division"> <g:link
 						class="user" controller="shoppingCart" action="showCart">
 						<i class="icon-shopping-cart icon-large"></i>
 						<span>Basket</span>
@@ -182,48 +195,82 @@ span.reference a:hover {
 
 		<div id="footer" class="shadow">
 			<div class="row">
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
+				<div id="footertitle" style="font-size:15px"><b>More Information</b></div>
+				<br>
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+					     
+						<li><g:link controller="Footer" action="whybuyfromus">Why Buy From Us</g:link></li>
+						<li><g:link controller="Footer" action="gemcertification">Gem Certification</g:link></li>
+						<li><g:link controller="Footer" action="gemcare">Gem Care</g:link></li>
+						<li><g:link controller="Footer" action="discountcoupons">Discount Coupons</g:link></li>
+						<li><g:link controller="Footer" action="productimages">Product Images</g:link></li>
+						<li><g:link controller="Footer" action="warrantyguarantee">Warranty Guarantee</g:link></li>
+						<li><g:link controller="Footer" action="jewelleryguide">Jewellery Guide</g:link></li>
+						<li><g:link controller="Footer" action="shoppingguide">Shopping Guide</g:link></li>
+						<li><g:link controller="Footer" action="education">Education</g:link></li>
+						<li><g:link controller="Footer" action="newsletters">Newsletters</g:link></li>
+						
+						
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
+				<div id="footertitle" style="font-size:15px"><b>Navigation</b></div>
+				<br>
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><a href="/webstore">Home</a></li>
+						<li><g:link controller="Footer" action="aboutus">About Us</g:link></li>
+						<li><g:link controller="Footer" action="paymentnshipping">Payment & Shipping</g:link></li>
+						<li><g:link controller="Footer" action="returnsnexchanges">Returns & Exchanges</g:link></li>
+						<li><g:link controller="Footer" action="privacynotice">Privacy Notice</g:link></li>
+						<li><g:link controller="Footer" action="legalnotice">Legal Notice</g:link></li>
+						<li><g:link controller="Footer" action="sitemap">Site Map</g:link></li>
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
+				<div id="footertitle" style="font-size:15px"><b>Customer Service</b></div>
+				<br>
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><g:link controller="Footer" action="freeshippingworldwide">Free Shipping Worldwide</g:link></li>
+						<li><g:link controller="Footer" action="noriskreturnpolicy">No Risk Return Policy</g:link></li>
+						<li><g:link controller="Footer" action="expertguidance">Expert Guidance</g:link></li>
+						<li><g:link controller="Footer" action="aftersalesservice">After Sales Service</g:link></li>
+						<li><g:link controller="Footer" action="miscellaneous">Miscellaneous</g:link></li>
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
+				<div id="footertitle" style="font-size:15px"><b>FAQ’s</b></div>
+				<br>
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><g:link controller="Footer" action="faqsecurity">Security</g:link></li>
+						<li><g:link controller="Footer" action="faqpaymentnshipping">Payment & Shipping</g:link></li>
+						<li><g:link controller="Footer" action="faqreturnsnexchanges">Returns & Exchanges</g:link></li>
+						<li><g:link controller="Footer" action="faqmiscellaneous">Miscellaneous</g:link></li>
 					</ul>
 				</div>
 
-				<div class="twocol">
+				<div class="twocol" style="margin:10px;">
+				<div id="footertitle" style="font-size:15px"><b>Articles</b></div>
+				<br>
 					<ul>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
-						<li><a href="#">abc</a></li>
+						<li><a href="/webstore/gemstone/list?productTypeId=3">Rubies</a></li>
+						<li><a href="/webstore/gemstone/list?productTypeId=11">Emeralds</a></li>
+						<li><a href="/webstore/gemstone/list?productTypeId=8">Sapphires</a></li>
+						<li><a href="/webstore/diamond/list">Diamonds</a></li>
+						<li><a href="#">Jewelry</a></li>
+					</ul>
+				</div>
+				
+				<div class="twocol" style="margin:10px;">
+				<div id="footertitle" style="font-size:15px"><b>Contact Us</b></div>
+				<br>
+					<ul>
+						<li>Email : <a href="mailto:ricchroyall@yahoo.com">ricchroyall@yahoo.com</a></li>
+						<li>Phone : <a href="#">+91-9833821291 </a></li>
+						<li><a href="#">Live Chat</a></li>
 					</ul>
 				</div>
 			</div>
