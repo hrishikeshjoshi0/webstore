@@ -26,8 +26,7 @@
 <link rel="stylesheet" href="${resource(dir: 'css', file: '1140.less')}"
 	type="text/less" media="screen" />
 <!-- font -->
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans'
-	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
 
 <!-- jquery -->
 <link rel="stylesheet"

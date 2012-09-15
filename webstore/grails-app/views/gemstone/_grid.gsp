@@ -29,7 +29,7 @@
 			<!--
 			padding-right: 25px; : add space between the products
 			-->
-			<div class="box-small">
+			<div class="result-box-small">
 				<div id="content">
 					
 					<!-- Product Name and Description -->

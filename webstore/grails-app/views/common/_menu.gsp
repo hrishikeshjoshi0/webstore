@@ -17,7 +17,7 @@
 		<!-- 
 				<div id="oe_overlay" class="oe_overlay"></div>
 				 -->
-		<ul id="oe_menu" class="oe_menu">
+		<ul id="oe_menu" class="oe_menu" >
 			<!-- Gemstones -->
 			<li>
 				<a href="<g:createLink controller="gemstone" action="list" />">Gemstones</a>
@@ -56,6 +56,8 @@
 
 			<!-- Sale -->
 			<li><a href="">Sale</a></li>
+			
+			<li style="width:320px;height:42px;">&nbsp;</li>
 		</ul>
 	</div>
 </div>

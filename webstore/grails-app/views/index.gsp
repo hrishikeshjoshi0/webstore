@@ -7,28 +7,21 @@
 	href="${resource(dir: 'css', file: 'orbit-1.2.3.css')}" type="text/css">
 <script src="${resource(dir: 'js', file: 'jquery.orbit-1.2.3.min.js')}"></script>
 
-<!--[if IE]>
-		<style type="text/css">
-		   .timer { display: none !important; }
-		   div.caption { background:transparent; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);zoom: 1; }
-		</style>
-	<![endif]-->
-
 <!-- Run the plugin -->
 <script type="text/javascript">
 	$(window).load(function() {
 		//$('#featured').orbit();
 		$('#top-banner-slider').orbit({
-			animation : 'fade', // fade, horizontal-slide, vertical-slide, horizontal-push
+			animation : 'horizontal-push', // fade, horizontal-slide, vertical-slide, horizontal-push
 			animationSpeed : 1200, // how fast animations are
 			timer : true, // true or false to have the timer
 			advanceSpeed : 2000, // if timer is enabled, time between transitions
 			pauseOnHover : true, // if you hover pauses the slider
 			startClockOnMouseOut : true, // if clock should start on MouseOut
 			startClockOnMouseOutAfter : 1000, // how long after MouseOut should the timer start again
-			directionalNav : true, // manual advancing directional navs
+			directionalNav : false, // manual advancing directional navs
 			captions : false, // do you want captions?
-			captionAnimation : 'fade', // fade, slideOpen, none
+			captionAnimation : 'slideOpen', // fade, slideOpen, none
 			captionAnimationSpeed : 800, // if so how quickly should they animate in
 			bullets : true, // true or false to activate the bullet navigation
 			bulletThumbs : true, // thumbnails for the bullets
@@ -40,14 +33,13 @@
 </script>
 </head>
 <body>
-			<h1 class="page-title">
+			
+	  <h1 class="page-title" style="border-bottom: 1px solid #D9DCDC;">
 				Free Shipping with every order.
-			</h1>
+	  </h1>
 		
-		<hr/>
-		
-		<div style="padding-top: 5px;">
-			<div id="top-banner-slider">
+		<div id="top-banner-slider-wrapper">
+			<div id="top-banner-slider" >
 				<img
 					src="${resource(dir: 'images/site/home/banner', file: '_1.jpg')}" />
 				<img
@@ -57,25 +49,27 @@
 					src="${resource(dir: 'images/site/home/banner', file: '_3.jpg')}" />
 			</div>
 		</div>
+		
+		<img src="${resource(dir: 'images/', file: 'shadow.png')}" 
+			style="width:100%;height:10px;">
 
-		<div class="clearfix shadow"
-			style="padding-top: 5px; margin-top: 10px;">
-
-			<div class="row">
-					<div class="fourcol box-small" style="width: 320px;height: 200px;">
+			<div class="row" style="margin-left:40px;">
+					<div class="fourcol box-small" style="width: 320px;height: 150px;">
 						<!-- title -->
 						<span class="title">
-							Gemstone
+							Gemstones
 						</span>
 						<div id="content">
 							<div class="left" style="max-width: 200px;">
-								<ul class="ullist">
+								<ul class="product_list">
 									<li>
 										<g:link controller="ProductGemStone" action="list"> Gemstones </g:link>
 										</li>
 									<li>
 										<a href="#">Gemstones</a></li>	
 								</ul>
+								<br/><br/>
+								<g:submitButton class="button" name="checkout" value="More.." style="margin-left:10px;" />
 							</div>
 							<div class="right">
 								<img
@@ -85,14 +79,14 @@
 						</div>
 					</div>
 
-					<div class="fourcol box-small" style="width: 320px;height: 200px;">
+					<div class="fourcol box-small" style="width: 320px;height: 150px;">
 						<!-- title -->
 						<span class="title">
 							Jewelry
 						</span>
 						<div id="content">
-							<div class="left" style="max-width: 200px;">
-								<ul class="ullist">
+							<div class="left" style="max-width: 200px;max-height: 200px;">
+								<ul class="product_list">
 									<li>
 										<a href="#">Diamond Jewelry</a></li>
 									<li>
@@ -100,6 +94,8 @@
 									<li>
 										<a href="#">Artificial Jewelry</a></li>
 								</ul>
+								<br/>
+								<g:submitButton class="button" name="checkout" value="More.." style="margin-left:10px;" />
 							</div>
 							<div class="right">
 								<img
@@ -109,19 +105,21 @@
 						</div>
 					</div>
 
-					<div class="fourcol last box-small" style="width: 320px;height: 200px;">
+					<div class="fourcol last box-small" style="width: 320px;height: 150px;">
 						<!-- title -->
 						<span class="title">
 							Diamonds
 						</span>
 						<div id="content">
 							<div class="left" style="max-width: 200px;">
-								<ul class="ullist">
+								<ul class="product_list">
 									<li>
 										<a href="#">Search Diamonds</a></li>
 									<li>
 										<a href="#">Education</a></li>
 								</ul>
+								<br/><br/>
+								<g:submitButton class="button" name="checkout" value="More.." style="margin-left:10px;" />
 							</div>
 							<div class="right">
 								<img
@@ -133,120 +131,101 @@
 
 			</div>
 
-			<div class="clearfix"></div>
-			
-			<hr/>
+		<div class="row">
+			<div class="clearfix elevencol">
+				<hr />
+			</div>
+		</div>
 
-			<div class="row">
-			<div class="fourcol">
+		<div class="row" class="clearfix shadow" style="">
+			<div class="fourcol"
+				style="margin-left: 50px; height: 50px; margin: 10px;">
 				<span class="title">Diamond Stock List</span>
 				<div id="contents">
-					<ul class="ullist" style="z-index: 1000;">
-						<li><a href="#">List 1</a></li>
-						<li><a href="#">List 2</a></li>
+					<ul class="product_list" style="z-index: 1000;">
+						<li style="list-style: none;"><a href="#">List 1</a></li>
+						<li style="list-style: none;"><a href="#">List 2</a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="eightcol last">
-					<span class="title">Diamond Search</span>
-					<div id="contents">
-						<br /> <br />
+			<div class="sevencol last" style="height: 50px; margin-top: 10px;">
+				<span class="title">Diamond Search</span>
+				<div id="contents">
+					<br />
+				</div>
+			</div>
+		</div>
+
+	<div class="row">
+			<div class="clearfix elevencol">
+				<hr/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="fourcol box-small"
+				style="width: 320px; margin-left: 38px; margin-top: 10px; height: 150px;">
+				<!-- title -->
+				<span class="title"> Recent Articles </span>
+	
+				<div id="content">
+					<div style="max-width: 300px;">
+						<ul class="product_list">
+							<li class="recent_article">Nature, color, global,
+								feminine–it’s your time to shine with the hottest trends. <br />
+								<a class="read_more" href="#">read more</a>
+							</li>
+							<li class="recent_article">Nature, color, global,
+								feminine–it’s your time to shine with the hottest trends. <br />
+								<a class="read_more" href="#">read more</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-
-			<hr/>
-
-			<div class="clearfix"
-			style="padding-top: 5px; margin-top: 10px;">
-
-			<div class="row">
-					<div class="fourcol box-small" style="width: 320px;">
-						<!-- title -->
-						<span class="title">
-							Recent Articles
-						</span>
-							
-						<div id="content">
-							<div style="max-width: 300px;">
-								<ul class="ullist">
-									<li class="recent_article">
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										<a class="read_more" href="#">read more</a>	
-									</li>
-									<li class="recent_article">
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										<a class="read_more" href="#">read more</a>	
-									</li>
-									<li class="recent_article">
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										<a class="read_more" href="#">read more</a>	
-									</li>	
-								</ul>
-							</div>
-						</div>
+	
+			<div class="fourcol box-small"
+				style="width: 320px; margin-top: 10px; height: 150px;">
+				<!-- title -->
+				<span class="title"> Testimonials </span>
+	
+				<div id="content">
+					<div style="max-width: 300px;">
+						<ul class="product_list">
+							<li class="testimonial">Nature, color, global, feminine–it’s
+								your time to shine with the hottest trends. Nature, color,
+								global, feminine–it’s your time to shine with the hottest trends.
+								Nature, color, global, feminine–it’s your time to shine with the
+								hottest trends. <br /> <a class="read_more" href="#">read
+									more</a>
+							</li>
+						</ul>
 					</div>
-
-					<div class="fourcol box-small" style="width: 320px;">
-						<!-- title -->
-						<span class="title">
-							Testimonials
-						</span>
-						
-						<div id="content">
-							<div style="max-width: 300px;">
-								<ul class="ullist">
-									<li class="testimonial">
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										<a class="read_more" href="#">read more</a>	
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="fourcol last box-small" style="width: 320px;">
-						<!-- title -->
-						<span class="title">
-							Trends
-						</span>
-						
-						<div id="content">
-							<div style="max-width: 300px;">
-								<ul class="ullist">
-									<li class="testimonial">
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										<a class="read_more" href="#">read more</a>	
-									</li>
-								</ul>
-							</div>
-						</div>
-						
-						<hr/>
-						
-						<span class="title">
-							New Additions
-						</span>
-						
-						<div id="content">
-							<div style="max-width: 300px;">
-								<ul class="ullist">
-									<li class="testimonial">
-										Nature, color, global, feminine–it’s your time to shine with the hottest trends.
-										<a class="read_more" href="#">read more</a>	
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
+				</div>
 			</div>
-
-			<div class="clearfix"></div>
+	
+			<div class="fourcol last box-small"
+				style="width: 320px; margin-top: 10px; height: 150px;">
+				<!-- title -->
+				<span class="title"> Trends </span>
+	
+				<div id="content">
+					<div style="max-width: 300px;">
+						<ul class="product_list">
+							<li class="testimonial">Nature, color, global, feminine–it’s
+								your time to shine with the hottest trends. <br /> <a
+								class="read_more" href="#">read more</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+	
+			</div>
 		</div>
-	</div>
+
+		<div class="row">
+			<div class="clearfix shadow elevencol">
+			</div>
+		</div>
 </body>
 </html>
