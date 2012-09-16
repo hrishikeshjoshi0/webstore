@@ -112,6 +112,21 @@ span.reference a {
 span.reference a:hover {
 	color: #ddd;
 }
+
+#banner-name {
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	font-size: 13px;
+	color: #485C5A;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#tagline {
+	color: #336699;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
 </style>
 
 <g:layoutHead />
@@ -123,9 +138,23 @@ span.reference a:hover {
 		<!-- Header -->
 		<div id="header">
 			<div id="logo" class="logo">
-				<a href="/webstore"><img
-					src="${resource(dir: 'images/site', file: 'logo.gif')}" alt=""
-					title="" border="0" /></a>
+				<a href="/webstore">
+					<img
+						src="${resource(dir: 'images', file: 'demo_logo.jpg')}" alt=""
+						title="" border="0" height="75px" width="60px" style="margin-left:40px;"/>
+					<br/>
+				</a>
+			</div>
+			
+			<div>
+				<br/><br/>
+				<span id="banner-name">
+					Hina's Creation 	 
+				</span>
+				<br/>
+				<span id="tagline">
+					Gemstone Diamonds and Fine Jewelry.™
+				</span>
 			</div>
 
 			<div id="user">
@@ -138,7 +167,7 @@ span.reference a:hover {
 							<fieldset id="signin_menu"></fieldset>
 						</span>
 						
-						<span style="color:#ABC;">/</span>
+						<span style="color:#222;">or</span>
 						
 						<span id="topnav" class="topnav" style="margin: 0px;"> 
 							<g:link controller="register" action="index">
@@ -176,27 +205,33 @@ span.reference a:hover {
 					</a>
 					</span>
 				</sec:ifAnyGranted>
+				<br/>
+				
+				<%--<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:250px;height:10px;">
+				--%>
+				<hr/>
 			</div>
 		</div>
 
 		<!-- Menu Bar -->
 		<g:render template="/common/menu"></g:render>
+		
+		<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:10px;margin-top: -10px;">
 
 		<!-- Main Content -->
 		<div id="page-content">
 			<div id="spinner" class="spinner" style="display: none;">
 				<g:message code="spinner.alt" default="Loading&hellip;" />
 			</div>
-			<div id="page" class="clearfix shadow">
+			<div id="page" class="">
 				<g:layoutBody />
 			</div>
 		</div>
 
 		<div id="footer" class="shadow">
 			<div class="row">
-				<div class="twocol" style="margin:10px;">
-				<div id="footertitle" style="font-size:15px"><b>More Information</b></div>
-				<br>
+				<div class="twocol" style="margin:2px;margin-left:50px;">
+				<div id="footertitle" style="font-size:12px"><b>More Information</b></div>
 					<ul>
 					     
 						<li><g:link controller="Footer" action="whybuyfromus">Why Buy From Us</g:link></li>
@@ -214,9 +249,8 @@ span.reference a:hover {
 					</ul>
 				</div>
 
-				<div class="twocol" style="margin:10px;">
-				<div id="footertitle" style="font-size:15px"><b>Navigation</b></div>
-				<br>
+				<div class="twocol" style="margin:2px;">
+				<div id="footertitle" style="font-size:12px"><b>Navigation</b></div>
 					<ul>
 						<li><a href="/webstore">Home</a></li>
 						<li><g:link controller="Footer" action="aboutus">About Us</g:link></li>
@@ -228,9 +262,8 @@ span.reference a:hover {
 					</ul>
 				</div>
 
-				<div class="twocol" style="margin:10px;">
-				<div id="footertitle" style="font-size:15px"><b>Customer Service</b></div>
-				<br>
+				<div class="twocol" style="margin:2px;">
+				<div id="footertitle" style="font-size:12px"><b>Customer Service</b></div>
 					<ul>
 						<li><g:link controller="Footer" action="freeshippingworldwide">Free Shipping Worldwide</g:link></li>
 						<li><g:link controller="Footer" action="noriskreturnpolicy">No Risk Return Policy</g:link></li>
@@ -240,9 +273,8 @@ span.reference a:hover {
 					</ul>
 				</div>
 
-				<div class="twocol" style="margin:10px;">
-				<div id="footertitle" style="font-size:15px"><b>FAQ’s</b></div>
-				<br>
+				<div class="twocol" style="margin:2px;">
+				<div id="footertitle" style="font-size:12px"><b>FAQ’s</b></div>
 					<ul>
 						<li><g:link controller="Footer" action="faqsecurity">Security</g:link></li>
 						<li><g:link controller="Footer" action="faqpaymentnshipping">Payment & Shipping</g:link></li>
@@ -251,9 +283,8 @@ span.reference a:hover {
 					</ul>
 				</div>
 
-				<div class="twocol" style="margin:10px;">
-				<div id="footertitle" style="font-size:15px"><b>Articles</b></div>
-				<br>
+				<div class="twocol" style="margin:2px;">
+				<div id="footertitle" style="font-size:12px"><b>Articles</b></div>
 					<ul>
 						<li><a href="/webstore/gemstone/list?productTypeId=3">Rubies</a></li>
 						<li><a href="/webstore/gemstone/list?productTypeId=11">Emeralds</a></li>
@@ -263,9 +294,8 @@ span.reference a:hover {
 					</ul>
 				</div>
 				
-				<div class="twocol" style="margin:10px;">
-				<div id="footertitle" style="font-size:15px"><b>Contact Us</b></div>
-				<br>
+				<div class="twocol" style="margin:2px;">
+				<div id="footertitle" style="font-size:12px"><b>Contact Us</b></div>
 					<ul>
 						<li>Email : <a href="mailto:ricchroyall@yahoo.com">ricchroyall@yahoo.com</a></li>
 						<li>Phone : <a href="#">+91-9833821291 </a></li>

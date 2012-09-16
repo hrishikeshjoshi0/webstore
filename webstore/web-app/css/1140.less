@@ -107,6 +107,32 @@ figure img {
 	width: 100%
 }
 
+
+#header {
+	-moz-border-bottom-colors: none;
+	-moz-border-image: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-attachment: scroll;
+	background-clip: border-box;
+	/* background-color: #FFF;  */
+	.linear-gradient(#FAFAFA,#FFF,50%);
+	background-origin: padding-box;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	color: #222;
+	width:auto;
+	height: 65px;
+	z-index: 100;
+}
+
+*+html #header {
+	width: 1002px;
+}
+
+
 /* ==================================================================================================================== */
 /* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
 /* ==================================================================================================================== */
@@ -129,7 +155,8 @@ figure img {
 	margin-left: 1.0em;
 	float: left;
 	min-height: 1px;
-	margin-top: 25px;
+	/* margin-top: 25px; */
+	margin-top:10px;
 	padding-bottom: 5px;
 }
 
@@ -295,12 +322,14 @@ section #search {
 	margin-bottom: 10px;
 	
 	max-height: 300px;
-	height: 200px;
+	height: auto;
 
 	float: left;
 	margin-top: 10px;
 	padding-bottom: 0.8em;
 	padding-right: 10px;
+	
+	border-bottom:1px solid #EEE;
 }
 
 #wrap {
@@ -317,13 +346,16 @@ section #search {
     width: inherit;
     display: inline;
     text-align: left;
-    font-size: 12px;
+    font-size: 11px;
     /* padding: 5px 5px; */
     min-height: 100%;
 }
 
 #page {
-	margin-top: -5px;
+	margin-top: -20px;
+	min-height: 500px; 
+   	height:auto !important; 
+   	height: 500px; 
 }
 
 .button {
@@ -438,7 +470,7 @@ ul.oe_menu > li > a{
 	color:#000;
 	text-decoration:none;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
-	font-size:13px;
+	font-size:11px;
 	font-weight:700;
 	width:auto;
 	height:10px;
@@ -481,7 +513,7 @@ ul.oe_menu div ul li a{
 	padding:2px 2px 2px 4px;
 	margin:2px;
 	display:block;
-	font-size:12px;
+	font-size:11px;
 }
 ul.oe_menu div ul.oe_full{
 	width:auto;
@@ -547,11 +579,11 @@ ul > li.testimonial {
 input,select,textarea {
 	padding: 0.25em;
 	font-family:'Droid Sans',Verdana,Tahoma,sans-serif;
-	font-size: 13px;
+	font-size: 11px;
 }
 
 option {
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .content {
@@ -564,16 +596,16 @@ option {
 
 .scaffold-list table {
 	border: 1px;
-	font-size: 12px;
+	font-size: 11px;
 	width: auto;
 }
 
 .scaffold-list td {
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .scaffold-list th {
-	font-size: 12px;
+	font-size: 11px;
 }
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */
@@ -583,7 +615,7 @@ fieldset.form {
 	position: relative;
 	zoom: 1;
 	border: none;
-	font-size: 13px;
+	font-size: 11px;
 	border: 1px solid #D9DCDC;
 	 
 	.border-radius(4px);
@@ -601,7 +633,7 @@ fieldset,.property-list {
 	position: relative;
 	zoom: 1;
 	border: none;
-	font-size: 13px;
+	font-size: 11px;
 }
 
 .property-list .fieldcontain {
@@ -612,7 +644,7 @@ fieldset,.property-list {
 
 .fieldcontain {
 	font-family: Tahoma;
-	font-size: 12px;
+	font-size: 11px;
 	margin-top: 1em;
 }
 
@@ -620,7 +652,7 @@ fieldset,.property-list {
 	color: #666666;
 	text-align: left;
 	width: 18%;
-	font-size: 0.95em;
+	font-size: 11px;
 }
 
 .fieldcontain .property-label {
@@ -628,7 +660,7 @@ fieldset,.property-list {
 }
 
 .fieldcontain .property-value {
-	font-size: 12px;
+	font-size: 11px;
 	display: block;
 	font-family: Tahoma;
 }
@@ -643,11 +675,11 @@ label {
 input,select,textarea {
 	background-color: #fcfcfc;
 	border: 1px solid #cccccc;
-	font-size: 12px;
+	font-size: 11px;
 }
 
 select {
-	font-size: 0.90em;
+	font-size: 11px;
 	padding: 0.2em 0.2em 0.2em 0;
 }
 
@@ -720,7 +752,7 @@ fieldset.embedded legend {
 
 /* MESSAGES AND ERRORS */
 .errors,.message {
-	font-size: 0.8em;
+	font-size: 11px;
 	line-height: 2;
 	/* margin: 1em 2em; */
 	padding: 0.25em;
@@ -728,7 +760,7 @@ fieldset.embedded legend {
 
 .message {
 	font: Tahoma;
-	font-size: 12px;
+	font-size: 11px;
 	float:left;
 	background: #f3f3ff;
 	border: 1px solid #b2d1ff;
@@ -818,7 +850,7 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 	margin-left: 1.0em;
 	float: left;
 	min-height: 1px;
-	margin-top: 20px;
+	margin-top: 1px;
 	padding-bottom: 1em;
 	display: inline;
 	float: left;
@@ -834,8 +866,8 @@ input:invalid:focus,select:invalid:focus,textarea:invalid:focus {
 }
 
 a.product-box-link {
-	color : #838383;
-	font-size: 12px;
+	color : #666;
+	font-size: 11px;
 }
 
 .product-rating {
@@ -854,8 +886,8 @@ a.product-box-link {
 img.product-img {
 	/* width: 180px;
 	height: 120px; */
-	width: 80px;
-	height: 80px;
+	width: 125px;
+	height: 125px;
 	display: block;
 	padding: 5px;
 }
@@ -878,23 +910,6 @@ img.product-img-diamond {
 a.product-name {
 	font-size: 12px;
 	padding: 10px;
-}
-
-.product-tag {
-	font-size: 14px;
-	height:2em;
-	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
-	text-transform: uppercase;
-	background-color: #D3E397;
-	border: 1px solid #eee;
-	.border-radius(4px);
-	color:#666;
-	text-align: right;
-	max-width: 4em;
-}
-
-.product-tag .new{
-	text-transform: uppercase;
 }
 
 h1.filter-heading {
@@ -927,7 +942,8 @@ img.product-img-det {
 }
 
 .product_name_header {
-	font-size: 14px;
+	margin-bottom:5px;
+	font-size: 16px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 	text-transform: uppercase;
 }
@@ -975,7 +991,7 @@ ul.productDetQuickLinks {
 }
 
 .productDetQuickLinks li > a {
-	font-size: 13px;
+	font-size: 11px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 	padding:10px;
 	margin:15px;
@@ -985,7 +1001,7 @@ ul.productDetQuickLinks {
 
 .pager {
 	border-top: 0;
-	margin-top: 20px;
+	margin-top: 10px;
 	padding: 0.3em 0.2em;
 	background-color: #EEE; 
 	height: 35px;
@@ -1035,19 +1051,19 @@ ul.productDetQuickLinks {
     margin: 0 10px 0 0;
     padding: 0 16px 0 0;
     color:#222;
-    font-size: 12px;
+    font-size: 11px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
     
 }
 
 #ratings {
 	border-right: 1px solid #B5B5B5;
-	font-size: 12px;
+	font-size: 11px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 }
 
 #reviews {
-	font-size: 12px;
+	font-size: 11px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 }
 
@@ -1058,15 +1074,19 @@ ul.productDetQuickLinks {
 	font-size: 17px;
 }
 
+.dropShadow {
+	border-bottom: 3px solid #666;
+}
+
 .productReviews {
 	border: 1px solid #B5B5B5;
-	font-size: 12px;	
+	font-size: 11px;	
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 }
 
 .review {
 	border-bottom: 1px dotted #B5B5B5;
-	font-size: 12px;
+	font-size: 11px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 }
 
@@ -1079,7 +1099,7 @@ ul.productDetQuickLinks {
 }
 
 .cartItems {
-	font-size: 12px;
+	font-size: 11px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 	margin: 10px;
 }
@@ -1099,7 +1119,7 @@ ul.productDetQuickLinks {
 
 th.cartItemsHeader {
 	text-transform: uppercase;
-	font-size: 13px;
+	font-size: 11px;
 	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
 	padding: 5px;
 }
@@ -1116,23 +1136,31 @@ input.continue_checkout {
 	font-weight: bold;
 }
 
+.search-result-title {
+	background-color: #FAFAFA;
+	.border-radius(5px);
+	color:#666;
+	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top:-15px;
+}
+
 h1.page-title {
 	text-transform: capitalize;
 	height:auto;
 	width: auto;
 	padding:5px;
 	margin-top:10px;
+	/* 
 	margin-left:15px;
-	margin-bottom:2px;
-	
-	/* background-color: #336699;
-	color:#FAFAFA; */
-	
-	/* background-color: #E5DBCF;
-	color:#222; */
+	margin-bottom:2px; */
 	
 	background-color: #FFF;
-	/* color:#152551; */
 	color:#660000;
 	font-family:CrimsonBN,Perpetua,Palatino,"Times New Roman",Times,serif;
 	font-size: 25px;
@@ -1200,3 +1228,9 @@ ul.productTypeMenuLinkList {
 
 .ui-slider-range { background: #014080; }
 .ui-slider-handle { border-color: #014080; }
+
+.details {
+	padding: 10px;
+	/* .linear-gradient(#f0f0f0,#FFF,30%); */	
+	background: url("http://pics.bluenile.com/assets/chrome/shell/bgd_details_inset.gif") repeat-x scroll left top transparent;
+}

@@ -25,9 +25,14 @@
 </head>
 <body>
 	<input type="hidden" name="shoppingCartId" value="${shoppingCartInstance.shoppingCartId}"/>
-	<h1 class="page-title">
-		Shopping Cart
-	</h1>
+	<div class="row">
+		<div class="elevencol">
+			<h1 class="search-result-title">
+				Shopping Cart
+			</h1>
+			<hr/>
+		</div>
+	</div>
 	
 	<div style="">
 		<g:if test="${!shoppingCartInstance.cartItems.isEmpty()}">

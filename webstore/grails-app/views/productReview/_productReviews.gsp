@@ -78,10 +78,10 @@
 				</script>
 			</div>
 		</g:each>
-		<div class="pager" style="background-color: #555;">
+		<%--<div class="pager" style="background-color: #555;">
 			<g:paginate total="${productReviewInstanceTotal}" />
 		</div>
-	</div>
+	--%></div>
 	<script type="text/javascript">
 			//ajax pagination.
 			$("#list-productReview").find(".pager a, th.sortable a").live('click', function(event) {

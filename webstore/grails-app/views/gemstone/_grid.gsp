@@ -1,10 +1,6 @@
 <%@page import="com.openappengine.enums.SortOrder"%>
 
 <div id="product-list" class="ajax" style="width: 100%;">
-	<h1 class="page-title">
-		${params.pageHeader}
-	</h1>
-	
 	<div class="pager result-box">
 			<span class="result">
 				${prodGemstoneInstanceTotal} Results
@@ -23,7 +19,7 @@
 	<g:each in="${prodGemstoneInstanceList}" status="i" var="productGemStoneInstance">
 			<%
 				if(i%4==0) {
-					out << "<div class=\"row\" style=\"width: 100%\">" 
+					out << "<div class=\"row\" style='width: 100%;'>" 
 				}
 			 %>
 			<!--
@@ -31,7 +27,6 @@
 			-->
 			<div class="result-box-small">
 				<div id="content">
-					
 					<!-- Product Name and Description -->
 					<div class='product-image-thumb'>
 						<g:link action="viewDetails"
@@ -43,9 +38,9 @@
 								src="${resource(dir: '/images/uploads/product', file: productGemStoneInstance?.smallImage?.imageUrl)}" />
 						</g:link>
 					</div>
-
+					
 					<!-- Product Name and Description -->
-					<div class='product-name'>
+					<div class='product-name' style="margin-bottom:4px;border-top:1px solid #FAFAFA;margin-top:2px;border-top-width: 80%;">
 						<g:link action="viewDetails"
 							id="${productGemStoneInstance.pdProductId}"
 							class="product-box-link">
@@ -58,28 +53,30 @@
 						${productGemStoneInstance.getProductPrice(new Date())}
 					</div>
 	
-					<div class='product-rating'>
-						<g:hiddenField name="overall_Det_Rating_${i}"
-							value="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}" />
-	
-						<table style="margin-left: -15px;">
-							<tr>
-								<td><span id="overall_Det_${i}"> </span></td>
-							</tr>
-							<tr>
-								<g:if test="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating == null}">
-									<td>
-										No Ratings Yet.
-									</td>
-								</g:if>
-								<g:else>
-									<td>(${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}
-										OUT OF 5)
-									</td>
-								</g:else>
-							</tr>
-						</table>
-					</div>
+					<center>
+						<div class='product-rating'>
+							<g:hiddenField name="overall_Det_Rating_${i}"
+								value="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}" />
+		
+							<table style="margin-left: -15px;">
+								<tr>
+									<td style="margin-left: 20px;"><span id="overall_Det_${i}"> </span></td>
+								</tr>
+								<tr>
+									<g:if test="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating == null}">
+										<td>
+											No Ratings Yet.
+										</td>
+									</g:if>
+									<g:else>
+										<td>(${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}
+											OUT OF 5)
+										</td>
+									</g:else>
+								</tr>
+							</table>
+						</div>
+					</center>
 	
 					<script>
 						$(function() {
@@ -91,7 +88,7 @@
 			<!--  -->
 		<%
 			if(i%4==3) {
-				out << "</div>" 
+				out << "</div>"
 			}
 		 %>
 		<!--  -->

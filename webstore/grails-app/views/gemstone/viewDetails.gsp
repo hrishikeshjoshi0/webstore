@@ -57,9 +57,9 @@
 		</style>
 	</head>
 	<body>
-		<div id="details" class="row">
+		<div class="row" style="margin-top: -20px;">
 			<!-- DETAIL IMAGE -->
-			<div class="fivecol">
+			<div class="fivecol" style="margin-top: -1.45em;margin-right:18px;">
 				<div class="productDetImageBox">
 					<g:render template="/common/product/detailImageBox" model="[productInstance:prodGemstoneInstance]"></g:render>
 				</div>
@@ -70,8 +70,7 @@
 			<!-- DETAIL IMAGE -->
 			
 			<!-- INFO-->
-			<div class="fourcol details"
-				style="margin-left: 2.5em; margin-top: 4.5em;">
+			<div class="fivecol details" style="margin-left: -1.5em; margin-top: 0.9em;">
 				<div id="content">
 					<h1 class="product_name_header">
 						${prodGemstoneInstance?.pdProductName}
@@ -81,37 +80,39 @@
 						${prodGemstoneInstance?.pdDescription}
 					</p>
 					
-					<div class="product_price" style="margin-top: 5px;">
-						Price : <strong> <g:formatNumber
-								number="${prodGemstoneInstance?.getProductPrice(new Date())}"
-								maxFractionDigits="2" />
-						</strong>
-						</div>
-	
-					<table style="margin-left: -15px;margin-top:5px;">
+					<br/>
+					
+					<table style="margin-top:5px;">
 						<tr>
-							<td>Overall Rating</td>
-							<td><span id="overall_Det"> </span></td>
+							<td style="width:120px;">Overall Rating</td>
+							<td style="width:90px;"><span id="overall_Det"> </span></td>
 							<td>(${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}
 								OUT OF 5)
 							</td>
 						</tr>
 						<tr>
-							<td><a href="#tabs" onclick="$('#tabs').tabs('select', 1);">
+							<td colspan="2"><a href="#tabs" onclick="$('#tabs').tabs('select', 1);">
 									Ratings & Reviews
 									(${prodGemstoneInstance?.productReviews?.size()}) </a></td>
 						</tr>
 					</table>
 					
 					<g:hiddenField name="overall_Det_Rating" value="${prodGemstoneInstance?.calculatedInfo?.averageCustomerRating}" />
-						<script>
-							$(function() {
-								$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
-							});
-						</script>	
+					<script>
+						$(function() {
+							$('#overall_Det').ratings(5, $('#overall_Det_Rating').val(), true);
+						});
+					</script>	
 	
 					<div class="product_reviews" style="margin-top: 15px; margin-left:-10px;"></div>
 	
+					<div class="product_price" style="margin-top: 5px;">
+						Price : <strong> <g:formatNumber
+								number="${prodGemstoneInstance?.getProductPrice(new Date())}"
+								maxFractionDigits="2" />
+						</strong>
+				   </div>
+				   
 					<div style="margin-top: 15px;">
 						<g:form name="add_to_cart_form" action="addToShoppingCart" controller="shoppingCart" >
 							<g:hiddenField name="quantityOrdered" value="1"/>

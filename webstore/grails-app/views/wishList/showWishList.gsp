@@ -6,12 +6,17 @@
 <meta name="layout" content="main">
 <g:set var="entityName"
 	value="${message(code: 'wishList.label', default: 'WishList')}" />
-<title><g:message code="default.list.label" args="[entityName]" /></title>
+<title>My Wish List</title>
 </head>
 <body>
-	<h1 class="page-title">
-		My Wish List
-	</h1>
+	<div class="row">
+		<div class="elevencol">
+			<h1 class="search-result-title">
+				My Wish List
+			</h1>
+			<hr/>
+		</div>
+	</div>
 	
 	<div class="row">
 		<!-- Cart Items -->

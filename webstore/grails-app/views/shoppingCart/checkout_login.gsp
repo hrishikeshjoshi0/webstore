@@ -55,7 +55,7 @@
 <body>
 	<div style="">
 		<div class="row">
-			<div class="sixcol">
+			<div class="sixcol details">
 				<g:if test="${!shoppingCartInstance.cartItems.isEmpty()}">
 					<g:hiddenField name="postUrl" value="${postUrl}" />
 					<g:form name="add_to_cart_form" action="checkout_login_process" method="POST" controller="shoppingCart">

@@ -12,7 +12,7 @@
 	$(window).load(function() {
 		//$('#featured').orbit();
 		$('#top-banner-slider').orbit({
-			animation : 'horizontal-push', // fade, horizontal-slide, vertical-slide, horizontal-push
+			animation : 'fade', // fade, horizontal-slide, vertical-slide, horizontal-push
 			animationSpeed : 1200, // how fast animations are
 			timer : true, // true or false to have the timer
 			advanceSpeed : 2000, // if timer is enabled, time between transitions
@@ -31,22 +31,36 @@
 		});
 	});
 </script>
+<style>
+	#box1 {
+		background: url(images/site/home/box/box1.jpg) transparent no-repeat;
+	}
+	
+	#box2 {
+		background: url(images/site/home/box/box2.jpg) transparent no-repeat;
+	}
+	
+	#box3 {
+		background: url(images/site/home/box/box3.jpg) transparent no-repeat;
+	}
+</style>
 </head>
 <body>
 			
-	  <h1 class="page-title" style="border-bottom: 1px solid #D9DCDC;">
+	  <h1 class="page-title" style="border-bottom: 1px solid #D9DCDC;margin-top: 15px;">
 				Free Shipping with every order.
 	  </h1>
 		
 		<div id="top-banner-slider-wrapper">
 			<div id="top-banner-slider" >
 				<img
-					src="${resource(dir: 'images/site/home/banner', file: '_1.jpg')}" />
+					src="${resource(dir: 'images/site/home/banner', file: '1.jpg')}" />
 				<img
-					src="${resource(dir: 'images/site/home/banner', file: '_2.jpg')}"
-					data-caption="#htmlCaption" /> 
+					src="${resource(dir: 'images/site/home/banner', file: '2.jpg')}" /> 
 				<img
-					src="${resource(dir: 'images/site/home/banner', file: '_3.jpg')}" />
+					src="${resource(dir: 'images/site/home/banner', file: '3.jpg')}" />
+				<img
+					src="${resource(dir: 'images/site/home/banner', file: '4.jpg')}" />	
 			</div>
 		</div>
 		
@@ -54,13 +68,13 @@
 			style="width:100%;height:10px;">
 
 			<div class="row" style="margin-left:40px;">
-					<div class="fourcol box-small" style="width: 320px;height: 150px;">
+					<div id="box1" class="fourcol box-small" style="width: 320px;height: 150px;">
 						<!-- title -->
 						<span class="title">
 							Gemstones
 						</span>
 						<div id="content">
-							<div class="left" style="max-width: 200px;">
+							<div class="left" style="">
 								<ul class="product_list">
 									<li>
 										<g:link controller="ProductGemStone" action="list"> Gemstones </g:link>
@@ -71,21 +85,16 @@
 								<br/><br/>
 								<g:submitButton class="button" name="checkout" value="More.." style="margin-left:10px;" />
 							</div>
-							<div class="right">
-								<img
-									src="${resource(dir: 'images/site/home', file: 'gem-stones.jpg')}"
-									class="categoryThumbImages" />
-							</div>
 						</div>
 					</div>
 
-					<div class="fourcol box-small" style="width: 320px;height: 150px;">
+					<div id="box2" class="fourcol box-small" style="width: 320px;height: 150px;">
 						<!-- title -->
 						<span class="title">
 							Jewelry
 						</span>
 						<div id="content">
-							<div class="left" style="max-width: 200px;max-height: 200px;">
+							<div class="left" style="">
 								<ul class="product_list">
 									<li>
 										<a href="#">Diamond Jewelry</a></li>
@@ -97,21 +106,16 @@
 								<br/>
 								<g:submitButton class="button" name="checkout" value="More.." style="margin-left:10px;" />
 							</div>
-							<div class="right">
-								<img
-									src="${resource(dir: 'images/site/home', file: 'Dia_Pendant_w_Chain.jpg')}"
-									class="categoryThumbImages" />
-							</div>
 						</div>
 					</div>
 
-					<div class="fourcol last box-small" style="width: 320px;height: 150px;">
+					<div id="box3" class="fourcol last box-small" style="width: 320px;height: 150px;">
 						<!-- title -->
 						<span class="title">
 							Diamonds
 						</span>
 						<div id="content">
-							<div class="left" style="max-width: 200px;">
+							<div class="left" style=";">
 								<ul class="product_list">
 									<li>
 										<a href="#">Search Diamonds</a></li>
@@ -120,11 +124,6 @@
 								</ul>
 								<br/><br/>
 								<g:submitButton class="button" name="checkout" value="More.." style="margin-left:10px;" />
-							</div>
-							<div class="right">
-								<img
-									src="${resource(dir: 'images/site/home', file: 'Diamond_Bracelet.jpg')}"
-									class="categoryThumbImages" />
 							</div>
 						</div>
 					</div>
@@ -156,7 +155,7 @@
 			</div>
 		</div>
 
-	<div class="row">
+		<div class="row">
 			<div class="clearfix elevencol">
 				<hr/>
 			</div>
@@ -224,7 +223,8 @@
 		</div>
 
 		<div class="row">
-			<div class="clearfix shadow elevencol">
+			<div class="clearfix elevencol">
+				<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:10px;">
 			</div>
 		</div>
 </body>

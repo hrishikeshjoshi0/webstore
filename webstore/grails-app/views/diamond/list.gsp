@@ -162,7 +162,15 @@
 </script>
 </head>
 <body>
-	<h1 class="page-title">Search for Diamonds</h1>
+	<div class="row">
+		<div class="elevencol">
+			<h1 class="search-result-title">
+				Search for Diamonds
+			</h1>
+			<hr/>
+		</div>
+	</div>
+	
 	<div id="search" style="margin-left:10px;">
 		<!-- Row1 -->
 		<div class="row">

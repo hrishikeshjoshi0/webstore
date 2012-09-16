@@ -39,9 +39,14 @@
 	</script>
 </head>
 <body>
-	<h1 class="page-title">
-		Please enter your billing address
-	</h1>
+	<div class="row">
+		<div class="elevencol">
+			<h1 class="search-result-title">
+				Please enter your billing address
+			</h1>
+			<hr/>
+		</div>
+	</div>
 	
 	<div style="">
 		<div class="row">

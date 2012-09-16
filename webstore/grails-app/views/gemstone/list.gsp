@@ -5,6 +5,17 @@
 <title>Gemstone</title>
 <script type="text/javascript">
 $(document).ready(function() {
+		//CSS
+		$('.result-box-small').hover(
+		  function () {
+		    $(this).addClass('dropShadow');
+		  }, 
+		  function () {
+			  $(this).removeClass('dropShadow');
+		  }
+		);	
+	
+		//
    		setupGridAjax();
    		setupPriceSlider();
 
@@ -115,6 +126,16 @@ $(document).ready(function() {
 
 </head>
 <body>
+	
+	<div class="row">
+		<div class="elevencol">
+			<h1 class="search-result-title">
+				${params.pageHeader}
+			</h1>
+			<hr/>
+		</div>
+	</div>
+	
 	<div class="row">
 		<div class="left product-filter">
 			<h1 class="filter-heading">Narrow Results</h1>
