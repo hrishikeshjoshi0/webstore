@@ -27,7 +27,7 @@
 	type="text/less" media="screen" />
 <!-- font -->
 <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
-
+<link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
 <!-- jquery -->
 <link rel="stylesheet"
 	href="${resource(dir: 'css/ui-lightness', file: 'jquery-ui-1.8.21.custom.css')}"
@@ -114,17 +114,20 @@ span.reference a:hover {
 }
 
 #banner-name {
-	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
-	font-size: 13px;
-	color: #485C5A;
-	text-transform: uppercase;
+	font-family: 'Yesteryear', cursive;
+    font-size: 40px;
+	color: #333;
+	text-transform: capitalize;
+	text-shadow: 4px 4px 4px #aaa;
 	font-weight: bold;
+	margin-left: 10px;
 }
 
 #tagline {
 	color: #336699;
 	font-size: 10px;
 	text-transform: uppercase;
+	margin-left: 10px;
 }
 
 </style>
@@ -149,7 +152,7 @@ span.reference a:hover {
 			<div>
 				<br/><br/>
 				<span id="banner-name">
-					Hina's Creation 	 
+					Hina's Creations
 				</span>
 				<br/>
 				<span id="tagline">
