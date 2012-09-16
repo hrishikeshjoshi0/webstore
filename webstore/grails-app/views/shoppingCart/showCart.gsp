@@ -27,7 +27,7 @@
 	<input type="hidden" name="shoppingCartId" value="${shoppingCartInstance.shoppingCartId}"/>
 	<div class="row">
 		<div class="elevencol">
-			<h1 class="search-result-title">
+			<h1 class="page-subtitle">
 				Shopping Cart
 			</h1>
 			<hr/>

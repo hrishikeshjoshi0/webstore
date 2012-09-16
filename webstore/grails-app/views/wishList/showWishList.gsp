@@ -11,7 +11,7 @@
 <body>
 	<div class="row">
 		<div class="elevencol">
-			<h1 class="search-result-title">
+			<h1 class="page-subtitle">
 				My Wish List
 			</h1>
 			<hr/>

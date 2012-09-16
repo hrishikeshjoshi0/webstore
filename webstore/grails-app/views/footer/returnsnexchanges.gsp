@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<h1 class="page-title" style="margin-bottom:-10px;" >Returns and Exchanges</h1>
+	<h1 class="page-subtitle" style="margin-bottom:-10px;" >Returns and Exchanges</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -20,7 +20,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title" style="margin-bottom:-10px;" >Who will bear the return shipping charges?</h1>
+	<h1 class="page-subtitle" style="margin-bottom:-10px;" >Who will bear the return shipping charges?</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title" style="margin-bottom:-10px;" >How do I prepare my return item?</h1>
+	<h1 class="page-subtitle" style="margin-bottom:-10px;" >How do I prepare my return item?</h1>
 	
 	<div class="row">
 		<div class="tencol">

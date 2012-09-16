@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1 class="page-title" style="margin-bottom:-10px;" >Payments</h1>
+	<h1 class="page-subtitle" style="margin-bottom:-10px;" >Payments</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title">Shipping Details</h1>
+	<h1 class="page-subtitle">Shipping Details</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -57,7 +57,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title">Free Shipping Worldwide</h1>
+	<h1 class="page-subtitle">Free Shipping Worldwide</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title">Insured Shipping</h1>
+	<h1 class="page-subtitle">Insured Shipping</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -99,7 +99,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title">Shipping Options</h1>
+	<h1 class="page-subtitle">Shipping Options</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -123,7 +123,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title">Shipping Options</h1>
+	<h1 class="page-subtitle">Shipping Options</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -147,7 +147,7 @@
 		</div>
 	</div>
 	
-	<h1 class="page-title">Shipping Methods</h1>
+	<h1 class="page-subtitle">Shipping Methods</h1>
 	
 	<div class="row">
 		<div class="tencol">
@@ -165,7 +165,7 @@
 	</div>
 	
 	
-	<h1 class="page-title">International Order Deliveries</h1>
+	<h1 class="page-subtitle">International Order Deliveries</h1>
 	
 	<div class="row">
 		<div class="tencol">

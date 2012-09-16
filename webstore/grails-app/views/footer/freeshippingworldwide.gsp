@@ -5,7 +5,7 @@
 <title>Free Shipping Worldwide</title>
 </head>
 <body>
-	<h1 class="page-title">Free Shipping Worldwide</h1>
+	<h1 class="page-subtitle">Free Shipping Worldwide</h1>
 	<div class="row">
 		<div class="tencol">
 			This page is under construction..

@@ -129,7 +129,7 @@ $(document).ready(function() {
 	
 	<div class="row">
 		<div class="elevencol">
-			<h1 class="search-result-title">
+			<h1 class="page-subtitle">
 				${params.pageHeader}
 			</h1>
 			<hr/>

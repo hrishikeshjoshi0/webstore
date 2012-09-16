@@ -41,7 +41,7 @@
 <body>
 	<div class="row">
 		<div class="elevencol">
-			<h1 class="search-result-title">
+			<h1 class="page-subtitle">
 				Please enter your billing address
 			</h1>
 			<hr/>

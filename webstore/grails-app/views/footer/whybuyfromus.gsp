@@ -5,10 +5,10 @@
 <title>Why Buy from us ?</title>
 </head>
 <body>
-	<h1 class="page-title">Why Buy From Us ?</h1>
+	<h1 class="page-subtitle">Why Buy From Us ?</h1>
 
 	<div class="row">
-		<div class="tencol" style="height: auto;font-size: 12px;margin:25px;font: Verdana;">
+		<div class="tencol" style="height: auto;font-size: 11px;margin:25px;font: Verdana;">
 			<p>
 				There are over 100’s of reasons why choose Rubies and Gems.com. Some of them are mentioned below:
 			</p>

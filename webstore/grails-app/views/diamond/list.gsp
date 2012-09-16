@@ -164,7 +164,7 @@
 <body>
 	<div class="row">
 		<div class="elevencol">
-			<h1 class="search-result-title">
+			<h1 class="page-subtitle">
 				Search for Diamonds
 			</h1>
 			<hr/>
