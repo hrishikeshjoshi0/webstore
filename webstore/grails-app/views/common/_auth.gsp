@@ -4,17 +4,17 @@
 	</p>
 </g:if>
 
-<form action='${postUrl}' method='POST' id='loginForm' class='cssform'
-	autocomplete='off'>
+<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
+	<br/>
 	<p>
 		<label for='username'><g:message
-				code="springSecurity.login.username.label" />:</label> <input type='text'
+				code="springSecurity.login.username.label" default="username"/>:</label> <input type='text'
 			class='text_' name='j_username' id='username' />
 	</p>
 
 	<p>
 		<label for='password'><g:message
-				code="springSecurity.login.password.label" />:</label> <input
+				code="springSecurity.login.password.label" default="password"/>:</label> <input
 			type='password' class='text_' name='j_password' id='password' />
 	</p>
 
@@ -31,9 +31,9 @@
 	</p>
 </form>
 <script type='text/javascript'>
-										<!--
-										(function() {
-											document.forms['loginForm'].elements['j_username'].focus();
-										})();
-										// -->
-									</script>
+<!--
+	(function() {
+		document.forms['loginForm'].elements['j_username'].focus();
+	})();
+// -->
+</script>

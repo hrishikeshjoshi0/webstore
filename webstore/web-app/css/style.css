@@ -112,6 +112,7 @@ hr {
 #logo {
 	float: left;
 	margin: 2px;
+	margin-left:10px;
 	position: relative;
 	z-index: 100;
 }

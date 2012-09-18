@@ -143,23 +143,10 @@ span.reference a:hover {
 			<div id="logo" class="logo">
 				<a href="/webstore">
 					<img
-						src="${resource(dir: 'images', file: 'demo_logo.jpg')}" alt=""
-						title="" border="0" height="75px" width="60px" style="margin-left:40px;"/>
-					<br/>
+						src="${resource(dir: 'images/site', file: 'logo.png')}" alt="" title="" border="0" />
 				</a>
 			</div>
 			
-			<div>
-				<br/><br/>
-				<span id="banner-name">
-					Hina's Creations
-				</span>
-				<br/>
-				<span id="tagline">
-					Gemstone Diamonds and Fine Jewelry.™
-				</span>
-			</div>
-
 			<div id="user">
 				<span class="division"> <sec:ifNotLoggedIn>
 						<i class="icon-user icon-large"></i>
@@ -373,54 +360,36 @@ span.reference a:hover {
 		</script>
 
 		<script type="text/javascript">
-			$(document)
-					.ready(
-							function() {
-								loadWishListLink();
+			$(document).ready(function() {
+				loadWishListLink();
 
-								$(".signin")
-										.click(
-												function(e) {
-													e.preventDefault();
-													$
-															.ajax({
-																type : 'GET',
-																url : "<g:createLink controller='login' action='authAjax' />",
-																success : function(
-																		data) {
-																	$(
-																			'#signin_menu')
-																			.html(
-																					data);
-																	$(
-																			"fieldset#signin_menu")
-																			.toggle();
-																	$(".signin")
-																			.toggleClass(
-																					"menu-open");
-																}
-															});
-												});
+				$(".signin").click(function(e) {
+					e.preventDefault();
+					$.ajax({
+						type : 'GET',
+						url : "<g:createLink controller='login' action='authAjax' />",
+						success : function(data) {
+								$('#signin_menu').html(data);
+								$("fieldset#signin_menu").toggle();
+								$(".signin").toggleClass("menu-open");
+								(function() {
+									document.forms['loginForm'].elements['j_username'].focus();
+								})();
+							}});
+						});
 
-								$("fieldset#signin_menu").mouseup(function() {
-									return false
-								});
+						$("fieldset#signin_menu").mouseup(function() {
+							return false
+						});
 
-								$(document)
-										.mouseup(
-												function(e) {
-													if ($(e.target).parent(
-															"a.signin").length == 0) {
-														$(".signin")
-																.removeClass(
-																		"menu-open");
-														$(
-																"fieldset#signin_menu")
-																.hide();
-													}
-												});
-
-							});
+						$(document).mouseup(
+							function(e) {
+								if ($(e.target).parent("a.signin").length == 0) {
+									$(".signin").removeClass("menu-open");
+									$("fieldset#signin_menu").hide();
+								}
+						});
+				});
 		</script>
 		<script type='text/javascript'>
 			$(function() {
