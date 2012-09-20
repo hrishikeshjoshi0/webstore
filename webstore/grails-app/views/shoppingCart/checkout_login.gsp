@@ -9,6 +9,13 @@
 		value="${message(code: 'shoppingCart.label', default: 'ShoppingCart')}" />
 	<title>Shopping Cart</title>
 	<script type="text/javascript">
+
+		$('#boxclose').click(function(){
+		    $('#box').fadeOut('fast');
+		    $('#login-form').html("");
+		    $('#overlay').fadeOut('fast');
+		});
+		
 		$(document).ready(function() {
 			var shoppingCartId =$('#shoppingCartId').val();
 
@@ -43,10 +50,26 @@
 			    	$("#checkout_login").attr('value','CHECKOUT AS GUEST');
 			    	$("#password").val("");
 			    	$("#password").attr('disabled','true');
+
+			    	$('#box').fadeOut('fast');
+			    	$('#login-form').html("");
 			    } else{
 			    	$("#add_to_cart_form").attr("action", $("#postUrl").val());
 			    	$("#checkout_login").attr('value','MY ACCOUNT CHECKOUT');
 			    	$("#password").removeAttr('disabled');
+
+					$('#overlay').fadeIn('fast',function(){
+			    	$.ajax({
+						type : 'GET',
+						url : "<g:createLink controller='login' action='authAjax' />",
+						success : function(data) {
+								$('#box').fadeIn('fast');
+								$('#login-form').html(data);
+	
+								document.forms['loginForm'].elements['j_username'].focus();
+			                	}
+						});
+					});
 			    }
 			});
 		});
@@ -80,16 +103,6 @@
 							<tbody>
 							<tr>
 								<td>
-									<label for="emailAddress">
-										Enter your email address
-									</label>
-								</td>
-								<td>
-									<g:textField name="emailAddress" value="${emailAddress}"/>
-								</td>
-							</tr>
-							<tr>
-								<td>
 									<label for="guest_or_account">
 									</label>
 								</td>
@@ -104,9 +117,18 @@
 										<g:radio id="returningCustomer" name="checkoutType" value="RETURNING_CUSTOMER"
 												checked="${checkoutType == 'RETURNING_CUSTOMER'}"/>
 										 I am a returning customer.
-										 My password is:
-										 <g:passwordField name="password" value="${password}" />
 									</p>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="emailAddress">
+										Enter your email address
+									</label>
+								</td>
+								<td>
+									<g:textField name="emailAddress" value="${emailAddress}"/>
 								</td>
 							</tr>
 							</tbody>
@@ -118,8 +140,15 @@
 									class="button" value="CONTINUE CHECKOUT" /></td>
 							</tr>
 						</table>
-
 					</g:form>
+					
+					<div class="overlay" id="overlay" style="display:none;"></div>
+					<div class="box" id="box" style="display:none;">
+			            <a class="boxclose" id="boxclose">Close</a>
+			           	<div id="login-form">
+			           	</div>
+			        </div>
+			        
 				</g:if>
 			</div>
 			<div class="fourcol">

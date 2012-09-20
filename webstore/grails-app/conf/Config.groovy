@@ -103,6 +103,7 @@ grails.plugins.springsecurity.authority.className = 'com.openappengine.sec.SecRo
 
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/auth'
 grails.plugins.springsecurity.auth.loginFormUrl = '/login/auth'
+grails.plugins.springsecurity.successHandler.alwaysUseDefault = false
 
 /**
  *  Workaround for finding css resources from linux environment.
