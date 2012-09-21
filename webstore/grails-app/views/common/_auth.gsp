@@ -26,6 +26,7 @@
 	</p>
 
 	<p>
+		<g:hiddenField name="checkout_flow" value=""/>
 		<input type='submit' id="signin_submit"
 			value='${message(code: "springSecurity.login.button")}' />
 	</p>

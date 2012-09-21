@@ -9,7 +9,8 @@ public class WebstoreLoginSuccessHandler extends SavedRequestAwareAuthentication
 	@Override
 	protected String determineTargetUrl(HttpServletRequest request,
 			HttpServletResponse response) {
-		if (request.getParameter("checkout_flow") != null) {
+		if (request.getParameter("checkout_flow") != null 
+				&& request.getParameter("checkout_flow").equals("T")) {
 			return checkoutSuccessUrl;
 		} else {
 			return super.determineTargetUrl(request, response);

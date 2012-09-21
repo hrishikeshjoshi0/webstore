@@ -9,7 +9,6 @@
 		value="${message(code: 'shoppingCart.label', default: 'ShoppingCart')}" />
 	<title>Shopping Cart</title>
 	<script type="text/javascript">
-
 		$('#boxclose').click(function(){
 		    $('#box').fadeOut('fast');
 		    $('#login-form').html("");
@@ -63,10 +62,10 @@
 						type : 'GET',
 						url : "<g:createLink controller='login' action='authAjax' />",
 						success : function(data) {
-								$('#box').fadeIn('fast');
-								$('#login-form').html(data);
-	
-								document.forms['loginForm'].elements['j_username'].focus();
+									$('#box').fadeIn('fast');
+									$('#login-form').html(data);
+									document.forms['loginForm'].elements['j_username'].focus();
+									$('#checkout_flow').val('T');
 			                	}
 						});
 					});
