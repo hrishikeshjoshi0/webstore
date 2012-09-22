@@ -5,7 +5,7 @@
 <title>Jewellery Guide</title>
 </head>
 <body>
-	<h1 class="page-subtitle">Jewellery Guide</h1>
+	<h1 class="content_hdr">Jewellery Guide</h1>
 	<div class="row">
 		<div class="tencol">
 			This page is under construction..

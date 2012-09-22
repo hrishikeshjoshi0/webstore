@@ -7,6 +7,47 @@
 	href="${resource(dir: 'css', file: 'orbit-1.2.3.css')}" type="text/css">
 <script src="${resource(dir: 'js', file: 'jquery.orbit-1.2.3.min.js')}"></script>
 
+<script type="text/javascript" src="${resource(dir: 'js/lightbox', file: 'jquery.lightbox-0.5.js')}"></script>
+<link rel="stylesheet"
+	href="${resource(dir: 'css/lightbox', file: 'jquery.lightbox-0.5.css')}" type="text/css">
+
+
+<script type="text/javascript">
+	$(function() {
+		$('#gallery a').lightBox();
+	});
+</script>
+<style type="text/css">
+/* jQuery lightBox plugin - Gallery style */
+#gallery {
+	padding: 2px;
+	width: 320px;
+}
+
+#gallery ul {
+	list-style: none;
+}
+
+#gallery ul li {
+	display: inline;
+}
+
+#gallery ul img {
+	border: 3px solid #FAFAFA;
+	border-width: 2px 2px 5px;
+}
+
+#gallery ul a:hover img {
+	border: 5px solid #eee;
+	border-width: 2px 2px 5px;
+	color: #222;
+}
+
+#gallery ul a:hover {
+	color: #fff;
+}
+</style>
+
 <!-- Run the plugin -->
 <script type="text/javascript">
 	$(window).load(function() {
@@ -42,6 +83,12 @@
 	
 	#box3 {
 		background: url(images/site/home/box/box3.jpg) transparent no-repeat;
+	}
+	
+	.diamond {
+		width: 50px;
+		margin-left:2px;
+		text-align: center;
 	}
 </style>
 </head>
@@ -138,7 +185,7 @@
 
 		<div class="row" class="clearfix shadow" style="">
 			<div class="fourcol"
-				style="margin-left: 50px; height: 50px; margin: 10px;">
+				style="margin-left: 50px; height: 112px; margin: 2px;">
 				<span class="title">Diamond Stock List</span>
 				<div id="contents">
 					<ul class="product_list" style="z-index: 1000;">
@@ -147,10 +194,62 @@
 					</ul>
 				</div>
 			</div>
-			<div class="sevencol last" style="height: 50px; margin-top: 10px;">
+			<div class="sevencol last" style="height: 112px; margin-top: 2px;">
 				<span class="title">Diamond Search</span>
-				<div id="contents">
-					<br />
+				<div id="contents" style="text-align: center;">
+					<g:form>
+					<img id="loose-diamonds-img"
+							alt="Diamond Search" src="${resource(dir: 'images/site/home', file: 'diamond-search.png')}">
+							<br/>
+							<div style="font-size: 9px;">
+								<label class="diamond" for="Round-checkbox">
+								 	<span class="shape">Round</span><br/>
+								 	<input type="checkbox" id="Round-checkbox" name="Round-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Princess-checkbox">
+								 	<span class="shape">Princess</span><br/>
+								 	<input type="checkbox" id="Princess-checkbox" name="Princess-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Asscher-checkbox">
+								 	<span class="shape">Asscher</span><br/>
+								 	<input type="checkbox" id="Asscher-checkbox" name="Asscher-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Radiant-checkbox">
+								 	<span class="shape">Radiant</span><br/>
+								 	<input type="checkbox" id="Radiant-checkbox" name="Radiant-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Cushion-checkbox">
+								 	<span class="shape">Cushion</span><br/>
+								 	<input type="checkbox" id="Cushion-checkbox" name="Cushion-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Emerald-checkbox">
+								 	<span class="shape">Emerald</span><br/>
+								 	<input type="checkbox" id="Emerald-checkbox" name="Emerald-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Marquise-checkbox">
+								 	<span class="shape">Marquise</span><br/>
+								 	<input type="checkbox" id="Marquise-checkbox" name="Marquise-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Oval-checkbox">
+								 	<span class="shape">Oval</span><br/>
+								 	<input type="checkbox" id="Oval-checkbox" name="Oval-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Pear-checkbox">
+								 	<span class="shape">Pear</span><br/>
+								 	<input type="checkbox" id="Pear-checkbox" name="Pear-checkbox" value="on" />
+								 </label>
+								 <label class="diamond" for="Heart-checkbox">
+								 	<span class="shape">Heart</span><br/>
+								 	<input type="checkbox" id="Heart-checkbox" name="Heart-checkbox" value="on" />
+								 </label>
+							 </div>
+							 <div class="clear"></div>
+							 <div>
+							 	<center>
+							 		<g:submitButton class="button" name="Search" value="Search Diamonds"/>
+							 	</center>
+							 </div>
+					</g:form> 		
 				</div>
 			</div>
 		</div>
@@ -206,16 +305,54 @@
 			<div class="fourcol last box-small"
 				style="width: 320px; margin-top: 10px; height: 150px;">
 				<!-- title -->
-				<span class="title"> Trends </span>
+				<span class="title"> Gallery</span>
 	
 				<div id="content">
 					<div style="max-width: 300px;">
-						<ul class="product_list">
-							<li class="testimonial">Nature, color, global, feminine–it’s
-								your time to shine with the hottest trends. <br /> <a
-								class="read_more" href="#">read more</a>
-							</li>
-						</ul>
+						<div id="gallery" style="padding:3px;margin-left:10px">
+							<ul>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal1.jpg')}" >
+						            	<img src="${resource(dir: 'images/gallery', file: 'gal1.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal2.jpg')}" >
+						                <img src="${resource(dir: 'images/gallery', file: 'gal2.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal3.jpg')}">
+						                <img src="${resource(dir: 'images/gallery', file: 'gal3.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal4.jpg')}">
+						                <img src="${resource(dir: 'images/gallery', file: 'gal4.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal5.jpg')}">
+						                <img src="${resource(dir: 'images/gallery', file: 'gal5.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal6.jpg')}">
+						                <img src="${resource(dir: 'images/gallery', file: 'gal6.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal7.jpg')}">
+						                <img src="${resource(dir: 'images/gallery', file: 'gal7.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						        <li>
+						            <a href="${resource(dir: 'images/gallery', file: 'gal8.jpg')}">
+						                <img src="${resource(dir: 'images/gallery', file: 'gal8.jpg')}" width="60" height="60" alt="" />
+						            </a>
+						        </li>
+						    </ul>
+					    </div>
 					</div>
 				</div>
 	

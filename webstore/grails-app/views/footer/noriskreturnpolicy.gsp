@@ -5,7 +5,7 @@
 <title>No risk return policy</title>
 </head>
 <body>
-	<h1 class="page-subtitle">No risk return policy</h1>
+	<h1 class="content_hdr">No risk return policy</h1>
 	<div class="row">
 		<div class="tencol">
 			This page is under construction..

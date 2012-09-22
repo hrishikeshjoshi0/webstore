@@ -5,7 +5,7 @@
 <title>Gem Certification</title>
 </head>
 <body>
-	<h1 class="page-subtitle">Lab Certification (Gem Certification)</h1>
+	<h1 class="content_hdr">Lab Certification (Gem Certification)</h1>
 	<div class="row">
 		<div class="tencol">
 			This page is under construction..

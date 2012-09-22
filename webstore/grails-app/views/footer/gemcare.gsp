@@ -5,7 +5,7 @@
 <title>Gem Care</title>
 </head>
 <body>
-	<h1 class="page-subtitle">Gem Care</h1>
+	<h1 class="content_hdr">Gem Care</h1>
 	<div class="row">
 		<div class="tencol">
 			This page is under construction..
