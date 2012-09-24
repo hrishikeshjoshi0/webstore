@@ -117,7 +117,7 @@ class ShoppingCartController {
 		
 		if(springSecurityService.isLoggedIn()) {
 			def model = [shoppingCartInstance:sc,sameShippingAddress:true]
-			redirect(redirect(action: "checkout_address",model : model))
+			redirect(action: "checkout_address",model : model)
 			return
 		} 
 		

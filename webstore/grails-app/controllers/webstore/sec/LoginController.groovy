@@ -66,6 +66,14 @@ class LoginController {
 		render(template:'/common/auth', model: [postUrl: postUrl,
 								   rememberMeParameter: config.rememberMe.parameter])
 	}
+	
+	def authAjaxForCheckOut = {
+		def config = SpringSecurityUtils.securityConfig
+		String view = 'auth'
+		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+		render(template:'/common/authCheckOut', model: [postUrl: postUrl, shoppingCartId : params.shoppingCartId,
+								   rememberMeParameter: config.rememberMe.parameter])
+	}
 
 	/**
 	 * Show denied page.

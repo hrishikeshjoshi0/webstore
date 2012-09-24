@@ -60,7 +60,7 @@
 					$('#overlay').fadeIn('fast',function(){
 			    	$.ajax({
 						type : 'GET',
-						url : "<g:createLink controller='login' action='authAjax' />",
+						url : "<g:createLink controller='login' action='authAjaxForCheckOut' />" + "?shoppingCartId=" + $('#shoppingCartId').val(),
 						success : function(data) {
 									$('#box').fadeIn('fast');
 									$('#login-form').html(data);

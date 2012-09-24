@@ -11,7 +11,8 @@ public class WebstoreLoginSuccessHandler extends SavedRequestAwareAuthentication
 			HttpServletResponse response) {
 		if (request.getParameter("checkout_flow") != null 
 				&& request.getParameter("checkout_flow").equals("T")) {
-			return checkoutSuccessUrl;
+			String shoppingCartId = request.getParameter("shoppingCartId");
+			return checkoutSuccessUrl + "?shoppingCartId=" + shoppingCartId;
 		} else {
 			return super.determineTargetUrl(request, response);
 		}
