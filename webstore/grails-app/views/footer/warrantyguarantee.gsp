@@ -5,7 +5,7 @@
 <title>Warranty Guarantee (Quality & Value)</title>
 </head>
 <body>
-	<h1 class="page-subtitle">Warranty Guarantee (Quality & Value)</h1>
+	<h1 class="content_hdr">Warranty Guarantee (Quality & Value)</h1>
 	<div class="row">
 		<div class="tencol">
 			This page is under construction..
