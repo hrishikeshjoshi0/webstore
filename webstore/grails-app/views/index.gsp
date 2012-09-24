@@ -285,19 +285,34 @@
 			<div class="fourcol box-small"
 				style="width: 320px; margin-top: 10px; height: 150px;">
 				<!-- title -->
-				<span class="title"> Testimonials </span>
+				<span class="title"> Poll </span>
 	
 				<div id="content">
 					<div style="max-width: 300px;">
-						<ul class="product_list">
-							<li class="testimonial">Nature, color, global, feminine–it’s
-								your time to shine with the hottest trends. Nature, color,
-								global, feminine–it’s your time to shine with the hottest trends.
-								Nature, color, global, feminine–it’s your time to shine with the
-								hottest trends. <br /> <a class="read_more" href="#">read
-									more</a>
-							</li>
-						</ul>
+						<g:form>
+							<table style="width: 300px; ">
+								<tr>
+									<td>
+										Dummy question for the opinion poll ? 
+										Please vote..
+									</td>
+								<tr>
+									<td>
+										<g:radio name="A" value="A"/> Option 1
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<g:radio name="A" value="A"/> Option 2
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<g:radio name="A" value="A"/> Option 3
+									</td>
+								</tr>
+							</table>
+						</g:form>
 					</div>
 				</div>
 			</div>
@@ -313,42 +328,42 @@
 							<ul>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal1.jpg')}" >
-						            	<img src="${resource(dir: 'images/gallery', file: 'gal1.jpg')}" width="60" height="60" alt="" />
+						            	<img src="${resource(dir: 'images/gallery', file: 'gal1.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal2.jpg')}" >
-						                <img src="${resource(dir: 'images/gallery', file: 'gal2.jpg')}" width="60" height="60" alt="" />
+						                <img src="${resource(dir: 'images/gallery', file: 'gal2.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal3.jpg')}">
-						                <img src="${resource(dir: 'images/gallery', file: 'gal3.jpg')}" width="60" height="60" alt="" />
+						                <img src="${resource(dir: 'images/gallery', file: 'gal3.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal4.jpg')}">
-						                <img src="${resource(dir: 'images/gallery', file: 'gal4.jpg')}" width="60" height="60" alt="" />
+						                <img src="${resource(dir: 'images/gallery', file: 'gal4.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal5.jpg')}">
-						                <img src="${resource(dir: 'images/gallery', file: 'gal5.jpg')}" width="60" height="60" alt="" />
+						                <img src="${resource(dir: 'images/gallery', file: 'gal5.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal6.jpg')}">
-						                <img src="${resource(dir: 'images/gallery', file: 'gal6.jpg')}" width="60" height="60" alt="" />
+						                <img src="${resource(dir: 'images/gallery', file: 'gal6.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal7.jpg')}">
-						                <img src="${resource(dir: 'images/gallery', file: 'gal7.jpg')}" width="60" height="60" alt="" />
+						                <img src="${resource(dir: 'images/gallery', file: 'gal7.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						        <li>
 						            <a href="${resource(dir: 'images/gallery', file: 'gal8.jpg')}">
-						                <img src="${resource(dir: 'images/gallery', file: 'gal8.jpg')}" width="60" height="60" alt="" />
+						                <img src="${resource(dir: 'images/gallery', file: 'gal8.jpg')}" width="50" height="50" alt="" />
 						            </a>
 						        </li>
 						    </ul>
