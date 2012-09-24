@@ -164,7 +164,12 @@
 								Reviews (${prodGemstoneInstance?.productReviews?.size()})
 							</g:link>
 						</li>
-						<li><a href="#">Certificate</a></li>
+						
+						<!-- Issue #8  -->
+						<g:if test="${prodGemstoneInstance?.certified}">
+							<li><a href="#">Certificate</a></li>
+						</g:if>
+						
 						<li><a href="#">Shipping & Packaging</a></li>
 					</ul>
 				</div>
