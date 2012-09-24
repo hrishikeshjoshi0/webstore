@@ -55,6 +55,9 @@ public class Gemstone extends Product {
 	@Column(name="PD_IMAGE_URL")
 	private String imageUrl;
 	
+	@Column(name="PD_IS_CERTIFIED")
+	private Boolean certified;
+	
 	public String getShape() {
 		return shape;
 	}
@@ -149,5 +152,13 @@ public class Gemstone extends Product {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public Boolean getCertified() {
+		return certified;
+	}
+
+	public void setCertified(Boolean certified) {
+		this.certified = certified;
 	}
 }
