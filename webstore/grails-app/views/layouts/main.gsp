@@ -51,6 +51,8 @@
 <!-- 
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'xbreadcrumbs.css')}" type="text/less" media="screen" />
  -->
+ 
+
 
 <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - 
 	Enables media queries in some unsupported browsers-->
@@ -81,8 +83,10 @@
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.slider.js')}"></script>
 <script src="${resource(dir: 'js/ui', file: 'jquery.ui.tabs.js')}"></script>
 
+
 <script src="${resource(dir: 'js', file: 'jquery.ratings.js')}"></script>
 <script src="${resource(dir: 'js', file: 'jquery.tipsy.js')}"></script>
+
 <script type="text/javascript"
 	src="${resource(dir: 'js', file: 'xbreadcrumbs.js')}"></script>
 
