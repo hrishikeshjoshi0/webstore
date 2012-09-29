@@ -19,6 +19,9 @@ public class Diamond extends Product {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name="PD_CODE")
+	private String code;
+	
 	@Column(name="PD_SHAPE")
 	private String shape;
 	
@@ -58,6 +61,23 @@ public class Diamond extends Product {
 	@Column(name="PD_IMAGE_URL")
 	private String imageUrl;
 	
+	@Column(name="PD_IS_CERTIFIED")
+	private Boolean certified;
+	
+	@Column(name="PD_HEAD")
+	private String head;
+	
+	@Column(name="PD_CERTI_NO")
+	private String certiNo;
+	
+	public Boolean getCertified() {
+		return certified;
+	}
+
+	public void setCertified(Boolean certified) {
+		this.certified = certified;
+	}
+
 	public String getShape() {
 		return shape;
 	}

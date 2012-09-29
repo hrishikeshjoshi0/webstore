@@ -55,6 +55,9 @@ public class ProductDiamond extends Product {
 	@Column(name="PD_TABLE")
 	private BigDecimal table;
 	
+	@Column(name="PD_GRADE")
+	private BigDecimal grade;
+	
 	@Column(name="PD_IMAGE_URL_THUMB")
 	private String imageUrlThumb;
 	
