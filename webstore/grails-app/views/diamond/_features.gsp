@@ -5,7 +5,7 @@
 
 <table class="productFeatures" style="width: 50%;margin-bottom: 15px;">
 	<tr>
-		<td>Carat</td>
+		<td id="label">Carat</td>
 		<td><g:fieldValue bean="${prodDiamondInstance}" field="carat" /></td>
 	</tr>
 
@@ -26,29 +26,29 @@
 
 	<tr>
 		<td>Shape</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="shape" /></td>
-	</tr>
-	
-	<tr>
-		<td>Symmetry</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="symmetry" /></td>
-	</tr>
-	
-	<tr>
-		<td>Depth</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="depth" /></td>
-	</tr>
-	
-	<tr>
-		<td>Length to Width</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="lengthToWidth" /></td>
-	</tr>
-	
-	<tr>
-		<td>Fluorescence</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="fluorescence" /></td>
+			<td><g:fieldValue bean="${prodDiamondInstance}" field="shape" /></td>
 	</tr>
 
+	<tr>
+		<td>Grade</td>
+<%--		<td><g:fieldValue bean="${prodDiamondInstance}" field="grade" /></td>--%>
+	</tr>
+
+	<tr>
+		<td>Hardness</td>
+<%--		<td><g:fieldValue bean="${prodDiamondInstance}" field="hardness" /></td>--%>
+	</tr>
+
+	<tr>
+		<td>Stone Id</td>
+<%--		<td><g:fieldValue bean="${prodDiamondInstance}" field="stoneId" /></td>--%>
+	</tr>
+
+	<tr>
+		<td>Treatment</td>
+<%--		<td><g:fieldValue bean="${prodDiamondInstance}"--%>
+<%--				field="treatment" /></td>--%>
+	</tr>
 </table>
 
 <p style="font-family:'Droid Sans',Tahoma,Arial,sans-serif;border-bottom: 1px dotted #B5B5B5;text-transform: uppercase;"> 
@@ -63,14 +63,14 @@
 				<td>Overall Rating</td>
 				<td><span id="overall"> </span></td>
 				<td>
-					(${prodDiamondInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)
+<%--					(${prodDiamondInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)--%>
 				</td>
 			</tr>
 			<tr>
 				<td>Quality & Workmanship</td>
 				<td><span id="quality_n_workmanship"></span></td>
 				<td>
-					(${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating} OUT OF 5)
+<%--					(${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating} OUT OF 5)--%>
 				</td>
 			</tr>
 		
@@ -78,7 +78,7 @@
 				<td>Product Satisfaction</td>
 				<td><span id="product_satisfaction"></span></td>
 				<td>
-					(${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating} OUT OF 5)
+<%--					(${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating} OUT OF 5)--%>
 				</td>
 			</tr>
 		
@@ -86,14 +86,14 @@
 				<td>Wow Factor</td>
 				<td><span id="wow_factor"></span></td>
 				<td>
-					(${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating} OUT OF 5)
+<%--					(${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating} OUT OF 5)--%>
 				</td>
 			</tr>
 		</table>
 		<p>
-			<g:link controller="productReview" action="create" params="[productId:prodDiamondInstance?.pdProductId]">
+<%--			<g:link controller="productReview" action="create" params="[productId:prodDiamondInstance?.pdProductId]">--%>
 				Write a review
-			</g:link>
+<%--			</g:link>--%>
 			
 			<span> | </span>
 			
@@ -101,10 +101,10 @@
 				Read Reviews
 			</a>
 		</p>
-		<g:hiddenField name="overallRating" value="${prodDiamondInstance?.calculatedInfo?.averageCustomerRating}" />
-		<g:hiddenField name="qualityAndWorkmanshipRating" value="${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating}" />
-		<g:hiddenField name="productSatisfactionRating" value="${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating}" />
-		<g:hiddenField name="wowFactorRating" value="${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating}" />
+<%--		<g:hiddenField name="overallRating" value="${prodDiamondInstance?.calculatedInfo?.averageCustomerRating}" />--%>
+<%--		<g:hiddenField name="qualityAndWorkmanshipRating" value="${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating}" />--%>
+<%--		<g:hiddenField name="productSatisfactionRating" value="${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating}" />--%>
+<%--		<g:hiddenField name="wowFactorRating" value="${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating}" />--%>
 		<script>
 			$(function() {
 				$('#quality_n_workmanship').ratings(5,
@@ -124,4 +124,3 @@
 	</div>
 </div>
 
-</p>

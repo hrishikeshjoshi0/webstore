@@ -1,6 +1,10 @@
 package com.openappengine.model.product
+import grails.converters.JSON
+import grails.converters.JSON.*
 
 import org.apache.commons.lang.StringUtils
+import org.codehaus.groovy.grails.web.json.JSONArray
+import org.codehaus.groovy.grails.web.json.JSONObject
 import org.springframework.dao.DataIntegrityViolationException
 
 import com.openappengine.model.common.Image
@@ -419,4 +423,39 @@ class DiamondController {
             redirect(action: "show", id: params.id)
         }
     }
+	
+	def viewDetailDiamond = {
+		def prodDiamondInstance = Diamond.get(params.id)
+		if (!prodDiamondInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'prodDiamond.label', default: 'prodDiamond'), params.id])
+			redirect(action: "list")
+			return
+		}
+		
+		if(prodDiamondInstance?.calculatedInfo) {
+			def timesViewed = prodDiamondInstance?.calculatedInfo.timesViewed
+			prodDiamondInstance?.calculatedInfo.timesViewed = timesViewed + 1
+			prodDiamondInstance?.calculatedInfo.save(flush:true)
+		}
+		
+		[prodDiamondInstance: prodDiamondInstance]
+	}
+	
+	def diamondUploadData = {
+		}
+	
+	def diamondJsonGet = {
+		def a = params.toString()
+		def b
+		
+		
+		}
+	
+	def diamondJsonSave = {
+		Diamond d = Diamond.get(params.id)
+		def result = [diamond: d]
+		
+		render result as JSON
+		}
+	
 }
