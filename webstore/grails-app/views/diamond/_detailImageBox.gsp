@@ -32,12 +32,12 @@
 	<div class="clearfix">
 	    
 	    
-		<div class="image-box" style="display: block; width: 240px; position: relative; visibility: visible;">
+		<div class="image-box" style="display: block; width: 230px; position: relative; visibility: visible;">
 			
 			<img class="product-img-det"
 					alt="${productInstance.shape}"
 					title="${productInstance.shape}"
-					src="${resource(dir: '/images/uploads/product', file: 'Round-Shape-Illustration-Top-View.jpg')}" style="width: 400px; position:relative;"/>
+					src="${resource(dir: '/images', file: 'Round-Shape-Illustration-Top-View.jpg')}" style="width: 350px; position:relative;"/>
 		  
 		
 		<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 250px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
