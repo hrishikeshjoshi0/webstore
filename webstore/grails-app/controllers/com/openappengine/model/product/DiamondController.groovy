@@ -446,8 +446,14 @@ class DiamondController {
 	
 	def diamondJsonGet = {
 		def a = params.toString()
-		def b
+		def b = request.toString()
+		def c = request.JSON
 		
+		json.lob.TESTING.each {item->
+		  println "Name: ${item.name} - Value: ${item.value}"
+		}
+		def d
+			
 		
 		}
 	
@@ -457,5 +463,9 @@ class DiamondController {
 		
 		render result as JSON
 		}
+	
+	def shipping = {
+		
+	}
 	
 }
