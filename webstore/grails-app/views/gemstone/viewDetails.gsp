@@ -150,8 +150,8 @@
 		<!-- INFO-->
 		
 		<!-- Tabs -->
-		<div id="detailsInfo" class="row">
-			<div class="elevencol">
+		<div id="detailsInfo" class="row" >
+			<div class="elevencol" style = "padding-top: 20px;">
 				<div id="tabs">
 					<ul>
 						<li>
