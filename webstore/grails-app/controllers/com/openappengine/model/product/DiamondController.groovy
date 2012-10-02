@@ -19,7 +19,7 @@ class DiamondController {
 	
 	def list() {
 		params.max = 9
-		
+		def a = params.Roundcheckbox.toString()
 		def c = Diamond.createCriteria()
 		def sortBy = params.sortBy
 		def productTypeId = params.productTypeId
