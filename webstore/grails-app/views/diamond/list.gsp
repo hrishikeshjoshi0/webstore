@@ -14,6 +14,7 @@
 	$(function() {
 		$("#format").buttonset();
 	});
+	
 
 	function ajaxList() {
 		var url = '<g:createLink controller="diamond" action="list" />';
@@ -46,6 +47,9 @@
 		url = url + "&" + "minFluoroscence="+ $("#fluoroscenceFilter").slider("values", 0);
 		url = url + "&" + "maxFluoroscence="+ $("#fluoroscenceFilter").slider("values", 1);
 
+		var Roundcheckbox = $("1");
+		url = url + "&" + "Round-checkbox="+ $(Roundcheckbox);
+
 		var grid = $(".ajax");
 		$(grid).html($("#spinner").html());
 
@@ -59,9 +63,22 @@
 			beforeSend : function() {
 				$('#loading').show();
 			}
+
 		});
 	}
 
+	function checkboxtest() {
+
+		$('input[name=Round-checkbox]').change(function(){
+			if($('input[name=Round-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+		    
+			});
+	}
+	
 	function setupCaratSlider() {
 		$("#caratFilter").slider(
 				{
@@ -242,6 +259,10 @@
 		setupSymmetrySlider();
 		setupFluoroscenceSlider();
 
+		checkboxtest();
+
+		
+		
 	});
 </script>
 </head>
@@ -288,7 +309,7 @@
 							src="${resource(dir: 'images/site/home', file: 'diamond-search.png')}">
 						<br />
 						<div style="font-size: 9px;">
-							<label class="diamond" for="Round-checkbox" style= "margin-right: 1.9em"> <span
+							<label class="diamond" for="Round-checkbox" style= "margin-right: 1.9em" > <span
 								class="shape">Round   </span><br /> <input type="checkbox"
 								id="Round-checkbox" name="Round-checkbox" value="on" />
 							</label> <label class="diamond" for="Princess-checkbox" style= "margin-right: 1.9em"> <span
