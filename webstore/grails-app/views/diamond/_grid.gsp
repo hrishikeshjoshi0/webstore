@@ -43,6 +43,10 @@
 					<th class="cartItemsHeader" align="center" width="20px">Color</th>
 					<th class="cartItemsHeader" align="center" width="20px">Clarity</th>
 					<th class="cartItemsHeader" align="center" width="20px">Price</th>
+					
+					<th class="cartItemsHeader" align="center" width="20px">Polish</th>
+					<th class="cartItemsHeader" align="center" width="20px">Symmetry</th>
+					<th class="cartItemsHeader" align="center" width="20px">FLUORESCENCE</th>
 					<th class="cartItemsHeader" align="center" width="20px">Details</th>
 				</tr>
 			</thead>
@@ -68,6 +72,15 @@
 						</td>
 						<td class="cartItem" align="center" valign="center" style="width: 20px;">
 							${d.getProductPrice(new Date())}
+						</td>
+						<td class="cartItem" align="center" valign="center" style="width: 20px;">
+							${d.polish}
+						</td>
+						<td class="cartItem" align="center" valign="center" style="width: 20px;">
+							${d.symmetry}
+						</td>
+						<td class="cartItem" align="center" valign="center" style="width: 20px;">
+							${d.fluorescence}
 						</td>
 						<td class="cartItem" align="center" valign="center" style="width: 20px;">
 						<g:link action="viewDetailDiamond"

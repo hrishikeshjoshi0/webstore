@@ -43,9 +43,9 @@
 		//Symmetry
 		url = url + "&" + "minSymmetry="+ $("#symmetryFilter").slider("values", 0);
 		url = url + "&" + "maxSymmetry="+ $("#symmetryFilter").slider("values", 1);
-		//Fluoroscence
-		url = url + "&" + "minFluoroscence="+ $("#fluoroscenceFilter").slider("values", 0);
-		url = url + "&" + "maxFluoroscence="+ $("#fluoroscenceFilter").slider("values", 1);
+		//Fluorescence
+		url = url + "&" + "minFluorescence="+ $("#fluorescenceFilter").slider("values", 0);
+		url = url + "&" + "maxFluorescence="+ $("#fluorescenceFilter").slider("values", 1);
 
 		
 		if($('input[name=Round-checkbox]').is(":checked")){
@@ -232,23 +232,23 @@
 		$("#symmetryMax").val($("#symmetryFilterMax").val());
 	}
 
-	function setupFluoroscenceSlider() {
-		$("#fluoroscenceFilter").slider({
+	function setupFluorescenceSlider() {
+		$("#fluorescenceFilter").slider({
 			range : true,
 			min : 1,//$("#colorFilterMin").val(),
 			max : 5,//$("#colorFilterMax").val(),
 			values : [ 1, 5 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
 			step : 1,
 			slide : function(event, ui) {
-				$("#fluoroscenceMin").val(ui.values[0]);
-				$("#fluoroscenceMax").val(ui.values[1]);
+				$("#fluorescenceMin").val(ui.values[0]);
+				$("#fluorescenceMax").val(ui.values[1]);
 			},
 			stop : function(event, ui) {
 				ajaxList();
 			}
 		});
-		$("#fluoroscenceMin").val($("#fluoroscenceFilterMin").val());
-		$("#fluoroscenceMax").val($("#fluoroscenceFilterMax").val());
+		$("#fluorescenceMin").val($("#fluorescenceFilterMin").val());
+		$("#fluorescenceMax").val($("#fluorescenceFilterMax").val());
 	}
 
 	$(document).ready(function() {
@@ -260,7 +260,7 @@
 		setupClaritySlider();
 		setupPolishSlider();
 		setupSymmetrySlider();
-		setupFluoroscenceSlider();
+		setupFluorescenceSlider();
 
 		checkboxtest();
 
@@ -494,20 +494,20 @@
 
 
 				<div class="fourcol" style="margin-left: 60px;height: 60px;">
-					<h2 class="filter-criteria-label">Fluoroscence</h2>
-					<div id="fluoroscenceFilter" class="fluoroscenceFilter"></div>
+					<h2 class="filter-criteria-label">Fluorescence</h2>
+					<div id="fluorescenceFilter" class="fluorescenceFilter"></div>
 
-					<input type="hidden" id="fluoroscenceFilterMin"
-						name="fluoroscenceFilterMin"
-						value="${params.fluoroscenceFilterMin}" /> <input type="hidden"
-						id="fluoroscenceFilterMax" name="fluoroscenceFilterMax"
-						value="${params.fluoroscenceFilterMax}" />
+					<input type="hidden" id="fluorescenceFilterMin"
+						name="fluorescenceFilterMin"
+						value="${params.fluorescenceFilterMin}" /> <input type="hidden"
+						id="fluorescenceFilterMax" name="fluorescenceFilterMax"
+						value="${params.fluorescenceFilterMax}" />
 
 					<div style="font-size: 11px; margin-top: 5px;">
-						<input type="text" name="fluoroscenceMin" id="fluoroscenceMin"
+						<input type="text" name="fluorescenceMin" id="fluorescenceMin"
 							readonly="readonly" value="" size="5"
 							style="float: left; font-size: 11px;" /> <input type="text"
-							name="fluoroscenceMax" id="fluoroscenceMax" readonly="readonly"
+							name="fluorescenceMax" id="fluorescenceMax" readonly="readonly"
 							size="5" value="" style="float: right; font-size: 11px;" />
 					</div>
 				</div>

@@ -147,6 +147,36 @@ class DiamondController {
 			params.clarityFilterMax = 9
 		}
 		
+		//Polish
+		if(!params.polishFilterMin) {
+			params.polishFilterMin = 1
+		}
+		
+		if(!params.polishFilterMax) {
+			params.polishFilterMax = 5
+		}
+		
+		//Symmetry
+		if(!params.symmetryFilterMin) {
+			params.symmetryFilterMin = 1
+		}
+		
+		if(!params.symmetryFilterMax) {
+			params.symmetryFilterMax = 5
+		}
+		
+		//fluoroscence
+		if(!params.fluorescenceFilterMin) {
+			params.fluorescenceFilterMin = 1
+		}
+		
+		if(!params.fluorescenceFilterMax) {
+			params.fluorescenceFilterMax = 5
+		}
+		
+		
+		
+		
 		def model = [diamondList: diamonds, diamondListTotal: diamonds.size()]
 		
 		if (request.xhr) {
