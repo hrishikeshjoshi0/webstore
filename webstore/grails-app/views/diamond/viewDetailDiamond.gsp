@@ -64,6 +64,7 @@
 			tr> td , tr > th
 			{
 			border: 1px;
+			margin-top: 5px;
 			}
 			
 			tr > td:last-child, tr > th:last-child{
@@ -87,7 +88,7 @@
 			<!-- DETAIL IMAGE -->
 			
 			<!-- INFO-->
-			<div class="fivecol details" style="margin-left: -1.5em; margin-top: 0.9em;">
+			<div class="fivecol details" style="margin-left: -1.5em; margin-top: 1.2em;">
 				<div id="content">
 					<h1 class="product_name_header">
 						${prodDiamondInstance?.pdProductName}
@@ -168,7 +169,7 @@
 		
 		<!-- Tabs -->
 		<div id="detailsInfo" class="row">
-			<div class="elevencol">
+			<div class="elevencol" style = "margin-top: 25px;" >
 				<div id="tabs">
 					<ul>
 						<li>

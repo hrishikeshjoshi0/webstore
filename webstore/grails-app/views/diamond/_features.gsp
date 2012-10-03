@@ -1,5 +1,5 @@
 <p style="font-family:'Droid Sans',Tahoma,Arial,sans-serif;border-bottom: 1px dotted #B5B5B5;text-transform: uppercase;"> 
-	Gemstone Information 
+	Diamond Information 
 </p>
 
 
@@ -7,11 +7,13 @@
 	<tr>
 		<td id="label">Carat</td>
 		<td><g:fieldValue bean="${prodDiamondInstance}" field="carat" /></td>
+		
 	</tr>
 
 	<tr>
-		<td>Clarity</td>
+	<td>Clarity</td>
 		<td><g:fieldValue bean="${prodDiamondInstance}" field="clarity" /></td>
+		
 	</tr>
 
 	<tr>
