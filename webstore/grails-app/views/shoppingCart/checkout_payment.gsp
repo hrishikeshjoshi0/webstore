@@ -105,13 +105,7 @@
 										</label>
 									</td>
 									<td>
-										<g:set var="amount" value="0"/>
-										<%
-											shoppingCartInstance.cartItems.eachWithIndex { cartItem, i ->
-												amount += cartItem.lineTotalPrice
-											}
-										 %>
-										${amount}
+										${shoppingCartInstance?.totalAmt}
 									</td>
 								</tr>
 								<tr>

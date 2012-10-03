@@ -50,6 +50,7 @@ class ShoppingCartController {
 		
 		def sci= ShoppingCartItem.findByShoppingCartAndProductId(sc,params.productId)
 		if(sci) {
+			sc.totalAmt -= sci.lineTotalPrice.toBigDecimal()
 			sci.delete(flush:true)
 		}
 		
@@ -75,14 +76,25 @@ class ShoppingCartController {
 			sci.quantity = 1
 			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
 			sci.lineTotalPrice = price?.multiply(sci.quantity)
+			def linetotal = sci.lineTotalPrice
+			sc = ShoppingCart.findBySessionID(sessionID)
+			sc.totalAmt += sci.lineTotalPrice.toBigDecimal()
+	
 		} else {
 			sci.quantity = sci.quantity + 1;
 			
 			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
 			sci.lineTotalPrice = price?.multiply(sci.quantity)
+			def linetotal = sci.lineTotalPrice
+			sc = ShoppingCart.findBySessionID(sessionID)
+			sc.totalAmt += sci.lineTotalPrice.toBigDecimal()
+			
+			
+			//sc.totalAmt = sc.totalAmt + price?.multiply(sci.quantity)
 		}
 		
 		sci.save(flush:true)
+		sc.save(flush:true)
 		
 		
 		redirect(action: "showCart",id:sc.shoppingCartId)

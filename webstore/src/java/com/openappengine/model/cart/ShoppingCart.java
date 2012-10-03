@@ -4,6 +4,7 @@
 package com.openappengine.model.cart;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,6 +48,17 @@ public class ShoppingCart implements Serializable {
 	@Column(name="SC_LAST_URL")
 	private String lastURL;
 	
+	@Column(name="SC_TOTAL_AMT_ID")
+	private BigDecimal totalAmt;
+	
+	public BigDecimal getTotalAmt() {
+		return totalAmt;
+	}
+
+	public void setTotalAmt(BigDecimal totalAmt) {
+		this.totalAmt = totalAmt;
+	}
+
 	@Column(name="SC_DATE_CREATED")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCreated;
