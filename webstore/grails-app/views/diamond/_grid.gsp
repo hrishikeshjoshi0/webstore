@@ -51,7 +51,7 @@
 					<tr style="border: 1px dotted #B5B5B5;">
 						<td class="cartItem" align="center" valign="center"  style="width: 20px;">
 							<span style="text-align:center;">
-<%--								${d.shape}	--%>
+								${d.shape}	
 							</span>
 						</td>
 						<td class="cartItem" align="center" valign="center" style="width: 20px;">

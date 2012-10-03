@@ -47,8 +47,12 @@
 		url = url + "&" + "minFluoroscence="+ $("#fluoroscenceFilter").slider("values", 0);
 		url = url + "&" + "maxFluoroscence="+ $("#fluoroscenceFilter").slider("values", 1);
 
-		var Roundcheckbox = $("1");
-		url = url + "&" + "Round-checkbox="+ $(Roundcheckbox);
+		
+		if($('input[name=Round-checkbox]').is(":checked")){
+			url = url + "&" + "roundcheckbox=1";	
+		    } else {
+			url = url + "&" + "roundcheckbox=0";
+			}
 
 		var grid = $(".ajax");
 		$(grid).html($("#spinner").html());
@@ -85,8 +89,7 @@
 					range : true,
 					min : $("#caratFilterMin").val(),
 					max : $("#caratFilterMax").val(),
-					values : [ $("#caratFilterMin").val(),
-							$("#caratFilterMax").val() ],
+					values : [0,16],//[ $("#caratFilterMin").val(),$("#caratFilterMax").val() ],
 					step : 0.01,
 					slide : function(event, ui) {
 						$("#caratMin").val(ui.values[0]);
@@ -129,8 +132,8 @@
 		$("#priceFilter").slider(
 				{
 					range : true,
-					min : $("#filterMinPrice").val() - 1,
-					max : $("#filterMaxPrice").val() + 1,
+					min : $("#filterMinPrice").val()-1,
+					max : $("#filterMaxPrice").val()+1,
 					values : [ $("#filterMinPrice").val(),
 							$("#filterMaxPrice").val() ],
 					step : 10,

@@ -19,7 +19,7 @@ class DiamondController {
 	
 	def list() {
 		params.max = 9
-		def a = params.Roundcheckbox.toString()
+		def roundcheckbox = params.roundcheckbox
 		def c = Diamond.createCriteria()
 		def sortBy = params.sortBy
 		def productTypeId = params.productTypeId
@@ -35,7 +35,7 @@ class DiamondController {
 		}
 		
 		if(!params.minPrice) {
-			params.minPrice = 0
+			params.minPrice = 1
 		}
 		
 		if(!params.maxPrice) {
@@ -70,17 +70,21 @@ class DiamondController {
 			
 			//Color
 			if(params.minColor && params.maxColor) {
-				between("color",params.minColor.toBigDecimal(),params.maxColor.toBigDecimal())
+				between("color_id",params.minColor.toInteger() ,params.maxColor.toInteger())
 			}
 			
 			//Cut
 			if(params.minCut && params.maxCut) {
-				between("cut",params.minCut.toBigDecimal(),params.maxCut.toBigDecimal())
+				between("cut_id",params.minCut.toInteger(),params.maxCut.toInteger())
 			}
 			
 			//Clarity
 			if(params.minClarity && params.maxClarity) {
-				between("clarity",params.minClarity.toBigDecimal(),params.maxClarity.toBigDecimal())
+				between("clarity_id",params.minClarity.toInteger(),params.maxClarity.toInteger())
+			}
+			
+			if(params.roundcheckbox == "1"){
+				eq("shape","RD")
 			}
 			
 			firstResult(params.offset)
@@ -445,14 +449,25 @@ class DiamondController {
 		}
 	
 	def diamondJsonGet = {
-		def a = params.toString()
-		def b = request.toString()
-		def c = request.JSON
 		
-		json.lob.TESTING.each {item->
-		  println "Name: ${item.name} - Value: ${item.value}"
-		}
-		def d
+		def reader = new File("/images/nachiket.csv").toCsvMapReader([batchSize:50])
+		reader.each{ batchList ->
+			City.withTransaction{
+			   batchList.each{ map ->
+				  saverService.save(map)
+			   }
+			   cleanUpGorm()
+			} //end transaction
+		 }
+	
+//		def a = params.toString()
+//		def b = request.toString()
+//		def c = request.JSON
+//		
+//		json.lob.TESTING.each {item->
+//		  println "Name: ${item.name} - Value: ${item.value}"
+//		}
+//		def d
 			
 		
 		}
