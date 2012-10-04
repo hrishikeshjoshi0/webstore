@@ -48,7 +48,7 @@ public class ShoppingCart implements Serializable {
 	@Column(name="SC_LAST_URL")
 	private String lastURL;
 	
-	@Column(name="SC_TOTAL_AMT_ID")
+	@Column(name="SC_TOTAL_AMT")
 	private BigDecimal totalAmt;
 	
 	public BigDecimal getTotalAmt() {
