@@ -64,8 +64,17 @@ class ShoppingCartController {
 		def sc = ShoppingCart.findBySessionID(sessionID)
 		if(!sc) {
 			sc = new ShoppingCart(sessionID:sessionID)
+			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
+			BigDecimal totalPrice = price + sc.totalAmt
+			sc.totalAmt = totalPrice
 			sc.save(flush:true)
 		}
+		else{
+			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
+			BigDecimal totalPrice = price + sc.totalAmt
+			sc.totalAmt = totalPrice
+			sc.save(flush:true)
+			}
 		
 		def sci= ShoppingCartItem.findByShoppingCartAndProductId(sc,params.productId)
 		if(!sci) {
@@ -76,25 +85,17 @@ class ShoppingCartController {
 			sci.quantity = 1
 			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
 			sci.lineTotalPrice = price?.multiply(sci.quantity)
-			def linetotal = sci.lineTotalPrice
-			sc = ShoppingCart.findBySessionID(sessionID)
-			sc.totalAmt += sci.lineTotalPrice.toBigDecimal()
-	
-		} else {
+		} 
+		else 
+		{
 			sci.quantity = sci.quantity + 1;
 			
 			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
 			sci.lineTotalPrice = price?.multiply(sci.quantity)
 			def linetotal = sci.lineTotalPrice
-			sc = ShoppingCart.findBySessionID(sessionID)
-			sc.totalAmt += sci.lineTotalPrice.toBigDecimal()
-			
-			
-			//sc.totalAmt = sc.totalAmt + price?.multiply(sci.quantity)
 		}
 		
 		sci.save(flush:true)
-		sc.save(flush:true)
 		
 		
 		redirect(action: "showCart",id:sc.shoppingCartId)
@@ -343,10 +344,10 @@ class ShoppingCartController {
 		}
 		
 		orderSummary.discount = discount
-		orderSummary.subtotal = subtotal
+		orderSummary.subtotal = sc.totalAmt
 		orderSummary.shipping = shipping
 		orderSummary.tax = tax
-		orderSummary.total = subtotal + shipping + tax
+		orderSummary.total = sc.totalAmt + shipping + tax
 		def model = [orderSummary : orderSummary,shoppingCartInstance:sc,displayCartItems:displayCartItems]
 		if (request.xhr) {
 			// ajax request
