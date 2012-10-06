@@ -54,6 +54,55 @@
 			url = url + "&" + "roundcheckbox=0";
 			}
 
+		if($('input[name=Princess-checkbox]').is(":checked")){
+			url = url + "&" + "princesscheckbox=1";	
+		    } else {
+			url = url + "&" + "princesscheckbox=0";
+			}
+
+		if($('input[name=Asscher-checkbox]').is(":checked")){
+			url = url + "&" + "asschercheckbox=1";	
+		    } else {
+			url = url + "&" + "asschercheckbox=0";
+			}
+
+		if($('input[name=Radiant-checkbox]').is(":checked")){
+			url = url + "&" + "radiantcheckbox=1";	
+		    } else {
+			url = url + "&" + "radiantcheckbox=0";
+			}
+
+		if($('input[name=Cushion-checkbox]').is(":checked")){
+			url = url + "&" + "cushioncheckbox=1";	
+		    } else {
+			url = url + "&" + "cushioncheckbox=0";
+			}
+
+		if($('input[name=Emerald-checkbox]').is(":checked")){
+			url = url + "&" + "emeraldcheckbox=1";	
+		    } else {
+			url = url + "&" + "emeraldcheckbox=0";
+			}
+
+		if($('input[name=Marquise-checkbox]').is(":checked")){
+			url = url + "&" + "marquisecheckbox=1";	
+		    } else {
+			url = url + "&" + "marquisecheckbox=0";
+			}
+
+		if($('input[name=Oval-checkbox]').is(":checked")){
+			url = url + "&" + "ovalcheckbox=1";	
+		    } else {
+			url = url + "&" + "ovalcheckbox=0";
+			}
+
+		if($('input[name=Heart-checkbox]').is(":checked")){
+			url = url + "&" + "heartcheckbox=1";	
+		    } else {
+			url = url + "&" + "heartcheckbox=0";
+			}
+		
+
 		var grid = $(".ajax");
 		$(grid).html($("#spinner").html());
 
@@ -73,14 +122,99 @@
 
 	function checkboxtest() {
 
+		//Round
 		$('input[name=Round-checkbox]').change(function(){
 			if($('input[name=Round-checkbox]').is(":checked")){
 				ajaxList();
 			    } else {
 			    ajaxList();
 			    }
-		    
 			});
+
+		//Princess
+		$('input[name=Princess-checkbox]').change(function(){
+			if($('input[name=Princess-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+		}); 
+
+
+		//Asscher
+		$('input[name=Asscher-checkbox]').change(function(){
+			if($('input[name=Asscher-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+
+
+		//Radiant
+		$('input[name=Radiant-checkbox]').change(function(){
+			if($('input[name=Radiant-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+
+
+		//Cushion
+		$('input[name=Cushion-checkbox]').change(function(){
+			if($('input[name=Cushion-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+
+
+		//Emerald
+		$('input[name=Emerald-checkbox]').change(function(){
+			if($('input[name=Emerald-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+
+		//Marquise
+		$('input[name=Marquise-checkbox]').change(function(){
+			if($('input[name=Marquise-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+
+		//Oval
+		$('input[name=Oval-checkbox]').change(function(){
+			if($('input[name=Oval-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+
+		//Pear
+		$('input[name=Pear-checkbox]').change(function(){
+			if($('input[name=Pear-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+		//Heart
+		$('input[name=Heart-checkbox]').change(function(){
+			if($('input[name=Heart-checkbox]').is(":checked")){
+				ajaxList();
+			    } else {
+			    ajaxList();
+			    }
+			});
+		
 	}
 	
 	function setupCaratSlider() {

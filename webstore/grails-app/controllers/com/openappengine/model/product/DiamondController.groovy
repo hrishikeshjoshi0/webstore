@@ -83,7 +83,58 @@ class DiamondController {
 				between("clarity_id",params.minClarity.toInteger(),params.maxClarity.toInteger())
 			}
 			
+			//Polish
+			if(params.minPolsih && params.maxPolish) {
+				between("polish_id",params.minPolish.toInteger(),params.maxPolish.toInteger())
+			}
+			
+			//Symmetry
+			if(params.minSymmetry && params.maxSymmetry) {
+				between("symmetry_id",params.minSymmetry.toInteger(),params.maxSymmetry.toInteger())
+			}
+			
+			//Fluorescence
+			if(params.minFluorescence && params.maxFluorescence) {
+				between("fluorescence_id",params.minFluorescence.toInteger(),params.maxFluorescence.toInteger())
+			}
+			
 			if(params.roundcheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.princesscheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.asschercheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.radiantcheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.cushioncheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.emeraldcheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.marquisecheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.ovalcheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.pearcheckbox == "1"){
+				eq("shape","RD")
+			}
+			
+			if(params.heartcheckbox == "1"){
 				eq("shape","RD")
 			}
 			
