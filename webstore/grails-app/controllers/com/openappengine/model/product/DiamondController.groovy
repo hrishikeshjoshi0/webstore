@@ -84,7 +84,7 @@ class DiamondController {
 			}
 			
 			//Polish
-			if(params.minPolsih && params.maxPolish) {
+			if(params.minPolish && params.maxPolish) {
 				between("polish_id",params.minPolish.toInteger(),params.maxPolish.toInteger())
 			}
 			
