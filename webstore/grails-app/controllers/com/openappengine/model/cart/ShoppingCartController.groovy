@@ -65,13 +65,16 @@ class ShoppingCartController {
 		if(!sc) {
 			sc = new ShoppingCart(sessionID:sessionID)
 			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
-			BigDecimal totalPrice = price + sc.totalAmt
+			sc.totalAmt = 0
+			BigDecimal totalPrice = 0
+			totalPrice = price + sc.totalAmt
 			sc.totalAmt = totalPrice
 			sc.save(flush:true)
 		}
 		else{
 			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
-			BigDecimal totalPrice = price + sc.totalAmt
+			BigDecimal totalPrice = 0
+			totalPrice = price + sc.totalAmt
 			sc.totalAmt = totalPrice
 			sc.save(flush:true)
 			}
