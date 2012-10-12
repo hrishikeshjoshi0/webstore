@@ -159,25 +159,25 @@
 								Details
 							</g:link>
 						</li>
-						<li>
-							<g:link controller="productReview" action="_productReviews" params="[productId:prodGemstoneInstance?.pdProductId]">
-								Reviews (${prodGemstoneInstance?.productReviews?.size()})
-							</g:link>
-						</li>
+
+						<li><a href="#">Shipping & Packaging</a></li>
 						
 						<!-- Issue #8  -->
 						<g:if test="${prodGemstoneInstance?.certified}">
 							<li><a href="#">Certificate</a></li>
 						</g:if>
-						
-						<li><a href="#">Shipping & Packaging</a></li>
+
+						<li>
+							<g:link controller="productReview" action="_productReviews" params="[productId:prodGemstoneInstance?.pdProductId]">
+								Reviews (${prodGemstoneInstance?.productReviews?.size()})
+							</g:link>
+						</li>						
 					</ul>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript">
 			$("#wishListLink").live('click', function(e) {
-				  alert('jo');
 				  $.ajax({
 				        type: 'POST',
 				        async : true,

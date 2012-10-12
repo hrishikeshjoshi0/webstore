@@ -177,21 +177,21 @@
 								Details
 							</g:link>
 						</li>
-						<li>
-
-							<g:link controller="productReview" action="productReviews" params="[productId:prodDiamondInstance?.pdProductId]">
-								Reviews (${prodDiamondInstance?.productReviews?.size()})
-							</g:link>
-						</li>
-						
-						<!-- Issue #8  -->
-						<g:if test="${prodDiamondInstance?.certified}">
-							<li><a href="#">Certificate</a></li>
-						</g:if>
 						
 						<li><g:link controller="Diamond" action="shipping" >
 								SHIPPING AND PACKAGING
 							</g:link></li>
+							
+						<!-- Issue #8  -->
+						<g:if test="${prodDiamondInstance?.certified}">
+							<li><a href="#">Certificate</a></li>
+						</g:if>	
+
+						<li>
+							<g:link controller="productReview" action="productReviews" params="[productId:prodDiamondInstance?.pdProductId]">
+								Reviews (${prodDiamondInstance?.productReviews?.size()})
+							</g:link>
+						</li>
 					</ul>
 				</div>
 			</div>
