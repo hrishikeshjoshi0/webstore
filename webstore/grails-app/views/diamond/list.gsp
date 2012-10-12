@@ -473,7 +473,7 @@
 							</label> <label class="diamond" for="Marquise-checkbox" style= "margin-right: 1.9em"> <span
 								class="shape">Marquise</span><br /> <input type="checkbox"
 								id="Marquise-checkbox" name="Marquise-checkbox" value="on" />
-							</label> <label class="diamond" for="Oval-checkbox" style= "margin-right: 1.9em"> <span
+							</label> <label class="diamond" for="Oval-checkbox" style= "margin-right: 2.1em"> <span
 								class="shape">Oval</span><br /> <input type="checkbox"
 								id="Oval-checkbox" name="Oval-checkbox" value="on" />
 							</label> <label class="diamond" for="Pear-checkbox" style= "margin-right: 2.1em"> <span
