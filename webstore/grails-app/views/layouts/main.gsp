@@ -52,6 +52,20 @@
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'xbreadcrumbs.css')}" type="text/less" media="screen" />
  -->
  
+ <style>
+ 	#logos {
+ 		border : 0px dotted #B5B5B5;
+ 	}
+ 	#logos li {
+		display: inline;
+		list-style-type: none;
+		padding-right: 1px;
+	}
+	
+	#logos li > img{
+		height : 20px;
+	}
+ </style>
 
 
 <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - 
@@ -297,7 +311,59 @@ span.reference a:hover {
 					</ul>
 				</div>
 			</div>
+			
+			<div class="row">
+				<div class="tencol" style="background-color: #FFF;margin-left: -5px;margin-right: -10px;height:80px;width: 100%;">
+					
+					<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:5px;margin-top: -10px;">
+					<br/>
+					
+					<ul id="logos" style="border:0px;margin-left: 80px;">
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'FedEx.png')}" style="margin-bottom: 20px;">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'GIA.png')}" style="margin-bottom: 8px;height:40px;">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'gii.png')}" style="margin-bottom: 10px;" height="40px">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'IGI.png')}">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'paypal.png')}" style="margin-bottom: 20px;">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'speedpost.png')}" style="margin-bottom: 20px;">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'usps.png')}" >
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'f_logo.png')}" style="margin-bottom: 20px;" >
+								</a>
+							</li>
+						</ul>				
+				</div>
+			</div>
 		</div>
+
 
 		<script type="text/javascript">
 			$(function() {
