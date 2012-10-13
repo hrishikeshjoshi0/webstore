@@ -288,8 +288,8 @@
 		$("#cutFilter").slider({
 			range : true,
 			min : 1,//$("#colorFilterMin").val(),
-			max : 5,//$("#colorFilterMax").val(),
-			values : [ 1, 5 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
+			max : 4,//$("#colorFilterMax").val(),
+			values : [ 1, 4 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
 			step : 1,
 			slide : function(event, ui) {
 				$("#cutMin").val(ui.values[0]);
@@ -332,8 +332,8 @@
 		$("#polishFilter").slider({
 			range : true,
 			min : 1,//$("#colorFilterMin").val(),
-			max : 5,//$("#colorFilterMax").val(),
-			values : [ 1, 5 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
+			max : 4,//$("#colorFilterMax").val(),
+			values : [ 1, 4 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
 			step : 1,
 			slide : function(event, ui) {
 				$("#polishMin").val(ui.values[0]);
@@ -345,14 +345,16 @@
 		});
 		$("#polishMin").val($("#polishFilterMin").val());
 		$("#polishMax").val($("#polishFilterMax").val());
+		$('#polishMin').eq(0).css({display: 'none'});
+		$('#polishMax').eq(0).css({display: 'none'});
 	}
 
 	function setupSymmetrySlider() {
 		$("#symmetryFilter").slider({
 			range : true,
 			min : 1,//$("#colorFilterMin").val(),
-			max : 5,//$("#colorFilterMax").val(),
-			values : [ 1, 5 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
+			max : 4,//$("#colorFilterMax").val(),
+			values : [ 1, 4 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
 			step : 1,
 			slide : function(event, ui) {
 				$("#symmetryMin").val(ui.values[0]);
@@ -364,14 +366,16 @@
 		});
 		$("#symmetryMin").val($("#symmetryFilterMin").val());
 		$("#symmetryMax").val($("#symmetryFilterMax").val());
+		$('#symmetryMin').eq(0).css({display: 'none'});
+		$('#symmetryMax').eq(0).css({display: 'none'});
 	}
 
 	function setupFluorescenceSlider() {
 		$("#fluorescenceFilter").slider({
 			range : true,
 			min : 1,//$("#colorFilterMin").val(),
-			max : 5,//$("#colorFilterMax").val(),
-			values : [ 1, 5 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
+			max : 4,//$("#colorFilterMax").val(),
+			values : [ 1, 4 ],//[$("#colorFilterMin").val(), $("#colorFilterMax").val()],
 			step : 1,
 			slide : function(event, ui) {
 				$("#fluorescenceMin").val(ui.values[0]);
@@ -383,6 +387,8 @@
 		});
 		$("#fluorescenceMin").val($("#fluorescenceFilterMin").val());
 		$("#fluorescenceMax").val($("#fluorescenceFilterMax").val());
+		$('#fluorescenceMin').eq(0).css({display: 'none'});
+		$('#fluorescenceMax').eq(0).css({display: 'none'});
 	}
 
 	$(document).ready(function() {
@@ -467,7 +473,7 @@
 							</label> <label class="diamond" for="Marquise-checkbox" style= "margin-right: 1.9em"> <span
 								class="shape">Marquise</span><br /> <input type="checkbox"
 								id="Marquise-checkbox" name="Marquise-checkbox" value="on" />
-							</label> <label class="diamond" for="Oval-checkbox" style= "margin-right: 1.9em"> <span
+							</label> <label class="diamond" for="Oval-checkbox" style= "margin-right: 2.1em"> <span
 								class="shape">Oval</span><br /> <input type="checkbox"
 								id="Oval-checkbox" name="Oval-checkbox" value="on" />
 							</label> <label class="diamond" for="Pear-checkbox" style= "margin-right: 2.1em"> <span
@@ -544,10 +550,17 @@
 							name="colorMax" id="colorMax" readonly="readonly" size="5"
 							value="" style="float: right; font-size: 11px;" />
 					</div>
-					<img id="loose-diamonds-img" alt="Diamond Search"
-							src="${resource(dir: 'images', file: 'ColorRuler.jpg')}">
-					</div>
-				
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 22px;">D</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 23px;">E</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 24px;">F</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 24px;">G</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 25px;">H</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 26px;">I</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 26px;">J</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 24px;">K</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 17px;">L</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold;">M</span>
+				</div>
 				
 
 
@@ -567,8 +580,19 @@
 							name="clarityMax" id="clarityMax" readonly="readonly" size="5"
 							value="" style="float: right; font-size: 11px;" />
 					</div>
-						<img id="loose-diamonds-img" alt="Diamond Search"
-							src="${resource(dir: 'images', file: 'ClarityRuler.jpg')}">
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 11px;">FL</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 8px;">IF</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 4px;">VVS1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 4px;">VVS2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 7px;">VS1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 7px;">VS2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 10px;">SI1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 11px;">SI2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 14px;">SI3</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 17px;">I1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 15px;">I2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold;">I3</span>
+					
 				</div>
 
 				<div class="fourcol" style=" 60px;height: 60px;">
@@ -586,8 +610,11 @@
 							type="text" name="cutMax" id="cutMax" readonly="readonly"
 							size="5" value="" style="float: right; font-size: 11px;" />
 					</div>
-					<img id="loose-diamonds-img" alt="Diamond Search"
-							src="${resource(dir: 'images', file: 'CutRuler.jpg')}">
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 30px;">Excellent</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 45px;">Very Good</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 60px;">Good</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold;">Fair</span>
+					
 				</div>
 
 				<div class="fourcol" style="margin-left: 60px;height: 60px;">
@@ -606,6 +633,10 @@
 							name="polishMax" id="polishMax" readonly="readonly" size="5"
 							value="" style="float: right; font-size: 11px;" />
 					</div>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 30px;">Excellent</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 45px;">Very Good</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 60px;">Good</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold;">Fair</span>
 				</div>
 
 				<div class="fourcol" style=" 60px;height: 60px;">
@@ -624,6 +655,12 @@
 							name="symmetryMax" id="symmetryMax" readonly="readonly" size="5"
 							value="" style="float: right; font-size: 11px;" />
 					</div>
+					
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 30px;">Excellent</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 45px;">Very Good</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 60px;">Good</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold;">Fair</span>
+					
 				</div>
 
 
@@ -644,6 +681,10 @@
 							name="fluorescenceMax" id="fluorescenceMax" readonly="readonly"
 							size="5" value="" style="float: right; font-size: 11px;" />
 					</div>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 55px;">None</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 65px;">Faint</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 46px;">Medium</span>
+					<span class="shape" style = "font-size: medium; font-weight: bold;">Strong</span>
 				</div>
 			</div>
 

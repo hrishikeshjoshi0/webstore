@@ -186,7 +186,7 @@ class DiamondController {
 		}
 		
 		if(!params.cutFilterMax) {
-			params.cutFilterMax = 5
+			params.cutFilterMax = 4
 		}
 		
 		//Clarity
@@ -204,7 +204,7 @@ class DiamondController {
 		}
 		
 		if(!params.polishFilterMax) {
-			params.polishFilterMax = 5
+			params.polishFilterMax = 4
 		}
 		
 		//Symmetry
@@ -213,7 +213,7 @@ class DiamondController {
 		}
 		
 		if(!params.symmetryFilterMax) {
-			params.symmetryFilterMax = 5
+			params.symmetryFilterMax = 4
 		}
 		
 		//fluoroscence

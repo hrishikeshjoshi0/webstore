@@ -115,11 +115,11 @@ grails.resources.debug = true
 
 grails {
 	mail {
-	  host = "smtp.gmail.com"
+	  host = "crab.arvixe.com"
 	  port = 465
-	  username = "hrishi2323@gmail.com"
-	  password = "tortoise"
-	  props = ["mail.smtp.auth":"true",
+	  username = "webstore@moryasolutions.com"
+	  password = "Eclipse@123"
+	  props = ["mail.smtp.auth":"false",
 			   "mail.smtp.socketFactory.port":"465",
 			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
 			   "mail.smtp.socketFactory.fallback":"false"]
