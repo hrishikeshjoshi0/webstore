@@ -313,7 +313,7 @@ span.reference a:hover {
 			</div>
 			
 			<div class="row">
-				<div class="tencol" style="background-color: #FFF;margin-left: -5px;margin-right: -10px;height:80px;width: 100%;">
+				<div class="tencol" style="background-color: #FAFAFA;margin-left: -5px;margin-right: -10px;height:80px;width: 100%;">
 					
 					<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:5px;margin-top: -10px;">
 					<br/>
