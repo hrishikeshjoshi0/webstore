@@ -65,6 +65,25 @@
 	#logos li > img{
 		height : 20px;
 	}
+	
+	#sitemaps {
+		color : #666;
+ 	}
+ 	
+ 	#sitemaps li > a {
+		color : #666;
+ 	}
+ 	
+ 	#sitemaps li > a:VISITED {
+		color : #666;
+ 	}
+ 	
+ 	#sitemaps li {
+		display: inline;
+		list-style-type: none;
+		padding-right: 1px;
+		border-right : 1px solid #B5B5B5;
+	}
  </style>
 
 
@@ -360,6 +379,56 @@ span.reference a:hover {
 								</a>
 							</li>
 						</ul>				
+				</div>
+				
+				<div class="tencol" 
+					style="background-color: #FAFAFA;margin-left: -5px;margin-right: -10px;height:80px;width: 100%;margin-top:-10px;">
+					<ul id="sitemaps" style="border:0px;margin-left: 80px;">
+						<li style="border: 0px;">
+							site map :
+						</li>
+						<li>
+							<a href="<g:createLink controller="gemstone" action="list" />">
+								gemstones
+							</a>
+						</li>
+						
+						<li>
+							<a href="#">
+								jewelry
+							</a>
+						</li>
+						
+						<li>
+							<a href="<g:createLink controller="diamond" action="list" />">
+								diamonds
+							</a>
+						</li>
+						
+						<li>
+							<a href="#">
+								build your own jewelry
+							</a>
+						</li>
+						
+						<li>
+							<a href="#">
+								gifts
+							</a>
+						</li>
+						
+						<li>
+							<a href="#">
+								education
+							</a>
+						</li>
+						
+						<li>
+							<a href="#">
+								sale
+							</a>
+						</li>
+					</ul>		
 				</div>
 			</div>
 		</div>
