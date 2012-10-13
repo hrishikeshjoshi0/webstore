@@ -170,7 +170,6 @@
 							<li><a href="#">Certificate</a></li>
 						</g:if>
 						
-
 						<li><g:link controller="Diamond" action="shipping" >
 								SHIPPING AND PACKAGING
 							</g:link></li>
@@ -180,6 +179,7 @@
 		</div>
 		<script type="text/javascript">
 			$("#wishListLink").live('click', function(e) {
+				  alert('jo');
 				  $.ajax({
 				        type: 'POST',
 				        async : true,
