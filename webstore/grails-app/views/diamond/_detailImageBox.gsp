@@ -16,84 +16,92 @@
 	}
 	
 </style>
-
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.jqzoom').jqzoom({
-	            zoomType: 'standard',
-	            lens:true,
-	            preloadImages: false,
-	            alwaysOn:false
-	        });
+		$("#description1").show();
+		$("#description2").hide();
+		$("#description3").hide();
 	});
 </script>
 
-<div class="clearfix" id="content" style="height: 500px; width: auto;">
-	<div class="clearfix">
-	    
-	    
-		<div class="image-box" style="display: block; width: 230px; position: relative; visibility: visible;">
-			
-			<img class="product-img-det"
-					alt="${productInstance.shape}"
-					title="${productInstance.shape}"
-					src="${resource(dir: '/images', file: 'Round-Shape-Illustration-Top-View.jpg')}" style="width: 350px; position:relative;"/>
-		  
-		
-		<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 250px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
-		<span> ${productInstance.table} </span> </div>
-		</div>
-		 
-		<div class="overlay" id="overlay" style="display:none;"></div>
-		<div class="box" id="box" style="display:none;">
-            <a class="boxclose" id="boxclose">Close</a>
-           	<div id="modal-contents">
-           	</div>
-        </div>
-		<script>
-			$('#imgLink').click(function (e) {
-				//alert('hi');
-				//$("#overlay")
+<div class="clearfix" id="content" style="height: 400px; width: auto; position: relative;">
+<div class="clearfix">
+
+<div id="gallery">
+	<div id="panel">
+		<img id="largeImage" src="${resource(dir: '/images', file: 'Round-Shape-Illustration-Top-View.jpg')}" style = "width: 300px;"/>
 				
-				$('#overlay').fadeIn('fast',function(){
-					$.ajax({
-						type : 'GET',
-						async : true,
-						url : '<g:createLink controller="product" action="showModalGallery" />',
-						success : function(data) {
-							$('#modal-contents').html(data);
-						}
-					});
-                });
-
-				$('#box').fadeIn('fast');
-                
-				e.preventDefault();
-			});
-
-			$('#boxclose').click(function(){
-                $('#box').fadeOut('fast');
-                $('#modal-contents').html("");
-                $('#overlay').fadeOut('fast');
-            });
-            
-		</script>
-	</div>
-	<br />
-	<div class="clearfix">
-		<ul id="thumblist" class="clearfix">
-			<li><a class="product-img-thumb-link" href='javascript:void(0);'
-				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/uploads/product', file: productInstance?.smallImage?.imageUrl)}',largeimage: '${resource(dir: '/images/uploads/product', file: productInstance?.largeImage?.imageUrl)}'}">
-				<img class="product-img-thumb"
-					src='${resource(dir: '/images/uploads/product', file: productInstance?.smallImage?.imageUrl)}'></a></li>
-			<li><a class="product-img-thumb-link" href='javascript:void(0);'
-				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/uploads/product', file: productInstance?.smallImage?.imageUrl)}',largeimage: '${resource(dir: '/images/uploads/product', file: productInstance?.largeImage?.imageUrl)}'}">
-				<img class="product-img-thumb"
-					src='${resource(dir: '/images/uploads/product', file: productInstance?.smallImage?.imageUrl)}'></a></li>
-			<li><a class="product-img-thumb-link" href='javascript:void(0);'
-				rel="{gallery: 'gal1', smallimage: '${resource(dir: '/images/uploads/product', file: productInstance?.smallImage?.imageUrl)}',largeimage: '${resource(dir: '/images/uploads/product', file: productInstance?.largeImage?.imageUrl)}'}">
-				<img class="product-img-thumb"
-					src='${resource(dir: '/images/uploads/product', file: productInstance?.smallImage?.imageUrl)}'></a></li>
-		</ul>
+			<div id="description1">
+				<div class="image-overlay-table" style="padding: 2px; top: 10px; left: 165px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> Length </span> </div>
+				<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 175px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> ${productInstance.table} </span> </div>
+				
+				<div class="image-overlay-table" style="padding: 2px; top: 130px; left: 120px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> Width </span> </div>
+				<div class="image-overlay-table" style="padding: 2px; top: 150px; left: 128px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> ${productInstance.table} </span> </div>
+			</div>
+			
+			<div id="description2">
+				<div class="image-overlay-table" style="padding: 2px; top: 23px; left: 140px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> ${productInstance.table}% </span> </div>
+				<div class="image-overlay-table" style="padding: 2px; top: 1px; left: 135px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> Table% </span> </div>
+				
+				<div class="image-overlay-table" style="padding: 2px; top: 120px; left: 230px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> Depth </span> </div>
+				<div class="image-overlay-table" style="padding: 2px; top: 140px; left: 230px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> ${productInstance.height}mm </span> </div>
+			</div>
+			
+			<div id="description3">
+				<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 150px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> ${productInstance.table} </span> </div>
+				
+				<div class="image-overlay-table" style="padding: 2px; top: 120px; left: 150px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+						<span> ${productInstance.table} </span> </div>
+			</div>
+				
+		</div>
 	</div>
 </div>
+
+	<div id="thumbs" >
+		<div id="thumb1"  style="width: 50px;float: left;" >
+        <img src="${resource(dir: '/images', file: 'Round-Shape-Illustration-Top-View.jpg')}" style="width: 50px; position:relative;" alt="1st image description" />
+        </div>
+        <div id="thumb2" style="width: 50px;float: left;">
+        <img src="${resource(dir: '/images', file: 'Round-Shape-Illustration-Side-View.jpg')}" style="width: 50px; position:relative;" alt="2nd image description" />
+        </div>
+        <div id="thumb3"  style="width: 50px;float: left;">
+        <img src="${resource(dir: '/images', file: 'Round-Loose-Diamond-Sample.jpg')}" style="width: 50px; position:relative;" alt="3rd image description" />
+        </div>
+	</div>
+	
+		
+				
+	<script type="text/javascript">
+		$('#thumb1 img').click(function(){
+		$('#largeImage').attr('src',$(this).attr('src').replace('thumb1','large'));
+		$("#description1").show();
+		$("#description2").hide();
+		$("#description3").hide();
+	});
+
+		$('#thumb2 img').click(function(){
+			$('#largeImage').attr('src',$(this).attr('src').replace('thumb2','large'));
+			$("#description1").hide();
+			$("#description2").show();
+			$("#description3").hide();
+		});
+
+		$('#thumb3 img').click(function(){
+			$('#largeImage').attr('src',$(this).attr('src').replace('thumb3','large'));
+			$("#description1").hide();
+			$("#description2").hide();
+			$("#description3").show();
+		});
+	</script>
+</div>
+

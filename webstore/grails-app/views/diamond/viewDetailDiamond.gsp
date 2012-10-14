@@ -183,9 +183,12 @@
 							</g:link></li>
 							
 						<!-- Issue #8  -->
-						<g:if test="${prodDiamondInstance?.certified}">
-							<li><a href="#">Certificate</a></li>
-						</g:if>	
+						
+							<li>
+								<g:link controller="Diamond" action="certificate" params="[reportno:2126944766,weight:1.25]">
+								Certificate 
+								</g:link>
+							</li>
 
 						<li>
 							<g:link controller="productReview" action="productReviews" params="[productId:prodDiamondInstance?.pdProductId]">

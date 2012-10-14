@@ -82,10 +82,31 @@ public class Diamond extends Product {
 	
 	@Column(name="PD_HEAD")
 	private String head;
-	
+
 	@Column(name="PD_CERTI_NO")
 	private String certiNo;
+	
+	@Column(name="PD_HEIGHT")
+	private BigDecimal height;
+	
+	@Column(name="PD_width")
+	private BigDecimal width;
+	
+	public BigDecimal getHeight() {
+		return height;
+	}
 
+	public void setHeight(BigDecimal height) {
+		this.height = height;
+	}
+
+	public BigDecimal getWidth() {
+		return width;
+	}
+
+	public void setWidth(BigDecimal width) {
+		this.width = width;
+	}
 	
 	public String getColor() {
 		return color;

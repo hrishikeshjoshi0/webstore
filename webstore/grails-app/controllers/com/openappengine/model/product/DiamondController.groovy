@@ -564,4 +564,9 @@ class DiamondController {
 		
 	}
 	
+	def certificate ={
+		def reportno = params.reportno
+		def weight = params.weight
+		[reportno: reportno, weight: weight]
+	}
 }
