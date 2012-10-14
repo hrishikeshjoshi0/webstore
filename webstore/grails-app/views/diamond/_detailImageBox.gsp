@@ -55,13 +55,13 @@
 						<span> ${productInstance.height}mm </span> </div>
 			</div>
 			
-			<div id="description3">
-				<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 150px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
-						<span> ${productInstance.table} </span> </div>
-				
-				<div class="image-overlay-table" style="padding: 2px; top: 120px; left: 150px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
-						<span> ${productInstance.table} </span> </div>
-			</div>
+<%--			<div id="description3">--%>
+<%--				<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 150px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> --%>
+<%--						<span> ${productInstance.table} </span> </div>--%>
+<%--				--%>
+<%--				<div class="image-overlay-table" style="padding: 2px; top: 120px; left: 150px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> --%>
+<%--						<span> ${productInstance.table} </span> </div>--%>
+<%--			</div>--%>
 				
 		</div>
 	</div>
@@ -100,7 +100,7 @@
 			$('#largeImage').attr('src',$(this).attr('src').replace('thumb3','large'));
 			$("#description1").hide();
 			$("#description2").hide();
-			$("#description3").show();
+			$("#description3").hide();
 		});
 	</script>
 </div>
