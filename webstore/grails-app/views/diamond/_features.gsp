@@ -1,128 +1,197 @@
-<p style="font-family:'Droid Sans',Tahoma,Arial,sans-serif;border-bottom: 1px dotted #B5B5B5;text-transform: uppercase;"> 
-	Diamond Information 
-</p>
+<script type="text/javascript">
+function(price,carat){
+	var pricepercarat=price/carat;
+	return pricepercarat
+}
+</script>
 
 
-<table class="productFeatures" style="width: 50%;margin-bottom: 15px;">
-	<tr>
-		<td id="label">Carat</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="carat" /></td>
-		
-	</tr>
+<style type="text/css">
+<!--
+.productFeatures tr>td {
+	border-bottom: 1px solid #E4E5E7;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	color: #666;
+	padding: 2px 0 3px 0;
+	vertical-align: bottom;
+}
+-->
+</style>
 
-	<tr>
-	<td>Clarity</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="clarity" /></td>
-		
-	</tr>
+<p
+	style="font-family: 'Droid Sans', Tahoma, Arial, sans-serif; border-bottom: 1px dotted #B5B5B5; text-transform: uppercase;">
+	Diamond Information</p>
 
-	<tr>
-		<td>Color</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="color" /></td>
-	</tr>
+<div class="row" style="height: 300px">
+<div class="fivecol">
+	
+		<div class="leftdetails">
+			<table class="productFeatures">
+				<tr style="border-bottom: 1px dotted #B5B5B5; font-weight: normal;">
+					<td>Stock Number :</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}"
+							field="pdProductName" /></td>
+				</tr>
 
-	<tr>
-		<td>Cut</td>
-		<td><g:fieldValue bean="${prodDiamondInstance}" field="cut" /></td>
-	</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Price :</td>
+					<td><g:formatNumber
+								number="${prodDiamondInstance?.getProductPrice(new Date())}"
+								maxFractionDigits="2" /></td>
+				</tr>
 
-	<tr>
-		<td>Shape</td>
-			<td><g:fieldValue bean="${prodDiamondInstance}" field="shape" /></td>
-	</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Price per carat:</td>
+					<td>
+					<g:formatNumber
+								number="${pricepercarat}"
+								maxFractionDigits="2" />
+					
+					</td>
+				</tr>
 
-	<tr>
-		<td>Grade</td>
-<%--		<td><g:fieldValue bean="${prodDiamondInstance}" field="grade" /></td>--%>
-	</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Carat Weight :</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="carat" /></td>
+				</tr>
 
-	<tr>
-		<td>Hardness</td>
-<%--		<td><g:fieldValue bean="${prodDiamondInstance}" field="hardness" /></td>--%>
-	</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Cut</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="cut" /></td>
+				</tr>
 
-	<tr>
-		<td>Stone Id</td>
-<%--		<td><g:fieldValue bean="${prodDiamondInstance}" field="stoneId" /></td>--%>
-	</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Color</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="color" /></td>
+				</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Clarity</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}"
+							field="clarity" /></td>
+				</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Shape</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="shape" /></td>
+				</tr>
+			</table>
+		</div>
+		</div>
+	
+	<div class=fivecol>
+		<div class="rightdetails">
+			<table class="productFeatures">
+				<tr style="border-bottom: 1px dotted #B5B5B5; font-weight: normal;">
+					<td>Stock Number :</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}"
+							field="pdProductName" /></td>
+				</tr>
 
-	<tr>
-		<td>Treatment</td>
-<%--		<td><g:fieldValue bean="${prodDiamondInstance}"--%>
-<%--				field="treatment" /></td>--%>
-	</tr>
-</table>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Price :</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="carat" /></td>
+				</tr>
 
-<p style="font-family:'Droid Sans',Tahoma,Arial,sans-serif;border-bottom: 1px dotted #B5B5B5;text-transform: uppercase;"> 
-	Review Summary 
-</p>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Price per carat:</td>
+					<td><g:javascript>alert('hello')</g:javascript></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Carat Weight :</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="carat" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Cut</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="cut" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Color</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="color" /></td>
+				</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Clarity</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}"
+							field="clarity" /></td>
+				</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Shape</td>
+					<td><g:fieldValue bean="${prodDiamondInstance}" field="shape" /></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+<div class="row">
+<p
+	style="font-family: 'Droid Sans', Tahoma, Arial, sans-serif; border-bottom: 1px dotted #B5B5B5; text-transform: uppercase;">
+	Review Summary</p>
 
 <p style="margin-left: 20px; margin-top: 10px;">
-<div class="row">
 	<div class="fourcol">
 		<table style="margin-bottom: 20px;">
 			<tr>
 				<td>Overall Rating</td>
 				<td><span id="overall"> </span></td>
 				<td>
-<%--					(${prodDiamondInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)--%>
+					<%--					(${prodDiamondInstance?.calculatedInfo?.averageCustomerRating} OUT OF 5)--%>
 				</td>
 			</tr>
 			<tr>
 				<td>Quality & Workmanship</td>
 				<td><span id="quality_n_workmanship"></span></td>
 				<td>
-<%--					(${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating} OUT OF 5)--%>
+					<%--					(${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating} OUT OF 5)--%>
 				</td>
 			</tr>
-		
+
 			<tr>
 				<td>Product Satisfaction</td>
 				<td><span id="product_satisfaction"></span></td>
 				<td>
-<%--					(${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating} OUT OF 5)--%>
+					<%--					(${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating} OUT OF 5)--%>
 				</td>
 			</tr>
-		
+
 			<tr>
 				<td>Wow Factor</td>
 				<td><span id="wow_factor"></span></td>
 				<td>
-<%--					(${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating} OUT OF 5)--%>
+					<%--					(${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating} OUT OF 5)--%>
 				</td>
 			</tr>
 		</table>
 		<p>
-<%--			<g:link controller="productReview" action="create" params="[productId:prodDiamondInstance?.pdProductId]">--%>
-				Write a review
-<%--			</g:link>--%>
-			
-			<span> | </span>
-			
-			<a href="#tabs" onclick="$('#tabs').tabs('select', 1);">
-				Read Reviews
-			</a>
+			<%--			<g:link controller="productReview" action="create" params="[productId:prodDiamondInstance?.pdProductId]">--%>
+			Write a review
+			<%--			</g:link>--%>
+
+			<span> | </span> <a href="#tabs"
+				onclick="$('#tabs').tabs('select', 1);"> Read Reviews </a>
 		</p>
-<%--		<g:hiddenField name="overallRating" value="${prodDiamondInstance?.calculatedInfo?.averageCustomerRating}" />--%>
-<%--		<g:hiddenField name="qualityAndWorkmanshipRating" value="${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating}" />--%>
-<%--		<g:hiddenField name="productSatisfactionRating" value="${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating}" />--%>
-<%--		<g:hiddenField name="wowFactorRating" value="${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating}" />--%>
+		<%--		<g:hiddenField name="overallRating" value="${prodDiamondInstance?.calculatedInfo?.averageCustomerRating}" />--%>
+		<%--		<g:hiddenField name="qualityAndWorkmanshipRating" value="${prodDiamondInstance?.calculatedInfo?.averageQualityAndWorkmanshipRating}" />--%>
+		<%--		<g:hiddenField name="productSatisfactionRating" value="${prodDiamondInstance?.calculatedInfo?.averageProductSatisfactionRating}" />--%>
+		<%--		<g:hiddenField name="wowFactorRating" value="${prodDiamondInstance?.calculatedInfo?.averageWowFactorRating}" />--%>
 		<script>
 			$(function() {
 				$('#quality_n_workmanship').ratings(5,
 						$('#qualityAndWorkmanshipRating').val(), true);
-		
+
 				$('#product_satisfaction').ratings(5,
 						$('#productSatisfactionRating').val(), true);
-		
+
 				$('#wow_factor').ratings(5, $('#wowFactorRating').val(), true);
-		
+
 				$('#overall').ratings(5, $('#overallRating').val(), true);
 			});
-		</script>		
+		</script>
 	</div>
-	<div class="fourcol">
-		
-	</div>
+	<div class="fourcol"></div>
 </div>
 

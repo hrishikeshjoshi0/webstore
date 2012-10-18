@@ -59,7 +59,7 @@
  	#logos li {
 		display: inline;
 		list-style-type: none;
-		padding-right: 1px;
+		padding-right: 15px;
 	}
 	
 	#logos li > img{
@@ -254,14 +254,65 @@ span.reference a:hover {
 				<g:layoutBody />
 			</div>
 		</div>
+		
+		<div class="tencol" style="background-color: #FAFAFA; margin-right:-5px;width: 98%;">
+					
+					<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:5px;margin-top: -10px;">
+					<br/>
+					
+					<ul id="logos" style="border:0px;">
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'FedEx.png')}">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'GIA.png')}" >
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'gii.png')}" >
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'IGI.png')}">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'paypal.png')}" >
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'speedpost.png')}">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'usps.png')}" >
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="${resource(dir: 'images/footer', file: 'facebook.png')}" >
+								</a>
+							</li>
+						</ul>				
+						<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:5px;margin-top: -10px;">
+					<br/>
+				</div>
 
 		<div id="footer" class="shadow">
-			<div class="row">
-				<div class="twocol" style="margin:2px;margin-left:50px;">
-				<div id="footertitle" style="font-size:12px"><b>More Information</b></div>
-					<ul>
+			<div class="row" style="text-align: center;">
+				<div class="twocol" style="margin:2px;margin-left:80px; width: 15%">
+				<div id="footertitle" style="font-size:15px;"><b>More Information</b></div>
+					<ul style="border-left:1px dotted #B5B5B5 ">
 					     
-						<li><g:link controller="Footer" action="whybuyfromus">Why Buy From Us</g:link></li>
+						<li style="margin-top: 20px"><g:link controller="Footer" action="whybuyfromus">Why Buy From Us</g:link></li>
 						<li><g:link controller="Footer" action="gemcertification">Gem Certification</g:link></li>
 						<li><g:link controller="Footer" action="gemcare">Gem Care</g:link></li>
 						<li><g:link controller="Footer" action="discountcoupons">Discount Coupons</g:link></li>
@@ -277,9 +328,9 @@ span.reference a:hover {
 				</div>
 
 				<div class="twocol" style="margin:2px;">
-				<div id="footertitle" style="font-size:12px"><b>Navigation</b></div>
+				<div id="footertitle" style="font-size:15px"><b>Navigation</b></div>
 					<ul>
-						<li><a href="/webstore">Home</a></li>
+						<li style="margin-top: 20px"><a href="/webstore">Home</a></li>
 						<li><g:link controller="Footer" action="aboutus">About Us</g:link></li>
 						<li><g:link controller="Footer" action="paymentnshipping">Payment & Shipping</g:link></li>
 						<li><g:link controller="Footer" action="returnsnexchanges">Returns & Exchanges</g:link></li>
@@ -290,9 +341,9 @@ span.reference a:hover {
 				</div>
 
 				<div class="twocol" style="margin:2px;">
-				<div id="footertitle" style="font-size:12px"><b>Customer Service</b></div>
+				<div id="footertitle" style="font-size:15px"><b>Customer Service</b></div>
 					<ul>
-						<li><g:link controller="Footer" action="freeshippingworldwide">Free Shipping Worldwide</g:link></li>
+						<li style="margin-top: 20px"><g:link controller="Footer" action="freeshippingworldwide">Free Shipping Worldwide</g:link></li>
 						<li><g:link controller="Footer" action="noriskreturnpolicy">No Risk Return Policy</g:link></li>
 						<li><g:link controller="Footer" action="expertguidance">Expert Guidance</g:link></li>
 						<li><g:link controller="Footer" action="aftersalesservice">After Sales Service</g:link></li>
@@ -301,9 +352,9 @@ span.reference a:hover {
 				</div>
 
 				<div class="twocol" style="margin:2px;">
-				<div id="footertitle" style="font-size:12px"><b>FAQ’s</b></div>
+				<div id="footertitle" style="font-size:15px"><b>FAQ’s</b></div>
 					<ul>
-						<li><g:link controller="Footer" action="faqsecurity">Security</g:link></li>
+						<li style="margin-top: 20px"><g:link controller="Footer" action="faqsecurity">Security</g:link></li>
 						<li><g:link controller="Footer" action="faqpaymentnshipping">Payment & Shipping</g:link></li>
 						<li><g:link controller="Footer" action="faqreturnsnexchanges">Returns & Exchanges</g:link></li>
 						<li><g:link controller="Footer" action="faqmiscellaneous">Miscellaneous</g:link></li>
@@ -311,9 +362,9 @@ span.reference a:hover {
 				</div>
 
 				<div class="twocol" style="margin:2px;">
-				<div id="footertitle" style="font-size:12px"><b>Articles</b></div>
+				<div id="footertitle" style="font-size:15px"><b>Articles</b></div>
 					<ul>
-						<li><a href="/webstore/gemstone/list?productTypeId=3">Rubies</a></li>
+						<li style="margin-top: 20px"><a href="/webstore/gemstone/list?productTypeId=3">Rubies</a></li>
 						<li><a href="/webstore/gemstone/list?productTypeId=11">Emeralds</a></li>
 						<li><a href="/webstore/gemstone/list?productTypeId=8">Sapphires</a></li>
 						<li><a href="/webstore/diamond/list">Diamonds</a></li>
@@ -322,68 +373,17 @@ span.reference a:hover {
 				</div>
 				
 				<div class="twocol" style="margin:2px;">
-				<div id="footertitle" style="font-size:12px"><b>Contact Us</b></div>
+				<div id="footertitle" style="font-size:15px"><b>Contact Us</b></div>
 					<ul>
-						<li>Email : <a href="mailto:ricchroyall@yahoo.com">ricchroyall@yahoo.com</a></li>
+						<li style="margin-top: 20px">Email : <a href="mailto:ricchroyall@yahoo.com">ricchroyall@yahoo.com</a></li>
 						<li>Phone : <a href="#">+91-9833821291 </a></li>
 						<li><a href="#">Live Chat</a></li>
 					</ul>
 				</div>
 			</div>
-			
-			<div class="row">
-				<div class="tencol" style="background-color: #FAFAFA;margin-left: -5px;margin-right: -10px;height:80px;width: 100%;">
-					
-					<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:5px;margin-top: -10px;">
-					<br/>
-					
-					<ul id="logos" style="border:0px;margin-left: 80px;">
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'FedEx.png')}" style="margin-bottom: 20px;">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'GIA.png')}" style="margin-bottom: 8px;height:40px;">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'gii.png')}" style="margin-bottom: 10px;" height="40px">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'IGI.png')}">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'paypal.png')}" style="margin-bottom: 20px;">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'speedpost.png')}" style="margin-bottom: 20px;">
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'usps.png')}" >
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="${resource(dir: 'images/footer', file: 'f_logo.png')}" style="margin-bottom: 20px;" >
-								</a>
-							</li>
-						</ul>				
-				</div>
-				
-				<div class="tencol" 
-					style="background-color: #FAFAFA;margin-left: -5px;margin-right: -10px;height:80px;width: 100%;margin-top:-10px;">
-					<ul id="sitemaps" style="border:0px;margin-left: 80px;">
+			<div class="tencol" style="background-color: #FAFAFA; margin-left:-2px;width: 100%; height: 20px">
+							
+					<ul id="sitemaps" style="border:0px; text-align: center;" >
 						<li style="border: 0px;">
 							site map :
 						</li>
@@ -430,9 +430,16 @@ span.reference a:hover {
 						</li>
 					</ul>		
 				</div>
+				
 			</div>
+			<div>
+					<p align="center">	© 2007-2011 <a href="www.Rubyandgems.com"><b>Rubyandgems.com</b></a>™ | All Rights Reserved | Rubyandgems.com is the online property of Hina's Creations  based in Mumbai, India.
+</p>
+				</div>
 		</div>
 
+
+			
 
 		<script type="text/javascript">
 			$(function() {
@@ -530,6 +537,7 @@ span.reference a:hover {
 						});
 				});
 		</script>
+		
 		<script type='text/javascript'>
 			$(function() {
 				$('#forgot_username_link').tipsy({

@@ -24,8 +24,8 @@ public class ProductDiamond extends Product {
 	
 	@Column(name="PD_CARAT",precision=10, scale=6)
 	private BigDecimal carat;
-	
-	@Column(name="PD_COLOR")	
+		
+	@Column(name="PD_COLOR")
 	private String color;
 	
 	@Column(name="PD_CUT")
@@ -33,10 +33,10 @@ public class ProductDiamond extends Product {
 	
 	@Column(name="PD_CLARITY")
 	private String clarity;
-	
+		
 	@Column(name="PD_POLISH")
 	private String polish;
-	
+		
 	@Column(name="PD_FLUORESCENCE")
 	private String fluorescence;
 	
@@ -122,6 +122,16 @@ public class ProductDiamond extends Product {
 
 	public String getSymmetry() {
 		return symmetry;
+	}
+
+	
+
+	public BigDecimal getGrade() {
+		return grade;
+	}
+
+	public void setGrade(BigDecimal grade) {
+		this.grade = grade;
 	}
 
 	public void setSymmetry(String symmetry) {

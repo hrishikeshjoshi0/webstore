@@ -287,8 +287,9 @@ class DiamondController {
 			redirect(action: "list")
 			return
 		}
-
-		def model = [prodDiamondInstance: prodDiamondInstance]
+		def pricepercarat = prodDiamondInstance.getProductPrice(new Date()) / prodDiamondInstance.carat
+		
+		def model = [prodDiamondInstance: prodDiamondInstance,pricepercarat:pricepercarat]
 		
 		if (request.xhr) {
 			// ajax request
