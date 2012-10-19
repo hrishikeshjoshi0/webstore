@@ -18,7 +18,7 @@ class DiamondController {
     }
 	
 	def list() {
-		params.max = 9
+		params.max = 3
 		def roundcheckbox = params.roundcheckbox
 		def c = Diamond.createCriteria()
 		def sortBy = params.sortBy
@@ -138,8 +138,8 @@ class DiamondController {
 				eq("shape","RD")
 			}
 			
-			firstResult(params.offset)
-			maxResults(params.max)
+			firstResult(params.offset?.toInteger())
+			maxResults(params.max?.toInteger())
 		}
 		
 		def minPrice = Diamond.createCriteria().get {
@@ -225,14 +225,20 @@ class DiamondController {
 			params.fluorescenceFilterMax = 5
 		}
 		
-		
-		
+		params.nextCount = params.offset?.toInteger() + params.max?.toInteger()
 		
 		def model = [diamondList: diamonds, diamondListTotal: diamonds.size()]
 		
+		//template
+		//params.template = "grid"
+		
+		if(!params.template) {
+			params.template = "grid"
+		}
+		
 		if (request.xhr) {
 			// ajax request
-			render(template: "grid", model: model)
+			render(template: params.template, model: model)
 		} else {
 			model
 		}
