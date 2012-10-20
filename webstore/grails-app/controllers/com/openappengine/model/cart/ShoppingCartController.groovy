@@ -168,7 +168,7 @@ class ShoppingCartController {
 		def sc = ShoppingCart.get(params.shoppingCartId)
 		
 		def billingAddress = new Address()
-		bindData(billingAddress,params,"billing")
+		bindData(billingAddress,params,"billingAddress")
 		sc.billingAddress = billingAddress
 		billingAddress.save(flush:true)
 		

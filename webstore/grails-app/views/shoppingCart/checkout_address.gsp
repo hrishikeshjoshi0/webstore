@@ -72,7 +72,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.firstName}" name="billing.address.firstName"/>
+									<g:textField value="${billingAddress.firstName}" name="billingAddress.firstName"/>
 								</td>
 							</tr>
 							<tr>
@@ -82,7 +82,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.lastName}" name="billing.address.lastName"/>
+									<g:textField value="${billingAddress.lastName}" name="billingAddress.lastName"/>
 								</td>
 							</tr>
 							<tr>
@@ -92,7 +92,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.company}" name="billing.address.company"/>
+									<g:textField value="${billingAddress.company}" name="billingAddress.company"/>
 								</td>
 							</tr>
 							<tr>
@@ -102,7 +102,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.addressLine1}" name="billing.address.addressLine1"/>
+									<g:textField value="${billingAddress.addressLine1}" name="billingAddress.addressLine1"/>
 								</td>
 							</tr>
 							<tr>
@@ -112,7 +112,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.addressLine1}" name="billing.address.addressLine2"/>
+									<g:textField value="${billingAddress.addressLine1}" name="billingAddress.addressLine2"/>
 								</td>
 							</tr>
 							<tr>
@@ -122,7 +122,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.landmark}" name="billing.address.landmark"/>
+									<g:textField value="${billingAddress.landmark}" name="billingAddress.landmark"/>
 								</td>
 							</tr>
 							<tr>
@@ -132,7 +132,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.city}" name="billing.address.city"/>
+									<g:textField value="${billingAddress.city}" name="billingAddress.city"/>
 								</td>
 							</tr>
 							<tr>
@@ -142,7 +142,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.state}" name="billing.address.state"/>
+									<g:textField value="${billingAddress.state}" name="billingAddress.state"/>
 								</td>
 							</tr>
 							<tr>
@@ -152,7 +152,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.country}" name="billing.address.country"/>
+									<g:textField value="${billingAddress.country}" name="billingAddress.country"/>
 								</td>
 							</tr>
 							<tr>
@@ -162,7 +162,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.zip}" name="billing.address.zip"/>
+									<g:textField value="${billingAddress.zip}" name="billingAddress.zip"/>
 								</td>
 							</tr>
 							<tr>
@@ -172,7 +172,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.primaryPhone}" name="billing.address.primaryPhone"/>
+									<g:textField value="${billingAddress.primaryPhone}" name="billingAddress.primaryPhone"/>
 								</td>
 							</tr>
 							<tr>
@@ -182,7 +182,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField name="billing.address.email" value="${billingAddress.email}"/>
+									<g:textField name="billingAddress.email" value="${billingAddress.email}"/>
 								</td>
 							</tr>
 							<tr>
