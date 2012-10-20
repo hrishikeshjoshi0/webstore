@@ -207,59 +207,59 @@
 							<tbody>
 								<tr>
 									<td><label for="firstName"> First Name </label></td>
-									<td><g:textField name="shipping.address.firstName"
+									<td><g:textField name="shippingAddress.firstName"
 											value="${shippingAddress.firstName}" /></td>
 								</tr>
 								<tr>
 									<td><label for="lastName"> Last Name </label></td>
-									<td><g:textField name="shipping.address.lastName" value="${shippingAddress.lastName}" />
+									<td><g:textField name="shippingAddress.lastName" value="${shippingAddress.lastName}" />
 									</td>
 								</tr>
 								<tr>
 									<td><label for="company"> Company </label></td>
-									<td><g:textField name="shipping.address.company" value="${shippingAddress.company}" />
+									<td><g:textField name="shippingAddress.company" value="${shippingAddress.company}" />
 									</td>
 								</tr>
 								<tr>
 									<td><label for="address1"> Address Line 1 </label></td>
-									<td><g:textField name="shipping.address.addressLine1"
+									<td><g:textField name="shippingAddress.addressLine1"
 											value="${shippingAddress.addressLine1}" /></td>
 								</tr>
 								<tr>
 									<td><label for="address2"> Address Line 2 </label></td>
-									<td><g:textField name="shipping.address.addressLine2"
+									<td><g:textField name="shippingAddress.addressLine2"
 											value="${shippingAddress.addressLine2}" /></td>
 								</tr>
 								<tr>
 									<td><label for="landmark"> Landmark </label></td>
-									<td><g:textField name="shipping.address.landmark" value="${shippingAddress.landmark}" />
+									<td><g:textField name="shippingAddress.landmark" value="${shippingAddress.landmark}" />
 									</td>
 								</tr>
 								<tr>
 									<td><label for="city"> City </label></td>
-									<td><g:textField name="shipping.address.city" value="${shippingAddress.city}" /></td>
+									<td><g:textField name="shippingAddress.city" value="${shippingAddress.city}" /></td>
 								</tr>
 								<tr>
 									<td><label for="state"> State </label></td>
-									<td><g:textField name="shipping.address.state" value="${shippingAddress.state}" /></td>
+									<td><g:textField name="shippingAddress.state" value="${shippingAddress.state}" /></td>
 								</tr>
 								<tr>
 									<td><label for="country"> Country </label></td>
-									<td><g:textField name="shipping.address.country" value="${shippingAddress.country}" />
+									<td><g:textField name="shippingAddress.country" value="${shippingAddress.country}" />
 									</td>
 								</tr>
 								<tr>
 									<td><label for="zip"> Zip </label></td>
-									<td><g:textField name="shipping.address.zip" value="${shippingAddress.zip}" /></td>
+									<td><g:textField name="shippingAddress.zip" value="${shippingAddress.zip}" /></td>
 								</tr>
 								<tr>
 									<td><label for="primaryPhone"> Primary Phone </label></td>
-									<td><g:textField name="shipping.address.primaryPhone"
+									<td><g:textField name="shippingAddress.primaryPhone"
 											value="${shippingAddress.primaryPhone}" /></td>
 								</tr>
 								<tr>
 									<td><label for="email"> Email </label></td>
-									<td><g:textField name="shipping.address.email" value="${shippingAddress.email}" /></td>
+									<td><g:textField name="shippingAddress.email" value="${shippingAddress.email}" /></td>
 								</tr>
 							</tbody>
 						</table>

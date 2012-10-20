@@ -184,7 +184,7 @@ class ShoppingCartController {
 		
 		if(!sameShippingAddress) {
 			def shippingAddress = new Address()
-			bindData(shippingAddress,params,"billing")
+			bindData(shippingAddress,params,"shippingAddress")
 			sc.billingAddress = billingAddress
 			shippingAddress.save(flush:true)
 			sc.shippingAddress = shippingAddress
