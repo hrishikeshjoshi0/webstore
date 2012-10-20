@@ -48,7 +48,9 @@
 	<div class="infinite-scroll" data-ui="jscroll-default" style="height: 140px;overflow: scroll;">
 			<g:if test="${!diamondList.isEmpty()}">
 				<table class="cartItems" id="cartItems"
-					style="width: 100%; border: 1px solid #B5B5B5;margin-top:10px;margin-left:0px;">
+					style="width: 100%; 
+						border-left: 1px solid #B5B5B5;border-right: 1px solid #B5B5B5;border-top: 1px solid #B5B5B5;
+						margin-top:10px;margin-left:0px;">
 					<thead>
 						<tr>
 							<th class="cartItemsHeader" align="center" width="20px">Shape</th>
@@ -64,7 +66,7 @@
 							<th class="cartItemsHeader" align="center" width="20px">Details</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="tbodyResult">
 						<g:each in="${diamondList}" var="d" status="i">
 							<tr style="border: 1px dotted #B5B5B5;">
 								<td class="cartItem" align="center" valign="center"  style="width: 20px;">

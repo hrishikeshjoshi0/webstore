@@ -225,7 +225,12 @@ class DiamondController {
 			params.fluorescenceFilterMax = 5
 		}
 		
-		params.nextCount = params.offset?.toInteger() + params.max?.toInteger()
+		if(diamonds.size() != 0) {
+			params.nextCount = params.offset?.toInteger() + params.max?.toInteger()
+			params.showNext = "true"
+		} else {
+			params.showNext = "false"
+		}
 		
 		def model = [diamondList: diamonds, diamondListTotal: diamonds.size()]
 		
