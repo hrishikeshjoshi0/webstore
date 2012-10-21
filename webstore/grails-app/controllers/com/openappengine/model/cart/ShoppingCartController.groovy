@@ -169,8 +169,9 @@ class ShoppingCartController {
 		
 		def billingAddress = new Address()
 		bindData(billingAddress,params,"billingAddress")
-		sc.billingAddress = billingAddress
 		billingAddress.save(flush:true)
+		sc.billingAddress = billingAddress
+		
 		
 		sc.billingAddress = billingAddress
 		
@@ -185,8 +186,9 @@ class ShoppingCartController {
 		if(!sameShippingAddress) {
 			def shippingAddress = new Address()
 			bindData(shippingAddress,params,"shippingAddress")
-			sc.billingAddress = billingAddress
 			shippingAddress.save(flush:true)
+			sc.billingAddress = billingAddress
+			
 			sc.shippingAddress = shippingAddress
 		} else {
 			sc.shippingAddress = billingAddress
@@ -233,6 +235,8 @@ class ShoppingCartController {
 			}
 		}
 		paypalPayment.save(flush:true)
+		sc.transactionId = paypalPayment.transactionId
+		sc.save(flush:true)
 		redirect(controller:"paypal",action:"uploadCart",params:[transactionId:paypalPayment.transactionId])
 	}
 	

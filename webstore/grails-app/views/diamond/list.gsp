@@ -550,16 +550,16 @@
 							name="colorMax" id="colorMax" readonly="readonly" size="5"
 							value="" style="float: right; font-size: 11px;" />
 					</div>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 22px;">D</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 23px;">E</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 24px;">F</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 24px;">G</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 25px;">H</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 26px;">I</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 26px;">J</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 24px;">K</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 17px;">L</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold;">M</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 23px;">D</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 24px;">E</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 25px;">F</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 25px;">G</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 26px;">H</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 27px;">I</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 27px;">J</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 25px;">K</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 20px;">L</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold;">M</span>
 				</div>
 				
 
@@ -580,18 +580,18 @@
 							name="clarityMax" id="clarityMax" readonly="readonly" size="5"
 							value="" style="float: right; font-size: 11px;" />
 					</div>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 11px;">FL</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 8px;">IF</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 4px;">VVS1</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 4px;">VVS2</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 7px;">VS1</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 7px;">VS2</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 10px;">SI1</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 11px;">SI2</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 14px;">SI3</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 17px;">I1</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold; margin-right: 15px;">I2</span>
-					<span class="shape" style = "font-size: 11px; font-weight: bold;">I3</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold;font-family:serif; margin-right: 11px;">FL</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold;font-family:serif;  margin-right: 7px;">IF</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 3px;">VVS1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 3px;">VVS2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 6px;">VS1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 6px;">VS2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 10px;">SI1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 11px;">SI2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 12px;">SI3</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 17px;">I1</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif; margin-right: 11px;">I2</span>
+					<span class="shape" style = "font-size: 11px; font-weight: bold; font-family:serif;">I3</span>
 					
 				</div>
 
@@ -610,10 +610,10 @@
 							type="text" name="cutMax" id="cutMax" readonly="readonly"
 							size="5" value="" style="float: right; font-size: 11px;" />
 					</div>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 30px;">Excellent</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 45px;">Very Good</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 60px;">Good</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold;">Fair</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 30px;">Excellent</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 45px;">Very Good</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 60px;">Good</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold;">Fair</span>
 					
 				</div>
 
@@ -633,10 +633,10 @@
 							name="polishMax" id="polishMax" readonly="readonly" size="5"
 							value="" style="float: right; font-size: 11px;" />
 					</div>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 30px;">Excellent</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 45px;">Very Good</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 60px;">Good</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold;">Fair</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 30px;">Excellent</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 45px;">Very Good</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 60px;">Good</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold;">Fair</span>
 				</div>
 
 				<div class="fourcol" style=" 60px;height: 60px;">
@@ -656,10 +656,10 @@
 							value="" style="float: right; font-size: 11px;" />
 					</div>
 					
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 30px;">Excellent</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 45px;">Very Good</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 60px;">Good</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold;">Fair</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 30px;">Excellent</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 45px;">Very Good</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 60px;">Good</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold;">Fair</span>
 					
 				</div>
 
@@ -681,10 +681,10 @@
 							name="fluorescenceMax" id="fluorescenceMax" readonly="readonly"
 							size="5" value="" style="float: right; font-size: 11px;" />
 					</div>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 55px;">None</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 65px;">Faint</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold; margin-right: 46px;">Medium</span>
-					<span class="shape" style = "font-size: medium; font-weight: bold;">Strong</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 55px;">None</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 65px;">Faint</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold; margin-right: 46px;">Medium</span>
+					<span class="shape" style = "font-size: 12px; font-weight: bold;">Strong</span>
 				</div>
 			</div>
 

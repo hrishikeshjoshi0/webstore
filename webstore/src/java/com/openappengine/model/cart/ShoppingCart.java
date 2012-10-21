@@ -51,6 +51,17 @@ public class ShoppingCart implements Serializable {
 	@Column(name="SC_TOTAL_AMT")
 	private BigDecimal totalAmt;
 	
+	@Column(name="SC_TRANSACTION_ID")
+	private String transactionId;
+	
+	public String getTransactionId() {
+		return transactionId;
+	}
+
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
+	}
+
 	public BigDecimal getTotalAmt() {
 		return totalAmt;
 	}
