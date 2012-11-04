@@ -18,7 +18,7 @@ class DiamondController {
     }
 	
 	def list() {
-		params.max = 3
+		params.max = 25
 		def roundcheckbox = params.roundcheckbox
 		def c = Diamond.createCriteria()
 		def sortBy = params.sortBy

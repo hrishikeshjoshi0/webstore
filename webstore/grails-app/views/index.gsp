@@ -184,19 +184,10 @@
 		</div>
 
 		<div class="row" class="clearfix shadow" style="">
-			<div class="fourcol"
-				style="margin-left: 50px; height: 112px; margin: 2px;">
-				<span class="title">Diamond Stock List</span>
-				<div id="contents">
-					<ul class="product_list" style="z-index: 1000;">
-						<li style="list-style: none;"><a href="#">List 1</a></li>
-						<li style="list-style: none;"><a href="#">List 2</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="sevencol last" style="height: 112px; margin-top: 2px;">
-				<span class="title">Diamond Search</span>
-				<div id="contents" style="text-align: center;">
+			
+			<div class="sevencol last" style="height: 112px; margin-top: 10px; margin-left: 15px">
+				<span class="title" style="margin-left: 15px">Diamond Search</span>
+				<div id="contents" style="text-align: center; margin-top: 10px">
 					<g:form>
 					<img id="loose-diamonds-img"
 							alt="Diamond Search" src="${resource(dir: 'images/site/home', file: 'diamond-search.png')}">
@@ -244,7 +235,7 @@
 								 </label>
 							 </div>
 							 <div class="clear"></div>
-							 <div>
+							 <div style="margin-top: 10px">
 							 	<center>
 							 		<g:submitButton class="button" name="Search" value="Search Diamonds"/>
 							 	</center>
@@ -252,72 +243,19 @@
 					</g:form> 		
 				</div>
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="clearfix elevencol">
-				<hr/>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="fourcol box-small"
-				style="width: 320px; margin-left: 38px; margin-top: 10px; height: 150px;">
-				<!-- title -->
-				<span class="title"> Recent Articles </span>
-	
-				<div id="content">
-					<div style="max-width: 300px;">
-						<ul class="product_list">
-							<li class="recent_article">Nature, color, global,
-								feminine–it’s your time to shine with the hottest trends. <br />
-								<a class="read_more" href="#">read more</a>
-							</li>
-							<li class="recent_article">Nature, color, global,
-								feminine–it’s your time to shine with the hottest trends. <br />
-								<a class="read_more" href="#">read more</a>
-							</li>
-						</ul>
-					</div>
+			
+			<%--<div class="fourcol"
+				style="margin-left: 50px; height: 112px; margin: 2px;">
+				<span class="title">Diamond Stock List</span>
+				<div id="contents">
+					<ul class="product_list" style="z-index: 1000;">
+						<li style="list-style: none;"><a href="#">List 1</a></li>
+						<li style="list-style: none;"><a href="#">List 2</a></li>
+					</ul>
 				</div>
 			</div>
-	
-			<div class="fourcol box-small"
-				style="width: 320px; margin-top: 10px; height: 150px;">
-				<!-- title -->
-				<span class="title"> Poll </span>
-	
-				<div id="content">
-					<div style="max-width: 300px;">
-						<g:form>
-							<table style="width: 300px; ">
-								<tr>
-									<td>
-										Dummy question for the opinion poll ? 
-										Please vote..
-									</td>
-								<tr>
-									<td>
-										<g:radio name="A" value="A"/> Option 1
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<g:radio name="A" value="A"/> Option 2
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<g:radio name="A" value="A"/> Option 3
-									</td>
-								</tr>
-							</table>
-						</g:form>
-					</div>
-				</div>
-			</div>
-	
-			<div class="fourcol last box-small"
+			
+			--%><div class="fourcol last box-small"
 				style="width: 320px; margin-top: 10px; height: 150px;">
 				<!-- title -->
 				<span class="title"> Gallery</span>
@@ -373,8 +311,81 @@
 	
 			</div>
 		</div>
+			
+	
+	
+		<div class="row">
+			<div class="clearfix elevencol">
+				<hr/>
+			</div>
+		</div>
 
 		<div class="row">
+		
+			<div class="fourcol box-small"
+				style="width: 320px; margin-left: 38px; margin-top: 10px; height: 150px;">
+				<!-- title -->
+				<span class="title"> Recent Articles </span>
+	
+				<div id="content">
+					<div style="max-width: 300px;">
+						<ul class="product_list">
+							<li class="recent_article">Nature, color, global,
+								feminine–it’s your time to shine with the hottest trends. <br />
+								<a class="read_more" href="#">read more</a>
+							</li>
+							<li class="recent_article">Nature, color, global,
+								feminine–it’s your time to shine with the hottest trends. <br />
+								<a class="read_more" href="#">read more</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	
+			<div class="fourcol box-small"
+				style="width: 320px; margin-top: 10px; height: 150px;">
+				<!-- title -->
+				<span class="title"> Poll </span>
+	
+				<div id="content">
+					<div style="max-width: 300px;">
+						<g:form>
+							<table style="width: 300px; ">
+								<tr>
+									<td>
+										Dummy question for the opinion poll ? 
+										Please vote..
+									</td>
+								<tr>
+									<td>
+										<g:radio name="A" value="A"/> Option 1
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<g:radio name="A" value="A"/> Option 2
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<g:radio name="A" value="A"/> Option 3
+									</td>
+								</tr>
+							</table>
+						</g:form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="fourcol last box-small"
+				style="width: 320px; margin-top: 10px; height: 150px;">
+				
+				
+			</div>	
+		</div>
+
+			<div class="row">
 			<div class="clearfix elevencol">
 				<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:10px;">
 			</div>

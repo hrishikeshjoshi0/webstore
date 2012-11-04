@@ -32,15 +32,16 @@
 		<img id="largeImage" src="${resource(dir: '/images', file: 'Round-Shape-Illustration-Top-View.jpg')}" style = "width: 300px;"/>
 				
 			<div id="description1">
-				<div class="image-overlay-table" style="padding: 2px; top: 10px; left: 165px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
-						<span> Length </span> </div>
-				<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 175px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
-						<span> ${productInstance.table} </span> </div>
 				
-				<div class="image-overlay-table" style="padding: 2px; top: 130px; left: 120px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
+				<div class="image-overlay-table" style="padding: 2px; top: 30px; left: 165px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);"> 
+						<span> ${productInstance.width}mm </span> </div>
+						<div class="image-overlay-table" style="padding: 2px; top: 15px; left: 165px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);"> 
+						<span> Length </span> </div>
+				
+				<div class="image-overlay-table" style="padding: 2px; top: 135px; left: 120px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);"> 
 						<span> Width </span> </div>
-				<div class="image-overlay-table" style="padding: 2px; top: 150px; left: 128px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);font-weight: bold;"> 
-						<span> ${productInstance.table} </span> </div>
+				<div class="image-overlay-table" style="padding: 2px; top: 150px; left: 117px; position: absolute; text-align: center; background-color: rgb(255, 255, 255);"> 
+						<span> ${productInstance.height}mm </span> </div>
 			</div>
 			
 			<div id="description2">
