@@ -173,7 +173,7 @@ span.reference a:hover {
 <r:layoutResources />
 </head>
 <body>
-	<div id="wrap">
+	<div id="wrap" style="box-shadow: 0 10px 30px -4px #000;">
 
 		<!-- Header -->
 		<div id="header">
