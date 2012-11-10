@@ -106,6 +106,15 @@ public class Product implements Serializable {
 
 	@Column(name="PD_WEIGHT_UOM_ID", length=20)
 	private String pdWeightUomId;
+	
+	@Column(name="PD_CAT1", length=20)
+	private String cat1;
+	
+	@Column(name="PD_CAT2", length=20)
+	private String cat2;
+	
+	@Column(name="PD_CAT3", length=20)
+	private String cat3;
 
 	//bi-directional many-to-one association to ProdProductPrice
 	@OneToMany(mappedBy="prodProduct",cascade=CascadeType.ALL,fetch=FetchType.LAZY)

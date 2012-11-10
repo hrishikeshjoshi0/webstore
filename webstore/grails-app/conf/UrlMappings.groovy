@@ -12,5 +12,12 @@ class UrlMappings {
 		
 		"/login/$action?"(controller: "login")
 		"/logout/$action?"(controller: "logout")
+		
+		name gemstoneProductType : "/gemstones/$productTypeName" {
+			controller = 'gemstone'
+			action = 'list'
+		}
+		
+		
 	}
 }

@@ -78,30 +78,7 @@ $(document).ready(function() {
 	        })
 	    });
 
-	 $('.productTypeFilterLink').live('click', function(event) {
-	        event.preventDefault();
-	        var rel = $(this).attr('rel');
-	        $("#productType").val(rel);
-
-	        var url = $(this).attr('href');
-	        
-	        $('.selectedProductType').removeClass('selectedProductType');
-
-	        $(this).parent().addClass('selectedProductType');
-
-	        $('#clearFilterDiv').show();
-	        	        
-	        var grid = $(".ajax");
-	        $(grid).html($("#spinner").html());
-		    $.ajax({
-		           type: 'GET',
-		           url: url,
-		           success: function(data) {
-		               $(grid).html(data);
-		               setupPriceSlider();
-		           }
-		    });
-		 });
+	 
 	}
 
 	function ajaxList() {
