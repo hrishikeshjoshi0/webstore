@@ -132,6 +132,8 @@ class ProductController {
 		
 		def productCategory = ProductCategory.findByProductCategoryName(params.productCategory)
 		
+		//def productTypeURL = "Star Rubies".asFriendlyUrl()
+		
 		def productTypes = new ArrayList<ProductType>()
 		if(productCategory) {
 			productTypes.addAll(productCategory?.productTypes)

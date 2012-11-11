@@ -18,6 +18,11 @@ class UrlMappings {
 			action = 'list'
 		}
 		
+		name gemstoneProductType : "/gemstones" {
+			controller = 'gemstone'
+			action = 'list'
+		}
+		
 		
 	}
 }

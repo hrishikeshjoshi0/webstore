@@ -18,7 +18,7 @@ class GemstoneController {
         params.max = 9
 		def c = Gemstone.createCriteria()
 		def sortBy = params.sortBy
-		def productTypeId = params.productTypeId
+		def productTypeName = params.productTypeName
 		
 		params.pageHeader = "Featured Gemstones"
 		
@@ -39,18 +39,18 @@ class GemstoneController {
 		}
 		
 		params.sortBy = sortBy
-		params.productTypeId = productTypeId
+		params.productTypeName = productTypeName
 		
 		def gemstones = new ArrayList<Product>();
 		
 		gemstones = c.list {
 			createAlias('prodProductPrices', 'price')
 			
-			between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
+			//between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
 			
 			//Filter
-			if(productTypeId) {
-				def productType = ProductType.get(params.productTypeId)
+			if(productTypeName) {
+				def productType = ProductType.findByProductTypeName(params.productTypeName)
 				eq("productType",productType)
 			}
 			
@@ -76,8 +76,8 @@ class GemstoneController {
 			createAlias('prodProductPrices', 'price')
 			
 			//Filter
-			if(productTypeId) {
-				def productType = ProductType.get(params.productTypeId)
+			if(productTypeName) {
+				def productType = ProductType.findByProductTypeName(params.productTypeName)
 				eq("productType",productType)
 			}
 			
@@ -90,8 +90,8 @@ class GemstoneController {
 			createAlias('prodProductPrices', 'price')
 			
 			//Filter
-			if(productTypeId) {
-				def productType = ProductType.get(params.productTypeId)
+			if(productTypeName) {
+				def productType = ProductType.findByProductTypeName(params.productTypeName)
 				eq("productType",productType)
 			}
 			
@@ -100,8 +100,8 @@ class GemstoneController {
 			}
 		}
 		
-		if(productTypeId) {
-			params.pageHeader = ProductType.get(params.productTypeId)?.productTypeName
+		if(productTypeName) {
+			params.pageHeader = productTypeName
 		}
 		
 		params.minPrice = minPrice
