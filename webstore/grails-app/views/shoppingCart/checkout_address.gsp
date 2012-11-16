@@ -192,7 +192,7 @@
 									</label>
 								</td>
 								<td>
-									<g:checkBox name="sameShippingAddress" value="${sameShippingAddress}"/>
+									<g:checkBox name="sameShippingAddress" value="${params.sameShippingAddress}"/>
 								</td>
 							</tr>
 							</tbody>

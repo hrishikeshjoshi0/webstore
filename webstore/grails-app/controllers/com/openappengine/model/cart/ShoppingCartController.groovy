@@ -133,7 +133,8 @@ class ShoppingCartController {
 		
 		if(springSecurityService.isLoggedIn()) {
 			def model = [shoppingCartInstance:sc,sameShippingAddress:true]
-			redirect(action: "checkout_address",model : model)
+			params.shoppingCartId =sc?.shoppingCartId
+			redirect(action: "checkout_address",model : model,params:params)
 			return
 		} 
 		
@@ -156,7 +157,8 @@ class ShoppingCartController {
 		def sc = ShoppingCart.get(params.shoppingCartId)
 		def billingAddress = new Address()
 		def shippingAddress = new Address()
-		[shoppingCartInstance:sc,billingAddress:billingAddress,shippingAddress:shippingAddress]
+		params.sameShippingAddress = true
+		[shoppingCartInstance:sc,billingAddress:billingAddress,shippingAddress:shippingAddress,params:params]
 	}
 	
 	def checkout_address_process() {
