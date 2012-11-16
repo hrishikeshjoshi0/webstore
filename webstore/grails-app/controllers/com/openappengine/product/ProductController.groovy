@@ -125,6 +125,7 @@ class ProductController {
 	}
 	
 	def ajaxGetCategoryTypes() {
+		def a= params
 		if(!params.productCategory) {
 			//TODO
 			return
@@ -154,5 +155,33 @@ class ProductController {
 	
 	def showModalGallery() {
 		render(view: "/common/gallery")
+	}
+	
+	def ajaxGetCat1() {
+		def a = params
+		if(!params.productCategory) {
+			//TODO
+
+		
+		}
+		
+		def productCat1 = params.productCategory
+		
+		//def productTypeURL = "Star Rubies".asFriendlyUrl()
+		def parentCat = ProductType.findByProductTypeName(productCat1)
+		def productTypes = new ArrayList<ProductType>()
+		productTypes = ProductType.findAllByParentType(parentCat)
+		//if(productCategory) {
+		//	productTypes.addAll(productCat1)
+		//}
+		
+		def model = [productTypes: productTypes, productCat1:productCat1]
+		if (request.xhr) {
+				// ajax request
+			
+				render(template:params.template, model: model)
+			
+		} 
+		
 	}
 }

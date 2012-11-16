@@ -30,7 +30,6 @@ $(document).ready(function() {
 	        }
 	    });
 
-
         //  Initialize xBreadcrumbs
         //$('#breadcrumbs-1').xBreadcrumbs();
 	});
@@ -145,9 +144,12 @@ $(document).ready(function() {
 				Gemstone Type :
 			</div>			
 
+	
 			<div id="productTypes">
 				
 			</div>
+			
+			
 			<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 			
 		</div>
@@ -160,6 +162,14 @@ $(document).ready(function() {
 				<g:render template="/common/breadCrumb" />
 			</div>
 			--%>
+			<g:each in="${prodCat1}" status="i" var="prodCat">
+				<div id="Cat_tabs">
+				<g:link mapping="gemstoneCat1"  params="[productCat1:prodCat.productTypeName,productTypeName:prodCat.parentType.productTypeName]">
+				${prodCat.productTypeName}
+				</g:link>
+				</div>
+			</g:each>
+			
 			<div id="grid">
 	            <g:render template="grid" model="model" />
 	        </div>
