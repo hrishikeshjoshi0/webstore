@@ -668,3 +668,20 @@ tr {
 .form>td {
 	padding: 2px;
 }
+.productCatTab{
+	width: 200px;
+	display: block;
+}
+
+#Cat_tabs {
+	width: 150px;
+	float: left;
+border: 2px solid #069;
+background: #F7F7F7;
+border-bottom: none;
+border-radius: 8px 8px 0 0;
+color: #152551;
+text-align: center;
+font: bold;
+
+}
