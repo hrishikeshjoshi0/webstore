@@ -668,20 +668,47 @@ tr {
 .form>td {
 	padding: 2px;
 }
+
 .productCatTab{
 	width: 200px;
 	display: block;
 }
 
-#Cat_tabs {
+.Cat_tabs {
 	width: 150px;
 	float: left;
-border: 2px solid #069;
-background: #F7F7F7;
-border-bottom: none;
-border-radius: 8px 8px 0 0;
-color: #152551;
-text-align: center;
-font: bold;
+	border: 2px solid #069;
+	background: #F7F7F7;
+	border-bottom: none;
+	border-radius: 8px 8px 0 0;
+	color: #152551;
+	text-align: center;
+	font: bold;
+	font-size: 13px;
+	height: 30px;
+}
 
+.Cat_tabs_active {
+	width: 150px;
+	height: 30px;
+	float: left;
+	border: 2px solid #069;
+	background: #F7F7F7;
+	border-bottom: none;
+	border-radius: 8px 8px 0 0;
+	color: #FFF;
+	text-align: center;
+	font: bold;
+	background-color: #069;
+	font-size: 13px;
+}
+
+.Cat_tabs_active > a {
+	color: #FFF;
+	margin-bottom: 30px;
+}
+
+.Cat_tabs > a {
+	color: #152551;
+	margin-bottom: 30px;
 }

@@ -127,11 +127,11 @@ class GemstoneController {
 			productTypes = ProductType.findAllByParentType(parentCat)
 		}
 
-		def model = [prodGemstoneInstanceList: gemstones, prodGemstoneInstanceTotal: gemstones.size(),prodCat1: productTypes]
+		def model = [prodGemstoneInstanceList: gemstones, prodGemstoneInstanceTotal: gemstones.size(),prodCat1: productTypes,activeCat1 : params.productCat1,activeProductTypeName:params.productTypeName]
 
 		if (request.xhr) {
 			// ajax request
-			render(template: "grid", model: model)
+			render(template: "grid", model: model,params:params)
 		} else {
 			model
 		}

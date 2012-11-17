@@ -85,13 +85,15 @@ $(document).ready(function() {
 		url = url + "?" + "sortBy=" + $("#sortBy").val();
 		url = url + "&" + "minPrice=" + $("#productPriceFilter").slider( "values", 0 );
 		url = url + "&" + "maxPrice=" + $("#productPriceFilter").slider( "values", 1 );
-		url = url + "&" + "productTypeId=" + $("#productType").val();
+		url = url + "&" + "productTypeName=" + $("#productTypeName").val();
+		url = url + "&" + "productCat1=" + $("#productTypeCat1").val();
 		
 	    var grid = $(".ajax");
 	    $(grid).html($("#spinner").html());
 	
 	    $.ajax({
 	        type: 'GET',
+	        async : true,
 	        url: url,
 	        success: function(data) {
 	            $(grid).html(data);
@@ -128,6 +130,9 @@ $(document).ready(function() {
 			
 			<input type="hidden" name="productType" id="productType" value="${params.productTypeId}"/>
 			
+			<input type="hidden" name="productTypeName" id="productTypeName" value="${activeProductTypeName}"/>
+			<input type="hidden" name="productTypeCat1" id="productTypeCat1" value="${activeCat1}"/>
+			
 			<div id="productPriceFilter" class="productPriceFilter"></div>
 			<div class="productPriceFilter" style="font-size: 11px;margin-top: 5px;">
 				<input type="text" name="minPrice" id="minPrice" readonly="readonly"
@@ -158,21 +163,21 @@ $(document).ready(function() {
 			margin-left: -2.5em; : Provides more space in the list area 
 		 -->
 		<div class="right product-list-wrapper" style="margin-left: -2.5em;">
-			<%--<div id="bread-crumbs">
-				<g:render template="/common/breadCrumb" />
+			<div id="product-list-content" style="border-top: 1px;">
+				<g:each in="${prodCat1}" status="i" var="prodCat">
+					<div <g:if test="${prodCat.productTypeName == activeCat1}">class = 'Cat_tabs_active'</g:if><g:else>class="Cat_tabs"</g:else>>
+						<g:link mapping="gemstoneCat1"  params="[productCat1:prodCat.productTypeName,productTypeName:prodCat.parentType.productTypeName]">
+							${prodCat.productTypeName}
+						</g:link>
+					</div>
+				</g:each>
+
+				<hr style="width:100%;margin-left: -1.5em;"/>
+				
+				<div id="grid">
+		            <g:render template="grid" model="model" />
+		        </div>
 			</div>
-			--%>
-			<g:each in="${prodCat1}" status="i" var="prodCat">
-				<div id="Cat_tabs">
-				<g:link mapping="gemstoneCat1"  params="[productCat1:prodCat.productTypeName,productTypeName:prodCat.parentType.productTypeName]">
-				${prodCat.productTypeName}
-				</g:link>
-				</div>
-			</g:each>
-			
-			<div id="grid">
-	            <g:render template="grid" model="model" />
-	        </div>
 		</div>
 	</div>
 </body>
