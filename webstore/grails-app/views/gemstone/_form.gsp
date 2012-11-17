@@ -2,6 +2,14 @@
 <table class="form">
 	<tr>
 		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Stone ID" />
+		</td>
+		<td>
+			<g:textField name="pdProductName" value="${prodGemstoneInstance?.stoneId}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<g:message code="prodGemstone.pdProductName.label" default="Name" />
 		</td>
 		<td>
@@ -21,9 +29,18 @@
 			<g:message code="prodGemstone.pdDescription.label" default="Description" />
 		</td>
 		<td>
-			<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdProductName}" rows="5" cols="20" />		
+			<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdDescription}" rows="5" cols="20" />		
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="No of Pieces" />
+		</td>
+		<td>
+			<g:textField name="pdProductName" value="${prodGemstoneInstance?.pieces}" />		
+		</td>
+	</tr>
+	
 	<tr>
 		<td>
 			<g:message code="prodGemstone.clarity.label" default="Clarity" />
@@ -99,6 +116,30 @@
 		</td>
 		<td>
 			<g:textField name="origin" value="${prodGemstoneInstance?.origin}" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Measurements" />
+		</td>
+		<td>
+			<g:textField name="pdProductName" value="${prodGemstoneInstance?.measurement}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Treatments" />
+		</td>
+		<td>
+			<g:textField name="pdProductName" value="${prodGemstoneInstance?.treatment}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Certification" />
+		</td>
+		<td>
+			<g:textField name="pdProductName" value="${prodGemstoneInstance?.certi}" />		
 		</td>
 	</tr>
 </table>
