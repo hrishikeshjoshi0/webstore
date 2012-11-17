@@ -5,7 +5,7 @@
 			<g:message code="prodGemstone.pdProductName.label" default="Stone ID" />
 		</td>
 		<td>
-			<g:textField name="pdProductName" value="${prodGemstoneInstance?.stoneId}" />		
+			<g:textField name="stoneId" value="${prodGemstoneInstance?.stoneId}" />		
 		</td>
 	</tr>
 	<tr>
@@ -37,7 +37,7 @@
 			<g:message code="prodGemstone.pdProductName.label" default="No of Pieces" />
 		</td>
 		<td>
-			<g:textField name="pdProductName" value="${prodGemstoneInstance?.pieces}" />		
+			<g:textField name="pieces" value="${prodGemstoneInstance?.pieces}" />		
 		</td>
 	</tr>
 	
@@ -123,7 +123,7 @@
 			<g:message code="prodGemstone.pdProductName.label" default="Measurements" />
 		</td>
 		<td>
-			<g:textField name="pdProductName" value="${prodGemstoneInstance?.measurement}" />		
+			<g:textField name="measurement" value="${prodGemstoneInstance?.measurement}" />		
 		</td>
 	</tr>
 	<tr>
@@ -131,7 +131,7 @@
 			<g:message code="prodGemstone.pdProductName.label" default="Treatments" />
 		</td>
 		<td>
-			<g:textField name="pdProductName" value="${prodGemstoneInstance?.treatment}" />		
+			<g:textField name="treatment" value="${prodGemstoneInstance?.treatment}" />		
 		</td>
 	</tr>
 	<tr>
@@ -139,7 +139,23 @@
 			<g:message code="prodGemstone.pdProductName.label" default="Certification" />
 		</td>
 		<td>
-			<g:textField name="pdProductName" value="${prodGemstoneInstance?.certi}" />		
+			<g:textField name="certi" value="${prodGemstoneInstance?.certi}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Catagory1" />
+		</td>
+		<td>
+			<g:textField name="cat1" value="${prodGemstoneInstance?.cat1}" />		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<g:message code="prodGemstone.pdProductName.label" default="Catagory1" />
+		</td>
+		<td>
+			<g:textField name="cat1" value="${prodGemstoneInstance?.cat1}" />		
 		</td>
 	</tr>
 </table>
