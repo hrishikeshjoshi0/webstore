@@ -64,7 +64,7 @@ public class Gemstone extends Product {
 	@Column(name="PD_IS_MEASUREMENT")
 	private String measurement;
 	
-	@Column(name="PD_IS_CERTI")
+	@Column(name="PD_CERTI")
 	private String certi;
 
 	public String getStoneId() {
