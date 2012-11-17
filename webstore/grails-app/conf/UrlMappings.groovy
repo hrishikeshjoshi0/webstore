@@ -28,6 +28,10 @@ class UrlMappings {
 			action = 'list'
 		}
 		
-		
+		name gemstoneProductTypePrice : "/gemstones/$productTypeName/$max-$min" {
+			controller = 'gemstone'
+			action = 'list'
+		}
+		gemstoneProductTypePrice
 	}
 }
