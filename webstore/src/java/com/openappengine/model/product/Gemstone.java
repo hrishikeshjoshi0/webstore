@@ -9,10 +9,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import org.compass.annotations.Searchable;
+
 /**
  * @author hrishi
  * 
  */
+
 @Entity(name="prod_product_gemstone")
 @PrimaryKeyJoinColumn(name="PD_PRODUCT_ID")
 public class Gemstone extends Product {

@@ -11,7 +11,7 @@
 	<body>
 		<g:form action="save" >
 			<fieldset class="form">
-				<input type="hidden" id="productId" name="prodProduct.productId" value="${params.productId}" />
+				<input type="hidden" id="productId" name="productId" value="${params.productId}" />
 				<g:render template="form"/>
 				<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				

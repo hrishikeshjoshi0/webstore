@@ -26,10 +26,11 @@
 			</li>
 
 			<!-- Jewelry -->
-			<li><a href="">Jewelry</a> <!-- -112px --> <!--  Add -111px for every next div. 
-						<div class="oe_menu_content" style="left: -111px;">
-						</div>
-						 --></li>
+			<li><a href="<g:createLink controller="jewellery" action="list" />">Jewelry</a> <!-- -112px --> <!--  Add -111px for every next div. 
+				<div class="oe_menu_content" style="left: -111px;">
+				</div>
+				 -->
+			</li>
 
 			<!-- Diamonds -->
 			<li>

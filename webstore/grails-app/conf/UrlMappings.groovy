@@ -28,6 +28,20 @@ class UrlMappings {
 			action = 'list'
 		}
 		
+		//Jewellery
+		name jewelleryProductType : "/jewellery/$productTypeName" {
+			controller = 'jewellery'
+			action = 'list'
+		}
 		
+		name jewelleryCat1 : "/jewellery/$productTypeName/$productCat1" {
+			controller = 'jewellery'
+			action = 'list'
+		}
+		
+		name jewelleryProductType : "/jewellery" {
+			controller = 'jewellery'
+			action = 'list'
+		}
 	}
 }

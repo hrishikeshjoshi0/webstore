@@ -311,7 +311,10 @@ class GemstoneController {
 		}
 
 		def productId = params.productId
-		redirect(controller:"productPrice", action: "list",params:[productId : productId])
+		
+		params.productId = productId
+		
+		redirect(controller:"productPrice", action: "list",params:params)
 	}
 
 	def showImage  = {

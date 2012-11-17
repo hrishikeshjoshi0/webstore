@@ -37,7 +37,11 @@ class ProductPriceController {
 
     def save() {
         def prodProductPriceInstance = new ProdProductPrice(params)
-		prodProductPriceInstance.prodProduct = Product.get(params.productId)
+		
+		def s = params
+		def prod = Product.get(params.productId)
+		
+		prodProductPriceInstance.prodProduct = prod
 		
 		def c = ProdProductPrice.createCriteria()
 		def productPrices = c.list {

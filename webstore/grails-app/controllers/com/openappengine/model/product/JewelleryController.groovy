@@ -10,9 +10,17 @@ class JewelleryController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [jewelleryInstanceList: Jewellery.list(params), jewelleryInstanceTotal: Jewellery.count()]
+    def list() {
+		params.max = 9
+		
+        //params.max = Math.min(params.max ?: 10, 100)
+		def result = Jewellery.list(params)
+
+		def p = params;
+		
+		params.metalFilter
+				
+        [jewelleryInstanceList: result, jewelleryInstanceTotal: result.size()]
     }
 
     def create() {

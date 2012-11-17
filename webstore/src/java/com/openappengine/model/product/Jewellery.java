@@ -19,146 +19,234 @@ public class Jewellery extends Product {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name="PD_STONE_ID")
-	private String stoneId;
+	@Column(name="PD_STOCK_ID")
+	private String stockId;
 	
-	@Column(name="PD_SHAPE")
-	private String shape;
+	@Column(name="PD_METAL")
+	private String metal;
 	
-	@Column(name="PD_CARAT",precision=10, scale=6)
-	private BigDecimal carat;
+	@Column(name="PD_LENGTH",precision=10, scale=6)
+	private BigDecimal length;
 	
-	@Column(name="PD_COLOR")	
-	private String color;
+	@Column(name="PD_WIDTH",precision=10, scale=6)	
+	private BigDecimal width;
 	
-	@Column(name="PD_CUT")
-	private String cut;
+	@Column(name="PD_HEIGHT",precision=10, scale=6)
+	private BigDecimal height;
 	
-	@Column(name="PD_CLARITY")
-	private String clarity;
+	@Column(name="PD_NET_WEIGHT",precision=10, scale=6)
+	private BigDecimal netWeight;
 	
-	@Column(name="PD_GRADE")
-	private String grade;
+	@Column(name="PD_GROSS_WEIGHT",precision=10, scale=6)
+	private BigDecimal grossWeight;
+
+	@Column(name="PD_DIAMOND_WEIGHT",precision=10, scale=6)
+	private BigDecimal diamondWeight;
 	
-	@Column(name="PD_STAR_SHARPNESS")
-	private String starSharpness;
-
-	@Column(name="PD_ORIGIN")
-	private String origin;
+	@Column(name="PD_DIAMOND_SHAPE")
+	private String diamondShape;
 	
-	@Column(name="PD_HARDNESS")
-	private String hardness;
+	@Column(name="PD_DIAMOND_NO_OF_PIECES",precision=10, scale=6)
+	private BigDecimal diamondNoOfPieces;
 	
-	@Column(name="PD_TREATMENT")
-	private String treatment;
+	@Column(name="PD_DIAMOND_COLOR")
+	private BigDecimal diamondColor;
 	
-	@Column(name="PD_IMAGE_URL")
-	private String imageUrl;
+	@Column(name="PD_DIAMOND_CLARITY",precision=10, scale=6)
+	private BigDecimal diamondClarity;
 	
-	@Column(name="PD_IS_CERTIFIED")
-	private Boolean certified;
+	@Column(name="PD_SETTING_STYLE")
+	private String settingStyle;
 	
-	public String getShape() {
-		return shape;
+	@Column(name="PD_COLOR_STONE_NAME",precision=10, scale=6)
+	private String colorStoneName;
+	
+	@Column(name="PD_COLOR_STONE_WEIGHT",precision=10, scale=6)
+	private BigDecimal colorStoneWeight;
+	
+	@Column(name="PD_COLOR_STONE_SHAPE")
+	private String colorStoneShape;
+	
+	@Column(name="PD_COLOR_STONE_NO_OF_PIECES",precision=10, scale=6)
+	private BigDecimal colorStoneNoOfPieces;
+	
+	@Column(name="PD_PEARL_NAME")
+	private String pearlName;
+	
+	@Column(name="PD_PEARL_WEIGHT",precision=10, scale=6)
+	private BigDecimal pearlWeight;
+	
+	@Column(name="PD_PEARL_SHAPE")
+	private String pearlShape;
+	
+	@Column(name="PD_PEARL_NO_OF_PIECES",precision=10, scale=6)
+	private BigDecimal pearlNoOfPieces;
+
+	public String getStockId() {
+		return stockId;
 	}
 
-	public void setShape(String shape) {
-		this.shape = shape;
+	public void setStockId(String stockId) {
+		this.stockId = stockId;
 	}
 
-	public BigDecimal getCarat() {
-		return carat;
+	public String getMetal() {
+		return metal;
 	}
 
-	public void setCarat(BigDecimal carat) {
-		this.carat = carat;
+	public void setMetal(String metal) {
+		this.metal = metal;
 	}
 
-	public String getColor() {
-		return color;
+	public BigDecimal getLength() {
+		return length;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setLength(BigDecimal length) {
+		this.length = length;
 	}
 
-	public String getCut() {
-		return cut;
+	public BigDecimal getWidth() {
+		return width;
 	}
 
-	public void setCut(String cut) {
-		this.cut = cut;
+	public void setWidth(BigDecimal width) {
+		this.width = width;
 	}
 
-	public String getClarity() {
-		return clarity;
+	public BigDecimal getHeight() {
+		return height;
 	}
 
-	public void setClarity(String clarity) {
-		this.clarity = clarity;
+	public void setHeight(BigDecimal height) {
+		this.height = height;
 	}
 
-	public String getGrade() {
-		return grade;
+	public BigDecimal getNetWeight() {
+		return netWeight;
 	}
 
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setNetWeight(BigDecimal netWeight) {
+		this.netWeight = netWeight;
 	}
 
-	public String getStoneId() {
-		return stoneId;
+	public BigDecimal getGrossWeight() {
+		return grossWeight;
 	}
 
-	public void setStoneId(String stoneId) {
-		this.stoneId = stoneId;
+	public void setGrossWeight(BigDecimal grossWeight) {
+		this.grossWeight = grossWeight;
 	}
 
-	public String getStarSharpness() {
-		return starSharpness;
+	public BigDecimal getDiamondWeight() {
+		return diamondWeight;
 	}
 
-	public void setStarSharpness(String starSharpness) {
-		this.starSharpness = starSharpness;
+	public void setDiamondWeight(BigDecimal diamondWeight) {
+		this.diamondWeight = diamondWeight;
 	}
 
-	public String getOrigin() {
-		return origin;
+	public String getDiamondShape() {
+		return diamondShape;
 	}
 
-	public void setOrigin(String origin) {
-		this.origin = origin;
+	public void setDiamondShape(String diamondShape) {
+		this.diamondShape = diamondShape;
 	}
 
-	public String getHardness() {
-		return hardness;
+	public BigDecimal getDiamondNoOfPieces() {
+		return diamondNoOfPieces;
 	}
 
-	public void setHardness(String hardness) {
-		this.hardness = hardness;
+	public void setDiamondNoOfPieces(BigDecimal diamondNoOfPieces) {
+		this.diamondNoOfPieces = diamondNoOfPieces;
 	}
 
-	public String getTreatment() {
-		return treatment;
+	public BigDecimal getDiamondColor() {
+		return diamondColor;
 	}
 
-	public void setTreatment(String treatment) {
-		this.treatment = treatment;
+	public void setDiamondColor(BigDecimal diamondColor) {
+		this.diamondColor = diamondColor;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public BigDecimal getDiamondClarity() {
+		return diamondClarity;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setDiamondClarity(BigDecimal diamondClarity) {
+		this.diamondClarity = diamondClarity;
 	}
 
-	public Boolean getCertified() {
-		return certified;
+	public String getSettingStyle() {
+		return settingStyle;
 	}
 
-	public void setCertified(Boolean certified) {
-		this.certified = certified;
+	public void setSettingStyle(String settingStyle) {
+		this.settingStyle = settingStyle;
+	}
+
+	public String getColorStoneName() {
+		return colorStoneName;
+	}
+
+	public void setColorStoneName(String colorStoneName) {
+		this.colorStoneName = colorStoneName;
+	}
+
+	public BigDecimal getColorStoneWeight() {
+		return colorStoneWeight;
+	}
+
+	public void setColorStoneWeight(BigDecimal colorStoneWeight) {
+		this.colorStoneWeight = colorStoneWeight;
+	}
+
+	public String getColorStoneShape() {
+		return colorStoneShape;
+	}
+
+	public void setColorStoneShape(String colorStoneShape) {
+		this.colorStoneShape = colorStoneShape;
+	}
+
+	public BigDecimal getColorStoneNoOfPieces() {
+		return colorStoneNoOfPieces;
+	}
+
+	public void setColorStoneNoOfPieces(BigDecimal colorStoneNoOfPieces) {
+		this.colorStoneNoOfPieces = colorStoneNoOfPieces;
+	}
+
+	public String getPearlName() {
+		return pearlName;
+	}
+
+	public void setPearlName(String pearlName) {
+		this.pearlName = pearlName;
+	}
+
+	public BigDecimal getPearlWeight() {
+		return pearlWeight;
+	}
+
+	public void setPearlWeight(BigDecimal pearlWeight) {
+		this.pearlWeight = pearlWeight;
+	}
+
+	public String getPearlShape() {
+		return pearlShape;
+	}
+
+	public void setPearlShape(String pearlShape) {
+		this.pearlShape = pearlShape;
+	}
+
+	public BigDecimal getPearlNoOfPieces() {
+		return pearlNoOfPieces;
+	}
+
+	public void setPearlNoOfPieces(BigDecimal pearlNoOfPieces) {
+		this.pearlNoOfPieces = pearlNoOfPieces;
 	}
 }

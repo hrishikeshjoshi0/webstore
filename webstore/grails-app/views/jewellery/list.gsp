@@ -4,7 +4,7 @@
 <meta name="layout" content="main">
 <title>Jewellery</title>
 <script type="text/javascript">
-$(document).ready(function() {
+	$(document).ready(function() {
 		//CSS
 		$('.result-box-small').hover(
 		  function () {
@@ -23,16 +23,34 @@ $(document).ready(function() {
 	    $.ajax({
 	        type: 'GET',
 	        url: "<g:createLink controller='product' action='ajaxGetCategoryTypes' />" 
-		        	+ "?productCategory=" + "Jewellery"
-		        	+ "&template=" + "/Jewellery/productTypes",
+		        	+ "?productCategory=" + "jewellery"
+		        	+ "&template=" + "/jewellery/productTypes",
 	        success: function(data) {
 	            $('#productTypes').html(data);
 	        }
 	    });
 
-
         //  Initialize xBreadcrumbs
         //$('#breadcrumbs-1').xBreadcrumbs();
+
+        //Initialize Checkbox events
+	    $('.metalFilterCheckbox').change(function(){
+
+		   	var selectedCheckboxes = "";
+	    	$('.metalFilterCheckbox').each(function(index,value){
+	    		var checkbx = $(this);    
+		    	if(checkbx.is(':checked')){
+		    		selectedCheckboxes = selectedCheckboxes + checkbx.val() + "_";
+		    	}	    	
+		    });
+
+		    //alert(selectedCheckboxes);
+		    //Ajax call to filter the results
+
+		    $('#metalFilter').val(selectedCheckboxes);
+		    ajaxList();    
+	    });
+      	
 	});
 
 	$("#sortBy").live("change", function(e) { 
@@ -78,44 +96,26 @@ $(document).ready(function() {
 	        })
 	    });
 
-	 $('.productTypeFilterLink').live('click', function(event) {
-	        event.preventDefault();
-	        var rel = $(this).attr('rel');
-	        $("#productType").val(rel);
-
-	        var url = $(this).attr('href');
-	        
-	        $('.selectedProductType').removeClass('selectedProductType');
-
-	        $(this).parent().addClass('selectedProductType');
-
-	        $('#clearFilterDiv').show();
-	        	        
-	        var grid = $(".ajax");
-	        $(grid).html($("#spinner").html());
-		    $.ajax({
-		           type: 'GET',
-		           url: url,
-		           success: function(data) {
-		               $(grid).html(data);
-		               setupPriceSlider();
-		           }
-		    });
-		 });
+	 
 	}
 
 	function ajaxList() {
-		var url = '<g:createLink controller="Jewellery" action="list" />';
+		var url = '<g:createLink controller="jewellery" action="list" />';
 		url = url + "?" + "sortBy=" + $("#sortBy").val();
 		url = url + "&" + "minPrice=" + $("#productPriceFilter").slider( "values", 0 );
 		url = url + "&" + "maxPrice=" + $("#productPriceFilter").slider( "values", 1 );
-		url = url + "&" + "productTypeId=" + $("#productType").val();
+		url = url + "&" + "productTypeName=" + $("#productTypeName").val();
+		url = url + "&" + "productCat1=" + $("#productTypeCat1").val();
+		url = url + "&" + "metalFilter=" + $("#metalFilter").val();
 		
 	    var grid = $(".ajax");
 	    $(grid).html($("#spinner").html());
-	
+
+	    //alert($('#metalFilter').val());
+		
 	    $.ajax({
 	        type: 'GET',
+	        async : true,
 	        url: url,
 	        success: function(data) {
 	            $(grid).html(data);
@@ -142,7 +142,7 @@ $(document).ready(function() {
 			<hr />
 			
 			<div id="clearFilterDiv" style="display: none;">
-				<a href="<g:createLink controller="Jewellery" action="list" class="productTypeFilterLink clearAll"/>">Clear All Filters</a>
+				<a href="<g:createLink controller="jewellery" action="list" class="productTypeFilterLink clearAll"/>">Clear All Filters</a>
 			</div>
 
 			<!-- Price Range Filter -->
@@ -151,6 +151,10 @@ $(document).ready(function() {
 			</span>
 			
 			<input type="hidden" name="productType" id="productType" value="${params.productTypeId}"/>
+			
+			<input type="hidden" name="productTypeName" id="productTypeName" value="${activeProductTypeName}"/>
+			<input type="hidden" name="productTypeCat1" id="productTypeCat1" value="${activeCat1}"/>
+			<input type="hidden" name="metalFilter" id="metalFilter" value="${metalFilter}"/>
 			
 			<div id="productPriceFilter" class="productPriceFilter"></div>
 			<div class="productPriceFilter" style="font-size: 11px;margin-top: 5px;">
@@ -162,15 +166,54 @@ $(document).ready(function() {
 						style="float:right;font-size: 11px;"/>
 			</div>
 			<br/><br/>
+			
+			<!--  -->
+			<div class="label-product-filter">
+				Metal :
+			</div>
+			
+			<div id="metalTypes">
+				<g:checkBox name="whiteGold18K" value="whiteGold18K" class="metalFilterCheckbox" />
+				<label for="whiteGold18K">White Gold 18K</label>
+				<br/>
+				
+				<g:checkBox name="whiteGold14K" value="whiteGold14K" class="metalFilterCheckbox"/>
+				<label for="whiteGold14K">White Gold 14K</label>
+				<br/>
+				
+				<g:checkBox name="sterlingSilver" value="sterlingSilver" class="metalFilterCheckbox"/>
+				<label for="sterlingSilver">Sterling Silver</label>
+				<br/>
+				
+				<g:checkBox name="yellowGold18K" value="yellowGold18K" class="metalFilterCheckbox"/>
+				<label for="yellowGold18K">18K Yellow</label>
+				<br/>
+				
+				<g:checkBox name="yellowGold14K" value="yellowGold14K" class="metalFilterCheckbox"/>
+				<label for="yellowGold14K">14K Yellow</label>
+				<br/>
+				
+				<g:checkBox name="roseGold18K" value="roseGold18K" class="metalFilterCheckbox"/>
+				<label for="roseGold18K">18K Rose</label>
+				<br/>
+				
+				<g:checkBox name="roseGold14K" value="roseGold14K" class="metalFilterCheckbox"/>
+				<label for="roseGold14K">14K Rose</label>
+				<br/>
+			</div>
+
+			<br/>
 
 			<!-- Price Range Filter -->
 			<div class="label-product-filter">
 				Jewellery Type :
 			</div>			
 
+	
 			<div id="productTypes">
-				
 			</div>
+			
+			
 			<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 			
 		</div>
@@ -179,13 +222,21 @@ $(document).ready(function() {
 			margin-left: -2.5em; : Provides more space in the list area 
 		 -->
 		<div class="right product-list-wrapper" style="margin-left: -2.5em;">
-			<%--<div id="bread-crumbs">
-				<g:render template="/common/breadCrumb" />
+			<div id="product-list-content" style="border-top: 1px;">
+				<g:each in="${prodCat1}" status="i" var="prodCat">
+					<div <g:if test="${prodCat.productTypeName == activeCat1}">class = 'Cat_tabs_active'</g:if><g:else>class="Cat_tabs"</g:else>>
+						<g:link mapping="jewelleryCat1"  params="[productCat1:prodCat.productTypeName,productTypeName:prodCat.parentType.productTypeName]">
+							${prodCat.productTypeName}
+						</g:link>
+					</div>
+				</g:each>
+
+				<hr style="width:100%;margin-left: -1.5em;"/>
+				
+				<div id="grid">
+		            <g:render template="grid" model="model" />
+		        </div>
 			</div>
-			--%>
-			<div id="grid">
-	            <g:render template="grid" model="model" />
-	        </div>
 		</div>
 	</div>
 </body>
