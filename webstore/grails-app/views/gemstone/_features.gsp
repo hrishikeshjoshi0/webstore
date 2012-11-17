@@ -1,58 +1,134 @@
+<script type="text/javascript">
+function(price,carat){
+	var pricepercarat=price/carat;
+	return pricepercarat
+}
+</script>
+
+<style type="text/css">
+.productFeatures tr>td {
+	border-bottom: 1px solid #E4E5E7;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	color: #666;
+	padding: 2px 0 3px 0;
+	vertical-align: bottom;
+}
+
+			
+			tr> td , tr > th
+			{
+			border: 1px;
+			margin-top: 5px;
+			font-weight: bold;
+		    color: #369;
+		    font-size: 13px
+			}
+			tr > td:last-child, tr > th:last-child{
+			font-weight: bold;
+		    color: #369;
+		    font-size: 13px;
+			}
+			tr > td:first-child, tr > th:first-child{
+		    width: 100px;
+			}
+</style>
+
+
 <p style="font-family:'Droid Sans',Tahoma,Arial,sans-serif;border-bottom: 1px dotted #B5B5B5;text-transform: uppercase;"> 
 	Gemstone Information 
 </p>
 
+<div class="row" style="height: 300px">
+<div class="fivecol">
+	
+		<div class="leftdetails" style="height: 300px">
+			<table class="productFeatures">
+				<tr style="border-bottom: 1px dotted #B5B5B5; font-weight: normal;">
+					<td>Stone ID :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}"
+							field="stoneId" /></td>
+				</tr>
 
-<table class="productFeatures" style="width: 80%;">
-	<tr>
-		<td>Stone Id</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="stoneId" /></td>
-		
-		<td>Clarity</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="clarity" /></td>
-	</tr>
-	
-	<tr>
-		<td>Gemstone Name</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="clarity" /></td>
-		
-		<td>Cut</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="cut" /></td>
-	</tr>	
-	
-	<tr>
-		<td>Carat</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="carat" /></td>
-		
-		<td>Measurements</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="treatment" /></td>
-	</tr>
-	
-	<tr>
-		<td>No of pieces</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="carat" /></td>
-		
-		<td>Origin</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="origin" /></td>
-	</tr>
-	
-	<tr>
-		<td>Shape</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="shape" /></td>
-		
-		<td>Treatment</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="treatment" /></td>
-	</tr>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Name :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}"
+							field="pdProductName" /></td>
+				</tr>
 
-	<tr>
-		<td>Color</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="color" /></td>
-		
-		<td>Certificate</td>
-		<td><g:fieldValue bean="${prodGemstoneInstance}" field="color" /></td>
-	</tr>
-</table>
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Carat Weight:</td>
+					<td>
+					<g:fieldValue bean="${prodGemstoneInstance}"
+							field="pdWeight" />
+					
+					</td>
+				</tr>
 
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>No of Pieces :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}" field="pieces" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Shape   :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}" field="cut" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Color  :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}" field="color" /></td>
+				</tr>
+				
+			</table>
+		</div>
+		</div>
+	
+	<div class=fivecol>
+		<div class="rightdetails">
+			<table class="productFeatures">
+				<tr style="border-bottom: 1px dotted #B5B5B5; font-weight: normal;">
+					<td>Clarity :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}"
+							field="clarity" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Cut :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}"
+							field="cut" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Measurements:</td>
+					<td>
+					<g:fieldValue bean="${prodGemstoneInstance}"
+							field="measurement" />
+					
+					</td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Origin :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}" field="origin" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Treatments   :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}" field="treatment" /></td>
+				</tr>
+
+				<tr style="border-bottom: 1px dotted #B5B5B5;">
+					<td>Certificate  :</td>
+					<td><g:fieldValue bean="${prodGemstoneInstance}" field="certi" /></td>
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+	
+</div>
 <p style="font-family:'Droid Sans',Tahoma,Arial,sans-serif;border-bottom: 1px dotted #B5B5B5;text-transform: uppercase;"> 
 	Review Summary 
 </p>

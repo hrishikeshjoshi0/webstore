@@ -27,6 +27,9 @@ public class Gemstone extends Product {
 	
 	@Column(name="PD_SHAPE")
 	private String shape;
+
+	@Column(name="PD_NO_PIECES")
+	private String pieces;
 	
 	@Column(name="PD_CARAT",precision=10, scale=6)
 	private BigDecimal carat;
@@ -61,12 +64,34 @@ public class Gemstone extends Product {
 	@Column(name="PD_IS_CERTIFIED")
 	private Boolean certified;
 	
+	@Column(name="PD_IS_MEASUREMENT")
+	private String measurement;
+	
+	@Column(name="PD_IS_CERTI")
+	private String certi;
+
+	public String getStoneId() {
+		return stoneId;
+	}
+
+	public void setStoneId(String stoneId) {
+		this.stoneId = stoneId;
+	}
+
 	public String getShape() {
 		return shape;
 	}
 
 	public void setShape(String shape) {
 		this.shape = shape;
+	}
+
+	public String getPieces() {
+		return pieces;
+	}
+
+	public void setPieces(String pieces) {
+		this.pieces = pieces;
 	}
 
 	public BigDecimal getCarat() {
@@ -107,14 +132,6 @@ public class Gemstone extends Product {
 
 	public void setGrade(String grade) {
 		this.grade = grade;
-	}
-
-	public String getStoneId() {
-		return stoneId;
-	}
-
-	public void setStoneId(String stoneId) {
-		this.stoneId = stoneId;
 	}
 
 	public String getStarSharpness() {
@@ -164,4 +181,26 @@ public class Gemstone extends Product {
 	public void setCertified(Boolean certified) {
 		this.certified = certified;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getMeasurement() {
+		return measurement;
+	}
+
+	public String getCerti() {
+		return certi;
+	}
+
+	public void setMeasurement(String measurement) {
+		this.measurement = measurement;
+	}
+
+	public void setCerti(String certi) {
+		this.certi = certi;
+	}
+	
+
 }
