@@ -50,6 +50,24 @@
 		    $('#metalFilter').val(selectedCheckboxes);
 		    ajaxList();    
 	    });
+
+
+	    $('.sexCheckbox').change(function(){
+
+		   	var selectedCheckboxes = "";
+	    	$('.sexCheckbox').each(function(index,value){
+	    		var checkbx = $(this);    
+		    	if(checkbx.is(':checked')){
+		    		selectedCheckboxes = selectedCheckboxes + checkbx.val() + "_";
+		    	}	    	
+		    });
+
+		    //alert(selectedCheckboxes);
+		    //Ajax call to filter the results
+
+		    $('#sexFilter').val(selectedCheckboxes);
+		    ajaxList();    
+	    });
       	
 	});
 
@@ -107,6 +125,7 @@
 		url = url + "&" + "productTypeName=" + $("#productTypeName").val();
 		url = url + "&" + "productCat1=" + $("#productTypeCat1").val();
 		url = url + "&" + "metalFilter=" + $("#metalFilter").val();
+		url = url + "&" + "sexFilter=" + $("#sexFilter").val();
 		
 	    var grid = $(".ajax");
 	    $(grid).html($("#spinner").html());
@@ -155,6 +174,7 @@
 			<input type="hidden" name="productTypeName" id="productTypeName" value="${activeProductTypeName}"/>
 			<input type="hidden" name="productTypeCat1" id="productTypeCat1" value="${activeCat1}"/>
 			<input type="hidden" name="metalFilter" id="metalFilter" value="${metalFilter}"/>
+			<input type="hidden" name="sexFilter" id="sexFilter" value="${sexFilter}"/>
 			
 			<div id="productPriceFilter" class="productPriceFilter"></div>
 			<div class="productPriceFilter" style="font-size: 11px;margin-top: 5px;">
@@ -166,6 +186,20 @@
 						style="float:right;font-size: 11px;"/>
 			</div>
 			<br/><br/>
+			
+			<!--  -->
+			<div class="label-product-filter">
+				Sex
+			</div>
+			
+			<div id="metalTypes">
+				<g:checkBox name="male" value="male" class="sexCheckbox" />
+				<label for="male">Male</label>
+				
+				<g:checkBox name="female" value="female" class="sexCheckbox" />
+				<label for="female">Female</label>
+				<br/>
+			</div>	
 			
 			<!--  -->
 			<div class="label-product-filter">

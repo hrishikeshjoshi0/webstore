@@ -43,6 +43,16 @@ class UrlMappings {
 				controller = 'jewellery'
 				action = 'list'
 			}
+			
+			"/jewellery/create" {
+				controller = 'jewellery'
+				action = 'create'
+			}
+			
+			"/jewellery/save" {
+				controller = 'jewellery'
+				action = 'save'
+			}
 		}
 	}
 	

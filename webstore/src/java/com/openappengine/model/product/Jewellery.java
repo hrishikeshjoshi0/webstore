@@ -82,6 +82,9 @@ public class Jewellery extends Product {
 	@Column(name="PD_PEARL_NO_OF_PIECES",precision=10, scale=6)
 	private BigDecimal pearlNoOfPieces;
 
+	@Column(name="PD_GENDER")
+	private String gender;
+	
 	public String getStockId() {
 		return stockId;
 	}
@@ -248,5 +251,13 @@ public class Jewellery extends Product {
 
 	public void setPearlNoOfPieces(BigDecimal pearlNoOfPieces) {
 		this.pearlNoOfPieces = pearlNoOfPieces;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 }
