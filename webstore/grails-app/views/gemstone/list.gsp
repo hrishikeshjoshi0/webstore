@@ -6,14 +6,14 @@
 <script type="text/javascript">
 $(document).ready(function() {
 		//CSS
-		$('.result-box-small').hover(
-		  function () {
-		    $(this).addClass('dropShadow');
-		  }, 
-		  function () {
-			  $(this).removeClass('dropShadow');
-		  }
-		);	
+		//$('.result-box-small').hover(
+		  //function () {
+		    //$(this).addClass('dropShadow');
+		  //}, 
+		  //function () {
+			//  $(this).removeClass('dropShadow');
+		  //}
+		//);	
 	
 		//
    		setupGridAjax();
