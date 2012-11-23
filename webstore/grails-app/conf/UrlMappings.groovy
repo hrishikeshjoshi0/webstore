@@ -34,27 +34,31 @@ class UrlMappings {
 			}
 			
 			//Jewellery
-			name jewelleryProductType : "/jewellery/$productTypeName" {
+			name jewelleryProductType : "/jewelleries/$productTypeName" {
 				controller = 'jewellery'
 				action = 'list'
 			}
 			
-			name jewelleryCat1 : "/jewellery/$productTypeName/$productCat1" {
+			name jewelleryCat1 : "/jewelleries/$productTypeName/$productCat1" {
 				controller = 'jewellery'
 				action = 'list'
 			}
 			
-			name jewelleryProductType : "/jewellery" {
+			name jewelleryProductType : "/jewelleries" {
 				controller = 'jewellery'
 				action = 'list'
 			}
+			name jewelleryProductDetail : "/jewellery-detail/$productName" {
+				controller = 'jewellery'
+				action = 'viewDetails'
+			}
 			
-			"/jewellery/create" {
+			"/jewellery-edit/create" {
 				controller = 'jewellery'
 				action = 'create'
 			}
 			
-			"/jewellery/save" {
+			"/jewellery-edit/save" {
 				controller = 'jewellery'
 				action = 'save'
 			}

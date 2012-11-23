@@ -1,9 +1,16 @@
 package com.openappengine.model.product
 
+
+
 import org.apache.commons.lang.StringUtils
 import org.springframework.dao.DataIntegrityViolationException
-
 import com.openappengine.model.common.Image
+import com.openappengine.enums.SortOrder
+import com.openappengine.model.product.Product
+import com.openappengine.model.product.ProductCategory
+import com.openappengine.model.product.ProductCategoryType;
+import com.openappengine.model.product.ProductType
+
 
 class JewelleryController {
 
@@ -62,9 +69,9 @@ class JewelleryController {
 		
 		
 		def result
-		def gemstones = new ArrayList<Product>();
+		def jewellery = new ArrayList<Product>();
 		
-		result = c.list {
+		jewellery = c.list {
 			createAlias('prodProductPrices', 'price')
 		
 			between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
@@ -79,15 +86,15 @@ class JewelleryController {
 				eq("cat1",productCat1)
 			}*/
 			
-			if(genders) {
-				'in'("gender",genders)
-			} else {
-				eq("gender","any")
-			}
+			//if(genders) {
+				//'in'("gender",genders)
+			//} else {
+				//eq("gender","any")
+			//}
 			
-			if(metals) {
-				'in'("metal",metals)
-			}
+			//if(metals) {
+				//'in'("metal",metals)
+			//}
 		
 			//Order
 			if(sortBy.equals("HIGHEST_PRICE")) {
@@ -108,8 +115,24 @@ class JewelleryController {
 			maxResults(params.max)
 		}
 		
+		def productTypes = new ArrayList<ProductType>()
+		if(params.productTypeName) {
+			def prodCat1 = params.productTypeName
+			def parentCat = ProductType.findByProductTypeName(prodCat1)
+			productTypes = ProductType.findAllByParentType(parentCat)
+		}
+
 		
-        [jewelleryInstanceList: result, jewelleryInstanceTotal: result.size()]
+		def model = [jewelleryInstanceList: jewellery, jewelleryInstanceTotal: jewellery.size(),prodCat1: productTypes,activeCat1 : params.productCat1,activeProductTypeName:params.productTypeName]
+       // [jewelleryInstanceList: result, jewelleryInstanceTotal: result.size()]
+		
+		if (request.xhr) {
+			// ajax request
+			render(template: "grid", model: model,params:params)
+		} else {
+			model
+		}
+		
     }
 
     def create() {
@@ -140,8 +163,9 @@ class JewelleryController {
 		//Init calculated info
 		jewelleryInstance.calculatedInfo = new ProductCalculatedInfo()
 		jewelleryInstance.calculatedInfo.save(flush:true)
+		jewelleryInstance.save(flush: true)
 
-		flash.message = message(code: 'default.created.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), jewelleryInstance.pdProductId])
+		flash.message = message(code: 'default.created.message', args: [message(code: 'prodJewellery.label', default: 'ProdJewellery'), jewelleryInstance.pdProductId])
 		redirect(action:"upload",id: jewelleryInstance.pdProductId)
 		
         if (!jewelleryInstance.save(flush: true)) {
@@ -323,4 +347,41 @@ class JewelleryController {
             redirect(action: "show", id: id)
         }
     }
+	
+	def viewDetails = {
+		def a = params.productName
+		def prodJewelleryInstance = Jewellery.findByPdProductName(params.productName)
+		if (!prodJewelleryInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'prodJewellery.label', default: 'ProdJewellery'), params.id])
+			redirect(action: "list")
+			return
+		}
+
+		if(prodJewelleryInstance?.calculatedInfo) {
+			def timesViewed = prodJewelleryInstance?.calculatedInfo.timesViewed
+			prodJewelleryInstance?.calculatedInfo.timesViewed = timesViewed + 1
+			prodJewelleryInstance?.calculatedInfo.save(flush:true)
+		}
+
+		[prodJewelleryInstance: prodJewelleryInstance]
+	}
+	
+	def viewFeatures = {
+		println(params.id)
+		def prodJewelleryInstance = Jewellery.get(params.id)
+		if (!prodJewelleryInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'prodJewellery.label', default: 'ProdJewellery'), params.id])
+			redirect(action: "list")
+			return
+		}
+
+		def model = [prodJewelleryInstance: prodJewelleryInstance]
+
+		if (request.xhr) {
+			// ajax request
+			render(template: "features", model: model)
+		} else {
+			model
+		}
+	}
 }

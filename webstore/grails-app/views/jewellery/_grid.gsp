@@ -41,8 +41,7 @@
 					
 					<!-- Product Name and Description -->
 					<div class='product-name' style="margin-bottom:4px;border-top:1px solid #FAFAFA;margin-top:2px;border-top-width: 80%;">
-						<g:link action="viewDetails"
-							id="${productJewelleryInstance.pdProductId}"
+						<g:link mapping="jewelleryProductDetail"  params="[productName:productJewelleryInstance.pdProductName]" 
 							class="product-box-link">
 							${fieldValue(bean: productJewelleryInstance, field: "pdProductName")}
 						</g:link>
