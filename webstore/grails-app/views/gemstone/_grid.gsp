@@ -25,7 +25,7 @@
 			<!--
 			padding-right: 25px; : add space between the products
 			-->
-			<div class="result-box-small">
+			<div class="result-box-small" style = "height: 250px;">
 				<div id="content">
 					<!-- Product Name and Description -->
 					<div class='product-image-thumb'>
@@ -41,42 +41,41 @@
 					
 					<!-- Product Name and Description -->
 					<div class='product-name' style="margin-bottom:4px;border-top:1px solid #FAFAFA;margin-top:2px;border-top-width: 80%;">
-						<g:link action="viewDetails"
-							id="${productGemStoneInstance.pdProductId}"
+						<g:link mapping="gemstoneProductDetail"  params="[productName:productGemStoneInstance.pdProductName]" 
 							class="product-box-link">
 							${fieldValue(bean: productGemStoneInstance, field: "pdProductName")}
 						</g:link>
 					</div>
 
 					<!-- Product Name and Description -->
-					<div class='product-price'>
-						${productGemStoneInstance.getProductPrice(new Date())}
+					<div class='product-price' style="font-weight:bold; ">
+						$ ${productGemStoneInstance.getProductPrice(new Date())}
 					</div>
 	
-					<center>
-						<div class='product-rating'>
-							<g:hiddenField name="overall_Det_Rating_${i}"
-								value="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}" />
-		
-							<table style="margin-left: -15px;">
-								<tr>
-									<td style="margin-left: 20px;"><span id="overall_Det_${i}"> </span></td>
-								</tr>
-								<tr>
-									<g:if test="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating == null}">
-										<td>
-											No Ratings Yet.
-										</td>
-									</g:if>
-									<g:else>
-										<td>(${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}
-											OUT OF 5)
-										</td>
-									</g:else>
-								</tr>
-							</table>
-						</div>
-					</center>
+<%--					<center>--%>
+<%--						<div class='product-rating'>--%>
+<%--							<g:hiddenField name="overall_Det_Rating_${i}"--%>
+<%--								value="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}" />--%>
+<%--		--%>
+<%--							<table style="margin-left: -15px;">--%>
+<%--								<tr>--%>
+<%--									<td style="margin-left: 20px;"><span id="overall_Det_${i}"> </span></td>--%>
+<%--								</tr>--%>
+<%--								<tr>--%>
+<%--									<g:if test="${productGemStoneInstance?.calculatedInfo?.averageCustomerRating == null}">--%>
+<%--										<td>--%>
+<%--											No Ratings Yet.--%>
+<%--										</td>--%>
+<%--									</g:if>--%>
+<%--									<g:else>--%>
+<%--										<td>(${productGemStoneInstance?.calculatedInfo?.averageCustomerRating}--%>
+<%--											OUT OF 5)--%>
+<%--										</td>--%>
+<%--									</g:else>--%>
+<%--								</tr>--%>
+<%--							</table>--%>
+<%--						</div>--%>
+<%--					</center>--%>
 	
 					<script>
 						$(function() {

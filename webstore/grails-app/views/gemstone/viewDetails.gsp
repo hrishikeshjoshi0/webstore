@@ -57,7 +57,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="row" style="margin-top: -20px;">
+		<div class="row" style="margin-top: -20px; height: 250px;">
 			<!-- DETAIL IMAGE -->
 			<div class="fivecol" style="margin-top: -1.45em;margin-right:18px;">
 				<div class="productDetImageBox">
@@ -107,7 +107,7 @@
 					<div class="product_reviews" style="margin-top: 15px; margin-left:-10px;"></div>
 	
 					<div class="product_price" style="margin-top: 5px;">
-						Price : <strong> <g:formatNumber
+						Price : <strong> $ <g:formatNumber
 								number="${prodGemstoneInstance?.getProductPrice(new Date())}"
 								maxFractionDigits="2" />
 						</strong>
@@ -167,10 +167,12 @@
 						
 						<!-- Issue #8  -->
 						<g:if test="${prodGemstoneInstance?.certified}">
-							<li><a href="#">Certificate</a></li>
+							<li><g:link controller="Gemstone" action="certificate" >
+								Certificates
+							</g:link></li>
 						</g:if>
 						
-						<li><g:link controller="Diamond" action="shipping" >
+						<li><g:link controller="Gemstone" action="shipping" >
 								SHIPPING AND PACKAGING
 							</g:link></li>
 					</ul>
