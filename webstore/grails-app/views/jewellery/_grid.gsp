@@ -25,7 +25,7 @@
 			<!--
 			padding-right: 25px; : add space between the products
 			-->
-			<div class="result-box-small">
+			<div class="result-box-small" style = "height: 250px;">
 				<div id="content">
 					<!-- Product Name and Description -->
 					<div class='product-image-thumb'>
@@ -52,30 +52,30 @@
 						${productJewelleryInstance.getProductPrice(new Date())}
 					</div>
 	
-					<center>
-						<div class='product-rating'>
-							<g:hiddenField name="overall_Det_Rating_${i}"
-								value="${productJewelleryInstance?.calculatedInfo?.averageCustomerRating}" />
-		
-							<table style="margin-left: -15px;">
-								<tr>
-									<td style="margin-left: 20px;"><span id="overall_Det_${i}"> </span></td>
-								</tr>
-								<tr>
-									<g:if test="${productJewelleryInstance?.calculatedInfo?.averageCustomerRating == null}">
-										<td>
-											No Ratings Yet.
-										</td>
-									</g:if>
-									<g:else>
-										<td>(${productJewelleryInstance?.calculatedInfo?.averageCustomerRating}
-											OUT OF 5)
-										</td>
-									</g:else>
-								</tr>
-							</table>
-						</div>
-					</center>
+<%--					<center>--%>
+<%--						<div class='product-rating'>--%>
+<%--							<g:hiddenField name="overall_Det_Rating_${i}"--%>
+<%--								value="${productJewelleryInstance?.calculatedInfo?.averageCustomerRating}" />--%>
+<%--		--%>
+<%--							<table style="margin-left: -15px;">--%>
+<%--								<tr>--%>
+<%--									<td style="margin-left: 20px;"><span id="overall_Det_${i}"> </span></td>--%>
+<%--								</tr>--%>
+<%--								<tr>--%>
+<%--									<g:if test="${productJewelleryInstance?.calculatedInfo?.averageCustomerRating == null}">--%>
+<%--										<td>--%>
+<%--											No Ratings Yet.--%>
+<%--										</td>--%>
+<%--									</g:if>--%>
+<%--									<g:else>--%>
+<%--										<td>(${productJewelleryInstance?.calculatedInfo?.averageCustomerRating}--%>
+<%--											OUT OF 5)--%>
+<%--										</td>--%>
+<%--									</g:else>--%>
+<%--								</tr>--%>
+<%--							</table>--%>
+<%--						</div>--%>
+<%--					</center>--%>
 	
 					<script>
 						$(function() {
