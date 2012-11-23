@@ -28,6 +28,11 @@ class UrlMappings {
 				action = 'list'
 			}
 			
+			name gemstoneProductDetail : "/gemstones-detail/$productName" {
+				controller = 'gemstone'
+				action = 'viewDetails'
+			}
+			
 			//Jewellery
 			name jewelleryProductType : "/jewellery/$productTypeName" {
 				controller = 'jewellery'

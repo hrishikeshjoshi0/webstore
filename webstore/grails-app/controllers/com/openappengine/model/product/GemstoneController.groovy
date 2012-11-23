@@ -89,6 +89,9 @@ class GemstoneController {
 				def productType = ProductType.findByProductTypeName(params.productTypeName)
 				eq("productType",productType)
 			}
+			if(productCat1) {
+				eq("cat1",productCat1)
+			}
 
 			projections {
 				min("price.ppPrice")
@@ -104,6 +107,9 @@ class GemstoneController {
 			if(productTypeName) {
 				def productType = ProductType.findByProductTypeName(params.productTypeName)
 				eq("productType",productType)
+			}
+			if(productCat1) {
+				eq("cat1",productCat1)
 			}
 
 			projections {
@@ -200,7 +206,8 @@ class GemstoneController {
 	}
 
 	def viewDetails = {
-		def prodGemstoneInstance = Gemstone.get(params.id)
+		def a = params.productName
+		def prodGemstoneInstance = Gemstone.findByPdProductName(params.productName)
 		if (!prodGemstoneInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), params.id])
 			redirect(action: "list")
@@ -391,4 +398,13 @@ class GemstoneController {
 			redirect(action: "show", id: params.id)
 		}
 	}
+	
+	def certificate() {
+		
+	}
+	
+	def shipping() {
+	
+}
+	
 }
