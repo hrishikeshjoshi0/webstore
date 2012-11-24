@@ -48,8 +48,8 @@
 					</div>
 
 					<!-- Product Name and Description -->
-					<div class='product-price'>
-						${productJewelleryInstance.getProductPrice(new Date())}
+					<div class='product-price' style = "font-weight: Bold;">
+						$ ${productJewelleryInstance.getProductPrice(new Date())}
 					</div>
 	
 <%--					<center>--%>
