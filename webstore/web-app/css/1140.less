@@ -49,6 +49,16 @@
 	   background: linear-gradient(top,  @start 0%,@end @percent); /* W3C */
 }
 
+.border-linear-gradient (@start: #fff, @end: #ddd, @percent: 100%) {
+	   border: @start; /* Old */
+	   border: -moz-linear-gradient(top,  @start 0%, @end @percent); /* FF3.6+ */
+	   border: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(@percent,@end)); /* Chrome, Safari 4+ */
+	   border: -webkit-linear-gradient(top,  @start 0%,@end @percent); /* Chrome 10+, Safari 5.1+ */
+	   border: -o-linear-gradient(top,  @start 0%,@end @percent); /* Opera 11.10+ */
+	   border: -ms-linear-gradient(top,  @start 0%,@end @percent); /* IE 10+ */
+	   border: linear-gradient(top,  @start 0%,@end @percent); /* W3C */
+}
+
 .boxshadow {
 	-moz-box-shadow: 3px 3px 4px #000;
 	-webkit-box-shadow: 3px 3px 4px #000;
@@ -358,6 +368,17 @@ section #search {
    	height: 500px; 
 }
 
+#page-inner {
+	margin-top:15px;
+	margin-left:15px;
+	margin-right:15px;
+	border-left: 1px solid #EEE;
+	border-right: 1px solid #EEE;
+	border-top: 1px solid #EEE;
+	height : 600px;
+	.border-radius(5px);
+}
+
 .button {
     /* background: url("../images/bg-btn-blue.png") repeat-x scroll 0 0 #3399DD; */
     background-color:#0F3B5F; 
@@ -469,9 +490,8 @@ ul.oe_menu > li > a{
 	display:block;
 	color:#000;
 	text-decoration:none;
-	font-family:'Droid Sans',Tahoma,Arial,sans-serif;
-	font-size:11px;
-	font-weight:700;
+	font-family:CrimsonBNSmallCaps, Perpetua, Palatino, "Times New Roman", Times, serif;
+	font-size:18px;
 	width:auto;
 	height:10px;
 	padding-right:20px;
@@ -1155,13 +1175,10 @@ h1.page-title {
 	text-transform: capitalize;
 	height:auto;
 	width: auto;
-	padding:5px;
-	margin-top:12px;
-	margin-bottom:2px; 
-	/* 
-	margin-left:15px;
-	*/
-	
+	padding:2px;
+	margin-top:2px;
+	margin-bottom:10px; 
+	margin-left:25px;
 	background-color: #FFF;
 	color:#660000;
 	font-family:CrimsonBN,Perpetua,Palatino,"Times New Roman",Times,serif;

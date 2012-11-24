@@ -29,8 +29,7 @@
 				<div id="content">
 					<!-- Product Name and Description -->
 					<div class='product-image-thumb'>
-						<g:link action="viewDetails"
-							id="${productGemStoneInstance.pdProductId}"
+						<g:link mapping="gemstoneProductDetail"  params="[productName:productGemStoneInstance.pdProductName]" 
 							class="product-box-link">
 							<img class="product-img"
 								alt="${productGemStoneInstance.pdProductName}"

@@ -1,6 +1,7 @@
 package com.order
 
 import com.openappengine.model.cart.ShoppingCart
+
 import com.openappengine.model.product.Product
 import com.openappengine.model.shipping.Address
 import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource;
@@ -8,7 +9,11 @@ import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIco
 import org.grails.paypal.Payment
 import org.springframework.dao.DataIntegrityViolationException
 
+
+
 class OrderHeaderController {
+	
+	def mailService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -111,12 +116,13 @@ class OrderHeaderController {
 		def a = params.transactionId
 		def payment = Payment.findByTransactionId(a)
 		def orderHeaderInstance = OrderHeader.findByTransactionId(a)
+		def sc = new ShoppingCart()
+		sc = ShoppingCart.findByTransactionId(a)
+		
 		if (!orderHeaderInstance)
 		{
 		orderHeaderInstance = new OrderHeader()
 		
-		def sc = new ShoppingCart()
-		sc = ShoppingCart.findByTransactionId(a)
 		def add = sc.billingAddressId 
 		def billingAdd = Address.get(add)
 		def ship = sc.shippingAddressId
@@ -124,7 +130,7 @@ class OrderHeaderController {
 		
 		orderHeaderInstance.orderNumber = params.transactionId
 		orderHeaderInstance.orderDate = new Date()
-		 orderHeaderInstance.totalAmount = 0
+		orderHeaderInstance.totalAmount = 0
 		orderHeaderInstance.totaldiscount = 0
 		orderHeaderInstance.currency = Currency.getInstance("USD")
 		orderHeaderInstance.transactionId = params.transactionId
@@ -160,7 +166,18 @@ class OrderHeaderController {
 		orderHeaderInstance.totalAmount = totalAmount
 		orderHeaderInstance.save(flush:true)
 		}
-		[payment : payment]
 		
+		//Delete
+		sc.delete(flush:true)
+		
+		//Email
+		mailService.sendMail {
+			to orderHeaderInstance.email
+			from "webstore@moryasolutions.com"
+			subject "Payment Successful for Order #" + orderHeaderInstance.orderNumber
+			html "Payment Successful."
+		}
+		
+		[payment : payment]
 	}
 }

@@ -93,11 +93,6 @@
 </style>
 </head>
 <body>
-			
-	  <h1 class="page-title" style="border-bottom: 1px solid #D9DCDC;margin-top: 15px;">
-				Free Shipping with every order.
-	  </h1>
-		
 		<div id="top-banner-slider-wrapper">
 			<div id="top-banner-slider" >
 				<img

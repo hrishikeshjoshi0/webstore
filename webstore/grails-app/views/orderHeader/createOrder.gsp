@@ -5,18 +5,10 @@ nachiket
 <html>
 <head>
 <meta name="layout" content="main">
-<g:set var="entityName"
-	value="${message(code: 'shoppingCart.label', default: 'ShoppingCart')}" />
-<title>Shopping Cart</title>
-
-<script>
-
-$(document).ready(function() {
-			
-	});
-</script>
+<title>Payment Successful.</title>
 </head>
 <body>
+	<br/><br/>
 	<span class="title">Payment Successful - ${payment.transactionId} </span>
 	<hr/>
 	

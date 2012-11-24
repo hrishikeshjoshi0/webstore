@@ -88,6 +88,7 @@ class ShoppingCartController {
 			sci.quantity = 1
 			BigDecimal price = Product.get(params.productId)?.getProductPrice(new Date())
 			sci.lineTotalPrice = price?.multiply(sci.quantity)
+			sci.unitPrice = price
 		} 
 		else 
 		{
@@ -228,7 +229,7 @@ class ShoppingCartController {
 			
 			sc.cartItems.eachWithIndex { cartItem, i ->
 				def ppi = new PaymentItem()
-				ppi.amount = cartItem.lineTotalPrice
+				ppi.amount = cartItem.unitPrice
 				ppi.itemName = Product.get(cartItem.productId)?.pdProductName
 				ppi.itemNumber = cartItem.productId
 				ppi.quantity = cartItem.quantity

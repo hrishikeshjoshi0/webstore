@@ -234,28 +234,51 @@ span.reference a:hover {
 				</sec:ifAnyGranted>
 				<br/>
 				
-				<%--<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:250px;height:10px;">
-				--%>
 				<hr/>
+				
+				
+				<div style="float: right;line-height: 10px;font-weight: bold;font-size: 15px;color: #0F3B5F;">
+					 <span>LiveChat</span>
+					 <span class="sep">|</span>
+					 <span>+91-9833821291</span> 
+					 <span class="sep">|</span>
+					 <span>24-7</span>
+				</div>
 			</div>
 		</div>
 
 		<!-- Menu Bar -->
 		<g:render template="/common/menu"></g:render>
-		
 		<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:10px;margin-top: -10px;">
-
+		<!-- Menu Bar -->
+		
 		<!-- Main Content -->
 		<div id="page-content">
 			<div id="spinner" class="spinner" style="display: none;">
 				<g:message code="spinner.alt" default="Loading&hellip;" />
 			</div>
 			<div id="page" class="">
-				<g:layoutBody />
-			</div>
-		</div>
-		
-		<div class="tencol" style="background-color: #FAFAFA; margin-right:-5px;width: 98%;">
+				<div id="page-inner">
+					<!-- Search Box -->
+					<br />
+					<div id="searchBar">
+						<div style="float: left;">
+							<h1 class="page-title" style="">Free Shipping with every
+								order.</h1>
+						</div>
+						<div style="float: right; margin-right: 50px; height: 30px;">
+							<g:form method="POST">
+								<g:textField name="productSearchQuery" />
+								<g:submitButton name="search" value="Search" class="button" />
+							</g:form>
+						</div>
+					</div>
+					<hr />
+					<!-- Search Box -->
+
+					<g:layoutBody />
+					
+					<div class="tencol" style="background-color: #FAFAFA; margin-right:-5px;width: 98%;">
 					
 					<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:5px;margin-top: -10px;">
 					<br/>
@@ -305,6 +328,15 @@ span.reference a:hover {
 						<img src="${resource(dir: 'images/', file: 'bottom_shadow.png')}" style="width:100%;height:5px;margin-top: -10px;">
 					<br/>
 				</div>
+				
+				
+
+				</div>
+
+			</div>
+		</div>
+		
+		
 
 		<div id="footer" class="shadow">
 			<div class="row" style="text-align: center;">
