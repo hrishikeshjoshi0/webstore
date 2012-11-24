@@ -201,6 +201,8 @@
 				<br/>
 			</div>	
 			
+			<br/>
+			
 			<!--  -->
 			<div class="label-product-filter">
 				Metal :

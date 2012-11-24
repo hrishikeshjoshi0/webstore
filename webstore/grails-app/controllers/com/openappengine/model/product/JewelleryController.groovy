@@ -36,6 +36,8 @@ class JewelleryController {
 			genders = selectedGenders.split("_")
 		}
 		
+		def genderFilter
+		
 		if(selectedMetals) {
 			metals = selectedMetals.split("_")
 		}
@@ -77,24 +79,28 @@ class JewelleryController {
 			between("price.ppPrice",params.minPrice.toBigDecimal(),params.maxPrice.toBigDecimal())
 		
 			//Filter
-			/*if(productTypeName) {
+			if(productTypeName) {
 				def productType = ProductType.findByProductTypeName(params.productTypeName)
 				eq("productType",productType)
 			}
 		
 			if(productCat1) {
 				eq("cat1",productCat1)
-			}*/
+			}
 			
-			//if(genders) {
-				//'in'("gender",genders)
-			//} else {
-				//eq("gender","any")
-			//}
+			if(params.sexFilter) {
+				if(params.sexFilter.equals("male_")) {
+					'in'("gender",["M","Both"])
+				} else if(params.sexFilter.equals("female_")) {
+					'in'("gender",["F","Both"])
+				} else {
+					'in'("gender",["M","F","Both"])
+				}
+			}
 			
-			//if(metals) {
-				//'in'("metal",metals)
-			//}
+			if(metals) {
+				'in'("metal",metals)
+			}
 		
 			//Order
 			if(sortBy.equals("HIGHEST_PRICE")) {
