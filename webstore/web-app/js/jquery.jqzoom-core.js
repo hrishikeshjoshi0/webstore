@@ -693,7 +693,7 @@
             //zoomWindow  default width
             zoomHeight: 300,
             //zoomWindow  default height
-            xOffset: 10,
+            xOffset: 50,
             //zoomWindow x offset, can be negative(more on the left) or positive(more on the right)
             yOffset: 0,
             //zoomWindow y offset, can be negative(more on the left) or positive(more on the right)

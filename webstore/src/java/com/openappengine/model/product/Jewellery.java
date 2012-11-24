@@ -50,7 +50,7 @@ public class Jewellery extends Product {
 	private BigDecimal diamondNoOfPieces;
 	
 	@Column(name="PD_DIAMOND_COLOR")
-	private BigDecimal diamondColor;
+	private String diamondColor;
 	
 	@Column(name="PD_DIAMOND_CLARITY",precision=10, scale=6)
 	private BigDecimal diamondClarity;
@@ -165,11 +165,13 @@ public class Jewellery extends Product {
 		this.diamondNoOfPieces = diamondNoOfPieces;
 	}
 
-	public BigDecimal getDiamondColor() {
+
+
+	public String getDiamondColor() {
 		return diamondColor;
 	}
 
-	public void setDiamondColor(BigDecimal diamondColor) {
+	public void setDiamondColor(String diamondColor) {
 		this.diamondColor = diamondColor;
 	}
 
