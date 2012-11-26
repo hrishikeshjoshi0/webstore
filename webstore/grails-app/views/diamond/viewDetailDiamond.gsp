@@ -75,7 +75,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="row" style="margin-top: -20px;">
+		<div class="row">
 			<!-- DETAIL IMAGE -->
 			<div class="fivecol" style="margin-top: -1.45em;margin-right:18px;">
 				<div class="productDetImageBox">

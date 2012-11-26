@@ -57,7 +57,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="row" style="margin-top: -20px; height: 250px;">
+		<div class="row" style="height: 250px;">
 			<!-- DETAIL IMAGE -->
 			<div class="fivecol" style="margin-top: -1.45em;margin-right:18px;">
 				<div class="productDetImageBox">
