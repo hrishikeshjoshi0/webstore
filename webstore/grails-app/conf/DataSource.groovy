@@ -28,7 +28,7 @@ environments {
 		
 		dataSource {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
-			url = "jdbc:mysql://localhost:3306/webstore_test?useUnicode=yes&characterEncoding=UTF-8"
+			url = "jdbc:mysql://localhost:3306/hrishi23_webstore_test?useUnicode=yes&characterEncoding=UTF-8"
 			username = "root"
 			password = "admin"
 			pooled=true
@@ -81,7 +81,7 @@ environments {
 		
 		dataSource {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
-			url = "jdbc:mysql://moryasolutions.com:3306/hrishi23_webstore1?useUnicode=yes&characterEncoding=UTF-8"
+			url = "jdbc:mysql://moryasolutions.com:3306/hrishi23_webstore_test?useUnicode=yes&characterEncoding=UTF-8"
 			username = "hrishi23_webstor"
 			password = "Eclipse@123"
 			pooled=true
