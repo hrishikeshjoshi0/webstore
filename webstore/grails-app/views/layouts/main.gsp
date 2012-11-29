@@ -263,8 +263,11 @@ span.reference a:hover {
 					<br />
 					<div id="searchBar">
 						<div style="float: left;">
-							<h1 class="page-title" style="">Free Shipping with every
-								order.</h1>
+							<h1 class="page-title" style="">
+								<g:if test="${!params.admin}">
+									Free Shipping with every order.
+								</g:if>
+							</h1>
 						</div>
 						<div style="float: right; margin-right: 50px; height: 30px;">
 							<g:form method="POST">

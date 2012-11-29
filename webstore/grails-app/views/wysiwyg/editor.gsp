@@ -17,7 +17,7 @@
 <body>
 	<div class="row">
 		<div class="elevencol">
-			<g:form controller="wysiwyg" action="saveCms" method="post">
+			<g:form controller="wysiwyg" action="saveText" method="post">
 				<textarea class="ckeditor" cols="80" id="editor1" name="cmsData" rows="10">
 				</textarea>
 			</g:form>

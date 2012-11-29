@@ -29,6 +29,9 @@
 		<mapping class='com.openappengine.model.wishlist.WishListItem'/>
 		<mapping class='com.openappengine.model.shipping.Address'/>
 		
+		<!-- CMS -->
+		<mapping class='com.openappengine.model.cms.Content'/>
+		
 	</session-factory>
 
 </hibernate-configuration>
