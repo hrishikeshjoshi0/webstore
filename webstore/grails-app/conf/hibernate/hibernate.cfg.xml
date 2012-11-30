@@ -32,6 +32,9 @@
 		<!-- CMS -->
 		<mapping class='com.openappengine.model.cms.Content'/>
 		
+		<!-- Website -->
+		<mapping class='com.openappengine.model.website.Article'/>
+		
 	</session-factory>
 
 </hibernate-configuration>
