@@ -168,14 +168,16 @@ class OrderHeaderController {
 		}
 		
 		//Delete
-		sc.delete(flush:true)
+		if(sc) {
+			sc.delete(flush:true)
+		}
 		
 		//Email
 		mailService.sendMail {
 			to orderHeaderInstance.email
 			from "webstore@moryasolutions.com"
 			subject "Payment Successful for Order #" + orderHeaderInstance.orderNumber
-			html "Payment Successful."
+			html g.render(template:"orderConfirmationMailTemplate",bean : payment, var : "payment")
 		}
 		
 		[payment : payment]
