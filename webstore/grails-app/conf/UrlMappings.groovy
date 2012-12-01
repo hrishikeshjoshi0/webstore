@@ -62,6 +62,16 @@ class UrlMappings {
 				controller = 'jewellery'
 				action = 'save'
 			}
+			
+			"/gemstone-edit/create" {
+				controller = 'gemstone'
+				action = 'create'
+			}
+			
+			"/gemstone-edit/save" {
+				controller = 'gemstone'
+				action = 'save'
+			}
 		}
 	}
 	

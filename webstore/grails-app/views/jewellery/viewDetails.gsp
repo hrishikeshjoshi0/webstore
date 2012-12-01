@@ -77,7 +77,7 @@
 					</h1>
 					
 					<p>
-						${prodJewelleryInstance?.pdDescription}
+					<%=prodJewelleryInstance?.pdDescription %>
 					</p>
 					
 					<br/>

@@ -122,6 +122,7 @@
 
 <script type="text/javascript"
 	src="${resource(dir: 'js', file: 'xbreadcrumbs.js')}"></script>
+	 <ckeditor:resources/>
 
 <style type="text/css">
 span.reference {

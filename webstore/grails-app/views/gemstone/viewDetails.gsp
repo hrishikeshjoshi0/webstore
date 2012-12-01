@@ -77,7 +77,8 @@
 					</h1>
 					
 					<p>
-						${prodGemstoneInstance?.pdDescription}
+					<%=prodGemstoneInstance?.pdDescription %>
+<%--						${}--%>
 					</p>
 					
 					<br/>

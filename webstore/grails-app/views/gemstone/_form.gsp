@@ -29,7 +29,10 @@
 			<g:message code="prodGemstone.pdDescription.label" default="Description" />
 		</td>
 		<td>
-			<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdDescription}" rows="5" cols="20" />		
+		<ckeditor:editor name="pdDescription" height="400px" width="80%">
+		${prodGemstoneInstance?.pdDescription}
+		</ckeditor:editor>
+<%--			<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdDescription}" rows="5" cols="20" />		--%>
 		</td>
 	</tr>
 	<tr>

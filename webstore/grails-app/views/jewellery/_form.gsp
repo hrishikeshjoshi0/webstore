@@ -133,7 +133,10 @@
 		<g:message code="jewellery.pdDescription.label" default="Pd Description" />
 		
 	</label>
-	<g:textField name="pdDescription" value="${jewelleryInstance?.pdDescription}" />
+	<ckeditor:editor name="pdDescription" height="400px" width="80%">
+		${jewelleryInstance?.pdDescription}
+	</ckeditor:editor>
+<%--	<g:textField name="pdDescription" value="${jewelleryInstance?.pdDescription}" />--%>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: jewelleryInstance, field: 'pdInternalName', 'error')} ">
