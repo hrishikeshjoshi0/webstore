@@ -3,7 +3,7 @@
 			<ul class="productTypeMenuLinkList">
 		</g:if>
 		<li class="productTypeMenuLink">
-			<g:link mapping="gemstoneProductType" params="[productTypeName:productType.productTypeName]"
+			<g:link mapping="jewelleryProductType" params="[productTypeName:productType.productTypeName]"
 					rel="${productType.productTypeId}">
 				${productType.productTypeName}		
 			</g:link>
