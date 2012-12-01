@@ -428,4 +428,8 @@ class JewelleryController {
 			model
 		}
 	}
+	
+	def shipping = {
+		
+	}
 }
