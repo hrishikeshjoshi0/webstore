@@ -62,6 +62,11 @@ class UrlMappings {
 				controller = 'jewellery'
 				action = 'save'
 			}
+			
+			name articlesMapping : "/articles/$title" {
+				controller = 'article'
+				action = 'showArticle'
+			}
 		}
 	}
 	
