@@ -12,6 +12,20 @@
 		    });
 	});
 </script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	   		//Get Product Types.
+		    $.ajax({
+		        type: 'GET',
+		        url: "<g:createLink controller='product' action='ajaxGetCategoryTypes' />" 
+			        	+ "?productCategory=" + "jewellery"
+			        	+ "&template=" + "/common/productTypeMenu2",
+		        success: function(data) {
+		            $('#jewellerySubLinks').html(data);
+		        }
+		    });
+	});
+</script>
 <div id="nav" class="clearfix">
 	<div class="oe_wrapper">
 		<!-- 
@@ -33,10 +47,9 @@
 			</li>
 			
 			<!-- Jewelry -->
-			<li><a href="<g:createLink controller="jewellery" action="list" />">Jewelry</a> <!-- -112px --> <!--  Add -111px for every next div. 
-				<div class="oe_menu_content" style="left: -111px;">
+			<li><a href="<g:createLink controller="jewellery" action="list" />">Jewelry</a>
+				<div id="jewellerySubLinks" class="oe_menu_content">
 				</div>
-				 -->
 			</li>
 			
 		
