@@ -127,6 +127,44 @@ class JewelleryController {
 			def parentCat = ProductType.findByProductTypeName(prodCat1)
 			productTypes = ProductType.findAllByParentType(parentCat)
 		}
+		
+		def minPrice = Jewellery.createCriteria().get {
+			createAlias('prodProductPrices', 'price')
+
+			//Filter
+			if(productTypeName) {
+				def productType = ProductType.findByProductTypeName(params.productTypeName)
+				eq("productType",productType)
+			}
+			
+			if(productCat1) {
+				eq("cat1",productCat1)
+			}
+
+			projections {
+				min("price.ppPrice")
+			}
+		}
+
+		def maxPrice = Jewellery.createCriteria().get {
+			createAlias('prodProductPrices', 'price')
+
+			//Filter
+			if(productTypeName) {
+				def productType = ProductType.findByProductTypeName(params.productTypeName)
+				eq("productType",productType)
+			}
+			if(productCat1) {
+				eq("cat1",productCat1)
+			}
+
+			projections {
+				max("price.ppPrice")
+			}
+		}
+		
+		params.minPrice = minPrice
+		params.maxPrice = maxPrice
 
 		
 		def model = [jewelleryInstanceList: jewellery, jewelleryInstanceTotal: jewellery.size(),prodCat1: productTypes,activeCat1 : params.productCat1,activeProductTypeName:params.productTypeName]

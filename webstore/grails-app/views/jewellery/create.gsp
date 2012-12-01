@@ -4,12 +4,14 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'prodGemstone.label', default: 'ProdGemstone')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title>
+			Create New Jewellery
+		</title>
 	</head>
 	<body>
 		<div id="create-prodGemstone" class="content scaffold-create" role="main">
 			<h1 class="page-title">
-				New Jewellery
+				Create New Jewellery
 			</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

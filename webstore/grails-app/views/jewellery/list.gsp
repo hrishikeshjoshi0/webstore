@@ -78,10 +78,10 @@
 	function setupPriceSlider() {
 		$("#productPriceFilter").slider({
 			range: true,
-			min: $("#filterMinPrice").val()-1,
-			max: $("#filterMaxPrice").val()+1,
+			min: parseFloat( $("#filterMinPrice").val() )-1,
+			max: parseFloat( $("#filterMaxPrice").val() )+1,
 			values: [ $("#filterMinPrice").val(), $("#filterMaxPrice").val()],
-			step:5,
+			step:10,
 			slide: function(event, ui) {
 				$("#minPrice").val(ui.values[0]);
 				$("#maxPrice").val(ui.values[1]);

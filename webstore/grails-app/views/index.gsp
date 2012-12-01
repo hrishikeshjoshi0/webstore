@@ -50,6 +50,16 @@
 
 <!-- Run the plugin -->
 <script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+	        type: 'GET',
+	        url: "<g:createLink controller='article' action='recentArticles' />", 
+	        success: function(data) {
+	            $('#recent_articles').html(data);
+	        }
+	    });
+	});
+
 	$(window).load(function() {
 		//$('#featured').orbit();
 		$('#top-banner-slider').orbit({
@@ -323,17 +333,8 @@
 				<span class="title"> Recent Articles </span>
 	
 				<div id="content">
-					<div style="max-width: 300px;">
-						<ul class="product_list">
-							<li class="recent_article">Nature, color, global,
-								feminine–it’s your time to shine with the hottest trends. <br />
-								<a class="read_more" href="#">read more</a>
-							</li>
-							<li class="recent_article">Nature, color, global,
-								feminine–it’s your time to shine with the hottest trends. <br />
-								<a class="read_more" href="#">read more</a>
-							</li>
-						</ul>
+					<div id="recent_articles" style="max-width: 300px;">
+						<!-- Ajax Content -->
 					</div>
 				</div>
 			</div>
