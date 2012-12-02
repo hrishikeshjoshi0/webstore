@@ -4,10 +4,13 @@
 package com.openappengine.model.product;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.compass.annotations.Searchable;
 
@@ -69,6 +72,9 @@ public class Gemstone extends Product {
 	
 	@Column(name="PD_CERTI")
 	private String certi;
+
+	@Column(name="PD_IS_SOLD")
+	private Boolean sold =  Boolean.FALSE;
 
 	public String getStoneId() {
 		return stoneId;
@@ -200,6 +206,14 @@ public class Gemstone extends Product {
 
 	public void setCerti(String certi) {
 		this.certi = certi;
+	}
+
+	public Boolean getSold() {
+		return sold;
+	}
+
+	public void setSold(Boolean sold) {
+		this.sold = sold;
 	}
 	
 
