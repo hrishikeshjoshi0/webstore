@@ -7,14 +7,6 @@
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#edit-prodGemstone" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
 		<div id="edit-prodGemstone" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -28,8 +20,7 @@
 			</ul>
 			</g:hasErrors>
 			<g:form method="post" >
-				<g:hiddenField name="id" value="${prodGemstoneInstance?.id}" />
-				<g:hiddenField name="version" value="${prodGemstoneInstance?.version}" />
+				<g:hiddenField name="id" value="${prodGemstoneInstance?.pdProductId}" />
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

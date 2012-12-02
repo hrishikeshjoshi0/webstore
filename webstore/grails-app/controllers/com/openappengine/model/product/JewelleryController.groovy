@@ -369,8 +369,8 @@ class JewelleryController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'jewellery.label', default: 'Jewellery'), jewelleryInstance.id])
-        redirect(action: "show", id: jewelleryInstance.id)
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'jewellery.label', default: 'Jewellery'), jewelleryInstance.pdProductId])
+		redirect(controller:"jewellery" ,action: "viewDetails", params: [productName : jewelleryInstance.pdProductName])
     }
 
     def delete(Long id) {

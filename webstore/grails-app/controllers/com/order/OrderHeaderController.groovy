@@ -1,13 +1,12 @@
 package com.order
 
-import com.openappengine.model.cart.ShoppingCart
-
-import com.openappengine.model.product.Product
-import com.openappengine.model.shipping.Address
-import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource;
-
 import org.grails.paypal.Payment
 import org.springframework.dao.DataIntegrityViolationException
+
+import com.openappengine.model.cart.ShoppingCart
+import com.openappengine.model.product.Gemstone
+import com.openappengine.model.product.Product
+import com.openappengine.model.shipping.Address
 
 
 
@@ -162,7 +161,13 @@ class OrderHeaderController {
 			orderHeaderInstance.addToOrderItem(orderItem)
 			orderHeaderInstance.save(flush:true)
 			
+			def p = Product.get(orderItem.productId)
+			if(p instanceof Gemstone) {
+				p.sold = true
+				p.save(flush:true)
+			}
 		}
+		
 		orderHeaderInstance.totalAmount = totalAmount
 		orderHeaderInstance.save(flush:true)
 		}

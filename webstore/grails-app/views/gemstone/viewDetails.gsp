@@ -71,14 +71,19 @@
 			
 			<!-- INFO-->
 			<div class="fivecol details" style="margin-left: -1.5em; margin-top: 0.9em;">
+				<sec:ifAnyGranted roles="ROLE_ADMIN,SITE_ADMIN">
+				  <p align="right">
+					  <g:link class="edit" mapping="gemstoneEdit" params="[id : prodGemstoneInstance?.pdProductId]">Edit</g:link>
+				  </p>
+				</sec:ifAnyGranted>
+												
 				<div id="content">
 					<h1 class="product_name_header">
 						${prodGemstoneInstance?.pdProductName}
 					</h1>
 					
 					<p>
-					<%=prodGemstoneInstance?.pdDescription %>
-<%--						${}--%>
+						<%=prodGemstoneInstance?.pdDescription %>
 					</p>
 					
 					<br/>

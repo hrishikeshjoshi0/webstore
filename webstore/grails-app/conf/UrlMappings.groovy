@@ -63,6 +63,11 @@ class UrlMappings {
 				action = 'save'
 			}
 			
+			name jewelleryEdit : "/jewellery-edit/edit" {
+				controller = 'jewellery'
+				action = 'edit'
+			}
+			
 			"/gemstone-edit/create" {
 				controller = 'gemstone'
 				action = 'create'
@@ -71,6 +76,11 @@ class UrlMappings {
 			"/gemstone-edit/save" {
 				controller = 'gemstone'
 				action = 'save'
+			}
+			
+			name gemstoneEdit : "/gemstone-edit/edit" {
+				controller = 'gemstone'
+				action = 'edit'
 			}
 
 			name articlesMapping : "/articles/$title" {

@@ -71,6 +71,11 @@
 			
 			<!-- INFO-->
 			<div class="fivecol details" style="margin-left: -1.5em; margin-top: 0.9em;">
+				<sec:ifAnyGranted roles="ROLE_ADMIN,SITE_ADMIN">
+				  <p align="right">
+					  <g:link class="edit" mapping="jewelleryEdit" params="[id : prodJewelleryInstance?.pdProductId]">Edit</g:link>
+				  </p>
+				</sec:ifAnyGranted>
 				<div id="content">
 					<h1 class="product_name_header">
 						${prodJewelleryInstance?.pdProductName}

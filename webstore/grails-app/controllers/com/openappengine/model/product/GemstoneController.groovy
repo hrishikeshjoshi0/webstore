@@ -62,6 +62,8 @@ class GemstoneController {
 			if(productCat1) {
 				eq("cat1",productCat1)
 			}
+			
+			eq("sold",false)
 
 			//Order
 			if(sortBy.equals("HIGHEST_PRICE")) {
@@ -83,7 +85,7 @@ class GemstoneController {
 
 		def minPrice = Gemstone.createCriteria().get {
 			createAlias('prodProductPrices', 'price')
-
+			eq("sold",false)
 			//Filter
 			if(productTypeName) {
 				def productType = ProductType.findByProductTypeName(params.productTypeName)
@@ -102,7 +104,7 @@ class GemstoneController {
 
 		def maxPrice = Gemstone.createCriteria().get {
 			createAlias('prodProductPrices', 'price')
-
+			eq("sold",false)
 			//Filter
 			if(productTypeName) {
 				def productType = ProductType.findByProductTypeName(params.productTypeName)
@@ -376,8 +378,8 @@ class GemstoneController {
 			return
 		}
 
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), prodGemstoneInstance.id])
-		redirect(action: "show", id: prodGemstoneInstance.id)
+		flash.message = message(code: 'default.updated.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), prodGemstoneInstance.pdProductId])
+		redirect(controller:"gemstone" ,action: "viewDetails", params: [productName : prodGemstoneInstance.pdProductName])
 	}
 
 	def delete() {
