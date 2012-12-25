@@ -2,17 +2,27 @@
 <!doctype html>
 <html>
 <head>
-<meta name="layout" content="main">
+<meta name="layout" content="admin">
 <g:set var="entityName"
 	value="${message(code: 'image.label', default: 'Image')}" />
-<title><g:message code="default.create.label"
-		args="[entityName]" /></title>
+<title>
+	Upload Jewellery Images
+</title>
 </head>
 <body>
-	<div id="upload-image" class="content scaffold-create" role="main">
-		<h1 class="page-title">
-			Upload Images
-		</h1>
+	<div class="row">
+			<div class="elevencol">
+				<h1 class="page-subtitle">
+					Upload Jewellery Images
+				</h1>
+				<hr/>
+			</div>
+	</div>
+	
+	
+	<div class="row">
+		<div class="elevencol">
+			<div id="upload-image" class="content scaffold-create" role="main">
 		<g:uploadForm action="uploadImage" method="post">
 			<input type="hidden" id="productId" name="productId" value="${params.id}" />
 			
@@ -52,5 +62,7 @@
 			</table>
 		</g:uploadForm>
 	</div>
+		</div>
+	</div>		
 </body>
 </html>

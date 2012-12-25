@@ -21,14 +21,13 @@ hibernate {
 // environment specific settings
 environments {
     development {
-		grails.paypal.server = "https://www.paypal.com/cgi-bin/webscr"
-		grails.paypal.email = "ricchroyall@yahoo.com"
-		grails.serverURL = "http://localhost:8080/webstore"
-		
+		grails.paypal.server = "https://www.sandbox.paypal.com/cgi-bin/webscr"
+		grails.paypal.email = "nachi1_1337118253_biz@gmail.com"
+		grails.serverURL = "http://localhost:9090/webstore"
 		
 		dataSource {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
-			url = "jdbc:mysql://localhost:3306/hrishi23_webstore_test?useUnicode=yes&characterEncoding=UTF-8"
+			url = "jdbc:mysql://localhost:3306/webstore_test?useUnicode=yes&characterEncoding=UTF-8"
 			username = "root"
 			password = "admin"
 			pooled=true
@@ -76,7 +75,7 @@ environments {
 	}
     production {
 		grails.paypal.server = "https://www.sandbox.paypal.com/cgi-bin/webscr"
-		grails.paypal.email = "ricchroyall@yahoo.com"
+		grails.paypal.email = "nachi1_1337118253_biz@gmail.com"
 		//grails.serverURL = "http://localhost:8080/webstore"
 		
 		dataSource {
@@ -97,7 +96,7 @@ environments {
 			 }
 		}
 		hibernate {
-			show_sql = true
+			show_sql = false
 		}
 	}
 }

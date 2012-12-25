@@ -2,9 +2,11 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="admin">
 		<g:set var="entityName" value="${message(code: 'diamond.label', default: 'Diamond')}" />
-		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+		<title>
+			Edit Gemstone 
+		</title>
 	</head>
 	<body>
 		<a href="#edit-diamond" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

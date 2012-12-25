@@ -1,3 +1,4 @@
+<%@page import="com.openappengine.enums.RefMetals"%>
 <%@ page import="com.openappengine.model.product.Jewellery" %>
 
 <div class="fieldcontain ${hasErrors(bean: jewelleryInstance, field: 'pdProductName', 'error')} ">
@@ -13,8 +14,8 @@
 		<g:message code="jewellery.pdDescription.label" default="Description" />
 	</label>
 	<ckeditor:editor name="pdDescription" height="400px" width="80%">
-		${jewelleryInstance?.pdDescription}
-		</ckeditor:editor>
+		<%=jewelleryInstance?.pdDescription %>
+	</ckeditor:editor>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: jewelleryInstance, field: 'pdInternalName', 'error')} ">
@@ -146,7 +147,7 @@
 		<g:message code="jewellery.metal.label" default="Metal" />
 		
 	</label>
-	<g:textField name="metal" value="${jewelleryInstance?.metal}" />
+	<g:select name="metal" from="${RefMetals.values()}" value="${jewelleryInstance?.metal}" optionKey="key"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: jewelleryInstance, field: 'netWeight', 'error')} ">

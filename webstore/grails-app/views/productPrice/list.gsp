@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="admin">
 		<g:set var="entityName" value="${message(code: 'prodProductPrice.label', default: 'ProdProductPrice')}" />
 		<title>
 			
@@ -11,6 +11,7 @@
 	<body>
 		<g:form action="save" >
 			<fieldset class="form">
+				<input type="hidden" id="productName" name="productName" value="${params.name}" readonly="readonly" />
 				<input type="hidden" id="productId" name="productId" value="${params.productId}" />
 				<g:render template="form"/>
 				<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

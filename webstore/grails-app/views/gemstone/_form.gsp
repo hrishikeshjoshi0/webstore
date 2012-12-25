@@ -1,3 +1,25 @@
+<script type="text/javascript">
+
+function selectCat1s() {
+	$.ajax({
+        type: 'GET',
+        url: "<g:createLink controller='product' action='ajaxGetCat1ForProductType' />" 
+	        	+ "?productTypeId=" + $("#productType").val(),
+        success: function(data) {
+            $('#cat1Selection').html(data);
+        }
+    });
+}
+
+$(document).ready(function() {
+	selectCat1s();
+	
+	$("#productType").change(function() { 
+		selectCat1s();  
+	});
+		
+});
+</script>	    
 <%@ page import="com.openappengine.model.product.Gemstone" %>
 <table class="form">
 	<tr>
@@ -30,9 +52,8 @@
 		</td>
 		<td>
 		<ckeditor:editor name="pdDescription" height="400px" width="80%">
-		${prodGemstoneInstance?.pdDescription}
+			<%=prodGemstoneInstance?.pdDescription %>
 		</ckeditor:editor>
-<%--			<g:textArea  name="pdDescription" value="${prodGemstoneInstance?.pdDescription}" rows="5" cols="20" />		--%>
 		</td>
 	</tr>
 	<tr>
@@ -123,7 +144,7 @@
 	</tr>
 	<tr>
 		<td>
-			<g:message code="prodGemstone.pdProductName.label" default="Measurements" />
+			<g:message code="prodGemstone.measurement.label" default="Measurements" />
 		</td>
 		<td>
 			<g:textField name="measurement" value="${prodGemstoneInstance?.measurement}" />		
@@ -131,7 +152,7 @@
 	</tr>
 	<tr>
 		<td>
-			<g:message code="prodGemstone.pdProductName.label" default="Treatments" />
+			<g:message code="prodGemstone.treatments.label" default="Treatments" />
 		</td>
 		<td>
 			<g:textField name="treatment" value="${prodGemstoneInstance?.treatment}" />		
@@ -139,26 +160,33 @@
 	</tr>
 	<tr>
 		<td>
-			<g:message code="prodGemstone.pdProductName.label" default="Certification" />
+			<g:message code="prodGemstone.certi.label" default="Certification" />
 		</td>
 		<td>
 			<g:textField name="certi" value="${prodGemstoneInstance?.certi}" />		
 		</td>
 	</tr>
+	
 	<tr>
 		<td>
-			<g:message code="prodGemstone.pdProductName.label" default="Catagory1" />
+			<g:message code="prodGemstone.productType.label" default="Product Type" />
 		</td>
 		<td>
-			<g:textField name="cat1" value="${prodGemstoneInstance?.cat1}" />		
+			<g:select id="productType" name="productTypeId"
+				value="${prodGemstoneInstance?.productType?.productTypeId}"
+				from="${productTypes}" optionKey="productTypeId"
+				optionValue="productTypeName" />
 		</td>
 	</tr>
+
 	<tr>
 		<td>
-			<g:message code="prodGemstone.pdProductName.label" default="Catagory1" />
+			
 		</td>
-		<td>
-			<g:textField name="cat1" value="${prodGemstoneInstance?.cat1}" />		
+		<td id="cat1Selection" valign="top">
+			<select name="cat1">
+				<option value="Nil">Select...</option>
+			</select>
 		</td>
 	</tr>
 </table>

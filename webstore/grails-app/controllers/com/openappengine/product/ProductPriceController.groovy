@@ -19,6 +19,7 @@ class ProductPriceController {
 		if(params.productId) {
 			Product product = Product.get(params.productId.toInteger())
 			priceList = product?.prodProductPrices
+			params.name = product?.pdProductName
 		}
 		
         int total

@@ -109,7 +109,7 @@ grails.plugins.springsecurity.successHandler.alwaysUseDefault = false
  *  Workaround for finding css resources from linux environment.
  *  Grails App wasnt able to find the css resources w/o this property set.  
  */
-grails.resources.debug = true
+grails.resources.debug = false
 
 /*grails.app.context = "/"*/
 
@@ -117,8 +117,8 @@ grails {
 	mail {
 	  host = "crab.arvixe.com"
 	  port = 465
-	  username = "webstore@moryasolutions.com"
-	  password = "Eclipse@123"
+	  username = "admin@rubyandgems.com"
+	  password = "pratik"
 	  props = ["mail.smtp.auth":"false",
 			   "mail.smtp.socketFactory.port":"465",
 			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",

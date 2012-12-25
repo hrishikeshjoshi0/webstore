@@ -134,7 +134,7 @@
 							<li class="add_to_wishList">
 								<g:remoteLink controller="wishList" action="addToWishList" 
 										params="[productId : prodJewelleryInstance?.pdProductId]"
-										onSuccess="loadWishListLink();">
+										onSuccess="updateWishListMessage();">
 									<img src="${resource(dir: '/images/site', file:'icon_wishlist.gif')}" style="width:16px;height:16px;"/>
 									Add to WishList
 								</g:remoteLink>

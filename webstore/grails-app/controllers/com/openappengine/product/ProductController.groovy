@@ -4,7 +4,6 @@ import org.springframework.dao.DataIntegrityViolationException
 
 import com.openappengine.model.product.Product
 import com.openappengine.model.product.ProductCategory
-import com.openappengine.model.product.ProductCategoryType;
 import com.openappengine.model.product.ProductType
 
 class ProductController {
@@ -124,6 +123,13 @@ class ProductController {
 		}
 	}
 	
+	def ajaxGetCat1ForProductType() {
+		def productType = params.productTypeId
+		def parentCat = ProductType.get(params.productTypeId)
+		def cat1s = ProductType.findAllByParentType(parentCat)
+		render(template:"/gemstone/productCats", model: [cat1s:cat1s])
+	}
+	
 	def ajaxGetCategoryTypes() {
 		def a= params
 		if(!params.productCategory) {
@@ -132,8 +138,6 @@ class ProductController {
 		}
 		
 		def productCategory = ProductCategory.findByProductCategoryName(params.productCategory)
-		
-		//def productTypeURL = "Star Rubies".asFriendlyUrl()
 		
 		def productTypes = new ArrayList<ProductType>()
 		if(productCategory) {

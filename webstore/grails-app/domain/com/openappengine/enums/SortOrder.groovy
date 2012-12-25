@@ -16,6 +16,7 @@ enum SortOrder {
 	MOST_POPULAR("Most Popular"),
 	BEST_RATINGS("Best Ratings")
 	
+	
 	final String value
 	
 	SortOrder(String value) { this.value = value }

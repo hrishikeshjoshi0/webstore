@@ -2,15 +2,23 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="admin">
 		<g:set var="entityName" value="${message(code: 'diamond.label', default: 'Diamond')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title>
+			Add New Diamond
+		</title>
 	</head>
 	<body>
+		<div class="row">
+			<div class="elevencol">
+				<h1 class="page-subtitle">
+					New Diamond
+				</h1>
+				<hr/>
+			</div>
+		</div>
+		
 		<div id="create-diamond" class="content scaffold-create" role="main">
-			<h1 class="page-title">
-				New Diamond
-			</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -23,7 +31,7 @@
 			</g:hasErrors>
 			<g:form action="save" >
 				<g:render template="form"/>
-				<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+				<g:submitButton name="create" class="button" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 			</g:form>
 		</div>
 	</body>

@@ -72,17 +72,17 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.firstName}" name="billingAddress.firstName"/>
+									<g:field type="text" name="billingAddress.firstName" min="1" max="50" required="true" value="${billingAddress.firstName}"/>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<label for="lastName">
+									<label for="firstName">
 										Last Name
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.lastName}" name="billingAddress.lastName"/>
+									<g:field type="text" name="billingAddress.lastName" min="1" max="50" required="true" value="${billingAddress.lastName}"/>
 								</td>
 							</tr>
 							<tr>
@@ -92,7 +92,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.company}" name="billingAddress.company"/>
+									<g:field type="text" name="billingAddress.company" min="0" max="50" required="false" value="${billingAddress.company}"/>
 								</td>
 							</tr>
 							<tr>
@@ -102,7 +102,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.addressLine1}" name="billingAddress.addressLine1"/>
+									<g:field type="text" name="billingAddress.addressLine1" required="true" value="${billingAddress.addressLine1}"/>
 								</td>
 							</tr>
 							<tr>
@@ -112,7 +112,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.addressLine1}" name="billingAddress.addressLine2"/>
+									<g:field type="text" name="billingAddress.addressLine2" required="false" value="${billingAddress.addressLine2}"/>
 								</td>
 							</tr>
 							<tr>
@@ -122,27 +122,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.landmark}" name="billingAddress.landmark"/>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="city">
-										City
-									</label>
-								</td>
-								<td>
-									<g:textField value="${billingAddress.city}" name="billingAddress.city"/>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="state">
-										State
-									</label>
-								</td>
-								<td>
-									<g:textField value="${billingAddress.state}" name="billingAddress.state"/>
+									<g:field type="text" name="billingAddress.landmark" required="false" value="${billingAddress.landmark}"/>
 								</td>
 							</tr>
 							<tr>
@@ -152,7 +132,27 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.country}" name="billingAddress.country"/>
+									<g:field type="text" name="billingAddress.country" required="true" value="${billingAddress.country}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="state">
+										State
+									</label>
+								</td>
+								<td>
+									<g:field type="text" name="billingAddress.state" required="true" value="${billingAddress.state}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="city">
+										City
+									</label>
+								</td>
+								<td>
+									<g:field type="text" name="billingAddress.city" required="true" value="${billingAddress.city}"/>
 								</td>
 							</tr>
 							<tr>
@@ -162,7 +162,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.zip}" name="billingAddress.zip"/>
+									<g:field type="text" name="billingAddress.zip" required="true" value="${billingAddress.zip}"/>
 								</td>
 							</tr>
 							<tr>
@@ -172,7 +172,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField value="${billingAddress.primaryPhone}" name="billingAddress.primaryPhone"/>
+									<g:field type="text" name="billingAddress.primaryPhone" required="false" value="${billingAddress.primaryPhone}"/>
 								</td>
 							</tr>
 							<tr>
@@ -182,7 +182,7 @@
 									</label>
 								</td>
 								<td>
-									<g:textField name="billingAddress.email" value="${billingAddress.email}"/>
+									<g:field type="email" name="billingAddress.email" required="true" value="${billingAddress.email}"/>
 								</td>
 							</tr>
 							<tr>
@@ -207,60 +207,100 @@
 							<tbody>
 								<tr>
 									<td><label for="firstName"> First Name </label></td>
-									<td><g:textField name="shippingAddress.firstName"
-											value="${shippingAddress.firstName}" /></td>
+									<td>
+										<g:field type="text" name="shippingAddress.firstName" required="true" value="${billingAddress.firstName}"/>
+									</td>
 								</tr>
 								<tr>
 									<td><label for="lastName"> Last Name </label></td>
-									<td><g:textField name="shippingAddress.lastName" value="${shippingAddress.lastName}" />
+									<td>
+										<g:field type="text" name="shippingAddress.lastName" required="true" value="${shippingAddress.lastName}"/>
 									</td>
 								</tr>
 								<tr>
 									<td><label for="company"> Company </label></td>
-									<td><g:textField name="shippingAddress.company" value="${shippingAddress.company}" />
+									<td>
+										<g:field type="text" name="shippingAddress.company" required="true" value="${shippingAddress.company}"/>
 									</td>
 								</tr>
 								<tr>
 									<td><label for="address1"> Address Line 1 </label></td>
-									<td><g:textField name="shippingAddress.addressLine1"
-											value="${shippingAddress.addressLine1}" /></td>
+									<td>
+										<g:field type="text" name="shippingAddress.addressLine1" required="true" value="${shippingAddress.addressLine1}"/>
+									</td>
 								</tr>
 								<tr>
 									<td><label for="address2"> Address Line 2 </label></td>
-									<td><g:textField name="shippingAddress.addressLine2"
-											value="${shippingAddress.addressLine2}" /></td>
+									<td>
+										<g:field type="text" name="shippingAddress.addressLine2" required="true" value="${shippingAddress.addressLine2}"/>
+									</td>
 								</tr>
 								<tr>
 									<td><label for="landmark"> Landmark </label></td>
-									<td><g:textField name="shippingAddress.landmark" value="${shippingAddress.landmark}" />
+									<td>
+										<g:field type="text" name="shippingAddress.landmark" required="true" value="${shippingAddress.landmark}"/>
 									</td>
 								</tr>
 								<tr>
-									<td><label for="city"> City </label></td>
-									<td><g:textField name="shippingAddress.city" value="${shippingAddress.city}" /></td>
-								</tr>
-								<tr>
-									<td><label for="state"> State </label></td>
-									<td><g:textField name="shippingAddress.state" value="${shippingAddress.state}" /></td>
-								</tr>
-								<tr>
-									<td><label for="country"> Country </label></td>
-									<td><g:textField name="shippingAddress.country" value="${shippingAddress.country}" />
-									</td>
-								</tr>
-								<tr>
-									<td><label for="zip"> Zip </label></td>
-									<td><g:textField name="shippingAddress.zip" value="${shippingAddress.zip}" /></td>
-								</tr>
-								<tr>
-									<td><label for="primaryPhone"> Primary Phone </label></td>
-									<td><g:textField name="shippingAddress.primaryPhone"
-											value="${shippingAddress.primaryPhone}" /></td>
-								</tr>
-								<tr>
-									<td><label for="email"> Email </label></td>
-									<td><g:textField name="shippingAddress.email" value="${shippingAddress.email}" /></td>
-								</tr>
+								<td>
+									<label for="country">
+										Country
+									</label>
+								</td>
+								<td>
+									<g:field type="text" name="shippingAddress.country" required="true" value="${shippingAddress.country}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="state">
+										State
+									</label>
+								</td>
+								<td>
+									<g:field type="text" name="shippingAddress.state" required="true" value="${shippingAddress.state}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="city">
+										City
+									</label>
+								</td>
+								<td>
+									<g:field type="text" name="shippingAddress.city" required="true" value="${shippingAddress.city}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="zip">
+										Zip
+									</label>
+								</td>
+								<td>
+									<g:field type="text" name="shippingAddress.zip" required="true" value="${shippingAddress.zip}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="primaryPhone">
+										Primary Phone
+									</label>
+								</td>
+								<td>
+									<g:field type="text" name="shippingAddress.primaryPhone" required="false" value="${shippingAddress.primaryPhone}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="email">
+										Email
+									</label>
+								</td>
+								<td>
+									<g:field type="email" name="shippingAddress.email" required="true" value="${shippingAddress.email}"/>
+								</td>
+							</tr>
 							</tbody>
 						</table>
 

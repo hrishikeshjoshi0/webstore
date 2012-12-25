@@ -48,10 +48,6 @@
 <link rel="stylesheet"
 	href="${resource(dir: 'css', file: 'jquery.ratings.css')}"
 	type="text/css">
-<!-- 
-<link rel="stylesheet" href="${resource(dir: 'css', file: 'xbreadcrumbs.css')}" type="text/less" media="screen" />
- -->
- 
  <style>
  	#logos {
  		border : 0px dotted #B5B5B5;
@@ -122,7 +118,7 @@
 
 <script type="text/javascript"
 	src="${resource(dir: 'js', file: 'xbreadcrumbs.js')}"></script>
-	 <ckeditor:resources/>
+<ckeditor:resources/>
 
 <style type="text/css">
 span.reference {
@@ -167,7 +163,6 @@ span.reference a:hover {
 	text-transform: uppercase;
 	margin-left: 10px;
 }
-
 </style>
 
 <g:layoutHead />
@@ -175,9 +170,12 @@ span.reference a:hover {
 </head>
 <body>
 	<div id="wrap" style="box-shadow: 0 10px 30px -4px #000;">
-
 		<!-- Header -->
 		<div id="header">
+			<div id="site_notification">
+			</div>
+			<br/>
+			
 			<div id="logo" class="logo">
 				<a href="/webstore">
 					<img
@@ -228,9 +226,8 @@ span.reference a:hover {
 
 				<sec:ifAnyGranted roles="ROLE_ADMIN">
 					<span class="sep">|</span>
-					<span class="division"> <a href="#"> <span>Site
-								Administration</span>
-					</a>
+					<span class="division"> 
+						<g:link controller="siteAdmin" action="index">Site Administration</g:link>
 					</span>
 				</sec:ifAnyGranted>
 				<br/>
@@ -528,16 +525,20 @@ span.reference a:hover {
 
 		<g:javascript library="application" />
 		<script>
+			function updateWishListMessage() {
+				//$('#site_notification').html('Added to Wish List.');
+				loadWishList();
+			}
+			
 			function loadWishListLink() {
-				$
-						.ajax({
+				$.ajax({
 							type : 'GET',
 							async : true,
 							url : "<g:createLink controller='wishList' action='ajaxGetWishListItemCount' />",
 							success : function(data) {
 								$('#wishListItems').html("(" + data + ")");
 							}
-						});
+				});
 			}
 		</script>
 

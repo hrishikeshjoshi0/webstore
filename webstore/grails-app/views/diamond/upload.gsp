@@ -2,17 +2,17 @@
 <!doctype html>
 <html>
 <head>
-<meta name="layout" content="main">
+<meta name="layout" content="admin">
 <g:set var="entityName"
 	value="${message(code: 'image.label', default: 'Image')}" />
 <title>
-	Upload Product Image
+	Upload Diamond Image
 </title>
 </head>
 <body>
 	<div id="upload-image" class="content scaffold-create" role="main">
 		<h1 class="page-title">
-			Upload Image
+			Upload Diamond Image
 		</h1>
 		
 		<g:uploadForm action="uploadImage" method="post">

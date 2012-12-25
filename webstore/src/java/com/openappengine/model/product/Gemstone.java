@@ -4,15 +4,11 @@
 package com.openappengine.model.product;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.compass.annotations.Searchable;
 
 /**
  * @author hrishi

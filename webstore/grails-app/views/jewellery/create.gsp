@@ -2,17 +2,23 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="admin">
 		<g:set var="entityName" value="${message(code: 'prodGemstone.label', default: 'ProdGemstone')}" />
 		<title>
 			Create New Jewellery
 		</title>
 	</head>
 	<body>
+		<div class="row">
+			<div class="elevencol">
+				<h1 class="page-subtitle">
+					New Jewellery
+				</h1>
+				<hr/>
+			</div>
+		</div>
+		
 		<div id="create-prodGemstone" class="content scaffold-create" role="main">
-			<h1 class="page-title">
-				Create New Jewellery
-			</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -26,7 +32,7 @@
 			<g:form action="save" >
 				<div>
 					<g:render template="form"/>
-					<g:submitButton name="create" class="save" 
+					<g:submitButton name="create" class="button" 
 						value="Save" />
 				</div>
 			</g:form>

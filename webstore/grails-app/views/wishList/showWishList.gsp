@@ -36,6 +36,7 @@
 							<th class="cartItemsHeader" align="center">Item</th>
 							<th class="cartItemsHeader" align="center">Description</th>
 							<th class="cartItemsHeader" align="center"></th>
+							<th class="cartItemsHeader" align="center"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -58,8 +59,8 @@
 									<h1 class="product_name_header">
 										${product?.pdProductName} 
 									</h1>
-									<br /> 
-									${product?.pdDescription}
+									<br />
+									<%=product?.pdDescription %> 
 								</td>
 
 								<td class="cartItem" align="center" valign="center" style="width: 50px;">
@@ -68,6 +69,14 @@
 										params="[productId:product.pdProductId]">
 										Remove
 									</g:link>
+								</td>
+								
+								<td>
+									<g:form name="add_to_cart_form" action="addToShoppingCart" controller="shoppingCart" >
+										<g:hiddenField name="quantityOrdered" value="1"/>
+										<g:hiddenField name="productId" value="${product?.pdProductId}"/>
+										<g:submitButton class="button" name="addToCart" value="Add To Cart"/>
+									</g:form>
 								</td>
 							</tr>
 						</g:each>

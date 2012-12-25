@@ -166,7 +166,14 @@ class GemstoneController {
 	}
 
 	def create() {
-		[prodGemstoneInstance: new Gemstone(params)]
+		def productCategory = ProductCategory.findByProductCategoryName("gemstone")
+		
+		def productTypes = new ArrayList<ProductType>()
+		if(productCategory) {
+			productTypes.addAll(productCategory?.productTypes)
+		}
+		
+		[prodGemstoneInstance: new Gemstone(params),productTypes:productTypes]
 	}
 
 	def save() {
@@ -189,6 +196,9 @@ class GemstoneController {
 		def prodGemstoneInstance = new Gemstone(params)
 		prodGemstoneInstance.productCategory = parent
 		prodGemstoneInstance.pdProductCategory = "gemstone"
+		
+		def productType= ProductType.get(params.productTypeId.toInteger())
+		prodGemstoneInstance.productType = productType
 
 		//Init calculated info
 		prodGemstoneInstance.calculatedInfo = new ProductCalculatedInfo()
@@ -343,13 +353,21 @@ class GemstoneController {
 
 	def edit() {
 		def prodGemstoneInstance = Gemstone.get(params.id)
+		
+		def productCategory = ProductCategory.findByProductCategoryName("gemstone")
+		
+		def productTypes = new ArrayList<ProductType>()
+		if(productCategory) {
+			productTypes.addAll(productCategory?.productTypes)
+		}
+		
 		if (!prodGemstoneInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'prodGemstone.label', default: 'ProdGemstone'), params.id])
 			redirect(action: "list")
 			return
 		}
 
-		[prodGemstoneInstance: prodGemstoneInstance]
+		[prodGemstoneInstance: prodGemstoneInstance,productTypes:productTypes]
 	}
 
 	def update() {
@@ -359,6 +377,9 @@ class GemstoneController {
 			redirect(action: "list")
 			return
 		}
+		
+		def productType= ProductType.get(params.productTypeId.toInteger())
+		prodGemstoneInstance.productType = productType
 
 		if (params.version) {
 			def version = params.version.toLong()

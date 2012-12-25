@@ -159,9 +159,6 @@ $(document).ready(function() {
 			
 		</div>
 
-		<!--
-			margin-left: -2.5em; : Provides more space in the list area 
-		 -->
 		<div class="right product-list-wrapper" style="margin-left: -2.5em;">
 			<div id="product-list-content" style="border-top: 1px;">
 				<g:each in="${prodCat1}" status="i" var="prodCat">
