@@ -1,7 +1,7 @@
 <ul>
 <g:each in="${productTypes}" var="productType" status="i">
 	<li class="productTypeFilter">
-		<g:link mapping="gemstoneProductType"  params="[productTypeName:productType.productTypeName]"
+		<g:link mapping="gemstoneProductType"  params="[productTypeName:productType.productTypeName.replaceAll(' ', '-')]"
 				rel="${productType.productTypeId}" 
 				class="productTypeFilterLink">
 			${productType.productTypeName}		

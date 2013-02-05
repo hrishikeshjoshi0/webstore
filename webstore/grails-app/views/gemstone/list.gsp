@@ -163,7 +163,7 @@ $(document).ready(function() {
 			<div id="product-list-content" style="border-top: 1px;">
 				<g:each in="${prodCat1}" status="i" var="prodCat">
 					<div <g:if test="${prodCat.productTypeName == activeCat1}">class = 'Cat_tabs_active'</g:if><g:else>class="Cat_tabs"</g:else>>
-						<g:link mapping="gemstoneCat1"  params="[productCat1:prodCat.productTypeName,productTypeName:prodCat.parentType.productTypeName]">
+						<g:link mapping="gemstoneCat1"  params="[productCat1:prodCat.productTypeName.replaceAll(' ', '-'),productTypeName:prodCat.parentType.productTypeName.replaceAll(' ', '-')]">
 							${prodCat.productTypeName}
 						</g:link>
 					</div>

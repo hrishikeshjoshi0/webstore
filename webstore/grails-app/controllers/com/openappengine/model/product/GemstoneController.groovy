@@ -22,8 +22,18 @@ class GemstoneController {
 		params.max = 9
 		def c = Gemstone.createCriteria()
 		def sortBy = params.sortBy
+		
+		if(params.productTypeName != null)
+		{
+			params.productTypeName = params.productTypeName.replaceAll('-', ' ')
+		}
+		if(params.productCat1 != null)
+		{
+			params.productCat1 = params.productCat1.replaceAll('-', ' ')
+		}
 		def productTypeName = params.productTypeName
 		def productCat1 = params.productCat1
+		def page = "gemstones"
 
 		params.pageHeader = "Featured Gemstones"
 
@@ -57,10 +67,12 @@ class GemstoneController {
 			if(productTypeName) {
 				def productType = ProductType.findByProductTypeName(params.productTypeName)
 				eq("productType",productType)
+				page = page + "/"+ params.productTypeName
 			}
 
 			if(productCat1) {
 				eq("cat1",productCat1)
+				page = page + "/"+ params.productCat1
 			}
 			
 			eq("sold",false)
@@ -133,9 +145,10 @@ class GemstoneController {
 			def prodCat1 = params.productTypeName
 			def parentCat = ProductType.findByProductTypeName(prodCat1)
 			productTypes = ProductType.findAllByParentType(parentCat)
+			
 		}
 
-		def model = [prodGemstoneInstanceList: gemstones, prodGemstoneInstanceTotal: gemstones.size(),prodCat1: productTypes,activeCat1 : params.productCat1,activeProductTypeName:params.productTypeName]
+		def model = [prodGemstoneInstanceList: gemstones, prodGemstoneInstanceTotal: gemstones.size(),prodCat1: productTypes,activeCat1 : params.productCat1,activeProductTypeName:params.productTypeName, page:page]
 
 		if (request.xhr) {
 			// ajax request

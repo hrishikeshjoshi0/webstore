@@ -3,7 +3,7 @@
 			<ul class="productTypeMenuLinkList">
 		</g:if>
 		<li class="productTypeMenuLink">
-			<g:link mapping="gemstoneProductType" params="[productTypeName:productType.productTypeName]"
+			<g:link mapping="gemstoneProductType" params="[productTypeName:productType.productTypeName.replaceAll(' ', '-')]"
 					rel="${productType.productTypeId}">
 				${productType.productTypeName}		
 			</g:link>
